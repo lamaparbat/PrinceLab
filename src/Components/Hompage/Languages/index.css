@@ -1,0 +1,28 @@
+.languages {
+ padding-top: 40px;
+ padding-bottom: 40px;
+}
+
+.languages #title {
+ font-weight: bold;
+ letter-spacing: 3px;
+}
+
+.languages .icon_container {
+ margin-top: 20px;
+ height: 100px;
+ display: flex;
+ justify-content: space-evenly;
+}
+
+@media (max-width:1100px) {
+ .languages .icon_container {
+  margin-top: 0px;
+  flex-wrap: wrap;
+ }
+
+ .languages .icon_container #icon {
+  height: 50px;
+  width: 50px;
+ }
+}
