@@ -1,0 +1,27 @@
+.card_container .row {
+  padding: 50px;
+  height: fit-content;
+  display: flex;
+  justify-content: center;
+}
+
+.card_container .row img {
+  margin-top: 30px;
+  margin-bottom: 30px;
+  height: 480px;
+  width: 530px;
+}
+
+/* responsive code */
+@media (max-width:1100px) {
+  .card_container .row {
+    padding: 20px;
+    align-items: center;
+  }
+
+  .card_container .row img {
+    margin-top: 0px;
+    margin-bottom: 0px;
+    height: 380px;
+  }
+}
