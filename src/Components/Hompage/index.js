@@ -5,6 +5,7 @@ import BlockCodeCardImg from '../Hompage/BlockCodeCardImg/index';
 import AboutEnvironment from '../Hompage/AboutEnvironment/index';
 import Services from '../Hompage/Services/index';
 import Premium from '../Hompage/Premium/index';
+import Download from '../Hompage/Download/index';
 
 function index() {
   return (
@@ -25,6 +26,8 @@ function index() {
       <Services />
       
       <Premium />
+      
+      <Download />
     </>);
 }
 

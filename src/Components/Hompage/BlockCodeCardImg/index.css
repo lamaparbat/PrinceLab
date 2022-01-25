@@ -7,7 +7,7 @@
 
 .card_container .row img {
   margin-top: 30px;
-  margin-bottom: 30px;
+  margin-bottom: 0px;
   height: 480px;
   width: 530px;
 }

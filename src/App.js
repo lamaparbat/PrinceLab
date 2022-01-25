@@ -1,3 +1,4 @@
+import './App.css';
 import Homepage from './Components/Hompage/index';
 import 'bootstrap/dist/css/bootstrap.css';
 import Navbar from '../src/Components/Navbar/index';

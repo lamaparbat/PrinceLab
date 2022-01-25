@@ -1,0 +1,36 @@
+.Download {
+ display: flex;
+ justify-content: center;
+ margin-bottom: 100px;
+}
+
+.Download .rows {
+ margin-left: -20px;
+ width: 980px;
+ height: fit-content;
+ display: flex;
+ flex-direction: column;
+ align-items: center;
+ background-color: red;
+}
+
+.Download .rows p {
+ width: 600px;
+ text-align: center;
+}
+
+.Download .rows img {
+ margin-right: 100px;
+ height: 150px;
+ width: 150px;
+}
+
+.Download .rows .btn {
+ width: 250px;
+}
+
+@media (width:1100px) {
+ .Download .rows img {
+  margin-right: 50px;
+ }
+}
