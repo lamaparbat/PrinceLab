@@ -25,7 +25,8 @@
   padding-right: 50px;
   width: fit-content;
   text-align: center;
-  background: rgba(138, 71, 71, 0.8);
+  backdrop-filter: blur(4px);
+  background: rgba(138, 71, 71, 0.5);
   border-radius: 10px;
 }
 
