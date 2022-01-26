@@ -1,9 +1,9 @@
-.Download {
+.guide {
  display: flex;
  justify-content: center;
 }
 
-.Download .rows {
+.guide .rows {
  margin-left: -25px;
  width: 954px;
  height: fit-content;
@@ -18,7 +18,7 @@
 
 }
 
-.Download .rows .title {
+.guide .rows .title {
  height: fit-content;
  width: 100%;
  display: flex;
@@ -26,18 +26,25 @@
  align-items: center;
 }
 
-.Download .rows .title .input_icon {
- height: 65px;
- width: 120px;
+.guide .rows .title h1 {
+ position: absolute;
 }
 
-.Download .rows p {
+.guide .rows .title .input_icon {
+ height: 50px;
+}
+
+.guide .rows .title .output_icon {
+ height: 60px;
+}
+
+.guide .rows p {
  width: 600px;
  font-size: 18px;
  text-align: center;
 }
 
-.Download .rows div .img_container {
+.guide .rows div .img_container {
  padding-right: 50px;
  height: 150px;
  width: fit-content;
@@ -45,29 +52,35 @@
  /* background-color: blue; */
 }
 
-.Download .rows div .img_container:first-child {
- border-right: 1px solid rgb(128, 128, 128);
+.guide .rows div .img_container:first-child {
+ border-right: 0.5px solid rgb(83, 83, 83);
 }
 
-.Download .rows div .img_container:nth-child(2) {
+.guide .rows div .img_container:nth-child(2) {
  padding-left: 50px;
 }
 
-.Download .rows div .img_container img {
+.guide .rows div .img_container img {
  height: 100%;
  width: 100%;
 }
 
-.Download .rows .btn {
+.guide .rows div .img_container .icon2 {
+ margin-top: 5px;
+ height: 140px;
+}
+
+
+.guide .rows .btn {
  width: 250px;
  color: white;
  font-weight: bold;
- background-color: rgb(28, 192, 28);
+ background-color: #09CCBD;
  border-radius: 8px;
 }
 
 @media(max-width:1100px) {
- .Download .rows {
+ .guide .rows {
   padding: 10px;
   padding-top: 30px;
   padding-bottom: 30px;
@@ -77,21 +90,32 @@
   box-shadow: none;
  }
 
- .Download .rows div .img_container {
-  height: 150px;
- }
-
- .Download .rows img {
+ .guide .rows img {
   margin-right: 10px;
  }
 
- .Download .rows p {
-  width: fit-content;
+ .guide .rows .title h1 {
+  position: static;
  }
-}
 
-@media(max-width:470px){
- .Download .rows div .img_container {
+ .guide .rows .title .input_icon {
+  height: 40px;
+ }
+
+ .guide .rows .title .output_icon {
+  height: 50px;
+ }
+
+ .guide .rows div .img_container {
   height: 100%;
+ }
+
+ .guide .rows div .img_container .icon2 {
+  margin-top: 0px;
+  height: 100%;
+ }
+
+ .guide .rows p {
+  width: fit-content;
  }
 }

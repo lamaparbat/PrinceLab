@@ -6,6 +6,7 @@ import AboutEnvironment from '../Hompage/AboutEnvironment/index';
 import Services from '../Hompage/Services/index';
 import Premium from '../Hompage/Premium/index';
 import Download from '../Hompage/Download/index';
+import Guide from '../Hompage/Guide/index';
 
 function index() {
   return (
@@ -15,7 +16,7 @@ function index() {
             className='video'
             src={process.env.PUBLIC_URL + "/assets/paradox.mp4"}
             autoPlay loop muted></video>
-      </div><br /><br />
+      </div><br />
 
       <Languages />
 
@@ -28,6 +29,8 @@ function index() {
       <Premium />
       
       <Download />
+      
+      <Guide />
     </>);
 }
 

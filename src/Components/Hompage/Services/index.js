@@ -29,7 +29,7 @@ function index() {
        necessary extension to be used and the block contains all the pre-defined custom code
        block uploaded by the developers that can be used in your program. </p>
       <a href="#"
-       className='btn btn-dark py-1 px-3 mt-1 text-whitesmoke'>
+       className='btn btn-dark py-1 px-4 mt-1 text-whitesmoke'>
        Visit our store
       </a>
      </div>

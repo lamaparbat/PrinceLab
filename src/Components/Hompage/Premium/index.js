@@ -6,10 +6,8 @@ import LocalPhoneIcon from '@mui/icons-material/LocalPhone';
 
 function index() {
   return (
-   <div className='container my-4 premium'>
+    <div className='container my-4 pt-5 premium'>
     <div className="premium_row text-light">
-     
-     {/* body */}
      <div className='body'>
       <div className='text-content my-4'>
        <h4>Try paradox for premium</h4>
@@ -18,9 +16,7 @@ function index() {
        <a href="#" className='btn btn-dark rounded-1 py-1 px-5'>Try it</a>
       </div>
      </div>
-     
-     {/* footer */}
-    </div><br /><br /><br /><br /><br /><br />
+    </div>
     </div>
   )
 }

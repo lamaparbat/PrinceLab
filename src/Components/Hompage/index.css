@@ -21,7 +21,7 @@
 
 @media (max-width:1100px) {
   .homepage {
-    height: 20vh;
+    height: fit-content;
   }
 
   .homepage .videoContainer {

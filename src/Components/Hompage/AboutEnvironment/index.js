@@ -18,7 +18,7 @@ function index() {
             here. This will result in one ACMI installment plan over 12
             months for the eligible iPad or Mac</p>
           <a href="#"
-            className='btn btn-dark py-1 px-3 mt-2 text-whitesmoke'>
+            className='btn btn-dark py-1 px-5 mt-2 text-whitesmoke'>
             Learn how to use it
           </a>
         </div>
