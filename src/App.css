@@ -1,4 +1,9 @@
+@font-face {
+ font-family: 'cupertino-regular', sans-serif;
+ src: local("cu"),
+  url("./Fonts/Cupertino.ttf") format("truetype");
+}
 
-* {
+.font-face-gm {
  font-family: 'cupertino-regular', sans-serif;
 }

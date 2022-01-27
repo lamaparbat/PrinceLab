@@ -4,7 +4,7 @@ import '../AboutEnvironment/index.css';
 function index() {
   return (
     <div className='container-fluid AboutEnvironment'>
-      <div className='rows'>
+      <div className='AboutEnvironment_rows'>
         <img
           src={process.env.PUBLIC_URL + "/assets/environment.png"}
           loading='lazy'

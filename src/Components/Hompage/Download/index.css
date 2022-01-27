@@ -4,6 +4,8 @@
 }
 
 .Download .rows {
+ padding-top: 30px;
+ padding-bottom: 45px;
  margin-left: -25px;
  width: 954px;
  height: fit-content;
@@ -90,7 +92,7 @@
  }
 }
 
-@media(max-width:470px){
+@media(max-width:470px) {
  .Download .rows div .img_container {
   height: 100%;
  }

@@ -5,14 +5,14 @@
   background-color: rgb(250, 109, 57);
 }
 
-.AboutEnvironment .rows {
+.AboutEnvironment .AboutEnvironment_rows {
   margin-top: 50px;
   display: flex;
   flex-direction: row;
   justify-content: center;
 }
 
-.AboutEnvironment .rows img {
+.AboutEnvironment .AboutEnvironment_rows img {
   margin-top: 50px;
   height: 350px;
   width: 450px;
@@ -22,21 +22,21 @@
   -moz-box-shadow: 0px 2px 5px 0px rgba(153, 153, 153, 0.75);
 }
 
-.AboutEnvironment .rows .content {
+.AboutEnvironment .AboutEnvironment_rows .content {
   padding-left: 60px;
   width: 500px;
   text-align: justify;
 }
 
-.AboutEnvironment .rows .content h1 {
+.AboutEnvironment .AboutEnvironment_rows .content h1 {
   letter-spacing: 2px;
 }
 
-.AboutEnvironment .rows .content h3 {
+.AboutEnvironment .AboutEnvironment_rows .content h3 {
   color: white;
 }
 
-.AboutEnvironment .rows .content span {
+.AboutEnvironment .AboutEnvironment_rows .content span {
   padding-left: 10px;
   padding-right: 10px;
   border-radius: 5px;
@@ -45,11 +45,11 @@
   background-color: rgb(255, 255, 255);
 }
 
-.AboutEnvironment .rows .content p {
+.AboutEnvironment .AboutEnvironment_rows .content p {
   letter-spacing: 1px;
 }
 
-.AboutEnvironment .rows .content a {
+.AboutEnvironment .AboutEnvironment_rows .content a {
   border-radius: 50px;
 }
 
@@ -62,41 +62,48 @@
     background-color: white;
   }
 
-  .AboutEnvironment .rows {
+  .AboutEnvironment .AboutEnvironment_rows {
     flex-direction: column;
   }
 
-  .AboutEnvironment .rows img {
+  .AboutEnvironment .AboutEnvironment_rows img {
     margin-top: 0;
     margin-bottom: 40px;
     height: 100%;
     width: 100%;
   }
 
-  .AboutEnvironment .rows .content {
+  .AboutEnvironment .AboutEnvironment_rows .content {
     padding-left: 0;
     width: 100%;
-    text-align: center;
   }
 
-  .AboutEnvironment .rows .content h1 {
-    font-size: 32px;
+  .AboutEnvironment .AboutEnvironment_rows .content h1 {
+    font-size: 28px;
   }
 
-  .AboutEnvironment .rows .content span {
+  .AboutEnvironment .AboutEnvironment_rows .content span {
+    padding-bottom: 3px;
     background-color: black;
-    font-size: 27px;
+    font-size: 26px;
     color: white;
   }
 
-  .AboutEnvironment .rows .content h3 {
+  .AboutEnvironment .AboutEnvironment_rows .content h3 {
     margin-top: 15px;
     color: black;
   }
 
-  .AboutEnvironment .rows .content p {
+  .AboutEnvironment .AboutEnvironment_rows .content p {
     /* padding: 15px; */
     text-align: justify;
   }
 
+}
+
+/* mobile view */
+@media (max-width:600px) {
+  .AboutEnvironment {
+    padding: 30px;
+  }
 }

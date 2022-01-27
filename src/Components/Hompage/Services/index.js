@@ -18,9 +18,9 @@ const Card = (props) => {
 
 function index() {
   return (
-    <div className='container-fluid'>
+    <div className='container-fluid services'>
     {/* row1 -> short description */}
-    <div className="rows">
+      <div className="services_rows">
      <div className='content pt-2'>
       <h1><b><span className='text-danger'>M</span>ake your work <span className='text-danger'>M</span>ore easier</b></h1>
       <p>Choose your preferred app, AI app, extensions and block to get your work done faster

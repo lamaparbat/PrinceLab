@@ -4,7 +4,7 @@ import '../Guide/index.css';
 function index() {
  return (
   <div className='container guide'>
-   <div className="rows mt-3">
+   <div className="guide_rows mt-3">
     <div className='mb-5 title'>
      <img className='input_icon' src={process.env.PUBLIC_URL+"/assets/input.svg"} />
      <h1><b>Quick Guide</b></h1>

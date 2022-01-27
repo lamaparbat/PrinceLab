@@ -1,9 +1,13 @@
 .guide {
+ margin-top: 30px;
+ margin-bottom: 30px;
  display: flex;
  justify-content: center;
 }
 
-.guide .rows {
+.guide .guide_rows {
+ padding-top: 30px;
+ padding-bottom: 45px;
  margin-left: -25px;
  width: 954px;
  height: fit-content;
@@ -18,7 +22,7 @@
 
 }
 
-.guide .rows .title {
+.guide .guide_rows .title {
  height: fit-content;
  width: 100%;
  display: flex;
@@ -26,25 +30,27 @@
  align-items: center;
 }
 
-.guide .rows .title h1 {
+.guide .guide_rows .title h1 {
  position: absolute;
 }
 
-.guide .rows .title .input_icon {
+.guide .guide_rows .title .input_icon {
  height: 50px;
+ width: 350px;
 }
 
-.guide .rows .title .output_icon {
+.guide .guide_rows .title .output_icon {
  height: 60px;
+ width: 400px;
 }
 
-.guide .rows p {
+.guide .guide_rows p {
  width: 600px;
  font-size: 18px;
  text-align: center;
 }
 
-.guide .rows div .img_container {
+.guide .guide_rows div .img_container {
  padding-right: 50px;
  height: 150px;
  width: fit-content;
@@ -52,26 +58,19 @@
  /* background-color: blue; */
 }
 
-.guide .rows div .img_container:first-child {
- border-right: 0.5px solid rgb(83, 83, 83);
-}
-
-.guide .rows div .img_container:nth-child(2) {
- padding-left: 50px;
-}
-
-.guide .rows div .img_container img {
+.guide .guide_rows div .img_container img {
  height: 100%;
  width: 100%;
 }
 
-.guide .rows div .img_container .icon2 {
+.guide .guide_rows div .img_container .icon2 {
  margin-top: 5px;
+ margin-left: 10px;
  height: 140px;
 }
 
 
-.guide .rows .btn {
+.guide .guide_rows .btn {
  width: 250px;
  color: white;
  font-weight: bold;
@@ -80,7 +79,7 @@
 }
 
 @media(max-width:1100px) {
- .guide .rows {
+ .guide .guide_rows {
   padding: 10px;
   padding-top: 30px;
   padding-bottom: 30px;
@@ -90,32 +89,32 @@
   box-shadow: none;
  }
 
- .guide .rows img {
+ .guide .guide_rows img {
   margin-right: 10px;
  }
 
- .guide .rows .title h1 {
+ .guide .guide_rows .title h1 {
   position: static;
  }
 
- .guide .rows .title .input_icon {
+ .guide .guide_rows .title .input_icon {
   height: 40px;
  }
 
- .guide .rows .title .output_icon {
+ .guide .guide_rows .title .output_icon {
   height: 50px;
  }
 
- .guide .rows div .img_container {
+ .guide .guide_rows div .img_container {
   height: 100%;
  }
 
- .guide .rows div .img_container .icon2 {
+ .guide .guide_rows div .img_container .icon2 {
   margin-top: 0px;
   height: 100%;
  }
 
- .guide .rows p {
+ .guide .guide_rows p {
   width: fit-content;
  }
 }
