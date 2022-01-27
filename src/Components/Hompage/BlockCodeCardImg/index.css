@@ -13,15 +13,35 @@
 }
 
 /* responsive code */
+@media (max-width:1400px) {
+  .card_container .row img {
+    margin-top: 0px;
+    margin-bottom: 0px;
+    height: 400px;
+    width: 350px;
+  }
+}
+
 @media (max-width:1100px) {
   .card_container .row {
     padding: 20px;
+    padding-top: 60px;
     align-items: center;
   }
 
   .card_container .row img {
     margin-top: 0px;
     margin-bottom: 0px;
-    height: 380px;
+    height: 400px;
+    width: 350px;
+  }
+}
+
+@media (max-width:1000px) {
+  .card_container .row img {
+    margin-top: 0px;
+    margin-bottom: 0px;
+    height: 300px;
+    width: 250px;
   }
 }

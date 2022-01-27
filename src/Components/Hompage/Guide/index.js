@@ -5,7 +5,7 @@ function index() {
  return (
   <div className='container guide'>
    <div className="guide_rows mt-3">
-    <div className='mb-5 title'>
+    <div className='title'>
      <img className='input_icon' src={process.env.PUBLIC_URL+"/assets/input.svg"} />
      <h1><b>Quick Guide</b></h1>
      <img className='output_icon' src={process.env.PUBLIC_URL + "/assets/output.svg"} />
