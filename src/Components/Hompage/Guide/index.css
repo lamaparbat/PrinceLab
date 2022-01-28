@@ -123,7 +123,7 @@
  }
 }
 
-/* @media(max-width:600px) {
+@media(max-width:800px) {
   .guide .guide_rows {
    padding: 20px;
   }
@@ -141,4 +141,4 @@
    height: 60px;
    width: 120px;
   }
- } */
+ }

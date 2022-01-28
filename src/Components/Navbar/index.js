@@ -1,16 +1,27 @@
-import React from 'react';
+import React, {useEffect} from 'react';
+import $ from 'jquery';
 import '../Navbar/index.css';
 import MenuOpenIcon from '@mui/icons-material/MenuOpen';
 
-//show navbar on btn click
-const showNav = () => {
-  document.querySelector(".navbar .shortcut_btn").style.display = "none";
-  document.querySelector(".navbar").style.visibility = "visible";
-  document.querySelector(".navbar .link").style.display = "flex";
-  document.querySelectorAll(".navbar .link").style.flexDirection = "column";
-}
+function Index() {
+  //show navbar on btn click
+  useEffect(() => {
+    $(".resp_nav").css("display", "none");
+    $(".resp_nav").css("position", "fixed");
+    
+    $(window).on("resize", () => {
+      $(".resp_nav").css("display", "none");
+    })
+  }, [])
+  
+  const showNav = () => {
+    if ($(".resp_nav").css("display") == "none") {
+      $(".resp_nav").css("display", "flex");
+    } else {
+      $(".resp_nav").css("display", "none");
+    }
+  }
 
-function index() {
   return (
     <>
       <div className='container navbar fixed-bottom'>
@@ -23,8 +34,20 @@ function index() {
           <MenuOpenIcon />
         </button>
       </div>
+      
+      {/* on mobile view */}
+      <div className='resp_nav'>
+        <div className='items'>
+          <li className='link'>Home</li>
+          <li className='link'>Features</li>
+          <li className='link'>Download</li>
+          <li className='link'>Career</li>
+          <li className='link'>About</li>
+        </div>
+      </div>
+      
     </>
   );
 }
 
-export default index;
+export default Index;

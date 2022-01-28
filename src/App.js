@@ -1,8 +1,7 @@
 import './App.css';
 import 'bootstrap/dist/css/bootstrap.css';
-import '../src/Fonts/Cupertino.ttf';
 import Homepage from './Components/Hompage/index';
-import Navbar from '../src/Components/Navbar/index';
+import Navbar from '../src/Components/Navbar/Index';
 import Footer from '../src/Components/Footer/index';
 
 function App() {

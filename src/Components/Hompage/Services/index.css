@@ -82,9 +82,7 @@
   width: 100%;
  }
 
- .services .card_rows {
-
- }
+ .services .card_rows {}
 
  .card_rows {
   margin-left: 0;
@@ -116,6 +114,14 @@
 }
 
 @media (max-width:800px) {
+ .services_rows {
+  padding: 10px;
+  padding-top: 0;
+  padding-bottom: 20px;
+  margin-top: 0;
+  flex-direction: column;
+ }
+
  .card_rows {
   margin-left: 0;
   padding: 0;

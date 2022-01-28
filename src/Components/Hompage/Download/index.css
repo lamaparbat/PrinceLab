@@ -1,104 +1,119 @@
 .Download {
- display: flex;
- justify-content: center;
+   display: flex;
+   justify-content: center;
 }
 
 .Download .rows {
- padding-top: 30px;
- padding-bottom: 45px;
- margin-left: -25px;
- width: 954px;
- height: fit-content;
- display: flex;
- flex-direction: column;
- align-items: center;
- border-radius: 8px;
- /* background-color: red; */
- box-shadow: 0px 2px 5px 0px rgba(153, 153, 153, 0.75);
- -webkit-box-shadow: 0px 2px 5px 0px rgba(153, 153, 153, 0.75);
- -moz-box-shadow: 0px 2px 5px 0px rgba(153, 153, 153, 0.75);
+   padding-top: 30px;
+   padding-bottom: 45px;
+   margin-left: -25px;
+   width: 954px;
+   height: fit-content;
+   display: flex;
+   flex-direction: column;
+   align-items: center;
+   border-radius: 8px;
+   /* background-color: red; */
+   box-shadow: 0px 2px 5px 0px rgba(153, 153, 153, 0.75);
+   -webkit-box-shadow: 0px 2px 5px 0px rgba(153, 153, 153, 0.75);
+   -moz-box-shadow: 0px 2px 5px 0px rgba(153, 153, 153, 0.75);
 
 }
 
 .Download .rows .title {
- height: fit-content;
- width: 100%;
- display: flex;
- justify-content: center;
- align-items: center;
+   height: fit-content;
+   width: 100%;
+   display: flex;
+   justify-content: center;
+   align-items: center;
 }
 
 .Download .rows .title .input_icon {
- height: 65px;
- width: 120px;
+   height: 65px;
+   width: 120px;
 }
 
 .Download .rows p {
- width: 600px;
- font-size: 18px;
- text-align: center;
+   width: 600px;
+   font-size: 18px;
+   text-align: center;
 }
 
 .Download .rows div .img_container {
- padding-right: 50px;
- height: 150px;
- width: fit-content;
- padding-left: 20px;
- /* background-color: blue; */
+   padding-right: 50px;
+   height: 150px;
+   width: fit-content;
+   padding-left: 20px;
+   /* background-color: blue; */
 }
 
 .Download .rows div .img_container:first-child {
- border-right: 1px solid rgb(128, 128, 128);
+   border-right: 1px solid rgb(128, 128, 128);
 }
 
 .Download .rows div .img_container:nth-child(2) {
- padding-left: 50px;
+   padding-left: 50px;
 }
 
 .Download .rows div .img_container img {
- height: 100%;
- width: 100%;
+   height: 100%;
+   width: 100%;
 }
 
 .Download .rows .btn {
- width: 250px;
- color: white;
- font-weight: bold;
- background-color: rgb(28, 192, 28);
- border-radius: 8px;
+   width: 250px;
+   color: white;
+   font-weight: bold;
+   background-color: rgb(28, 192, 28);
+   border-radius: 8px;
 }
 
 @media(max-width:1100px) {
- .Download .rows {
-  padding: 120px;
-  padding-top: 30px;
-  padding-bottom: 30px;
-  margin-left: 0px;
-  width: 100%;
-  overflow: hidden;
-  box-shadow: none;
-  /* background-color: red; */
- }
+   .Download .rows {
+      padding: 120px;
+      padding-top: 30px;
+      padding-bottom: 30px;
+      margin-left: 0px;
+      width: 100%;
+      overflow: hidden;
+      box-shadow: none;
+      /* background-color: red; */
+   }
 
- .Download .rows div .img_container {
-  height: 150px;
- }
+   .Download .rows div .img_container {
+      height: 150px;
+   }
 
- .Download .rows img {
-  margin-right: 10px;
- }
+   .Download .rows img {
+      margin-right: 10px;
+   }
 
- .Download .rows p {
-  text-align: justify;
-  width: fit-content;
- }
+   .Download .rows p {
+      text-align: justify;
+      width: fit-content;
+   }
 }
 
-/* @media(max-width:600px) {
- .Download .rows .title {
-    justify-content: start;
- }
-  .Download .rows div .img_container {
-   height: 100%;
-  }
- } */
+@media(max-width:800px) {
+   .Download .rows {
+      padding: 20px;
+   }
+
+   .Download .rows .title {
+      justify-content: start;
+   }
+
+   .Download .rows div .img_container img {
+      height: fit-content;
+   }
+
+   .Download .rows div .img_container {
+      height: fit-content;
+   }
+}
+
+@media (max-width:780px) and (min-height:1024px) {
+   .Download .rows div .img_container img {
+      height: 150px;
+   }
+}

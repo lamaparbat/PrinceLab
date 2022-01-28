@@ -105,13 +105,16 @@
 }
 
 /* mobile view */
-/* @media (max-width:600px) {
+@media (max-width:800px) {
   .AboutEnvironment {
     padding: 30px;
   }
 
   .AboutEnvironment .AboutEnvironment_rows{
-    padding-top: 0;
-    margin-top: 0px;
+   margin-top: 0;
+  padding-top: 0;
+ }
+ .Download .rows .title {
+    justify-content: start;
   }
-} */
+}
