@@ -1,12 +1,16 @@
 @import url('https://fonts.googleapis.com/css2?family=Karla&family=PT+Sans&display=swap');
 
-p{
+body{
+  background-color: #FBFBFD;
+}
+
+p {
   font-family: 'PT Sans', sans-serif;
   color: rgba(37, 38, 94, .7);
 }
 
 h1, span, h3 {
-  color:rgb(46, 31, 31);
+  color: rgb(46, 31, 31);
 }
 
 @media (max-width:1200px) {
