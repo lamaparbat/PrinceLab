@@ -12,9 +12,8 @@ function index() {
     </div>
     <p className='mb-4'>To learn how to use paradox, we have some quick guide for you to get started.
      And for more advanced and developer focused guides we have provided
-     some sample videos and documentation. </p>
-    <p>Learn how to use the software and take the advantage of
-     the powerful parallel computing. </p><br/>
+     some sample videos and documentation. Learn how to use the software and take the advantage of
+     the powerful parallel computing. </p>
     <button className='btn text-light'>Get started</button>
    </div>
   </div>

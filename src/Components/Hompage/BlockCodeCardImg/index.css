@@ -8,8 +8,8 @@
 .card_container .row img {
   margin-top: 30px;
   margin-bottom: 0px;
-  height: 480px;
-  width: 530px;
+  height: 430px;
+  width: 430px;
 }
 
 /* responsive code */
@@ -43,5 +43,23 @@
     margin-bottom: 0px;
     height: 300px;
     width: 250px;
+  }
+}
+
+@media (max-width:540px) {
+  .card_container .row img {
+    margin-top: 0px;
+    margin-bottom: 0px;
+    height: 200px;
+    width: 200px;
+  }
+}
+
+@media (max-width:434px) {
+  .card_container .row img {
+    margin-top: 0px;
+    margin-bottom: 10px;
+    height: 100%;
+    width: 100%;
   }
 }
