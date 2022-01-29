@@ -6,10 +6,12 @@
 }
 
 .footer .footer_row {
+  padding-top: 20px;
   color: white;
-  width: 100%;
+  width: fit-content;
   display: flex;
-  justify-content: space-evenly;
+  flex-direction: row;
+  flex-wrap: wrap;
 }
 
 .footer .footer_row .follow_col .icons_cont div {
@@ -32,6 +34,9 @@
 }
 
 .footer .footer_row div {
+  padding-left: 20px;
+  padding-right: 20px;
+  margin-left: 100px;
   margin-bottom: 30px;
 }
 
@@ -61,6 +66,11 @@
   display: flex;
 }
 
+.footer .footer_row .follow_col .icons_cont {
+  padding-left: 0;
+  margin-left: -20px;
+}
+
 .footer .footer_row .follow_col .icons_cont div img {
   height: 100%;
   width: 100%;
@@ -73,8 +83,11 @@
     height: fit-content;
   }
 
-  .footer .footer_row {
-    flex-direction: column;
+  .footer .footer_row div {
+    padding-left: 20px;
+    padding-right: 20px;
+    margin-left: 70px;
+    margin-bottom: 30px;
   }
 
   .footer .footer_row .separator {
@@ -83,15 +96,58 @@
 
 }
 
+@media (max-width:1038px) {
+  .footer .footer_row div {
+    margin-left: 50px;
+  }
+}
+
+@media (max-width:950px) {
+  .footer .footer_row div {
+    margin-left: 40px;
+  }
+}
+
+@media (max-width:950px) {
+  .footer .footer_row div {
+    margin-left: 100px;
+  }
+}
+
+@media (max-width:890px) {
+  .footer .footer_row div {
+    margin-left: 80px;
+  }
+}
+
 @media (max-width:800px) {
   .footer .footer_row h5 {
     margin-bottom: 10px;
   }
 }
 
+@media (max-width:768px) {
+  .footer .footer_row div {
+    margin-left: 50px;
+  }
+}
+
+
+@media (max-width:620px) {
+  .footer .footer_row div {
+    margin-left: 30px;
+  }
+}
+
+
 /* iphone 5 */
-@media (max-width:400px){
+@media (max-width:400px) {
   .footer {
     padding-bottom: 10px;
   }
+
+  .footer .footer_row div {
+    margin-left: 0px;
+  }
+
 }
