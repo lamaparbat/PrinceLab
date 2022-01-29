@@ -156,7 +156,20 @@
 
 
 @media(max-width:390px) {
-  .guide .guide_rows {
-    padding: 10px;
+  .guide{
+    padding: 0px;
+  }
+  .guide .guide_rows .title .output_icon {
+    height: 50px;
+    width: 90px;
+  }
+
+  .guide .guide_rows .title .output_icon {
+    height: 50px;
+    width: 90px;
+  }
+
+  .guide .guide_rows p {
+     width: inherit;
   }
 }

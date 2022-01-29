@@ -72,9 +72,11 @@
     padding-bottom: 100px;
     height: fit-content;
   }
+
   .footer .footer_row {
     flex-direction: column;
   }
+
   .footer .footer_row .separator {
     width: 10% !important;
   }
@@ -84,5 +86,12 @@
 @media (max-width:800px) {
   .footer .footer_row h5 {
     margin-bottom: 10px;
+  }
+}
+
+/* iphone 5 */
+@media (max-width:400px){
+  .footer {
+    padding-bottom: 10px;
   }
 }
