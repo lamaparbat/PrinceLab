@@ -111,7 +111,7 @@
    }
 
    .Download .rows .title {
-      justify-content: start;
+      justify-content: center;
    }
 
    .Download .rows div .img_container img {
@@ -120,6 +120,11 @@
 
    .Download .rows div .img_container {
       height: fit-content;
+   }
+
+   .Download .rows .title .input_icon {
+      height: 55px;
+      width: 80px;
    }
 }
 

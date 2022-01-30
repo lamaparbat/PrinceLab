@@ -55,11 +55,12 @@
     }
 
     .premium_row .body {
-      padding: 5px;
-      opacity: 1;
-      backdrop-filter: blur(0px) !important;
-      background-color: unset;
+      padding: 20px;
+      backdrop-filter: blur(8px) !important;
+      background-color: rgb(68, 68, 68,0.4);
       text-align: justify;
+      font-size: 14px;
+      color: rgb(255, 249, 249) !important;
       flex-direction: column;
     }
 
@@ -74,15 +75,6 @@
       padding: 30px;
       width: 100%;
       margin-left: 0px;
-    }
-
-    .premium_row .body {
-      padding: 5px;
-      opacity: 1;
-      backdrop-filter: blur(0px) !important;
-      background-color: unset;
-      text-align: justify;
-      flex-direction: column;
     }
 
     .premium_row .body .text-content a {

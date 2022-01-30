@@ -65,7 +65,9 @@ function App() {
         console.log(res.data)
       })
     
+    // print the user location data
     console.log(userLocation)
+    
   }, []);
 
   return (
