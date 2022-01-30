@@ -13,7 +13,14 @@
 }
 
 /* responsive code */
-@media (max-width:1400px) {
+@media (max-width:2500px) {
+  .card_container .row img {
+    height: 490px;
+    width: 500px;
+  }
+}
+
+@media (max-width:1200px) {
   .card_container .row img {
     margin-top: 0px;
     margin-bottom: 0px;

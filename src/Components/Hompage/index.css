@@ -31,7 +31,7 @@
   }
 
   .homepage .video {
-    height: 50vh !important;
+    height: 80vh !important;
   }
 }
 
@@ -42,6 +42,6 @@
   }
 
   .homepage .video {
-    height: 30vh !important;
+    height: 50vh !important;
   }
 }

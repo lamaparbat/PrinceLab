@@ -115,7 +115,7 @@
    }
 
    .Download .rows div .img_container img {
-      height: fit-content;
+      height: 80px;
    }
 
    .Download .rows div .img_container {
