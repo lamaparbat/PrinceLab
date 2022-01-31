@@ -107,7 +107,7 @@
 /* mobile view */
 @media (max-width:800px) {
   .AboutEnvironment {
-    padding: 30px;
+    padding: 27px;
   }
 
   .AboutEnvironment .AboutEnvironment_rows{

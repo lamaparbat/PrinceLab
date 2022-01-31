@@ -1,7 +1,7 @@
 import React, {useEffect} from 'react';
 import $ from 'jquery';
 import '../Navbar/index.css';
-import MenuOpenIcon from '@mui/icons-material/MenuOpen';
+import KeyboardArrowUpIcon from '@mui/icons-material/KeyboardArrowUp';
 
 function Index() {
   //show navbar on btn click
@@ -31,7 +31,7 @@ function Index() {
         <li className='link'>Career</li>
         <li className='link'>About</li>
         <button className='shortcut_btn btn btn-light' onClick={showNav}>
-          <MenuOpenIcon />
+          <KeyboardArrowUpIcon />
         </button>
       </div>
       
