@@ -15,7 +15,7 @@ function App() {
     place: "",
     temperature: "",
     weather: "",
-    time_status:""
+    time_status: ""
   })
   const [timeStatus, setTime] = useState("");
 
@@ -41,7 +41,7 @@ function App() {
 
   // weathermap api key
   const key = "e9d1627bffbc7cc590db1097ac22326c";
-
+  
   // tract the user geolocation
   useEffect(() => {
     //tract the current user location 
@@ -51,24 +51,21 @@ function App() {
       setLongitude(position.coords.longitude);
       setLatitude(position.coords.latitude);
     });
-
+    
     // fetch the location using axios
-    axios.get(`https://api.openweathermap.org/data/2.5/weather?lat=${latitude}&lon=${longitude}&appid=${key}`)
+    axios.get(`https://api.openweathermap.org/data/2.5/weather?lat=${latitude}&lon=${longitude}&appid=${key}&units=metric`)
       .then(res => {
         setUserLocation({
           country: res.data.sys.country,
           place: res.data.name,
-          temperature: res.data.main.temp + "degree celcius",
+          temperature: res.data.main.temp + " degree celcius",
           weather: res.data.weather[0].description,
           time_status: timeStatus
         })
-        console.log(res.data)
+        // print the user location data
+        console.log(userLocation)
       })
-    
-    // print the user location data
-    console.log(userLocation)
-    
-  }, []);
+  },[longitude, latitude]);
 
   return (
     <div className="App">
