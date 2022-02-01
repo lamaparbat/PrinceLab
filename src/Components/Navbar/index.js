@@ -1,4 +1,5 @@
-import React, {useEffect} from 'react';
+import React, { useEffect } from 'react';
+import { Link } from 'react-router-dom'; 
 import $ from 'jquery';
 import '../Navbar/index.css';
 import KeyboardArrowUpIcon from '@mui/icons-material/KeyboardArrowUp';
@@ -26,7 +27,7 @@ function Index() {
     <>
       <div className='container navbar fixed-bottom'>
         <li className='link'>Home</li>
-        <li className='link'>Features</li>
+        <li className='link text-decoration-none'><Link className='text-decoration-none text-light' to="/Features">Feature</Link></li>
         <li className='link'>Download</li>
         <li className='link'>Career</li>
         <li className='link'>About</li>
@@ -38,11 +39,11 @@ function Index() {
       {/* on mobile view */}
       <div className='resp_nav'>
         <div className='items'>
-          <li className='link'>Home</li>
-          <li className='link'>Features</li>
-          <li className='link'>Download</li>
-          <li className='link'>Career</li>
-          <li className='link'>About</li>
+          <li className='link  text-decoration-none'><Link  className='text-decoration-none text-black' to="/">Home</Link></li>
+          <li className='link  text-decoration-none'><Link className='text-decoration-none text-black' to="/Feature">Feature</Link></li>
+          <li className='link  text-decoration-none'><Link className='text-decoration-none text-black' to="/Download">Download</Link></li>
+          <li className='link  text-decoration-none'><Link className='text-decoration-none text-black' to="/Career">Career</Link></li>
+          <li className='link  text-decoration-none'><Link className='text-decoration-none text-black' to="/Career">About</Link></li>
         </div>
       </div>
       

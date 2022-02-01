@@ -1,9 +1,11 @@
 import React, { useEffect, useState } from 'react';
+import { Routes, Route, Link } from 'react-router-dom';
 import './App.css';
 import 'bootstrap/dist/css/bootstrap.css';
 import Homepage from './Components/Hompage/index';
 import Navbar from '../src/Components/Navbar/Index';
 import Footer from '../src/Components/Footer/index';
+import Feature from '../src/Components/Feature/index';
 import axios from 'axios';
 
 function App() {
@@ -65,17 +67,15 @@ function App() {
         // print the user location data
         console.log(userLocation)
       })
-  },[longitude, latitude]);
+  }, [longitude, latitude]);
 
   return (
     <div className="App">
-      {/* navbar */}
       <Navbar />
-
-      {/* video banner */}
-      <Homepage />
-
-      {/* Footer */}
+      <Routes>
+        <Route path="/" element={<Homepage />} />
+        <Route path="Feature" element={<Feature />} />
+      </Routes>
       <Footer />
     </div>
   );
