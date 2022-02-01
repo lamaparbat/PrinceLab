@@ -7,7 +7,8 @@ const Card = (props) => {
   <>
    <div className='card'>
     <img
-     src={props.src}
+         src={props.src}
+         loading='lazy'
     />
     <div className='card-body text-center'>
      <span className='card-title'>{props.title}</span>

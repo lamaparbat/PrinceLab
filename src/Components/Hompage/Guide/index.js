@@ -6,9 +6,17 @@ function index() {
   <div className='container guide'>
    <div className="guide_rows mt-3">
     <div className='title'>
-     <img className='input_icon' src={process.env.PUBLIC_URL+"/assets/input.svg"} />
+     <img
+      className='input_icon'
+      src={process.env.PUBLIC_URL + "/assets/input.svg"}
+      loading='lazy'
+     />
      <h1><b>Quick Guide</b></h1>
-     <img className='output_icon' src={process.env.PUBLIC_URL + "/assets/output.svg"} />
+     <img
+      className='output_icon'
+      src={process.env.PUBLIC_URL + "/assets/output.svg"}
+      loading='lazy'
+     />
     </div>
     <p className='mb-4'>To learn how to use paradox, we have some quick guide for you to get started.
      And for more advanced and developer focused guides we have provided

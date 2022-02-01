@@ -29,6 +29,9 @@
    color: red;
 }
 
+.navbar li a{
+   color: white !important;
+}
 .navbar .shortcut_btn {
    padding: 12px;
    color: black;

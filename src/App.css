@@ -2,15 +2,24 @@
 
 
 /* dark mode css */
-* {
+/* * {
   color: white !important;
-  background-color: black !important;
+  background-color: rgb(10, 7, 7) !important;
   box-shadow: none !important;
   border-radius:0.1 !important;
 }
 
+.btn, button{
+  border: 0.2px solid white !important;
+  border-radius: 5 !important;
+} */
+
+
+
+
 
 /* custom css */
+
 body {
   background-color: #FBFBFD;
 }
@@ -18,7 +27,6 @@ body {
 
 p {
   font-family: 'PT Sans', sans-serif;
-  color: rgba(37, 38, 94, .7);
 }
 
 h1, span, h3 {
