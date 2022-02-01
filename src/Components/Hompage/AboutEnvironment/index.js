@@ -12,7 +12,7 @@ function index() {
         <div className='content'>
           <h1><b>Simple <span>Environment</span></b></h1>
           <h3>With the most tools and function</h3>
-          <p className='my-3 text-dark'>Sketch is the home for your entire collaborative design
+          <p className='my-3'>Sketch is the home for your entire collaborative design
             process. From early ideas to pixel-perfect artwork,
             playable prototypes and developer handoff. It all starts
             here. This will result in one ACMI installment plan over 12

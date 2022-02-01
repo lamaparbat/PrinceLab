@@ -26,11 +26,11 @@ function Index() {
   return (
     <>
       <div className='container navbar fixed-bottom'>
-        <li className='link  text-decoration-none'><Link className='text-decoration-none text-light' to="/">Home</Link></li>
-        <li className='link  text-decoration-none'><Link className='text-decoration-none text-light' to="/Feature">Feature</Link></li>
-        <li className='link  text-decoration-none'><Link className='text-decoration-none text-light' to="/Download">Download</Link></li>
-        <li className='link  text-decoration-none'><Link className='text-decoration-none text-light' to="/Career">Career</Link></li>
-        <li className='link  text-decoration-none'><Link className='text-decoration-none text-light' to="/About">About</Link></li>
+        <li className='link  text-decoration-none'><Link className='text-decoration-none' to="/">Home</Link></li>
+        <li className='link  text-decoration-none'><Link className='text-decoration-none' to="/Feature">Feature</Link></li>
+        <li className='link  text-decoration-none'><Link className='text-decoration-none' to="/Download">Download</Link></li>
+        <li className='link  text-decoration-none'><Link className='text-decoration-none' to="/Career">Career</Link></li>
+        <li className='link  text-decoration-none'><Link className='text-decoration-none' to="/About">About</Link></li>
         <button className='shortcut_btn btn btn-light' onClick={showNav}>
           <KeyboardArrowUpIcon />
         </button>
@@ -39,11 +39,11 @@ function Index() {
       {/* on mobile view */}
       <div className='resp_nav'>
         <div className='items'>
-          <li className='link  text-decoration-none'><Link  className='text-decoration-none text-black' to="/">Home</Link></li>
-          <li className='link  text-decoration-none'><Link className='text-decoration-none text-black' to="/Feature">Feature</Link></li>
-          <li className='link  text-decoration-none'><Link className='text-decoration-none text-black' to="/Download">Download</Link></li>
-          <li className='link  text-decoration-none'><Link className='text-decoration-none text-black' to="/Career">Career</Link></li>
-          <li className='link  text-decoration-none'><Link className='text-decoration-none text-black' to="/Career">About</Link></li>
+          <li className='link  text-decoration-none'><Link className='text-decoration-none' to="/">Home</Link></li>
+          <li className='link  text-decoration-none'><Link className='text-decoration-none' to="/Feature">Feature</Link></li>
+          <li className='link  text-decoration-none'><Link className='text-decoration-none' to="/Download">Download</Link></li>
+          <li className='link  text-decoration-none'><Link className='text-decoration-none' to="/Career">Career</Link></li>
+          <li className='link  text-decoration-none'><Link className='text-decoration-none' to="/About">About</Link></li>
         </div>
       </div>
       

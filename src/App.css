@@ -1,8 +1,20 @@
 @import url('https://fonts.googleapis.com/css2?family=Karla&family=PT+Sans&display=swap');
 
-body{
+
+/* dark mode css */
+* {
+  color: white !important;
+  background-color: black !important;
+  box-shadow: none !important;
+  border-radius:0.1 !important;
+}
+
+
+/* custom css */
+body {
   background-color: #FBFBFD;
 }
+
 
 p {
   font-family: 'PT Sans', sans-serif;
