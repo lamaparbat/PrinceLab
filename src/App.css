@@ -2,24 +2,41 @@
 
 
 /* dark mode css */
-/* * {
+* {
   color: white !important;
   background-color: rgb(10, 7, 7) !important;
-  box-shadow: none !important;
-  border-radius:0.1 !important;
+  border-radius: 0.1 !important;
 }
 
-.btn, button{
+.btn, button {
   border: 0.2px solid white !important;
   border-radius: 5 !important;
-} */
+}
 
+p, a {
+  color: rgb(170, 170, 170) !important;
+}
+
+.footer .footer_row {
+  border-top: 0.5px solid rgb(155, 155, 155);
+}
+
+.premium_row .body {
+  background: rgba(31, 11, 11, 0.5) !important;
+}
+
+.premium_row .body .text-content, .premium_row .body .text-content h4, .premium_row .body .text-content span {
+  background-color: unset !important;
+}
+
+.premium_row .body .text-content a {
+  border-color: black !important;
+}
 
 
 
 
 /* custom css */
-
 body {
   background-color: #FBFBFD;
 }

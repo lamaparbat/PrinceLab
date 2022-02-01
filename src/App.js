@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { Routes, Route, Link } from 'react-router-dom';
+import { Routes, Route } from 'react-router-dom';
 import './App.css';
 import 'bootstrap/dist/css/bootstrap.css';
 import Homepage from './Components/Hompage/index';
@@ -20,6 +20,9 @@ function App() {
     time_status: ""
   })
   const [timeStatus, setTime] = useState("");
+  
+  //fetched key from .env files
+  // console.log(process.env.WEATHER_MAP_KEY)
 
   // convert the timestamp to local time
   const convertTimeFormat = (timestamp) => {
@@ -40,9 +43,6 @@ function App() {
     //update the time status
     setTime(hrs + "" + status)
   }
-
-  // weathermap api key
-  const key = "e9d1627bffbc7cc590db1097ac22326c";
   
   // tract the user geolocation
   useEffect(() => {
@@ -55,7 +55,7 @@ function App() {
     });
     
     // fetch the location using axios
-    axios.get(`https://api.openweathermap.org/data/2.5/weather?lat=${latitude}&lon=${longitude}&appid=${key}&units=metric`)
+    axios.get(`https://api.openweathermap.org/data/2.5/weather?lat=${latitude}&lon=${longitude}&appid=${process.env.WEATHER_MAP_KEY}&units=metric`)
       .then(res => {
         setUserLocation({
           country: res.data.sys.country,

@@ -16,7 +16,7 @@ function Index() {
   }, [])
   
   const showNav = () => {
-    if ($(".resp_nav").css("display") == "none") {
+    if ($(".resp_nav").css("display") === "none") {
       $(".resp_nav").css("display", "flex");
     } else {
       $(".resp_nav").css("display", "none");

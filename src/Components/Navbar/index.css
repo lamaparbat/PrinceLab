@@ -10,9 +10,9 @@
    border-radius: 10px;
    backdrop-filter: blur(4px);
    background-color: rgba(14, 14, 14, 0.6);
-   box-shadow: 0px 0px 5px 0px rgba(0, 0, 0, 0.75);
-   -webkit-box-shadow: 0px 0px 5px 0px rgba(0, 0, 0, 0.75);
-   -moz-box-shadow: 0px 0px 5px 0px rgba(0, 0, 0, 0.75);
+   box-shadow: 0px 0px 5px 0px rgba(124, 124, 124, 0.75);
+   -webkit-box-shadow: 0px 0px 5px 0px rgba(124, 124, 124, 0.75);
+   -moz-box-shadow: 0px 0px 5px 0px rgba(124, 124, 124, 0.75);
 }
 
 .navbar li {
@@ -29,9 +29,10 @@
    color: red;
 }
 
-.navbar li a{
+.navbar li a {
    color: white !important;
 }
+
 .navbar .shortcut_btn {
    padding: 12px;
    color: black;

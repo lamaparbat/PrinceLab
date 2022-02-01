@@ -3,7 +3,7 @@ import '../Footer/index.css';
 
 function index() {
  return (
-  <div className='container-fluid footer'>
+  <div className='container-fluid bg- footer'>
    <div className='footer_row'>
     <div className='service_col'>
      <h5><b>Services</b><hr className='separator w-50'/></h5>
