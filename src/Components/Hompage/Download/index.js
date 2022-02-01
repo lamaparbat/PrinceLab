@@ -16,7 +16,7 @@ function index() {
             <img src={process.env.PUBLIC_URL + "/assets/mac.png"} />
           </div>
           <div className='img_container'>
-            <img src={process.env.PUBLIC_URL + "/assets/windows.svg"} /></div>
+            <img src={process.env.PUBLIC_URL + "/assets/windows.svg"} id="win_icon" /></div>
         </div>
         <button className='btn text-light'>Download</button>
       </div>

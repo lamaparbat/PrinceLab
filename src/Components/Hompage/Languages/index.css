@@ -16,23 +16,27 @@
   justify-content: space-evenly;
 }
 
+.languages .icon_container #icon {
+  height: 100px;
+  width: 100px;
+}
 
-  @media (max-width:1100px) {
-    .languages {
-      padding-top: 0px;
-      padding-bottom: 0;
-    }
-
-    .languages .icon_container {
-      padding-left: 0;
-      padding-right: 0;
-      margin-top: 0px;
-      height: 50px;
-      flex-wrap: wrap;
-    }
-
-    .languages .icon_container #icon {
-      height: 50px;
-      width: 50px;
-    }
+@media (max-width:1100px) {
+  .languages {
+    padding-top: 0px;
+    padding-bottom: 0;
   }
+
+  .languages .icon_container {
+    padding-left: 0;
+    padding-right: 0;
+    margin-top: 0px;
+    height: 50px;
+    flex-wrap: wrap;
+  }
+
+  .languages .icon_container #icon {
+    height: 50px;
+    width: 50px;
+  }
+}
