@@ -21,9 +21,6 @@ function App() {
   })
   const [timeStatus, setTime] = useState("");
 
-  //fetched key from .env files
-  // console.log(process.env.WEATHER_MAP_KEY)
-
   // convert the timestamp to local time
   const convertTimeFormat = (timestamp) => {
     // store timestamp to string var
@@ -57,7 +54,7 @@ function App() {
   useEffect(() => {
     if (latitude !== "" && longitude !== "") {
       // fetch the location using axios
-      axios.get(`https://api.openweathermap.org/data/2.5/weather?lat=${latitude}&lon=${longitude}&appid=e9d1627bffbc7cc590db1097ac22326c&units=metric`)
+      axios.get(`https://api.openweathermap.org/data/2.5/weather?lat=${latitude}&lon=${longitude}&appid=${process.env.REACT_APP_WEATHER_MAP_KEY}&units=metric`)
         .then(res => {
           setUserLocation({
             country: res.data.sys.country,
@@ -78,7 +75,6 @@ function App() {
         <Route path="Feature" element={<Feature />} />
       </Routes>
       <Footer />
-      <div>{process.env.WEATHER_MAP_KEY}</div>
     </div>
   );
 }

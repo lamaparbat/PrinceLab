@@ -24,7 +24,9 @@
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
-    "test": "react-scripts test",
+    "build:local": "env-cmd -f ./.env.production.local npm run build",
+    "build:production": "env-cmd -f ./.env.production npm run build",
+    "test": "react-scripts test --env=jsdom",
     "eject": "react-scripts eject"
   },
   "eslintConfig": {
