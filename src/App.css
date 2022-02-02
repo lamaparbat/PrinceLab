@@ -2,9 +2,9 @@
 
 
 /* dark mode css */
-* {
+/* * {
   color: white !important;
-  background-color: rgb(10, 7, 7) !important;
+  background-color: rgb(10, 7, 7, 0.8) !important;
   border-radius: 0.1 !important;
 }
 
@@ -21,6 +21,11 @@ p, a {
   border-top: 0.5px solid rgb(155, 155, 155);
 }
 
+.AboutEnvironment .AboutEnvironment_rows .content span {
+  background-color: white !important;
+  color: black !important;
+}
+
 .premium_row .body {
   background: rgba(31, 11, 11, 0.5) !important;
 }
@@ -30,8 +35,19 @@ p, a {
 }
 
 .premium_row .body .text-content a {
-  border-color: black !important;
+  border-color: rgb(255, 255, 255) !important;
+  transition: 0.5s ease-in-out;
 }
+
+.premium_row .body .text-content a:hover,.btn:hover{
+  border-color: rgb(255, 0, 0) !important;
+  color: red !important;
+}
+
+li:hover{
+  border: 0.5px solid red !important;
+} */
+
 
 
 
@@ -48,6 +64,10 @@ p {
 
 h1, span, h3 {
   color: rgb(46, 31, 31);
+}
+
+.btn {
+  border-radius: 50px !important;
 }
 
 @media (max-width:1200px) {

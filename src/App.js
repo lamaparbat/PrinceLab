@@ -20,7 +20,7 @@ function App() {
     time_status: ""
   })
   const [timeStatus, setTime] = useState("");
-  
+
   //fetched key from .env files
   // console.log(process.env.WEATHER_MAP_KEY)
 
@@ -34,7 +34,7 @@ function App() {
     const status = string.substr(string.length - 2, string.length);
 
     //determine day or night
-    if (hrs >= 6 && status == "PM" || hrs <= 12 && hrs >= 6 && status == "AM") {
+    if ((hrs >= 6 && status === "PM") || (hrs <= 12 && hrs >= 6 && status === "AM")) {
       setTime("night")
     } else {
       setTime("day")
@@ -43,30 +43,31 @@ function App() {
     //update the time status
     setTime(hrs + "" + status)
   }
-  
+
   // tract the user geolocation
+  //tract the current user location 
+  navigator.geolocation.getCurrentPosition(position => {
+    const timestamp = new Date(position.timestamp);
+    convertTimeFormat(timestamp);
+    setLongitude(position.coords.longitude);
+    setLatitude(position.coords.latitude);
+  });
+
+  // track the state changes
   useEffect(() => {
-    //tract the current user location 
-    navigator.geolocation.getCurrentPosition(position => {
-      const timestamp = new Date(position.timestamp);
-      convertTimeFormat(timestamp);
-      setLongitude(position.coords.longitude);
-      setLatitude(position.coords.latitude);
-    });
-    
-    // fetch the location using axios
-    axios.get(`https://api.openweathermap.org/data/2.5/weather?lat=${latitude}&lon=${longitude}&appid=${process.env.WEATHER_MAP_KEY}&units=metric`)
-      .then(res => {
-        setUserLocation({
-          country: res.data.sys.country,
-          place: res.data.name,
-          temperature: res.data.main.temp + " degree celcius",
-          weather: res.data.weather[0].description,
-          time_status: timeStatus
+    if (latitude !== "" && longitude !== "") {
+      // fetch the location using axios
+      axios.get(`https://api.openweathermap.org/data/2.5/weather?lat=${latitude}&lon=${longitude}&appid=e9d1627bffbc7cc590db1097ac22326c&units=metric`)
+        .then(res => {
+          setUserLocation({
+            country: res.data.sys.country,
+            place: res.data.name,
+            temperature: res.data.main.temp + " degree celcius",
+            weather: res.data.weather[0].description,
+            time_status: timeStatus
+          })
         })
-        // print the user location data
-        console.log(userLocation)
-      })
+    }
   }, [longitude, latitude]);
 
   return (
@@ -77,6 +78,7 @@ function App() {
         <Route path="Feature" element={<Feature />} />
       </Routes>
       <Footer />
+      <div>{process.env.WEATHER_MAP_KEY}</div>
     </div>
   );
 }
