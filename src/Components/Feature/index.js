@@ -1,11 +1,15 @@
-import React from 'react'
+import React from 'react';
+import '../Feature/index.css';
+import Intro from '../Feature/intro/index';
+import Parallel from '../Feature/parallel/index';
+import Cards from '../Feature/cards/index';
 
 function index() {
   return (
-    <div className='container feature_container'>
-      <div className='feature_row py-5'>
-        <h1> This is feature page</h1>
-    </div>
+    <div className='container-fluid features'>
+      <Intro />
+      <Parallel />
+      <Cards />
     </div>
   )
 }
