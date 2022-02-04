@@ -1,14 +1,17 @@
+@import url('https://fonts.googleapis.com/css2?family=Almarai:wght@700&family=Roboto+Mono:wght@500&display=swap');
+
 .intro {
-  height:100vh;
-  padding-bottom: 0px;
+ height: 100vh;
+ padding-bottom: 0px;
 }
 
 .intro .comp1 h1 {
  top: 50px;
  left: 20%;
  font-size: 150px;
- letter-spacing: 10px;
+ letter-spacing: 1px;
  position: absolute;
+ font-family: 'Almarai', sans-serif;
 }
 
 .intro .comp1 h1 #u {
@@ -19,7 +22,7 @@
 }
 
 .intro .comp1 h1 #res {
- left: -100px;
+ left: -105px;
  top: -50px;
  position: relative;
 }
@@ -28,20 +31,23 @@
  height: 500px;
  width: 50%;
  border-radius: 5px;
+ position: relative;
+ z-index: -1;
 }
 
 /* stylus support */
 
 
 .intro .comp2 {
- margin-top: -240px;
+ margin-top: -200px;
  margin-left: 40%;
  padding: 60px;
  padding-top: 40px;
  padding-bottom: 30px;
  height: fit-content;
- width: 700px;
+ width: fit-content;
  border-radius: 5px;
+ background-color: white;
  box-shadow: 0px 2px 5px 0px rgba(153, 153, 153, 0.75);
  -webkit-box-shadow: 0px 2px 5px 0px rgba(153, 153, 153, 0.75);
  -moz-box-shadow: 0px 2px 5px 0px rgba(153, 153, 153, 0.75);
@@ -54,6 +60,7 @@
 .intro .comp2 .comp2_header .comp2_header_title {
  margin-left: 20px;
  letter-spacing: 1px;
+ font-family: 'Almarai', sans-serif;
 }
 
 .intro .comp2 .comp2_header #pen1 {
@@ -78,10 +85,13 @@
  font-weight: lighter !important;
 }
 
-.intro #intro_liner{
+.intro #intro_liner {
  top: 50%;
  left: 10%;
  height: 50%;
  position: absolute;
- z-index: -1;
+ z-index: -2;
 }
+
+
+/* responsiveness */
