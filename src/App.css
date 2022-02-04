@@ -2,7 +2,7 @@
 
 
 /* dark mode css */
-/* * {
+* {
   color: white !important;
   background-color: rgb(10, 7, 7, 0.8) !important;
   border-radius: 0.1 !important;
@@ -30,7 +30,7 @@ p, a {
   background: rgba(31, 11, 11, 0.5) !important;
 }
 
-.premium_row .body .text-content, .premium_row .body .text-content h4, .premium_row .body .text-content span {
+.premium_row .body :is(div,h4, span) {
   background-color: unset !important;
 }
 
@@ -58,7 +58,7 @@ li:hover {
 
 .navbar li:hover {
   border: unset !important;
-} */
+}
 
 
 
