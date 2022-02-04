@@ -1,0 +1,87 @@
+.intro {
+  height:100vh;
+  padding-bottom: 0px;
+}
+
+.intro .comp1 h1 {
+ top: 50px;
+ left: 20%;
+ font-size: 150px;
+ letter-spacing: 10px;
+ position: absolute;
+}
+
+.intro .comp1 h1 #u {
+ left: -30px;
+ top: 35px;
+ color: red;
+ position: relative;
+}
+
+.intro .comp1 h1 #res {
+ left: -100px;
+ top: -50px;
+ position: relative;
+}
+
+.intro .comp1 img {
+ height: 500px;
+ width: 50%;
+ border-radius: 5px;
+}
+
+/* stylus support */
+
+
+.intro .comp2 {
+ margin-top: -240px;
+ margin-left: 40%;
+ padding: 60px;
+ padding-top: 40px;
+ padding-bottom: 30px;
+ height: fit-content;
+ width: 700px;
+ border-radius: 5px;
+ box-shadow: 0px 2px 5px 0px rgba(153, 153, 153, 0.75);
+ -webkit-box-shadow: 0px 2px 5px 0px rgba(153, 153, 153, 0.75);
+ -moz-box-shadow: 0px 2px 5px 0px rgba(153, 153, 153, 0.75);
+}
+
+.intro .comp2 .comp2_header {
+ display: flex;
+}
+
+.intro .comp2 .comp2_header .comp2_header_title {
+ margin-left: 20px;
+ letter-spacing: 1px;
+}
+
+.intro .comp2 .comp2_header #pen1 {
+ right: 0;
+ height: 40px;
+ width: 15%;
+ position: absolute;
+}
+
+.intro .comp2 .comp2_footer {
+ display: flex;
+}
+
+.intro .comp2 .comp2_footer #pen2 {
+ margin-left: 10px;
+ margin-right: 60px;
+ height: 200px;
+}
+
+.intro .comp2 .comp2_footer h3 {
+ padding-right: 20px;
+ font-weight: lighter !important;
+}
+
+.intro #intro_liner{
+ top: 50%;
+ left: 10%;
+ height: 50%;
+ position: absolute;
+ z-index: -1;
+}

@@ -39,13 +39,25 @@ p, a {
   transition: 0.5s ease-in-out;
 }
 
-.premium_row .body .text-content a:hover,.btn:hover{
+.premium_row .body .text-content a:hover, .btn:hover {
   border-color: rgb(255, 0, 0) !important;
   color: red !important;
 }
 
-li:hover{
+li:hover {
   border: 0.5px solid red !important;
+}
+
+.navbar {
+  background: #2e2e2e !important;
+}
+
+.navbar li, .navbar li a {
+  background: #2e2e2e !important;
+}
+
+.navbar li:hover {
+  border: unset !important;
 } */
 
 

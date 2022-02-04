@@ -1,0 +1,10 @@
+.signin_row {
+ display: flex;
+ justify-content: center;
+}
+
+.signin_row img {
+ margin-right: 50px;
+ height: 400px;
+ width: 400px;
+}
