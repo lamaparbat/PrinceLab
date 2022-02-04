@@ -1,0 +1,53 @@
+.python3 {
+ padding-top: 30px;
+ padding-bottom: 35px;
+ color: white;
+ border-radius: 10px;
+ background: rgb(2, 0, 36);
+ background: -moz-linear-gradient(90deg, rgba(2, 0, 36, 1) 0%, rgba(140, 38, 65, 1) 35%, rgba(0, 212, 255, 1) 100%);
+ background: -webkit-linear-gradient(90deg, rgba(2, 0, 36, 1) 0%, rgba(140, 38, 65, 1) 35%, rgba(0, 212, 255, 1) 100%);
+ background: linear-gradient(90deg, rgba(2, 0, 36, 1) 0%, rgba(140, 38, 65, 1) 35%, rgba(0, 212, 255, 1) 100%);
+ filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#020024", endColorstr="#00d4ff", GradientType=1);
+ box-shadow: 1px 0px 5px 2px rgba(181, 181, 181, 0.47);
+ -webkit-box-shadow: 1px 0px 5px 2px rgba(181, 181, 181, 0.47);
+ -moz-box-shadow: 1px 0px 5px 2px rgba(181, 181, 181, 0.47);
+}
+
+.python3 .rows {
+ display: flex;
+ flex-direction: column;
+ justify-content: center;
+ align-items: center;
+}
+
+.python3 .rows p {
+ width: 500px;
+ text-align: center;
+}
+
+.python3 .rows img {
+ height: 150px;
+ width: 180px;
+}
+
+/* responsive */
+@media (max-width:700px) {
+ .python3 {
+  padding: 50px;
+ }
+
+ .python3 .rows p {
+  width: 100%;
+ }
+}
+
+@media (max-width:400px) {
+ .python3 .rows p {
+  margin-bottom: 20px !important;
+ }
+
+ .python3 .rows img {
+  height: 100px;
+  width: 150px;
+ }
+}

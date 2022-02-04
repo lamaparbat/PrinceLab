@@ -3,6 +3,7 @@ import '../Feature/index.css';
 import Intro from '../Feature/intro/index';
 import Parallel from '../Feature/parallel/index';
 import Cards from '../Feature/cards/index';
+import Python3 from '../Feature/python3/index';
 
 function index() {
   return (
@@ -10,6 +11,7 @@ function index() {
       <Intro />
       <Parallel />
       <Cards />
+      <Python3 />
     </div>
   )
 }
