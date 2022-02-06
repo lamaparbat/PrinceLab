@@ -1,0 +1,11 @@
+.pricing {
+ padding-top: 60px;
+ padding-bottom: 30px;
+ display: flex;
+}
+
+@media (max-width:1100px) {
+ .pricing {
+  flex-direction: column;
+ }
+}

@@ -6,7 +6,7 @@ import Homepage from './Components/Hompage/index';
 import Navbar from '../src/Components/Navbar/Index';
 import Footer from '../src/Components/Footer/index';
 import Feature from '../src/Components/Feature/index';
-import Signin from '../src/Components/Signin/index';
+import Pricing from '../src/Components/Pricing/index';
 import axios from 'axios';
 
 function App() {
@@ -74,7 +74,7 @@ function App() {
       <Routes>
         <Route path="/" element={<Homepage />} />
         <Route path="Feature" element={<Feature />} />
-        <Route path="Signin" element={<Signin />} />
+        <Route path="Pricing" element={<Pricing />} />
       </Routes>
       <Footer />
     </div>

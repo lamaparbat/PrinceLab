@@ -29,7 +29,7 @@ function Index() {
         <li className='link  text-decoration-none'><Link className='text-decoration-none' to="/">Home</Link></li>
         <li className='link  text-decoration-none'><Link className='text-decoration-none' to="/Feature">Feature</Link></li>
         <li className='link  text-decoration-none'><Link className='text-decoration-none' to="/Download">Download</Link></li>
-        <li className='link  text-decoration-none'><Link className='text-decoration-none' to="/Career">Career</Link></li>
+        <li className='link  text-decoration-none'><Link className='text-decoration-none' to="/Pricing">Pricing</Link></li>
         <li className='link  text-decoration-none'><Link className='text-decoration-none' to="/About">About</Link></li>
         <button className='shortcut_btn btn btn-light' onClick={showNav}>
           <KeyboardArrowUpIcon />
@@ -42,7 +42,7 @@ function Index() {
           <li className='link  text-decoration-none'><Link className='text-decoration-none' to="/">Home</Link></li>
           <li className='link  text-decoration-none'><Link className='text-decoration-none' to="/Feature">Feature</Link></li>
           <li className='link  text-decoration-none'><Link className='text-decoration-none' to="/Download">Download</Link></li>
-          <li className='link  text-decoration-none'><Link className='text-decoration-none' to="/Career">Career</Link></li>
+          <li className='link  text-decoration-none'><Link className='text-decoration-none' to="/Pricing">Pricing</Link></li>
           <li className='link  text-decoration-none'><Link className='text-decoration-none' to="/About">About</Link></li>
         </div>
       </div>
