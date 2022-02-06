@@ -18,16 +18,23 @@
  flex-direction: column;
  justify-content: center;
  align-items: center;
+ background-color: unset !important;
+}
+
+.python3 .rows h2, .python3 .rows strong {
+ background-color: unset !important;
 }
 
 .python3 .rows p {
  width: 500px;
  text-align: center;
+ background-color: unset !important;
 }
 
 .python3 .rows img {
  height: 150px;
  width: 180px;
+ background-color: unset !important;
 }
 
 /* responsive */

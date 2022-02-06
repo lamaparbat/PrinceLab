@@ -1,7 +1,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Karla&family=PT+Sans&display=swap');
 
 
-/* dark mode css */
+/* dark mode for hompage */
 /* * {
   color: white !important;
   background-color: rgb(10, 7, 7, 0.8) !important;
@@ -58,11 +58,13 @@ li:hover {
 
 .navbar li:hover {
   border: unset !important;
-}
+} */
+
+/* dark mode for features page */
 
 
 
- */
+
 
 /* custom css */
 body {

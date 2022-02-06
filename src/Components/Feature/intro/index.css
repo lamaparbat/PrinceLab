@@ -7,10 +7,10 @@
 }
 
 .intro .comp1 h1 {
- top: 50px;
+ top: 70px;
  left: 20%;
  font-size: 150px;
- letter-spacing: 1px;
+ letter-spacing: 20px;
  position: absolute;
  font-family: 'Almarai', sans-serif;
 }
@@ -18,14 +18,16 @@
 .intro .comp1 h1 #u {
  left: -30px;
  top: 35px;
- color: red;
+ color: red !important;
  position: relative;
+ background-color: unset !important;
 }
 
 .intro .comp1 h1 #res {
- left: -105px;
+ left: -125px;
  top: -50px;
  position: relative;
+ background-color: unset !important;
 }
 
 .intro .comp1 img {
@@ -69,6 +71,7 @@
  height: 40px;
  width: 15%;
  position: absolute;
+ border-radius: 100px;
 }
 
 .intro .comp2 .comp2_footer {
@@ -84,6 +87,7 @@
 .intro .comp2 .comp2_footer h3 {
  padding-right: 20px;
  font-weight: lighter !important;
+ text-align: justify;
 }
 
 .intro #intro_liner {
@@ -96,6 +100,33 @@
 
 
 /* responsiveness */
+@media (max-width:1920px) and (min-height:1080px) {
+ .intro {
+  height: 85vh !important;
+ }
+
+ .intro #intro_liner {
+  top: 45%;
+ }
+}
+
+
+@media (max-width:1600px) and (min-height:2560px) {
+ .intro {
+  height: 30vh !important;
+ }
+
+ .intro #intro_liner {
+  top: 0%;
+ }
+}
+
+@media (min-width:980px) {
+ .intro .comp1 h1 {
+  left: 10%;
+ }
+}
+
 @media (max-width:992px) {
  .intro {
   height: 70vh;
@@ -111,7 +142,7 @@
  }
 
  .intro .comp1 h1 #res {
-  left: -70px;
+  left: -90px;
   top: -40px;
   position: relative;
  }
@@ -150,6 +181,12 @@
  }
 }
 
+@media (max-width:820px) {
+ .intro .comp1 h1 {
+  left: 120px;
+ }
+}
+
 @media (max-width:770px) {
  .intro .comp1 h1 {
   font-size: 70px;
@@ -167,7 +204,7 @@
  }
 
  .intro .comp1 h1 #res {
-  left: -46px;
+  left: -65px;
   top: -20px;
  }
 
@@ -195,6 +232,26 @@
 }
 
 
+@media (max-width:650px) {
+ .intro .comp1 h1 {
+  letter-spacing: 5px;
+ }
+
+ .intro .comp1 h1 #res {
+  left: -50px;
+ }
+}
+
+@media (max-width:640px) and (height:140px) {
+ .intro {
+  height: 100vh !important;
+ }
+
+ .intro #intro_liner {
+  top: 45%;
+ }
+}
+
 @media (max-width:530px) {
  .intro .comp1 img {
   margin-top: 50px;
@@ -213,23 +270,19 @@
  .intro .comp1 h1 #res {
   left: -41px;
  }
-}
-
-@media (max-width:365px) {
- .intro .comp1 h1 {
-  font-size: 50px;
- }
 
  .intro .comp1 h1 #res {
-  top: -15px;
-  left: -35px;
+  left: -45px;
  }
 }
-
 
 @media (max-width:390px) {
  .intro .comp2 {
   padding: 10px;
+ }
+
+ .intro .comp2 .comp2_footer #pen2 {
+  height: 190px;
  }
 
  .intro .comp1 img {
@@ -241,5 +294,77 @@
  .intro .comp1 h1 {
   top: 20px;
   left: 10%;
+ }
+}
+
+@media (max-width:365px) {
+ .intro .comp1 h1 {
+  font-size: 50px;
+ }
+
+ .intro .comp1 h1 #res {
+  top: -15px;
+  left: -35px;
+ }
+
+ .intro .comp1 h1 #res {
+  left: -40px;
+ }
+}
+
+@media (max-width:330px) {
+ .intro {
+  height: 60vh;
+ }
+
+ .intro .comp1 h1 {
+  margin-top: 10px;
+  font-size: 40px;
+  letter-spacing: 0;
+ }
+
+ .intro .comp2 .comp2_header .comp2_header_title {
+  margin-left: 10px;
+  letter-spacing: 0px;
+  font-size: 20px;
+  font-family: 'Almarai', sans-serif;
+ }
+
+ .intro .comp1 h1 #u {
+  left: -5px;
+ }
+
+ .intro .comp1 h1 #res {
+  top: -15px;
+  left: -25px;
+ }
+
+ .intro .comp2 .comp2_footer #pen2 {
+  margin: 0;
+ }
+
+ .intro .comp2 .comp2_footer h3 {
+  font-size: 18px;
+ }
+}
+
+@media (max-width:320px) and (max-height:600px) {
+ .intro {
+  height: 85vh !important;
+ }
+
+ .intro #intro_liner {
+  top: 50%;
+ }
+}
+
+/* galaxy fold */
+@media (max-width:280px) and (max-height:653px) {
+ .intro {
+  height: 85vh !important;
+ }
+
+ .intro #intro_liner {
+  top: 50%;
  }
 }

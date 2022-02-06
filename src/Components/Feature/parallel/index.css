@@ -2,8 +2,11 @@
  background-color: rgb(238, 244, 246);
 }
 
+.parallel img{
+  border-radius: 10px;
+}
 .parallel .roundedDiv {
- height: 200px;
+ height: fit-content;
  width: 100%;
  display: flex;
  justify-content: center;
@@ -16,6 +19,7 @@
  padding-top: 20px;
  padding-bottom: 20px;
  height: inherit;
+ border-radius: 50px;
 }
 
 .parallel .roundedDiv .content {

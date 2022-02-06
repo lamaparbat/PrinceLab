@@ -30,7 +30,7 @@
 }
 
 .footer .footer_row .follow_col .icons_cont div:hover {
-  background-color: red;
+  background-color: red !important;
   transform: rotate(-10deg) scale(1.1);
 }
 
@@ -75,6 +75,7 @@
 .footer .footer_row .follow_col .icons_cont div img {
   height: 100%;
   width: 100%;
+  border-radius: 5px;
 }
 
 @media (max-width:1100px) {
