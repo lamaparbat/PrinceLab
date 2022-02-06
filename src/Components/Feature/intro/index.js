@@ -46,7 +46,7 @@ const Comp2 = () => {
 
 function index() {
   return (
-    <div className='container py-4 bg- intro'>
+    <div className='container px-1 py-4 bg- intro'>
       <Comp1 />
       <Comp2 />
       <img
