@@ -73,6 +73,7 @@
 }
 
 .footer .footer_row .follow_col .icons_cont div img {
+  margin-top: 0 !important;
   height: 100%;
   width: 100%;
   border-radius: 5px;

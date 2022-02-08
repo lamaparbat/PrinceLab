@@ -25,6 +25,9 @@ p, a {
   background-color: white !important;
   color: black !important;
 }
+.AboutEnvironment .AboutEnvironment_rows img {
+  background:white;
+}
 
 .premium_row .body {
   background: rgba(31, 11, 11, 0.5) !important;

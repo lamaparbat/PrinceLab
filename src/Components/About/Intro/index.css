@@ -1,0 +1,40 @@
+.about_intro {
+  padding: 10px;
+  padding-top: 50px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.about_intro .about_intro_para:nth-child(1) {
+  padding-right: 190px;
+  width: 40%;
+  letter-spacing: 1px;
+}
+
+.about_intro .about_intro_para h1 {
+  margin-left: 50px;
+}
+
+.about_intro .about_intro_para:nth-child(2) {
+  width: 30%;
+  text-align: justify;
+  font-size: 20px;
+}
+
+@media (max-width:1100px) {
+  .about_intro {
+    padding: 30px;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .about_intro .about_intro_para:nth-child(1), .about_intro .about_intro_para:nth-child(2) {
+    padding: 0;
+    width: 100%;
+  }
+
+  .about_intro .about_intro_para h1 {
+    margin-left: 0px;
+  }
+}

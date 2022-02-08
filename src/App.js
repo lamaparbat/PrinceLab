@@ -3,10 +3,12 @@ import { Routes, Route } from 'react-router-dom';
 import './App.css';
 import 'bootstrap/dist/css/bootstrap.css';
 import Homepage from './Components/Hompage/index';
-import Navbar from '../src/Components/Navbar/Index';
+import Navbar from '../src/Components/Navbar/index';
 import Footer from '../src/Components/Footer/index';
 import Feature from '../src/Components/Feature/index';
 import Pricing from '../src/Components/Pricing/index';
+import About from '../src/Components/About/index';
+import Career from '../src/Components/Career/index';
 import axios from 'axios';
 
 function App() {
@@ -52,21 +54,21 @@ function App() {
   });
 
   // track the state changes
-  useEffect(() => {
-    if (latitude !== "" && longitude !== "") {
-      // fetch the location using axios
-      axios.get(`https://api.openweathermap.org/data/2.5/weather?lat=${latitude}&lon=${longitude}&appid=${process.env.REACT_APP_WEATHER_MAP_KEY}&units=metric`)
-        .then(res => {
-          setUserLocation({
-            country: res.data.sys.country,
-            place: res.data.name,
-            temperature: res.data.main.temp + " degree celcius",
-            weather: res.data.weather[0].description,
-            time_status: timeStatus
-          })
-        })
-    }
-  }, [longitude, latitude]);
+  // useEffect(() => {
+  //   if (latitude !== "" && longitude !== "") {
+  //     // fetch the location using axios
+  //     axios.get(`https://api.openweathermap.org/data/2.5/weather?lat=${latitude}&lon=${longitude}&appid=${process.env.REACT_APP_WEATHER_MAP_KEY}&units=metric`)
+  //       .then(res => {
+  //         setUserLocation({
+  //           country: res.data.sys.country,
+  //           place: res.data.name,
+  //           temperature: res.data.main.temp + " degree celcius",
+  //           weather: res.data.weather[0].description,
+  //           time_status: timeStatus
+  //         })
+  //       })
+  //   }
+  // }, [longitude, latitude]);
 
   return (
     <div className="App">
@@ -75,6 +77,8 @@ function App() {
         <Route path="/" element={<Homepage />} />
         <Route path="Feature" element={<Feature />} />
         <Route path="Pricing" element={<Pricing />} />
+        <Route path="About" element={<About />} />
+        <Route path="Career" element={<Career />} />
       </Routes>
       <Footer />
     </div>

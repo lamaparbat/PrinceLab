@@ -1,0 +1,81 @@
+.front {
+   height: 100vh;
+   width: 100%;
+   overflow: hidden;
+}
+
+.front h1 {
+   margin-top: -80px;
+   font-size: 80px;
+}
+
+.front h1 #s {
+   top: 90px;
+   margin-right: 10px;
+   font-size: 250px;
+   color: red;
+   font-weight: bold;
+   position: relative;
+}
+
+.front h1 #tay {
+   top: -60px;
+   left: 65px;
+   position: relative;
+}
+
+.front #btn {
+   left: 50px;
+   font-size: 20px;
+   border: 2px solid rgb(150, 150, 150);
+   border-style: dotted;
+   border-radius: 40px;
+   position: relative;
+   background-color: white;
+}
+
+.front #btn .printf {
+   color: rgb(255, 70, 70);
+}
+
+.front #front_img {
+   width: 800px;
+}
+
+
+/* responsive */
+@media (max-width:1100px) {
+   .front {
+      height: 100%;
+   }
+
+   .front #front_img {
+      width: 100%;
+   }
+
+   .front #btn {
+      top: 0px;
+      position: static;
+   }
+}
+
+@media (max-width:716px) {
+   .front h1 {
+     margin-top: 10px;
+     font-size: 40px;
+   }
+
+   .front h1 #s {
+      font-size: 150px;
+   }
+
+   .front h1 #tay {
+      top: -20px;
+      left: 23px;
+   }
+
+   .front #btn {
+      margin-bottom: 10px;
+      margin-left: 0;
+   }
+}
