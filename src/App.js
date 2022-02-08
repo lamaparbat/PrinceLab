@@ -46,12 +46,12 @@ function App() {
 
   // tract the user geolocation
   //tract the current user location 
-  navigator.geolocation.getCurrentPosition(position => {
-    const timestamp = new Date(position.timestamp);
-    convertTimeFormat(timestamp);
-    setLongitude(position.coords.longitude);
-    setLatitude(position.coords.latitude);
-  });
+  // navigator.geolocation.getCurrentPosition(position => {
+  //   const timestamp = new Date(position.timestamp);
+  //   convertTimeFormat(timestamp);
+  //   setLongitude(position.coords.longitude);
+  //   setLatitude(position.coords.latitude);
+  // });
 
   // track the state changes
   // useEffect(() => {

@@ -30,11 +30,12 @@
  background-color: rgb(8, 25, 43);
 }
 
-.cardRow #cardRow_card4{
-  margin-top: 100px;
-} 
+.cardRow #cardRow_card4 {
+ margin-top: 100px;
+}
+
 .cardRow #cardRow_card4 .sub_title, .cardRow #cardRow_card4 .card_features span .dot, .cardRow #cardRow_card4 .apply {
- background-color:rgb(206, 136, 7);
+ background-color: rgb(206, 136, 7);
 }
 
 .cardRow_card button {
@@ -43,21 +44,25 @@
  color: white;
 }
 
-.cardRow_card .card_features span {
- margin-top: 10px;
- display: flex;
+.cardRow button:hover{
+  color: white;
 }
 
-.dot {
- margin-top: 4px;
- margin-right: 10px;
- height: 12px;
- width: 12px;
- background-color: rgb(7, 190, 68);
- border-radius: 10px;
-}
+ .cardRow_card .card_features span {
+  margin-top: 10px;
+  display: flex;
+ }
 
-.cardRow_card .apply {
- font-size: 16px;
- width: 250px;
-}
+ .dot {
+  margin-top: 4px;
+  margin-right: 10px;
+  height: 12px;
+  width: 12px;
+  background-color: rgb(7, 190, 68);
+  border-radius: 10px;
+ }
+
+ .cardRow_card .apply {
+  font-size: 16px;
+  width: 250px;
+ }

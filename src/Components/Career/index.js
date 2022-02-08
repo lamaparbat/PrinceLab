@@ -10,8 +10,8 @@ function index() {
     <div className='container-fluid text-center p-0 career'>
       <Front />
       <Beta />
-      <Journey />
-      <CardRow />
+      <Journey /><br/><br/>
+      <CardRow /><br /><br />
     </div>
   );
 }
