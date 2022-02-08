@@ -1,0 +1,205 @@
+.journey {
+ height: fit-content;
+}
+
+.journey_row {
+ height: 100%;
+ display: flex;
+}
+
+.journey .leftBar {
+ margin-top: 50px;
+ width: 40%;
+ height: 200px;
+ background-color: red;
+ border-top-right-radius: 100px;
+ border-bottom-right-radius: 100px;
+}
+
+.journey .content {
+ height: fit-content;
+ width: fit-content;
+}
+
+.journey .content h1 {
+ font-size: 300px;
+ font-weight: bold;
+ color: rgb(255, 72, 0);
+}
+
+.journey .content #on {
+ margin-left: 100px !important;
+}
+
+.journey .content #step {
+ margin-top: -100px;
+ margin-left: -300px !important;
+}
+
+.journey .rightBar {
+ margin-left: auto;
+ padding-top: 10px;
+ padding-bottom: 10px;
+ padding-left: 200px;
+ width: 70%;
+ height: fit-content;
+ text-align: start;
+ background-color: rgb(255, 81, 0);
+ border-top-left-radius: 170px;
+ border-bottom-left-radius: 170px;
+}
+
+.journey .rightBar h1 {
+ font-size: 100px;
+ font-weight: bold;
+}
+
+.journey .rightBar #journey {
+ margin-top: -50px;
+ margin-left: 190px;
+ color: white;
+}
+
+.journey #journey_step_img {
+ margin-top: -1150px;
+ height: 100%;
+}
+
+@media (max-width:1100px) {
+ .journey .leftBar {
+  display: none;
+ }
+
+ .journey .rightBar {
+  width: 80%;
+ }
+
+ .journey .journey_row {
+  justify-content: center;
+ }
+
+ .journey .journey_row .content {
+  flex-direction: row !important;
+ }
+
+ .journey .content h1 {
+  font-size: 150px;
+ }
+
+ .journey .content #on {
+  margin-left: 0px !important;
+ }
+
+ .journey .content #step {
+  margin-top: 0px;
+  margin-left: 50px !important;
+ }
+
+ .journey #journey_step_img {
+display: none;
+ }
+}
+
+@media (max-width:1100px) {
+ .journey .rightBar {
+  padding-left: 100px;
+  width: 90%;
+ }
+}
+
+@media (max-width:1100px) {
+ .journey .rightBar {
+  width: 90%;
+ }
+}
+
+@media (max-width:830px) {
+ .journey .rightBar {
+  padding-left: 100px;
+ }
+}
+
+@media (max-width:775px) {
+ .journey .rightBar {
+  width: 95%;
+ }
+}
+
+@media (max-width:700px) {
+ .journey .rightBar {
+  padding-left: 60px;
+  width: 70%;
+ }
+
+ .journey .rightBar h1 {
+  font-size: 60px;
+ }
+
+ .journey .rightBar #journey {
+  margin-top: -50px;
+  margin-left: 110px;
+  color: white;
+ }
+
+}
+
+@media (max-width:690px) {
+ .journey .leftBar {
+  display: none;
+ }
+
+ .journey .content h1 {
+  font-size: 100px;
+ }
+
+ .journey .rightBar h1 {
+  font-size: 50px;
+ }
+}
+
+@media (max-width:574px) {
+ .journey .content h1 {
+  font-size: 70px;
+ }
+
+ .journey .rightBar {
+  width: 90%;
+ }
+
+ .journey .rightBar h1 {
+  font-size: 50px;
+ }
+}
+
+@media (max-width:500px) {
+ .journey .content #step {
+  margin-left: 20px !important;
+ }
+
+ .journey .content h1 {
+  font-size: 50px;
+ }
+
+ .journey .rightBar {
+  width: 90%;
+ }
+
+ .journey .rightBar h1 {
+  font-size: 40px;
+ }
+
+ .journey .rightBar #journey {
+  margin-top: -30px;
+  margin-left: 80px;
+  color: white;
+ }
+}
+
+@media (max-width:500px) {
+ .journey .rightBar {
+  width: 98%;
+  padding-left: 30px;
+  border-top-left-radius: 20px;
+  border-bottom-left-radius: 20px;
+ }
+}

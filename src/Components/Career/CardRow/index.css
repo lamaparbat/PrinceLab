@@ -1,0 +1,29 @@
+.cardRow_card {
+ padding: 25px;
+ width: fit-content;
+ display: flex;
+ flex-direction: column;
+ justify-content: center;
+ align-items: center;
+ background-color: red;
+ border-radius: 20px;
+}
+
+.cardRow_card button{
+  font-size: 12px;
+  background-color: rgb(8, 187, 8);
+  color: white;
+}
+.cardRow_card .card_features span {
+ margin-top: 10px;
+ display: flex;
+}
+
+.dot {
+ margin-top: 4px;
+ margin-right: 10px;
+ height: 12px;
+ width: 12px;
+ background-color: rgb(72, 253, 133);
+ border-radius: 10px;
+}

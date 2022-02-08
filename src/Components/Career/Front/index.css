@@ -65,14 +65,19 @@
       font-size: 30px;
    }
 
+   .front h1 {
+      margin-top: -50px;
+      font-size: 60px;
+   }
+
    .front h1 #s {
-      top: 10px;
-      font-size: 100px;
+      top: 40px;
+      font-size: 150px;
    }
 
    .front h1 #tay {
-      left: 30px;
-      top: -80px;
+      left: 40px;
+      top: -40px;
    }
 
    .front #btn {
@@ -84,6 +89,54 @@
       padding-right: 15px !important;
       font-size: 16px;
       position: relative;
+   }
+
+}
+
+@media (max-width:480px) {
+   .front h1 {
+      margin-top: 0px;
+      font-size: 30px;
+   }
+
+   .front h1 {
+      margin-top: -20px;
+      font-size: 40px;
+   }
+
+   .front h1 #s {
+      top: 40px;
+      font-size: 130px;
+   }
+
+   .front h1 #tay {
+      left: 37px;
+      top: -30px;
+   }
+
+   .front #btn {
+      top: -10px;
+   }
+}
+
+@media (max-width:355px) {
+   .front h1 {
+      font-size: 30px !important;
+   }
+
+   .front h1 {
+      margin-top: -20px;
+      font-size: 40px;
+   }
+
+   .front h1 #s {
+      top: 30px;
+      font-size: 100px;
+   }
+
+   .front h1 #tay {
+      left: 29px;
+      top: -25px;
    }
 
 }

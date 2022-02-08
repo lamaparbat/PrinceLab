@@ -1,12 +1,12 @@
 .beta {
- padding-top: 80px;
- padding-bottom: 80px;
+ padding-top: 120px;
+ padding-bottom: 120px;
  height: fit-content;
  overflow: hidden;
  border: 0px white;
  background: rgb(2, 0, 36);
  background: rgb(2, 0, 36);
- background: linear-gradient(180deg, rgba(2, 0, 36, 1) 0%, rgba(255, 89, 132, 1) 0%, rgb(177, 45, 80) 41%, rgb(3, 61, 131) 100%);
+ background-image: linear-gradient(#8C2641, #3E3B8C);
 }
 
 .beta #title {
@@ -73,10 +73,11 @@
 }
 
 @media (max-width:310px) {
-.beta{
- padding-top: 50px;
- padding-bottom: 40px;
-}
+ .beta {
+  padding-top: 50px;
+  padding-bottom: 40px;
+ }
+
  .beta #title {
   font-size: 43px;
  }
