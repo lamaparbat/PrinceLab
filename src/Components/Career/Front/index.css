@@ -59,23 +59,31 @@
    }
 }
 
-@media (max-width:716px) {
+@media (max-width:700px) {
    .front h1 {
-     margin-top: 10px;
-     font-size: 40px;
+      margin-top: 0px;
+      font-size: 30px;
    }
 
    .front h1 #s {
-      font-size: 150px;
+      top: 10px;
+      font-size: 100px;
    }
 
    .front h1 #tay {
-      top: -20px;
-      left: 23px;
+      left: 30px;
+      top: -80px;
    }
 
    .front #btn {
-      margin-bottom: 10px;
-      margin-left: 0;
+      top: -30px;
+      left: 0;
+      padding-top: 5px !important;
+      padding-bottom: 5px !important;
+      padding-left: 15px !important;
+      padding-right: 15px !important;
+      font-size: 16px;
+      position: relative;
    }
+
 }

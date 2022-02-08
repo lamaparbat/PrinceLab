@@ -5,9 +5,9 @@ import Beta from '../Career/Beta/index.js';
 
 function index() {
  return (
-  <div className='container-fluid text-center career'>
+  <div className='container-fluid text-center p-0 career'>
      <Front />
-     {/* <Beta /> */}
+     <Beta />
   </div>
 );
 }
