@@ -8,11 +8,7 @@ function index() {
   const span3 = ["Fluent in Python, Linux, Git and familiarity with C / C++", "Knows things about building hardware, RF, and PCB design", "Good design sense", "Game development experience a plus", "Ability to deliver on a quality experience"];
   const span4 = ["Fluent in Swift and Xcode", "Good design sense","Ability to deliver on a quality experience"]
   
-  
-  // draw a connecting line
-  
-  
-  
+
   //custom dot component
   const Dot = () => {
     return (
@@ -42,6 +38,9 @@ function index() {
   }
 
   return <div className='container cardRow py-5'>
+    <img
+      id='wire'
+      src={process.env.PUBLIC_URL + "/assets/wire.png"} />
     <div className='cardRow1'>
       <Card
         title="Software Engineer (Qt/UI)"
