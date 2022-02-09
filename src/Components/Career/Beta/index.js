@@ -2,7 +2,7 @@ import React from 'react';
 import '../Beta/index.css';
 
 function index() {
- return <div className='container-fluid bg-danger beta'>
+ return <div className='container-fluid beta'>
   <h1 id='title'>Paradox beta</h1>
   <h5 id='sub_title'>version release</h5>
   <div className='counter_div'>

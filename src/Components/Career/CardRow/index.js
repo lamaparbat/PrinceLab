@@ -23,7 +23,7 @@ function index() {
   // custom card
   const Card = (props) => {
     return (
-      <div className='cardRow_card' id={props.id}>
+      <div className='cardRow_card mb-5' id={props.id}>
         <h3 className='my-3'>{props.title}</h3>
         <button className='btn sub_title px-2 py-1'>{props.btn1}</button>
         <h5 className='mt-3 text-secondary'>{props.sub_title}</h5>

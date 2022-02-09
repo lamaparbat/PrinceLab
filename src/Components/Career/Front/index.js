@@ -1,7 +1,13 @@
 import React from 'react';
 import '../Front/index.css';
+import $ from 'jquery';
 
 function index() {
+  if (true) {
+    $(".front #front_img").attr("src", process.env.PUBLIC_URL + "/assets/create.jpg")
+  }
+
+  
   return (
     <div className='front'>
     <h1>

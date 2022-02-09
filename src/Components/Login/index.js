@@ -43,7 +43,7 @@ function index() {
             </div>
             <a href='#'>Forget password ?</a>
           </div>
-            <button className='btn login_btn py-2 w-100'>SIGN-IN</button>
+            <button className='btn login_btn w-100'>SIGN-IN</button>
           {/* form footer */}
           <div className='form_footer py-3'>
             <span className='text-secondary'>New to the website ?</span>
