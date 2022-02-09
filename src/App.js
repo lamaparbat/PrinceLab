@@ -9,6 +9,7 @@ import Feature from '../src/Components/Feature/index';
 import Pricing from '../src/Components/Pricing/index';
 import About from '../src/Components/About/index';
 import Career from '../src/Components/Career/index';
+import Login from '../src/Components/Login/index';
 import axios from 'axios';
 
 function App() {
@@ -79,6 +80,7 @@ function App() {
         <Route path="Pricing" element={<Pricing />} />
         <Route path="About" element={<About />} />
         <Route path="Career" element={<Career />} />
+        <Route path="Login" element={<Login />} />
       </Routes>
       <Footer />
     </div>

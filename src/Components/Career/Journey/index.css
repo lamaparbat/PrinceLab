@@ -3,6 +3,7 @@
 }
 
 .journey_row {
+ padding-top: 10px;
  height: 100%;
  display: flex;
 }
@@ -29,11 +30,13 @@
 
 .journey .content #on {
  margin-left: 100px !important;
+ background-color: unset !important;
 }
 
 .journey .content #step {
  margin-top: -100px;
  margin-left: -300px !important;
+ background-color: unset !important;
 }
 
 .journey .rightBar {
@@ -44,7 +47,7 @@
  width: 70%;
  height: fit-content;
  text-align: start;
- background-color: rgb(255, 81, 0);
+ background-color: rgb(255, 81, 0) !important;
  border-top-left-radius: 170px;
  border-bottom-left-radius: 170px;
 }
@@ -52,6 +55,7 @@
 .journey .rightBar h1 {
  font-size: 100px;
  font-weight: bold;
+ background-color: unset !important;
 }
 
 .journey .rightBar #journey {
@@ -61,7 +65,7 @@
 }
 
 .journey #journey_step_img {
- margin-top: -1150px;
+ margin-top: -1170px;
  height: 100%;
 }
 
@@ -96,7 +100,7 @@
  }
 
  .journey #journey_step_img {
-display: none;
+  display: none;
  }
 }
 

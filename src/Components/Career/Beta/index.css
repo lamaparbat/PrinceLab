@@ -13,11 +13,13 @@
  color: white;
  font-size: 80px;
  margin-top: -10px;
+ background-color: unset !important;
 }
 
 .beta #sub_title {
  color: white;
  margin-top: -10px;
+ background-color: unset !important;
 }
 
 .beta .counter_div {
@@ -25,6 +27,7 @@
  display: flex;
  justify-content: center;
  align-items: center;
+ background-color: unset !important;
 }
 
 .beta .counter_div .count1, .beta .counter_div .count2, .beta .counter_div .count3 {
@@ -72,12 +75,14 @@
  }
 }
 
-@media (max-width:310px) {
+@media (max-width:350px) {
  .beta {
   padding-top: 50px;
   padding-bottom: 40px;
  }
+}
 
+@media (max-width:310px) {
  .beta #title {
   font-size: 43px;
  }

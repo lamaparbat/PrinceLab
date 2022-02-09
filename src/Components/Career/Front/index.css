@@ -13,15 +13,17 @@
    top: 90px;
    margin-right: 10px;
    font-size: 250px;
-   color: red;
+   color: red !important;
    font-weight: bold;
    position: relative;
+   background-color: unset !important;
 }
 
 .front h1 #tay {
    top: -60px;
    left: 65px;
    position: relative;
+   background-color: unset !important;
 }
 
 .front #btn {
@@ -35,7 +37,7 @@
 }
 
 .front #btn .printf {
-   color: rgb(255, 70, 70);
+   color: rgb(255, 70, 70) !important;
 }
 
 .front #front_img {

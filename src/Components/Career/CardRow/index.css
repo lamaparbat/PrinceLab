@@ -23,11 +23,11 @@
 }
 
 .cardRow #cardRow_card2 .sub_title, .cardRow #cardRow_card2 .card_features span .dot, .cardRow #cardRow_card2 .apply {
- background-color: rgb(255, 94, 0);
+ background-color: rgb(255, 94, 0) !important;
 }
 
 .cardRow #cardRow_card3 .sub_title, .cardRow #cardRow_card3 .card_features span .dot, .cardRow #cardRow_card3 .apply {
- background-color: rgb(8, 25, 43);
+ background-color: rgb(5, 40, 78) !important;
 }
 
 .cardRow #cardRow_card4 {
@@ -35,12 +35,12 @@
 }
 
 .cardRow #cardRow_card4 .sub_title, .cardRow #cardRow_card4 .card_features span .dot, .cardRow #cardRow_card4 .apply {
- background-color: rgb(206, 136, 7);
+ background-color: rgb(206, 136, 7) !important;
 }
 
 .cardRow_card button {
  font-size: 12px;
- background-color: rgb(7, 190, 68);
+ background-color: rgb(7, 190, 68) !important;
  color: white;
 }
 
@@ -58,7 +58,7 @@
  margin-right: 10px;
  height: 12px;
  width: 12px;
- background-color: rgb(7, 190, 68);
+ background-color: rgb(7, 190, 68) !important;
  border-radius: 10px;
 }
 
