@@ -45,7 +45,7 @@ function index() {
  
  
  return (
-  <div className='container-fluid login py-3'>
+  <div className='container-fluid login'>
    <div className='box'>
     <img 
      id='login_img'

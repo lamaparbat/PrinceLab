@@ -1,4 +1,8 @@
 .login {
+ height: 100vh;
+ display: flex;
+ flex-direction: column;
+ justify-content: center;
  background-color: rgb(242, 237, 233);
 }
 
@@ -118,7 +122,7 @@
  justify-content: center;
  align-items: center;
  border-radius: 50px;
- background-color: white;
+ background-color: white !important;
  border: none;
  box-shadow: 1px 0px 5px 2px rgba(181, 181, 181, 0.47);
  -webkit-box-shadow: 1px 0px 5px 2px rgba(181, 181, 181, 0.47);
@@ -152,4 +156,22 @@
  .login .box .content {
   width: 100%;
  }
+}
+
+@media (max-width:438px) {
+ .login .box .content {
+  padding: 0px !important;
+ }
+
+}
+
+@media (max-width:338px) {
+ .login .box .content .form_footer {
+  flex-direction: column;
+ }
+
+ .login .box .content .save_info {
+  flex-direction: column;
+ }
+
 }
