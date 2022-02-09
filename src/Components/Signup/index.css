@@ -1,10 +1,11 @@
-.footer{
-  display: none;
+.footer {
+ display: none;
 }
+
 .login {
  height: 100vh;
  display: flex;
- flex-direction: column;
+ flex-direction: column-reverse;
  justify-content: center;
  background-color: rgb(242, 237, 233);
 }
@@ -12,8 +13,14 @@
 .login .box {
  height: 600px;
  display: flex;
+ flex-direction: row-reverse;
  justify-content: center;
  align-content: center;
+}
+
+.login .box .content .title {
+ font-size: 50px;
+ color: red !important;
 }
 
 .login .box #login_img {
@@ -25,13 +32,6 @@
  display: flex;
  flex-direction: column;
  justify-content: center;
-}
-
-.login .box .content .title {
- font-size: 100vh;
- margin-left: 5px;
- color: rgb(20, 168, 248) !important;
- ;
 }
 
 .login .box .content div {
@@ -94,7 +94,7 @@
 
 .login .box .content a {
  text-decoration: none;
- color: rgb(58, 153, 153) !important;
+ color: red !important;
 }
 
 .login .box .content .divider {
@@ -142,7 +142,7 @@
  height: 45px;
  margin-top: 10px;
  margin-bottom: 10px;
- background-color: rgb(20, 168, 248) !important;
+ background-color: red !important;
  color: white !important;
 }
 
@@ -269,7 +269,7 @@ input:checked+.slider:before {
 
 @media (max-width:438px) {
  .login {
-  height: fit-content;
+  height: 100vh;
  }
 
  .login .box .content {

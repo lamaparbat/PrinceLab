@@ -10,7 +10,7 @@ import Pricing from '../src/Components/Pricing/index';
 import About from '../src/Components/About/index';
 import Career from '../src/Components/Career/index';
 import Login from '../src/Components/Login/index';
-import axios from 'axios';
+import Signup from '../src/Components/Signup/index';
 
 function App() {
   // current user location data
@@ -81,6 +81,7 @@ function App() {
         <Route path="About" element={<About />} />
         <Route path="Career" element={<Career />} />
         <Route path="Login" element={<Login />} />
+        <Route path="Signup" element={<Signup />} />
       </Routes>
       <Footer />
     </div>

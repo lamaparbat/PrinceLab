@@ -1,6 +1,5 @@
 import React from 'react';
 import '../CardRow/index.css';
-import $ from 'jquery';
 
 function index() {
   const span1 = ["QT5 or similar SDK experience", "C++ coding skills", "Good design sense", "Game development experience a plus", "Ability to deliver on a quality experience"];
