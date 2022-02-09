@@ -1,11 +1,18 @@
 import React from 'react';
 import '../CardRow/index.css';
+import $ from 'jquery';
 
 function index() {
   const span1 = ["QT5 or similar SDK experience", "C++ coding skills", "Good design sense", "Game development experience a plus", "Ability to deliver on a quality experience"];
   const span2 = ["Fluent in Python / C / C++", "Experience with computer vision", "Experience with training models", "Knows things like SLAM, rotation matrices", "PyTorch, softmax, and ground truthing"];
   const span3 = ["Fluent in Python, Linux, Git and familiarity with C / C++", "Knows things about building hardware, RF, and PCB design", "Good design sense", "Game development experience a plus", "Ability to deliver on a quality experience"];
   const span4 = ["Fluent in Swift and Xcode", "Good design sense","Ability to deliver on a quality experience"]
+  
+  
+  // draw a connecting line
+  
+  
+  
   //custom dot component
   const Dot = () => {
     return (
