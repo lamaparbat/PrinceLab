@@ -25,15 +25,16 @@ p, a {
   background-color: white !important;
   color: black !important;
 }
+
 .AboutEnvironment .AboutEnvironment_rows img {
-  background:white;
+  background: white;
 }
 
 .premium_row .body {
   background: rgba(31, 11, 11, 0.5) !important;
 }
 
-.premium_row .body :is(div,h4, span) {
+.premium_row .body :is(div, h4, span) {
   background-color: unset !important;
 }
 
@@ -63,12 +64,14 @@ li:hover {
   border: unset !important;
 }
 
-
+.slider {
+  background-color: #21a3ff !important;
+}
 
 
 /* custom css */
 body {
-  background-color: #FBFBFD;
+  background-color: #8f8f8f;
 }
 
 
