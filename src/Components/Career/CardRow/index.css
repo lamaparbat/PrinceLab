@@ -84,7 +84,7 @@
 
 @media (max-width:1200px) {
  .cardRow #wire {
- display: none;
+  display: none;
  }
 }
 
@@ -110,6 +110,10 @@
  .cardRow1 {
   flex-direction: column;
   align-items: center;
+ }
+
+ .cardRow #cardRow_card4 {
+  margin-top: 10px;
  }
 
  .cardRow_card {

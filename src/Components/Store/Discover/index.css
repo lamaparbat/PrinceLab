@@ -1,0 +1,105 @@
+.discover h2 {
+ margin-left: 20px;
+ margin-bottom: 50px;
+}
+
+.discover .discover_apps {
+ display: flex;
+ justify-content: center;
+}
+
+.discover .discover_apps .discover_apps_card {
+ margin-left: 80px;
+ margin-right: 80px;
+ display: flex;
+}
+
+.discover .discover_apps {
+ padding: 10px;
+}
+
+.discover_apps_card #icons {
+ height: 90px;
+ padding: 10px;
+ border-radius: 10px;
+ box-shadow: 1px 0px 5px 2px rgba(181, 181, 181, 0.47);
+ -webkit-box-shadow: 1px 0px 5px 2px rgba(181, 181, 181, 0.47);
+ -moz-box-shadow: 1px 0px 5px 2px rgba(181, 181, 181, 0.47);
+}
+
+#discover_title {
+ margin-left: 100px;
+}
+
+.discover_apps_card_content {
+ margin-top: 10px;
+ padding-left: 20px;
+}
+
+.discover_apps_card_content p {
+ color: rgb(70, 70, 70);
+ margin-top: -10px;
+}
+
+.discover_apps_card_content button {
+ margin-top: -65px;
+}
+
+
+/* responsive */
+@media (max-width:1400px) {
+ .discover .discover_apps {
+  padding: 0 !important;
+ }
+
+ #discover_title {
+  margin-left: 0px;
+ }
+}
+
+@media (max-width:1000px) {
+ .discover .discover_apps .discover_apps_card {
+  margin-left: 0px;
+  margin-right: 0px;
+ }
+
+ .discover .discover_apps {
+  justify-content: space-around;
+ }
+}
+
+
+@media (max-width:855px) {
+ .discover_apps_card #icons {
+  height: 90px;
+  width: 90px;
+ }
+
+ .discover .discover_apps .discover_apps_card {
+  flex-direction: column;
+ }
+
+ .discover_apps_card_content {
+  margin-top: 10px;
+  padding-left: 5px;
+ }
+}
+
+@media (max-width:475px) {
+ .discover_apps_card #icons {
+  height: 70px;
+  width: 70px;
+ }
+
+ .discover_apps_card_content p {
+  margin-top: -5px;
+  font-size: 12px;
+  line-height: 10px;
+ }
+
+ .discover_apps_card_content button {
+  padding-left: 10px !important;
+  padding-right: 10px !important;
+  font-size: 12px;
+ }
+}
