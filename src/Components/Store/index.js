@@ -3,6 +3,7 @@ import '../Store/index.css';
 import TopNav from '../Store/TopNav/index';
 import StoreIntro from '../Store/StoreIntro/index';
 import Discover from '../Store/Discover/index';
+import Explore from '../Store/Explore/index';
 
 function index() {
   return (
@@ -10,7 +11,7 @@ function index() {
     <TopNav />
     <StoreIntro />
     <Discover />
-    {/* <Explore /> */}
+    <Explore />
     {/* <Creativity /> */}
     {/* <OneStep /> */}
     {/* <Help /> */}

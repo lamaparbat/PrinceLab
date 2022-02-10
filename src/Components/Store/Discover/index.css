@@ -70,13 +70,15 @@
 
 
 @media (max-width:855px) {
+ .discover .discover_apps .discover_apps_card {
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+ }
+
  .discover_apps_card #icons {
   height: 90px;
   width: 90px;
- }
-
- .discover .discover_apps .discover_apps_card {
-  flex-direction: column;
  }
 
  .discover_apps_card_content {
@@ -101,5 +103,11 @@
   padding-left: 10px !important;
   padding-right: 10px !important;
   font-size: 12px;
+ }
+}
+
+@media(max-width:344px) {
+ .discover_apps_card_content h5{
+  font-size: 14px;
  }
 }
