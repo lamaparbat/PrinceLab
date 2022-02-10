@@ -1,48 +1,46 @@
 import React from 'react';
 import '../Explore/index.css';
 
-function index() {
- // explore textual content component
- const Content = ({src,title, desc,id}) => {
-  return (
-   <div className='explore_box1_content py-2 px-3'>
-    <div className='d-flex '>
-     <img
-      id={id}
-      className='mt-3'
-      src={src}
-     />
-     <div className='pt-2 px-2'>
-      <h5>{title}</h5>
-      <span>{desc}</span>
+function index({ bg_src1, bg_src2,heading, src1, title1, desc1, id1, src2, title2, desc2, id2 }) {
+ return (
+  <div className='container explore px-21'>
+   <h2 className='pb-3 px-2'>{heading}</h2>
+   <div className='explore_row'>
+    <div className='explore_box1' style={{ background: `url(${bg_src1})` }}>
+     <div className='explore_box1_content py-2 px-3'>
+      <div className='d-flex '>
+       <img
+        id={id1}
+        className='mt-3'
+        src={src1}
+       />
+       <div className='pt-2 px-2'>
+        <h5>{title1}</h5>
+        <span>{desc1}</span>
+       </div>
+      </div>
+      {
+       id1 === "img1" ? <button className='btn btn-primary py-1 px-3'>Download</button> : null
+      }
      </div>
     </div>
-    {
-     id === "img1" ? <button className='btn btn-primary py-1 px-3'>Download</button>:null
-    }
-   </div>
-  )
- }
-
- return (
-  <div className='container explore'>
-   <h2 className='pb-3 px-2'>Explore the world</h2>
-   <div className='explore_row'>
-    <div className='explore_box1'>
-     <Content
-      src={process.env.PUBLIC_URL+"/assets/earth.png"}
-      title="Google Earth"
-      desc="Explore the world"
-      id="img1"
-     />
-    </div>
-    <div className='explore_box2'>
-     <Content
-      src={process.env.PUBLIC_URL + "/assets/plane.png"}
-      title="World Tour"
-      desc="Visit any country and make you life better"
-      id="img2"
-     />
+    <div className='explore_box2' style={{ background: `url(${bg_src2})`, }}>
+     <div className='explore_box1_content py-2 px-3'>
+      <div className='d-flex '>
+       <img
+        id={id2}
+        className='mt-3'
+        src={src2}
+       />
+       <div className='pt-2 px-2'>
+        <h5>{title2}</h5>
+        <span>{desc2}</span>
+       </div>
+      </div>
+      {
+       id2 === "img1" ? <button className='btn btn-primary py-1 px-3'>Download</button> : null
+      }
+     </div>
     </div>
    </div>
   </div>

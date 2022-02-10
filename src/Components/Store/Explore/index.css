@@ -16,7 +16,6 @@
  display: flex;
  justify-content: center;
  align-items: flex-end;
- background-image: url("/public/assets/map.png");
  background-repeat: no-repeat;
  background-size: 100% 100%;
  overflow: hidden;
@@ -36,6 +35,10 @@
  backdrop-filter: blur(5px) !important;
  border-radius: 10px;
  position: relative;
+}
+
+.explore_box1_content div {
+ background: unset !important;
 }
 
 .explore_box1_content #img1 {
@@ -71,7 +74,6 @@
  display: flex;
  justify-content: center;
  align-items: flex-end;
- background-image: url("/public/assets/tour.png");
  background-repeat: no-repeat;
  background-size: 100% 100%;
  overflow: hidden;
@@ -85,7 +87,6 @@
  .explore_box1 {
   height: 400px;
   width: 100%;
-  background-image: url("/public/assets/map.png");
   background-repeat: no-repeat;
   background-size: 100% 100%;
  }
@@ -96,13 +97,7 @@
  }
 }
 
-@media (max-width:1400px) {
- .explore {
-  max-width: 100% !important;
- }
-}
-
-@media (max-width:1400px) {
+@media (max-width:1000px) {
  .explore {
   max-width: 100% !important;
  }
