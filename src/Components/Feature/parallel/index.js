@@ -12,7 +12,7 @@ function index() {
       src={process.env.PUBLIC_URL + "/assets/parallel2.png"}
       loading='lazy' />
      <div className='content'>
-      <h3>Parallel Computing</h3>
+      <h1>Parallel Computing</h1>
       <center><button className='px-3 py-1'>Data Flow</button></center>
      </div>
      <img
