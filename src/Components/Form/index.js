@@ -61,12 +61,20 @@ function Index({ type }) {
   return (
     <div className='container-fluid form'>
       <div className='box'>
-        <img
-          id='form_img'
-          src={process.env.PUBLIC_URL + "/assets/signin.png"} alt="" />
+        {
+          form_type != "signup" ? <img
+            id='form_img'
+            src={process.env.PUBLIC_URL + "/assets/signin.png"} alt="" /> :
+            <img
+              id='form_img'
+              src={process.env.PUBLIC_URL + "/assets/soil.png"} alt="" />
+        }
         <div className='content px-5 pt-3'>
-          <h1 className='title fw-bold'>Sign in</h1><br />
-
+          {
+            form_type != "signup" ? <h1 className='title fw-bold'>Sign in</h1> :
+              <h1 className='title fw-bold'>Sign Up</h1>
+          }
+          <br />
           {/* username or email feild */}
           <div className='username_inp px-3'>
             <AccountCircleIcon id="icon" />

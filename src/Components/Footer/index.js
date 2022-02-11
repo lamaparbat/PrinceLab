@@ -1,9 +1,13 @@
 import React from 'react';
+import { useLocation } from 'react-router-dom';
+import $ from 'jquery';
 import '../Footer/index.css';
 
-function index() {
+function Index() {
+ // hide the footer when form comp rendered
+ const cur_route = useLocation().pathname;
  return (
-  <div className='container-fluid bg- footer'>
+  <div className={'container-fluid footer d-' + (cur_route != "/Login" && cur_route != "/Signup" ? "flex":"none")} >
    <div className='footer_row'>
     <div className='service_col'>
      <h5><b>Services</b><hr className='separator w-50'/></h5>
@@ -38,4 +42,4 @@ function index() {
  )
 }
 
-export default index
+export default Index

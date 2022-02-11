@@ -73,13 +73,6 @@ function App() {
   //   }
   // }, [longitude, latitude]);
 
-
-  // hide the footer when form comp rendered
-  const cur_route = useLocation().pathname;
-  cur_route === "/Login" || cur_route === "/Signup" ?
-    $(".footer").css("display", "none") :
-    $(".footer").css("display", "flex")
-
   return (
     <div className="App">
       <Navbar />
