@@ -5,7 +5,6 @@ import VpnKeyIcon from '@mui/icons-material/VpnKey';
 import VisibilityOffIcon from '@mui/icons-material/VisibilityOff';
 import AppleIcon from '@mui/icons-material/Apple';
 import MailOutlineRoundedIcon from '@mui/icons-material/MailOutlineRounded';
-import $ from 'jquery';
 
 function Index({ type }) {
   // store the form_type state
@@ -15,9 +14,6 @@ function Index({ type }) {
   useEffect(() => {
     setForm_type(type);
   }, [])
-  
-  // hide the footer on form mode
-  $(".footer").css("display","none")
   
   // custom toggle btn
   const ToggleBtn = () => {
@@ -35,7 +31,7 @@ function Index({ type }) {
       <div className='save_info'>
         <div className='save_pw'>
           <ToggleBtn />
-          <span className='mx-3'>Remember Password</span>
+          <span id='remem_span' className='mx-3'>Remember Password</span>
         </div>
         <a href='#'>Forget password ?</a>
       </div>

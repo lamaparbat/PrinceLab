@@ -4,6 +4,7 @@ import Front from '../Career/Front/index.js';
 import Beta from '../Career/Beta/index.js';
 import Journey from '../Career/Journey/index.js';
 import CardRow from '../Career/CardRow/index.js';
+import $ from 'jquery';
 
 function index() {
   return (

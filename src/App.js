@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
-import { Routes, Route } from 'react-router-dom';
+import { Routes, Route, useLocation } from 'react-router-dom';
 import './App.css';
+import $ from 'jquery';
 import 'bootstrap/dist/css/bootstrap.css';
 import Homepage from './Components/Hompage/index';
 import Navbar from '../src/Components/Navbar/index';
@@ -47,7 +48,7 @@ function App() {
   }
 
   // tract the user geolocation
-  //tract the current user location 
+  //tract the current user location
   // navigator.geolocation.getCurrentPosition(position => {
   //   const timestamp = new Date(position.timestamp);
   //   convertTimeFormat(timestamp);
@@ -71,6 +72,13 @@ function App() {
   //       })
   //   }
   // }, [longitude, latitude]);
+
+
+  // hide the footer when form comp rendered
+  const cur_route = useLocation().pathname;
+  cur_route === "/Login" || cur_route === "/Signup" ?
+    $(".footer").css("display", "none") :
+    $(".footer").css("display", "flex")
 
   return (
     <div className="App">
