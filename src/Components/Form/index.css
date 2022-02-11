@@ -26,7 +26,7 @@
 
 .form .box .content .title {
  margin-left: 5px;
- color: rgb(20, 168, 248) !important;
+ color: rgb(20, 168, 248);
  ;
 }
 
@@ -38,7 +38,7 @@
  display: flex;
  align-items: center;
  border-radius: 25px;
- background-color: white !important;
+ background-color: white;
  border: 1px solid rgb(224, 224, 224);
  overflow: hidden;
 }
@@ -115,7 +115,6 @@
 .form .box .content a {
  text-decoration: none;
  background-color: unset !important;
- color: rgb(58, 153, 153) !important;
 }
 
 .form .box .content .divider {
@@ -161,7 +160,6 @@
  height: 45px;
  margin-top: 10px;
  margin-bottom: 10px;
- background-color: rgb(20, 168, 248) !important;
  color: white !important;
 }
 

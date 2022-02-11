@@ -1,33 +1,38 @@
 .beta {
- padding-top: 120px;
- padding-bottom: 120px;
+ padding-top: 60px;
+ padding-bottom: 60px;
  height: fit-content;
  overflow: hidden;
+ display: flex;
+ flex-direction: column;
+ justify-content: center;
+ align-items: center;
  border: 0px white;
  background: rgb(2, 0, 36);
  background: rgb(2, 0, 36);
- background-image: linear-gradient(#8C2641, #3E3B8C);
+ background-image: linear-gradient(#FF6464, #A900FA);
 }
 
 .beta #title {
  color: white;
- font-size: 80px;
- margin-top: -10px;
  background-color: unset !important;
 }
 
 .beta #sub_title {
  color: white;
- margin-top: -10px;
  background-color: unset !important;
 }
 
 .beta .counter_div {
  padding: 40px;
+ width: fit-content;
+ height: fit-content;
  display: flex;
  justify-content: center;
  align-items: center;
- background-color: unset !important;
+ backdrop-filter: blur(5px);
+ background-color: rgb(17, 17, 17,0.3);
+ border-radius: 10px;
 }
 
 .beta .counter_div .count1, .beta .counter_div .count2, .beta .counter_div .count3 {

@@ -43,7 +43,9 @@ function Index({ type }) {
     return (
       <div className='agree_terms'>
           <input type="checkbox" className="checkbox" />
-          <span className='mx-3 text-secondary'>Agree Terms and Condtion</span>
+        <span className='mx-3 text-secondary'>I read & agree to
+          <span className='text-danger'> Terms and Condtion</span>
+        </span>
       </div>
    )
   }
@@ -60,7 +62,7 @@ function Index({ type }) {
 
   return (
     <div className='container-fluid form'>
-      <div className='box'>
+      <div className={'box d-flex flex-' + (form_type === "signup" ? "row-reverse":"row")}>
         {
           form_type != "signup" ? <img
             id='form_img'
@@ -71,8 +73,8 @@ function Index({ type }) {
         }
         <div className='content px-5 pt-3'>
           {
-            form_type != "signup" ? <h1 className='title fw-bold'>Sign in</h1> :
-              <h1 className='title fw-bold'>Sign Up</h1>
+            form_type != "signup" ? <h1 className='title fw-bold text-primary'>Sign in</h1> :
+              <h1 className='title fw-bold text-danger'>Sign Up</h1>
           }
           <br />
           {/* username or email feild */}
@@ -128,10 +130,10 @@ function Index({ type }) {
           {/* login or signup btn clicked */}
           {
             form_type != "signup" ?
-              <button className='btn form_btn w-100' onClick={login}>
+              <button className='btn form_btn w-100 btn-primary' onClick={login}>
                 SIGN-IN
               </button> :
-              <button className='btn form_btn w-100' onClick={signup}>
+              <button className='btn form_btn w-100 btn-danger' onClick={signup}>
                 SIGN-UP
               </button>
           }
@@ -145,7 +147,7 @@ function Index({ type }) {
               </div> :
               <div className='form_footer py-3'>
                 <span className='text-secondary'>Already have an account ?</span>
-                <a href="#" >Log in</a>
+                <a href="#" className='text-danger' >Log in</a>
               </div>
           }
 

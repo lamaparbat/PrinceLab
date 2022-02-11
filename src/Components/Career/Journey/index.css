@@ -40,16 +40,13 @@
 }
 
 .journey .rightBar {
+ top: 100px;
  margin-left: auto;
- padding-top: 10px;
- padding-bottom: 10px;
  padding-left: 200px;
  width: 70%;
  height: fit-content;
  text-align: start;
- background-color: rgb(255, 81, 0) !important;
- border-top-left-radius: 170px;
- border-bottom-left-radius: 170px;
+ position: relative;
 }
 
 .journey .rightBar h1 {
@@ -61,7 +58,6 @@
 .journey .rightBar #journey {
  margin-top: -50px;
  margin-left: 190px;
- color: white;
 }
 
 .journey #journey_step_img {
@@ -143,7 +139,6 @@
  .journey .rightBar #journey {
   margin-top: -50px;
   margin-left: 110px;
-  color: white;
  }
 
 }
@@ -196,7 +191,6 @@
  .journey .rightBar #journey {
   margin-top: -30px;
   margin-left: 80px;
-  color: white;
  }
 }
 

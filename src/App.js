@@ -1,7 +1,6 @@
-import React, { useEffect, useState } from 'react';
-import { Routes, Route, useLocation } from 'react-router-dom';
+import React, { useState } from 'react';
+import { Routes, Route } from 'react-router-dom';
 import './App.css';
-import $ from 'jquery';
 import 'bootstrap/dist/css/bootstrap.css';
 import Homepage from './Components/Hompage/index';
 import Navbar from '../src/Components/Navbar/index';
