@@ -5,6 +5,7 @@ import VpnKeyIcon from '@mui/icons-material/VpnKey';
 import VisibilityOffIcon from '@mui/icons-material/VisibilityOff';
 import AppleIcon from '@mui/icons-material/Apple';
 import MailOutlineRoundedIcon from '@mui/icons-material/MailOutlineRounded';
+import $ from 'jquery';
 
 function Index({ type }) {
   // store the form_type state
@@ -14,6 +15,9 @@ function Index({ type }) {
   useEffect(() => {
     setForm_type(type);
   }, [])
+  
+  // hide the footer on form mode
+  $(".footer").css("display","none")
   
   // custom toggle btn
   const ToggleBtn = () => {
