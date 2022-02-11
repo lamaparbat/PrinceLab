@@ -1,4 +1,4 @@
-.login {
+.form {
  height: 100vh;
  display: flex;
  flex-direction: column;
@@ -6,31 +6,31 @@
  background-color: rgb(242, 237, 233);
 }
 
-.login .box {
+.form .box {
  height: 600px;
  display: flex;
  justify-content: center;
  align-content: center;
 }
 
-.login .box #login_img {
+.form .box #form_img {
  width: 50%;
 }
 
-.login .box .content {
+.form .box .content {
  width: 45%;
  display: flex;
  flex-direction: column;
  justify-content: center;
 }
 
-.login .box .content .title {
+.form .box .content .title {
  margin-left: 5px;
  color: rgb(20, 168, 248) !important;
  ;
 }
 
-.login .box .content div {
+.form .box .content .username_inp, .password_inp {
  padding-left: 10px;
  margin-bottom: 20px;
  width: 100%;
@@ -38,92 +38,108 @@
  display: flex;
  align-items: center;
  border-radius: 25px;
+ background-color: white !important;
  border: 1px solid rgb(224, 224, 224);
  overflow: hidden;
 }
 
-.login .box .content div #icon {
+.form .box .content div #icon {
  margin-right: 10px;
  font-size: 25px !important;
  color: rgb(110, 110, 110) !important;
  cursor: pointer;
 }
 
-.login .box .content div #icon:hover {
+.form .box .content div #icon:hover {
  color: black;
 }
 
-.login .box .content div input {
- padding: 8px;
+.form .box .content div input {
  width: 100%;
  border: none;
  outline-style: none;
+ font-size: 14px;
 }
 
-.login .box .content .save_info {
+.form .box .content .save_info {
+ margin-bottom: 20px;
  display: flex;
  justify-content: space-between;
  align-items: center;
  border: none;
+ background-color: unset !important;
 }
 
-.login .box .content .save_info .save_pw {
+.agree_terms {
+ padding: 5px;
+ display: flex;
+ justify-content: unset !important;
+ align-items: center;
+}
+.agree_terms .checkbox {
+   width:20px !important;
+}
+
+.form .box .content .save_info .save_pw {
  padding-left: 0px;
  margin: 0 !important;
  width: fit-content;
+ background-color: unset !important;
  border: 0px solid white !important;
 }
 
-.login .box .content .save_info .save_pw span {
+.form .box .content .save_info .save_pw span {
  color: rgb(126, 126, 126) !important;
 }
 
-.login .box .content .save_info #icon {
+.form .box .content .save_info #icon {
  font-size: 40px;
 }
 
-.login .box .content .form_footer {
+.form .box .content .form_footer {
+ padding-top: 0 !important;
+ margin-bottom: 10px;
  display: flex;
  justify-content: space-evenly;
+ background-color: unset !important;
  border: none;
 }
 
-.login .box .content a {
+.form .box .content a {
  text-decoration: none;
+ background-color: unset !important;
  color: rgb(58, 153, 153) !important;
 }
 
-.login .box .content .divider {
+.form .box .content .divider {
  height: 1px !important;
  width: 100%;
  background-color: rgb(148, 148, 148) !important;
  border: none;
 }
 
-.login .box .content #or {
+.form .box .content #or {
  padding: 5px;
- top: -39px;
+ top: -17px;
  left: 45%;
  width: fit-content;
  position: relative;
  background-color: rgb(242, 237, 233);
 }
 
-#icon_title {
- margin-top: -30px;
-}
-
-.login .box .content .icons {
+.form .box .content .icons {
  border: 0px solid white;
  width: 100%;
  display: flex;
  justify-content: center;
  align-items: center;
+ background-color: unset !important;
 }
 
-.login .box .content .icons img {
+.form .box .content .icons img {
  margin-left: 15px;
  margin-right: 15px;
+ margin-bottom: -20px;
  height: 50px;
  width: 50px;
  border-radius: 50px;
@@ -134,7 +150,7 @@
  transition: 0.5s ease-in-out;
 }
 
-.login .box .content .login_btn {
+.form .box .content .form_btn {
  height: 45px;
  margin-top: 10px;
  margin-bottom: 10px;
@@ -142,7 +158,7 @@
  color: white !important;
 }
 
-.login .box .content .icons #google, .login .box .content .icons #apple {
+.form .box .content .icons #google, .form .box .content .icons #apple {
  padding: 6px !important;
  margin-top: 20px;
  margin-left: 15px;
@@ -169,14 +185,14 @@
 }
 
 
-.login .box .content .icons #google img, .login .box .content .icons #apple img {
+.form .box .content .icons #google img, .form .box .content .icons #apple img {
  margin: 0;
  height: 35px;
  width: 35px;
  box-shadow: none;
 }
 
-.login .box .content .icons #google:hover, .login .box .content .icons #apple:hover, .login .box .content .icons img:hover {
+.form .box .content .icons #google:hover, .form .box .content .icons #apple:hover, .form .box .content .icons img:hover {
  transform: scale(1.08);
 }
 
@@ -245,41 +261,55 @@ input:checked+.slider:before {
 
 /* responsive */
 @media (max-width:1000px) {
- .login .box .title {
+ .form {
+  padding-top: 30px;
+  padding-bottom: 30px;
+  height: fit-content;
+ }
+
+ .form .box .title {
   text-align: center;
  }
 
- .login .box {
+ .form .box {
   flex-direction: column;
   align-items: center;
  }
 
- .login .box #login_img {
+ .form .box #form_img {
   display: none;
  }
 
- .login .box .content {
+ .form .box .content {
   width: 100%;
+ }
+
+ .form .box .content .username_inp, .password_inp {
+  height: fit-content;
+ }
+
+ .form .box .content div input {
+  padding: 8px !important;
  }
 }
 
 @media (max-width:438px) {
- .login {
+ .form {
   height: fit-content;
  }
 
- .login .box .content {
+ .form .box .content {
   padding: 0px !important;
  }
 
 }
 
 @media (max-width:338px) {
- .login .box .content .form_footer {
+ .form .box .content .form_footer {
   flex-direction: column;
  }
 
- .login .box .content .save_info {
+ .form .box .content .save_info {
   flex-direction: column;
  }
 

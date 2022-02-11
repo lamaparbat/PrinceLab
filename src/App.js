@@ -10,6 +10,7 @@ import Pricing from '../src/Components/Pricing/index';
 import About from '../src/Components/About/index';
 import Career from '../src/Components/Career/index';
 import Login from '../src/Components/Login/index';
+import Signup from '../src/Components/Signup/index';
 import Store from '../src/Components/Store/index';
 
 function App() {
@@ -81,6 +82,7 @@ function App() {
         <Route path="About" element={<About />} />
         <Route path="Career" element={<Career />} />
         <Route path="Login" element={<Login />} />
+        <Route path="Signup" element={<Signup />} />
         <Route path="Store" element={<Store />} />
       </Routes>
       <Footer />
