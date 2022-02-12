@@ -94,7 +94,18 @@ function Index() {
         desc2="Visit the next habitat of humankind with rover"
         id2="img2"
       />
-      <Help />
+      <Help
+        title="Some help"
+        sub_title="Here are some quick guides to get you started"
+        img1={process.env.PUBLIC_URL + "/assets/help_img.png"}
+        img2={process.env.PUBLIC_URL + "/assets/store_help_block_img.png"}
+        card_title="Learn how to use block on your project"
+        para=" With a powerful Apple‑designed H1 chip in each cup, our custom acoustic design, and advanced software,
+       AirPods Max use computational audio to create a breakthrough listening experience. By tapping into each
+       chip’s 10 audio cores, computational audio helps block outside noise, adapts audio to the fit and seal of
+       your ear cushions, and makes movie scenes sound like they’re happening all around you. With a powerful
+       Apple‑designed H1 chip in each cup, our custom acoustic design, and"
+      />
     </div>
   )
 }

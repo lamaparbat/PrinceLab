@@ -12,6 +12,7 @@ import Career from '../src/Components/Career/index';
 import Login from '../src/Components/Login/index';
 import Signup from '../src/Components/Signup/index';
 import Store from '../src/Components/Store/index';
+import AiStore from '../src/Components/AiStore/index';
 
 function App() {
   // current user location data
@@ -84,6 +85,7 @@ function App() {
         <Route path="Login" element={<Login />} />
         <Route path="Signup" element={<Signup />} />
         <Route path="Store" element={<Store />} />
+        <Route path="AiStore" element={<AiStore />} />
       </Routes>
       <Footer />
     </div>
