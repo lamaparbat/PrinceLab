@@ -6,7 +6,7 @@ function index({ bg_src1, bg_src2,heading, src1, title1, desc1, id1, src2, title
   <div className='container explore px-21'>
    <h2 className='pb-3 px-2'>{heading}</h2>
    <div className='explore_row'>
-    <div className='explore_box1' style={{ background: `url(${bg_src1})` }}>
+    <div className='explore_box1' style={{ background: `url(${bg_src1})`, backgroundSize:"100% 100%" }}>
      <div className='explore_box1_content py-2 px-3'>
       <div className='d-flex '>
        <img
@@ -24,7 +24,7 @@ function index({ bg_src1, bg_src2,heading, src1, title1, desc1, id1, src2, title
       }
      </div>
     </div>
-    <div className='explore_box2' style={{ background: `url(${bg_src2})`, }}>
+    <div className='explore_box2' style={{ background: `url(${bg_src2})`, backgroundSize: "100% 100%" }}>
      <div className='explore_box1_content py-2 px-3'>
       <div className='d-flex '>
        <img
