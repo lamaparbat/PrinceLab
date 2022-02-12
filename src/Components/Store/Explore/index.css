@@ -3,6 +3,7 @@
 }
 
 .explore_row {
+ padding-bottom: 10px;
  width: 100%;
  display: flex;
  justify-content: center;
@@ -17,7 +18,7 @@
  justify-content: center;
  align-items: flex-end;
  background-repeat: no-repeat;
- background-size: 100% 100%;
+ background-size:100% 100%;
  overflow: hidden;
 }
 

@@ -4,6 +4,7 @@ import TopNav from '../Store/TopNav/index';
 import StoreIntro from '../Store/StoreIntro/index';
 import Collection from '../Store/Collection/index';
 import Explore from '../Store/Explore/index';
+import Help from '../Store/Help/index';
 
 function Index() {
   //discover comp data
@@ -93,9 +94,7 @@ function Index() {
         desc2="Visit the next habitat of humankind with rover"
         id2="img2"
       />
-      {/* <Creativity /> */}
-      {/* <OneStep /> */}
-      {/* <Help /> */}
+      <Help />
     </div>
   )
 }
