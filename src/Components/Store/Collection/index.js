@@ -24,7 +24,12 @@ function index({title, data}) {
       <div className='container'>
         {
           title === "Learn a better way" ?
-            <span className='text-primary fw-bold' id='discover_title'>Education</span> :
+            <span className='text-primary fw-bold' id='discover_title' style={{ top: "5px", position: "relative" }}>Education</span> :
+            null
+        }
+        {
+          title === "Top web extensions" ?
+            <span className='text-primary fw-bold' id='discover_title' style={{top:"5px", position:"relative"}}>Web development</span> :
             null
         }
         <h2 className='my-3 text-star' id='discover_title'>{title}</h2>

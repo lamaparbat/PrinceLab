@@ -22,7 +22,7 @@ function Index() {
   }
   
   return (
-   <div className='container-fluid store_nav bg-secondary'>
+   <div className='container store_nav bg-secondary'>
       <span
         className={"bg-" + (route === "/Store" ? "dark" : null)}
         onClick={() => redirect("store")}

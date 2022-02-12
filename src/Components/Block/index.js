@@ -62,7 +62,7 @@ function index() {
                 <img
                     src={process.env.PUBLIC_URL + "/assets/block_img1.png"} />
                 <img
-                    src={process.env.PUBLIC_URL + "/assets/block_img2.png"} />
+                    src={process.env.PUBLIC_URL + "/assets/extension_img1.png"} />
             </div>
             <div className='tensorflow_cont'>
                 <img
