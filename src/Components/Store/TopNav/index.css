@@ -2,7 +2,6 @@
  padding: 0;
  display: flex;
  justify-content: space-between;
- background-color: rgb(80, 80, 80);
 }
 
 .store_nav span {
@@ -14,18 +13,13 @@
  cursor: pointer;
 }
 
-.store_nav span:nth-child(1) {
- background-color: black !important;
+.store_nav span:hover{
+  background-color: black;
 }
 
-.store_nav span:hover {
- background-color: black !important;
-}
-
-
-/* responsive */
-@media (max-width:350px) {
- .store_nav span {
-  font-size: 12px;
+ /* responsive */
+ @media (max-width:350px) {
+  .store_nav span {
+   font-size: 12px;
+  }
  }
-}

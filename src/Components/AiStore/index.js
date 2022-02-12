@@ -3,6 +3,7 @@ import '../AiStore/index.css';
 import Help from '../Store/Help/index';
 import Collection from '../Store/Collection/index';
 import Explore from '../Store/Explore/index';
+import TopNav from '../Store/TopNav/index';
 
 function index() {
  //discover comp data
@@ -56,6 +57,7 @@ function index() {
  
  return (
   <div className='container aistore'>
+   <TopNav /><br/>
    <div className='aistore_banner'>
     <div className='aistore_banner_content'>
      <h2>Join the movement</h2>
