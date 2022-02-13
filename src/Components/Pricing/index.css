@@ -1,11 +1,39 @@
 .pricing {
+  padding-bottom: 50px;
+  height:fit-content;
+}
+.pricing .pricing_card_rows{
  padding-top: 60px;
  padding-bottom: 30px;
  display: flex;
 }
+.pricing_navigation{
+ height:fit-content;
+ display: flex;
+ justify-content:center;
+}
+.pricing_navigation .pricing_nav{
+ height:fit-content;
+ display: flex;
+}
+.pricing_navigation .pricing_nav p{
+ height:fit-content;
+ width:300px;
+ padding:10px;
+ display: flex;
+ align-items: center;
+ justify-content:center;
+ border:1px solid black;
+ cursor: pointer;
+ transition: 0.5s ease-in-out;
+}
+.pricing_navigation .pricing_nav p:hover{
+  background-color:black;
+  color: white;
+}
 
 @media (max-width:1100px) {
- .pricing {
+ .pricing .pricing_card_rows{
   flex-direction: column;
  }
 }
