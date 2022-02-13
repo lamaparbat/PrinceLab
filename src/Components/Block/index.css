@@ -29,6 +29,10 @@
  position: absolute;
 }
 
+.tensorflow_cont_title h3{
+ background-color: unset !important;
+}
+
 @media(max-width:1400px) {
  .tensorflow_cont #tensorflow_img {
   height: 100%;
