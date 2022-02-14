@@ -16,6 +16,7 @@ import AiStore from '../src/Components/AiStore/index';
 import Block from './Components/Block/index';
 import Extension from './Components/Extension/index';
 import Policy from './Components/Policy/Index';
+import Terms from './Components/Terms/Index';
 
 function App() {
   // current user location data
@@ -92,6 +93,7 @@ function App() {
         <Route path="Block" element={<Block />} />
         <Route path="Extension" element={<Extension />} />
         <Route path="Policy" element={<Policy />} />
+        <Route path="Terms" element={<Terms />} />
       </Routes>
       <Footer />
     </div>
