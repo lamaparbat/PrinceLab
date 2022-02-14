@@ -1,7 +1,8 @@
 import React, {useState} from 'react';
+import $ from 'jquery';
 import Card from '../Pricing/Card/index.js';
 import '../Pricing/index.css';
-import $ from 'jquery';
+import ShowMore from '../Pricing/ShowMore/Index';
 
 function Index() {
     const [isMobile, setWidth] = useState(false);
@@ -17,58 +18,55 @@ function Index() {
 
     //pricing nav component
     const Pricing_Nav = () => {
-        return (
-            <div
-                className={
-                    "pricing_nav d-" +
-                    (isMobile ? "block " : "flex")
-                }
-            >
-                <p>Show More</p>
-                <p>Free</p>
-                <p>Professional</p>
-            </div>)
+        return (<div
+            className={"pricing_nav d-" + (isMobile ? "block " : "flex")}
+        >
+            <p>Show More</p>
+            <p>Free</p>
+            <p>Professional</p>
+        </div>)
     }
 
     //show nav on btn click
 
-    return (<div className='container pricing'>
-        <div className="pricing_card_rows">
-            <Card
-                bg="warning"
-                top_btn="Community"
-                price="$0"
-                title="Free for both individual and teams "
-                list={list1}
-                bottom_btn="Start for free"
-            />
-            <Card
-                bg="primary"
-                top_btn="Professional"
-                price="$10"
-                title="Available for both individual and teams "
-                list={list2}
-                bottom_btn="Purchase"
-            />
+    return (
+        <div className='container pricing'>
+            <div className="pricing_card_rows">
+                <Card
+                    bg="warning"
+                    top_btn="Community"
+                    price="$0"
+                    title="Free for both individual and teams "
+                    list={list1}
+                    bottom_btn="Start for free"
+                />
+                <Card
+                    bg="primary"
+                    top_btn="Professional"
+                    price="$10"
+                    title="Available for both individual and teams "
+                    list={list2}
+                    bottom_btn="Purchase"
+                />
 
-            <Card
-                bg="dark"
-                top_btn="Business"
-                price="$10"
-                title="For organizations and companies"
-                list={list2}
-                bottom_btn="Purchase"
-            />
-        </div>
-        <center><h3 className="py-3">Compare plans</h3></center>
-        <div
-            className={
-                "pricing_navigation d-"
-            }>
-            <Pricing_Nav/>
-        </div>
+                <Card
+                    bg="dark"
+                    top_btn="Business"
+                    price="$10"
+                    title="For organizations and companies"
+                    list={list2}
+                    bottom_btn="Purchase"
+                />
+            </div>
+            <center><h3 className="py-3">Compare plans</h3></center>
+            <div
+                className={"pricing_navigation d-"}>
+                <Pricing_Nav/>
+            </div><br/><br/>
 
-    </div>)
+            <ShowMore />
+
+        </div>)
 }
 
 export default Index
