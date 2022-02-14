@@ -37,6 +37,7 @@ function Index() {
      <a onClick={ () => redirect("Career")}>Career</a>
      <a onClick={ () => redirect("About")}>About Us</a>
      <a onClick={ () => redirect("Policy")}>Private Policy</a>
+     <a onClick={ () => redirect("Terms")}>Terms & Condition</a>
     </div>
     <div className='follow_col'>
      <h5><b>Follow Us</b><hr className='separator w-25' /></h5>
