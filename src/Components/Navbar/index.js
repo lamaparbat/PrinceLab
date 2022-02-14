@@ -61,7 +61,7 @@ function Index() {
         <li className='link  text-decoration-none'><Link className='text-decoration-none' to="/Feature">Feature</Link></li>
         <li className='link  text-decoration-none'><Link className='text-decoration-none' to="/Download">Download</Link></li>
         <li className='link  text-decoration-none'><Link className='text-decoration-none' to="/Pricing">Pricing</Link></li>
-        <li className='link  text-decoration-none'><Link className='text-decoration-none' to="/About">About</Link></li>
+        <li className='link  text-decoration-none'><Link className='text-decoration-none' to="/Store">Store</Link></li>
         <li className='link  text-decoration-none'>
             <Avatar
                 id="avatar"
@@ -83,7 +83,7 @@ function Index() {
           <li className='link  text-decoration-none'><Link className='text-decoration-none' to="/Feature">Feature</Link></li>
           <li className='link  text-decoration-none'><Link className='text-decoration-none' to="/Download">Download</Link></li>
           <li className='link  text-decoration-none'><Link className='text-decoration-none' to="/Pricing">Pricing</Link></li>
-          <li className='link  text-decoration-none'><Link className='text-decoration-none' to="/About">About</Link></li>
+          <li className='link  text-decoration-none'><Link className='text-decoration-none' to="/Store">Store</Link></li>
           <li className='link  text-decoration-none'>
             <Avatar
                 id="avatar"
