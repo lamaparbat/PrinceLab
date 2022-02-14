@@ -8,33 +8,33 @@ function Index({title, items}) {
         <div className="show_more_list">
             <h4>{title}</h4>
 
-                {
-                    items.map((list, index) => {
-                        return(
-                            <div className="show_more_list_div">
-                                <span>{list.c1}</span>
-                                <span>
+            {
+                items.map((list, index) => {
+                    return (
+                        <div className="show_more_list_div" key={index}>
+                            <span>{list.c1}</span>
+                            <span>
                                     {
-                                        (title === "Pricing")?
-                                        list.c2 :
-                                        (list.c2 === true) ?
-                                          <DoneIcon className="p-1 text-success" /> :
-                                            <CloseIcon className="p-1" />
+                                        (title === "Pricing") ?
+                                            list.c2 :
+                                            (list.c2 === true) ?
+                                                <DoneIcon className="p-1 text-success"/> :
+                                                <CloseIcon className="p-1"/>
                                     }
                                 </span>
-                                <span>
+                            <span>
                                     {
-                                        (title === "Pricing")?
+                                        (title === "Pricing") ?
                                             list.c3 :
                                             (list.c3 === true) ?
-                                                <DoneIcon className="p-1 text-success" /> :
-                                                <CloseIcon className="p-1" />
+                                                <DoneIcon className="p-1 text-success"/> :
+                                                <CloseIcon className="p-1"/>
                                     }
                                 </span>
-                            </div>
-                        )
-                    })
-                }
+                        </div>
+                    )
+                })
+            }
 
         </div>
     )

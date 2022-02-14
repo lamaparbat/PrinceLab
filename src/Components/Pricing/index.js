@@ -6,6 +6,7 @@ import ShowMore from '../Pricing/ShowMore/Index';
 
 function Index() {
     const [isMobile, setWidth] = useState(false);
+    const [curItem, setCurrentNavClickedItem] = useState();
 
     const list1 = ["Support for python", "Programming", "Able to make AI mode", "New update"];
     const list2 = ["Support For Python3 Programming", "Able to make flutter app", "AI model integration", "Application development", "Technical support", "New updates"];
@@ -18,19 +19,34 @@ function Index() {
 
     //pricing nav component
     const Pricing_Nav = () => {
-        return (<div
-            className={"pricing_nav d-" + (isMobile ? "block " : "flex")}
-        >
-            <p>Show More</p>
-            <p>Free</p>
-            <p>Professional</p>
+        //on nav item clicked
+        const navClick = (item) => {
+            setCurrentNavClickedItem(item);
+        }
+
+        return (<div className={"pricing_nav d-" + (isMobile ? "block " : "flex")}>
+            <p
+                onClick={() => navClick("item1")}
+                className={"bg-" + (curItem === "item1" ? "dark text-white" : "unset")}
+            >
+                {(curItem === "item1" ? "Show Less" : "Show More")}
+            </p>
+            <p
+                className={"bg-" + (curItem === "item2" ? "dark text-white" : "unset")}
+                onClick={() => navClick("item2")}
+
+            >Free</p>
+            <p
+                className={"bg-" + (curItem === "item3" ? "dark text-white" : "unset")}
+                onClick={() => navClick("item3")}
+            >Professional</p>
         </div>)
     }
 
     //show nav on btn click
 
     return (
-        <div className='container pricing'>
+        <div className={'container pricing'}>
             <div className="pricing_card_rows">
                 <Card
                     bg="warning"
@@ -60,11 +76,14 @@ function Index() {
             </div>
             <center><h3 className="py-3">Compare plans</h3></center>
             <div
-                className={"pricing_navigation d-"}>
+                className={"pricing_navigation"}>
                 <Pricing_Nav/>
-            </div><br/><br/>
+            </div>
+            <br/><br/>
 
-            <ShowMore />
+            {
+                (curItem === "item1") ? <ShowMore /> : null
+            }
 
         </div>)
 }
