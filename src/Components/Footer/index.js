@@ -1,11 +1,21 @@
 import React from 'react';
-import { useLocation } from 'react-router-dom';
+import { useLocation, useNavigate } from 'react-router-dom';
 import $ from 'jquery';
 import '../Footer/index.css';
 
 function Index() {
  // hide the footer when form comp rendered
  const cur_route = useLocation().pathname;
+
+ // create instance to push new route
+ const navigate = useNavigate()
+
+ //render component of link clicked
+ const redirect = (route) => {
+  navigate(`/${route}`);
+ }
+
+
  return (
   <div className={'container-fluid footer d-' + (cur_route != "/Login" && cur_route != "/Signup" ? "flex":"none")} >
    <div className='footer_row'>
@@ -24,9 +34,9 @@ function Index() {
     </div>
     <div className='company_col'>
      <h5><b>Company</b><hr className='separator w-50' /></h5>
-     <a href='#'>Career</a>
-     <a href='#'>About Us</a>
-     <a href='#'>Private Policy</a>
+     <a onClick={ () => redirect("Career")}>Career</a>
+     <a onClick={ () => redirect("About")}>About Us</a>
+     <a onClick={ () => redirect("Policy")}>Private Policy</a>
     </div>
     <div className='follow_col'>
      <h5><b>Follow Us</b><hr className='separator w-25' /></h5>
