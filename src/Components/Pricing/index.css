@@ -36,4 +36,30 @@
  .pricing .pricing_card_rows{
   flex-direction: column;
  }
+ .pricing_navigation .pricing_nav p{
+  padding:5px;
+  width:200px;
+ }
+}
+
+@media (max-width:620px) {
+ .pricing_navigation .pricing_nav p{
+  width:150px;
+ }
+}
+@media (max-width:460px) {
+ .pricing_navigation .pricing_nav p{
+  width:100px;
+ }
+}
+
+@media (max-width:365px) {
+ .pricing .pricing_card_rows .business{
+  margin-left: 0 !important;
+  margin-right: 0 !important;
+ }
+ .pricing .pricing_card_rows .business .business_content {
+  padding-left: 10px !important;
+  padding-right: 10px !important;
+ }
 }
