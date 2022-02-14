@@ -1,0 +1,22 @@
+.policy{
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    justify-content: center;
+}
+.policy .content{
+    border-top: 1px solid #bbbbbb;
+}
+.policy p{
+    width:900px;
+    text-align: justify;
+}
+
+
+/*responsive*/
+@media(max-width:1000px){
+    .policy p{
+        width:100%;
+    }
+
+}
