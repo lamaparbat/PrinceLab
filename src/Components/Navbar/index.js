@@ -1,6 +1,6 @@
 import {useEffect, useState} from 'react';
 import {Link} from 'react-router-dom';
-import {useDispatch} from "react-redux";
+import { useDispatch} from "react-redux";
 import {darkTheme, lightTheme} from "../../Redux/Actions";
 import $ from 'jquery';
 import '../Navbar/index.css';
@@ -9,7 +9,7 @@ import Avatar from '@mui/material/Avatar';
 import CancelIcon from '@mui/icons-material/Cancel';
 
 function Index() {
-    //create instance of redux dispatch
+    //create instance of redux dispatch & useselectore
     const dispatch = useDispatch();
 
     //update profile nav visibility
@@ -44,10 +44,10 @@ function Index() {
     const openSettingNav = () => {
         console.log(isSettingNavVisible)
         console.log(isNavVisible)
-        if(isSettingNavVisible === false){
+        if (isSettingNavVisible === false) {
             setSettingNavVisible(true);
             setNavVisible(false);
-        }else{
+        } else {
             setSettingNavVisible(false);
             setNavVisible(true);
         }
@@ -57,11 +57,11 @@ function Index() {
     const ProfileNav = () => {
         //change theme
         const changeTheme = () => {
-            if(localStorage.getItem("theme") === "light"){
+            if (localStorage.getItem("theme") === "light") {
                 localStorage.setItem("theme", "dark");
                 dispatch(darkTheme());
                 setTheme("dark");
-            }else{
+            } else {
                 localStorage.setItem("theme", "light");
                 dispatch(lightTheme());
                 setTheme("light");
@@ -70,7 +70,7 @@ function Index() {
 
         return (
             <div className={"profile_nav d-" + (isNavVisible ? "block" : "none")}>
-                <CancelIcon id="cancleIcon" onClick={ showProfileNav} />
+                <CancelIcon id="cancleIcon" onClick={showProfileNav}/>
                 <div className="pic">
                     <img src={process.env.PUBLIC_URL + "/assets/agriculture2.png"}/>
                     <p className="mt-2">prince@gmail.com</p>
@@ -80,16 +80,16 @@ function Index() {
                         <img
                             src={localStorage.getItem("theme") === "light" ?
                                 process.env.PUBLIC_URL + "/assets/theme.png" :
-                            process.env.PUBLIC_URL + "/assets/theme1.png"}/>
+                                process.env.PUBLIC_URL + "/assets/theme1.png"}/>
                         <p>Theme</p>
                     </div>
-                    <div className="nav_card"  onClick={openSettingNav}>
+                    <div className="nav_card" onClick={openSettingNav}>
                         <img
                             src={localStorage.getItem("theme") === "light" ?
-                            process.env.PUBLIC_URL + "/assets/profile.png" :
-                            process.env.PUBLIC_URL + "/assets/profile1.png"}/>
+                                process.env.PUBLIC_URL + "/assets/profile.png" :
+                                process.env.PUBLIC_URL + "/assets/profile1.png"}/>
                         <p>Setting</p
-                           >
+                        >
                     </div>
                 </div>
             </div>
@@ -100,11 +100,11 @@ function Index() {
     const SettingNav = () => {
         //change theme
         const changeTheme = () => {
-            if(localStorage.getItem("theme") === "light"){
+            if (localStorage.getItem("theme") === "light") {
                 localStorage.setItem("theme", "dark");
                 dispatch(darkTheme());
                 setTheme("dark");
-            }else{
+            } else {
                 localStorage.setItem("theme", "light");
                 dispatch(lightTheme());
                 setTheme("light");
@@ -119,15 +119,15 @@ function Index() {
         return (
             <div
                 className={"profile_nav d-" + (isSettingNavVisible ? "block" : "none")}
-                style={{marginTop:"-500px"}}
+                style={{marginTop: "-500px"}}
             >
-                <CancelIcon id="cancleIcon" onClick={ cancelSettingNav} />
+                <CancelIcon id="cancleIcon" onClick={cancelSettingNav}/>
                 <div className="pic">
                     <img src={process.env.PUBLIC_URL + "/assets/agriculture2.png"}/>
                     <p className="mt-2">prince@gmail.com</p>
                 </div>
                 <div className="profile_nav_row d-flex flex-column justify-content-center">
-                   <button className="mb-2 py-1">Edit Profile</button>
+                    <button className="mb-2 py-1">Edit Profile</button>
                     <button className="mb-2 py-1">Change Password</button>
                     <button className="mb-2 py-1">Notification</button>
                     <button className="mb-2 py-1">Sign Out</button>
@@ -168,8 +168,8 @@ function Index() {
                     />
                 </li>
                 <ProfileNav/>
-                <SettingNav />
-                <button className='shortcut_btn btn btn-light' onClick={ showNav}>
+                <SettingNav/>
+                <button className='shortcut_btn btn btn-light' onClick={showNav}>
                     <KeyboardArrowUpIcon/>
                 </button>
             </div>
