@@ -32,14 +32,20 @@
 
 .premium_row .body .text-content {
   opacity: 1px !important;
+  background:unset !important;
 }
-
+.premium_row .body .text-content h4 {
+  background:unset !important;
+}
 .premium_row .body .text-content a {
-  border-radius: 5px;
+  border:1px solid white !important;
+  border-radius: 50px !important;
+  background:unset !important;
 }
 
 .premium_row .body .text-content span {
   width: 20%;
+  background:unset !important;
 }
 
 
