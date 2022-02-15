@@ -6,6 +6,7 @@ import $ from 'jquery';
 import '../Navbar/index.css';
 import KeyboardArrowUpIcon from '@mui/icons-material/KeyboardArrowUp';
 import Avatar from '@mui/material/Avatar';
+import CancelIcon from '@mui/icons-material/Cancel';
 
 function Index() {
     //create instance of redux dispatch
@@ -52,6 +53,7 @@ function Index() {
 
         return (
             <div className={"profile_nav d-" + (isNavVisible ? "block" : "none")}>
+                <CancelIcon id="cancleIcon" onClick={ showProfileNav} />
                 <div className="pic">
                     <img src={process.env.PUBLIC_URL + "/assets/agriculture2.png"}/>
                     <p className="mt-2">prince@gmail.com</p>

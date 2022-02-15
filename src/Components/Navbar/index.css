@@ -8,7 +8,6 @@
    justify-content: space-evenly;
    align-items: center;
    border-radius: 10px !important;
-   backdrop-filter: blur(90px);
    background-color: rgba(0, 0, 0, 0.7);
    box-shadow: 0px 0px 5px 0px rgba(197, 197, 197, 0.75);
    -webkit-box-shadow: 0px 0px 5px 0px rgba(180, 180, 180, 0.75);
@@ -32,6 +31,9 @@
    -webkit-box-shadow: 0px 0px 5px 0px rgba(0, 0, 0, 0.75);
    -moz-box-shadow: 0px 0px 5px 0px rgba(0, 0, 0, 0.75);
    border-radius: 40px !important;
+}
+.css-1wlk0hk-MuiAvatar-root {
+   border-radius:50% !important;
 }
 .navbar li:hover {
    color: red;
@@ -96,19 +98,30 @@
 
 .profile_nav{
    padding:20px;
-   margin-top: -340px;
-   right:0;
+   margin-top: -400px;
+   right:20px;
    height:fit-content;
    width:300px;
    border-radius:10px !important;
    background-color: #f6f6f6;
    color: #3d3d3d;
    position:absolute;
+   visibility:visible !important;
    backdrop-filter: blur(100px);
    box-shadow: 1px 0px 5px 2px rgba(181, 181, 181, 0.47);
    -webkit-box-shadow: 1px 0px 5px 2px rgba(181, 181, 181, 0.47);
    -moz-box-shadow: 1px 0px 5px 2px rgba(181, 181, 181, 0.47);
 }
+#cancleIcon{
+   background:unset !important;
+   cursor: pointer;
+   transition:0.3s ease-in-out;
+}
+#cancleIcon:hover{
+  opacity:0.8;
+   transform:rotate(180deg);
+}
+
 .profile_nav .pic{
    display: flex;
    flex-direction: column;

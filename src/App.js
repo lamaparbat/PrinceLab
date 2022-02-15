@@ -20,6 +20,7 @@ import Block from './Components/Block/index';
 import Extension from './Components/Extension/index';
 import Policy from './Components/Policy/Index';
 import Terms from './Components/Terms/Index';
+import QuickGuide from './Components/QuickGuide/Index';
 
 function App() {
     const [theme, setTheme] = useState({mode: ""});
@@ -115,6 +116,7 @@ function App() {
                         <Route path="Extension" element={<Extension/>}/>
                         <Route path="Policy" element={<Policy/>}/>
                         <Route path="Terms" element={<Terms/>}/>
+                        <Route path="QuickGuide" element={<QuickGuide/>}/>
                     </Routes>
                     <Footer/>
                 </div>
