@@ -1,6 +1,7 @@
 import React from 'react';
 import '../Sidebar/Index.css';
 import KeyboardArrowDownIcon from '@mui/icons-material/KeyboardArrowDown';
+import CancelIcon from '@mui/icons-material/Cancel';
 
 //main function
 const Index = () => {
@@ -15,7 +16,10 @@ const Index = () => {
     }
 
     return(
-        <div className="quick_guide_sidebar pt-5">
+        <div className="quick_guide_sidebar pt-2">
+           <div className={"d-flex justify-content-end px-3"}>
+               <CancelIcon />
+           </div><br /><br/>
             <SwitchBar /><br/><br/>
             <ul className="quick_guide_sidebar_list">
                 <li>

@@ -1,6 +1,6 @@
 .business {
  height: fit-content;
- border-radius: 5px;
+ border-radius: 6px !important;
  box-shadow: 0px 1px 5px 1px rgba(201, 201, 201, 0.75);
  -webkit-box-shadow: 0px 1px 5px 1px rgba(201, 201, 201, 0.75);
  -moz-box-shadow: 0px 1px 5px 1px rgba(201, 201, 201, 0.75);
@@ -12,7 +12,7 @@
 .business .btn {
  background-color: rgb(238, 156, 60);
  color: white !important;
- border-radius: 10px;
+ border-radius: 6px !important;
  position: relative;
 }
 
@@ -55,7 +55,7 @@
 
 .business .business_content .feature_list #li #icon {
  padding: 3px;
- border-radius: 50px;
+ border-radius: 50px !important;
  color: white;
  background-color: rgb(238, 156, 60);
 }
