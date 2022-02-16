@@ -2,6 +2,7 @@ import React, {useEffect, useState} from 'react';
 import {useSelector,useDispatch} from "react-redux";
 import {showSidebar, hideSidebar} from "../../../Redux/Actions/index";
 import '../Sidebar/Index.css';
+import 'animate.css';
 import KeyboardArrowDownIcon from '@mui/icons-material/KeyboardArrowDown';
 import CancelIcon from '@mui/icons-material/Cancel';
 
@@ -46,7 +47,7 @@ const Index = () => {
     return (
         <div
             className={
-                "quick_guide_sidebar pt-2 d-"+
+                "quick_guide_sidebar animate__animated animate__slideInLeft pt-2 d-"+
                ( isSidebarVisible ? "block" : "none")
             }
         >

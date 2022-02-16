@@ -1,6 +1,6 @@
-import React from 'react';
+import React, {useEffect} from 'react';
 import '../Body/Index.css';
-import {useSelector,useDispatch} from "react-redux";
+import {useSelector, useDispatch} from "react-redux";
 import {showSidebar, hideSidebar} from "../../../Redux/Actions";
 import MenuOpenIcon from '@mui/icons-material/MenuOpen';
 
@@ -8,17 +8,13 @@ import MenuOpenIcon from '@mui/icons-material/MenuOpen';
 const Index = () => {
     //create the instance of useDispatch & useSelectore
     const dispatch = useDispatch()
-    const sidebarVisibility =  useSelector(state => state.sidebarVisibility)
+    const sidebarVisibility = useSelector(state => state.sidebarVisibility)
 
-    //visible the sidebar
-    const showSidebar = () => {
-        sidebarVisibility != "hide" ?
-            dispatch(hideSidebar()):dispatch(showSidebar())
-    }
-
-    return(
-        <div className="quick_guide_body  w-100">
-            <MenuOpenIcon onClick={showSidebar} />
+    return (
+        <div className="quick_guide_body px-4 py-3 w-100">
+            <MenuOpenIcon
+                className={"btn p-0 animate__animated animate__slideInLeft "+(sidebarVisibility != "hide" ? "d-none":"d-block")}
+                onClick={() => dispatch(showSidebar())}/>
         </div>
     )
 }

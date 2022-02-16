@@ -69,13 +69,50 @@ button:nth-child(2){
     font-size:17px;
     cursor: pointer;
     border-radius:50px !important;
+    transition:0.3s ease-in-out;
 }
 .quick_guide_sidebar_list li:hover{
     background-color: #ffebeb;
+    transform:scaleX(1.03);
 }
 .quick_guide_sidebar_list li:hover  #arrowIcon{
     transition:0.3s ease-in-out;
 }
 .quick_guide_sidebar_list li:hover  #arrowIcon{
     transform: rotate(180deg);
+}
+
+
+
+/*responsive*/
+  @media(max-width:730px){
+      .quick_guide_sidebar{
+        width:800px;
+      }
+      .quick_guide_sidebar .quick_guide_sidebar_list li {
+          padding-left: 10px;
+          padding-right: 10px;
+      }
+  }
+
+@media(max-width:500px){
+    .quick_guide_sidebar{
+        width:1900px;
+    }
+}
+
+@media(max-width:400px){
+    .quick_guide_sidebar .quick_guide_sidebar_switch button {
+        padding-left: 15px;
+        padding-right: 15px;
+        font-size:14px;
+    }
+    .quick_guide_sidebar .quick_guide_sidebar_list li {
+        padding-right: 0px;
+        padding-left: 0px;
+        font-size: 14px;
+    }
+    .css-i4bv87-MuiSvgIcon-root {
+        padding:3px;
+    }
 }
