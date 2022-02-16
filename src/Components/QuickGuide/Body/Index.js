@@ -11,10 +11,13 @@ const Index = () => {
     const sidebarVisibility = useSelector(state => state.sidebarVisibility)
 
     return (
-        <div className="quick_guide_body px-4 py-3 w-100">
-            <MenuOpenIcon
-                className={"btn p-0 animate__animated animate__slideInLeft "+(sidebarVisibility != "hide" ? "d-none":"d-block")}
-                onClick={() => dispatch(showSidebar())}/>
+        <div className="quick_guide_body px-4 py-3 bg-danger w-100">
+           <div className="body_nav">
+               <MenuOpenIcon
+                   className={"btn p-0 animate__animated animate__slideInLeft animate__faster"+(sidebarVisibility != "hide" ? "d-none":"d-block")}
+                   onClick={() => dispatch(showSidebar())}/>
+           </div>
+
         </div>
     )
 }

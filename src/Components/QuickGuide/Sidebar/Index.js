@@ -47,7 +47,7 @@ const Index = () => {
     return (
         <div
             className={
-                "quick_guide_sidebar animate__animated animate__slideInLeft pt-2 d-"+
+                "quick_guide_sidebar animate__animated animate__slideInLeft animate__faster pt-2 d-"+
                ( isSidebarVisible ? "block" : "none")
             }
         >
