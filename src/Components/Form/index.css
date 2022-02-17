@@ -51,7 +51,7 @@
 }
 
 .form .box .content div #icon:hover {
- color: black;
+ color: #939393 !important;
 }
 
 .form .box .content div input {

@@ -1,5 +1,5 @@
 import {useEffect, useState} from 'react';
-import {Link} from 'react-router-dom';
+import {Link, useNavigate} from 'react-router-dom';
 import { useDispatch} from "react-redux";
 import {darkTheme, lightTheme} from "../../Redux/Actions";
 import $ from 'jquery';
@@ -9,6 +9,18 @@ import Avatar from '@mui/material/Avatar';
 import CancelIcon from '@mui/icons-material/Cancel';
 
 function Index() {
+    //creating instance of useNavigate
+    const navigate = useNavigate();
+
+    //fetched the cache data
+    let owner = JSON.parse(localStorage.getItem("princelab"))
+    if(owner == null){
+        owner = {
+            username:"",
+            email:""
+        }
+    }
+
     //create instance of redux dispatch & useselectore
     const dispatch = useDispatch();
 
@@ -42,8 +54,6 @@ function Index() {
 
     //show setting nav on
     const openSettingNav = () => {
-        console.log(isSettingNavVisible)
-        console.log(isNavVisible)
         if (isSettingNavVisible === false) {
             setSettingNavVisible(true);
             setNavVisible(false);
@@ -70,28 +80,53 @@ function Index() {
 
         return (
             <div className={"profile_nav d-" + (isNavVisible ? "block" : "none")}>
-                <CancelIcon id="cancleIcon" onClick={showProfileNav}/>
-                <div className="pic">
-                    <img src={process.env.PUBLIC_URL + "/assets/agriculture2.png"}/>
-                    <p className="mt-2">prince@gmail.com</p>
-                </div>
-                <div className="profile_nav_row">
-                    <div className="nav_card" onClick={changeTheme}>
-                        <img
-                            src={localStorage.getItem("theme") === "light" ?
-                                process.env.PUBLIC_URL + "/assets/theme.png" :
-                                process.env.PUBLIC_URL + "/assets/theme1.png"}/>
-                        <p>Theme</p>
-                    </div>
-                    <div className="nav_card" onClick={openSettingNav}>
-                        <img
-                            src={localStorage.getItem("theme") === "light" ?
-                                process.env.PUBLIC_URL + "/assets/profile.png" :
-                                process.env.PUBLIC_URL + "/assets/profile1.png"}/>
-                        <p>Setting</p
-                        >
-                    </div>
-                </div>
+                {
+                    (owner.username) ?
+                        <>
+                            <CancelIcon id="cancleIcon" onClick={showProfileNav}/>
+                            <div className="pic">
+                                <img src={process.env.PUBLIC_URL + "/assets/agriculture2.png"}/>
+                                <p className="mt-2">{owner.email}</p>
+                            </div>
+                            <div className="profile_nav_row">
+                                <div className="nav_card" onClick={changeTheme}>
+                                    <img
+                                        src={localStorage.getItem("theme") === "light" ?
+                                            process.env.PUBLIC_URL + "/assets/theme.png" :
+                                            process.env.PUBLIC_URL + "/assets/theme1.png"}/>
+                                    <p>Theme</p>
+                                </div>
+                                <div className="nav_card" onClick={openSettingNav}>
+                                    <img
+                                        src={localStorage.getItem("theme") === "light" ?
+                                            process.env.PUBLIC_URL + "/assets/profile.png" :
+                                            process.env.PUBLIC_URL + "/assets/profile1.png"}/>
+                                    <p>Setting</p
+                                    >
+                                </div>
+                            </div>
+                        </> :
+                        <>
+                            <CancelIcon id="cancleIcon" onClick={showProfileNav}/>
+                            <div className="profile_nav_row mt-3">
+                                <div className="nav_card" onClick={changeTheme}>
+                                    <img
+                                        src={localStorage.getItem("theme") === "light" ?
+                                            process.env.PUBLIC_URL + "/assets/theme.png" :
+                                            process.env.PUBLIC_URL + "/assets/theme1.png"}/>
+                                    <p>Theme</p>
+                                </div>
+                                <div className="nav_card" onClick={() => navigate("/Login")}>
+                                    <img
+                                        src={localStorage.getItem("theme") === "light" ?
+                                            process.env.PUBLIC_URL + "/assets/profile.png" :
+                                            process.env.PUBLIC_URL + "/assets/profile1.png"}/>
+                                    <p>Sign In</p
+                                    >
+                                </div>
+                            </div>
+                        </>
+                }
             </div>
         )
     }
@@ -116,6 +151,17 @@ function Index() {
             isSettingNavVisible ? setSettingNavVisible(false) : setSettingNavVisible(true);
         }
 
+        //logout
+        const logout = () => {
+            //reset the cache
+            localStorage.setItem("princelab", JSON.stringify({
+                username:"",
+                email:""
+            }))
+
+            navigate("/Login")
+        }
+
         return (
             <div
                 className={"profile_nav d-" + (isSettingNavVisible ? "block" : "none")}
@@ -124,13 +170,16 @@ function Index() {
                 <CancelIcon id="cancleIcon" onClick={cancelSettingNav}/>
                 <div className="pic">
                     <img src={process.env.PUBLIC_URL + "/assets/agriculture2.png"}/>
-                    <p className="mt-2">prince@gmail.com</p>
+                    <p className="mt-2">{owner.email}</p>
                 </div>
                 <div className="profile_nav_row d-flex flex-column justify-content-center">
                     <button className="mb-2 py-1 rounded-pill border-white">Edit Profile</button>
                     <button className="mb-2 py-1 rounded-pill border-white">Change Password</button>
                     <button className="mb-2 py-1 rounded-pill border-white">Notification</button>
-                    <button className="mb-2 py-1 rounded-pill border-white">Sign Out</button>
+                    <button
+                        className="mb-2 py-1 rounded-pill border-white"
+                        onClick={logout}
+                    >Sign Out</button>
                 </div>
             </div>
         )
@@ -140,6 +189,7 @@ function Index() {
     const showProfileNav = () => {
         isNavVisible ? setNavVisible(false) : setNavVisible(true);
     }
+
 
     return (
         <>

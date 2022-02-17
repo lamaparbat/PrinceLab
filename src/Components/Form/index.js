@@ -5,6 +5,7 @@ import {passwordStrength} from 'check-password-strength';
 import {auth, db} from '../../firebaseDB';
 import axios from 'axios';
 import '../Form/index.css';
+import $ from 'jquery';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import AccountCircleIcon from '@mui/icons-material/AccountCircle';
@@ -127,17 +128,18 @@ function Index({type}) {
         if (loginData.username !== "" && loginData.password !== "" && savepw !== false) {
             //sending data to the firebase db server
             users.forEach(user => {
-                console.log((user.username == loginData.username) && ( user.password == loginData.password))
                 if((user.username === loginData.username) && ( user.password === loginData.password)){
                     notice("success", "Login successfully")
+                    localStorage.setItem("princelab", JSON.stringify({
+                        username:user.username,
+                        email:user.email
+                    }));
+                    //delay the notice by 1 second
                    setTimeout(() => {
                        navigate("/")
                    },1000)
-
-                    return true;
                 }
             })
-            notice("failed", "Wrong email or password")
         } else {
             alert("Please fill the all field value !!")
         }
@@ -185,6 +187,11 @@ function Index({type}) {
         }
     }
 
+    //show password
+    const showPassword = (id) => {
+        $(`#${id}`).attr("type") === "password" ? $("#password").attr("type","text") : $("#password").attr("type","password")
+    }
+
     return (
         <div className='container-fluid form'>
             <div className={'box d-flex flex-' + (form_type === "signup" ? "row-reverse" : "row")}>
@@ -226,7 +233,6 @@ function Index({type}) {
                                     className='py-3 px-2'
                                     type="email"
                                     placeholder='Email'
-                                    required
                                     onChange={
                                         (e) => setSignupData({...signupData, email: e.target.value})}
                                 />
@@ -241,10 +247,14 @@ function Index({type}) {
                             className='py-3 px-2'
                             type="password"
                             placeholder='Password'
+                            id="password"
                             onChange={
                                 (e) => setLoginData({...loginData, password: e.target.value})}
                         />
-                        <VisibilityOffIcon id="icon" className='mx-1'/>
+                        <VisibilityOffIcon
+                            id="icon" className='mx-1'
+                            onClick={() => showPassword("password")}
+                        />
                     </div>
 
                     {/* repassword for signup */}
@@ -255,10 +265,14 @@ function Index({type}) {
                                 <input
                                     className='py-3 px-2'
                                     type="password"
+                                    id="repassword"
                                     placeholder='Confirm password'
                                     ref={repassword}
                                 />
-                                <VisibilityOffIcon id="icon" className='mx-1'/>
+                                <VisibilityOffIcon
+                                    id="icon"
+                                    onClick={() => showPassword("repassword")}
+                                    className='mx-1'/>
                             </div> : null
                     }
 

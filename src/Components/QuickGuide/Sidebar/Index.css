@@ -1,7 +1,7 @@
 .quick_guide_sidebar{
     width:500px;
     height:100vh;
-    background: black !important;
+    background: #fff6f6;
     border-top-right-radius: 20px;
     box-shadow: 1px 0px 5px 2px rgba(197, 197, 197, 0.47);
     -webkit-box-shadow: 1px 0px 5px 2px rgba(192, 192, 192, 0.47);
@@ -72,6 +72,7 @@ button:nth-child(2){
     cursor: pointer;
     border-radius:50px !important;
     transition:0.3s ease-in-out;
+    background:unset !important;
 }
 .quick_guide_sidebar
 .quick_guide_sidebar_list li span,.quick_guide_sidebar
@@ -79,7 +80,7 @@ button:nth-child(2){
     background:unset !important;
 }
 .quick_guide_sidebar_list li:hover{
-    background-color: #2d2d2d !important;
+    background-color: #b7b7b7 !important;
     transform:scaleX(1.03);
 }
 .quick_guide_sidebar_list li:hover  #arrowIcon{
