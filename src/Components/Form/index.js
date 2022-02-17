@@ -1,7 +1,8 @@
-import React, {useState, useEffect} from 'react';
+import React, {useState, useEffect, useRef} from 'react';
 import {useNavigate} from "react-router-dom";
 import validator from "validator";
 import {passwordStrength} from 'check-password-strength';
+import {auth, db} from '../../firebaseDB';
 import axios from 'axios';
 import '../Form/index.css';
 import { ToastContainer, toast } from 'react-toastify';
@@ -13,6 +14,9 @@ import AppleIcon from '@mui/icons-material/Apple';
 import MailOutlineRoundedIcon from '@mui/icons-material/MailOutlineRounded';
 
 function Index({type}) {
+    //all user data
+    const [users, setUsers] = useState([]);
+
     //create instance of useNavigate for routing
     const navigate = useNavigate();
 
@@ -27,25 +31,36 @@ function Index({type}) {
 
     //login data
     const [loginData, setLoginData] = useState({
-        email: "",
+        username: "",
         password: ""
     });
 
     //signup data
+    const repassword = useRef()
     const [signupData, setSignupData] = useState({
         username: loginData.username,
         email: "",
-        password: loginData.password,
-        repassword: ""
+        password: loginData.password
     });
+
+    //fetched all the user from firebase DB
+    useEffect(() => {
+        db.ref(`/users`).on('value', snapshot => {
+            snapshot.forEach(user => {
+                setUsers(prev => [
+                    ...prev,
+                        user.val()
+                ])
+            })
+        });
+    }, [])
 
     // fill loginData to signUpData
     useEffect(() => {
         setSignupData({
             username: loginData.username,
             email: signupData.email,
-            password: loginData.password,
-            repassword: signupData.repassword
+            password: loginData.password
         });
     }, [loginData])
 
@@ -111,8 +126,18 @@ function Index({type}) {
     const login = () => {
         if (loginData.username !== "" && loginData.password !== "" && savepw !== false) {
             //sending data to the firebase db server
+            users.forEach(user => {
+                console.log((user.username == loginData.username) && ( user.password == loginData.password))
+                if((user.username === loginData.username) && ( user.password === loginData.password)){
+                    notice("success", "Login successfully")
+                   setTimeout(() => {
+                       navigate("/")
+                   },1000)
 
-
+                    return true;
+                }
+            })
+            notice("failed", "Wrong email or password")
         } else {
             alert("Please fill the all field value !!")
         }
@@ -129,6 +154,13 @@ function Index({type}) {
                 .then(res => {
                     console.log(res)
                     notice("success","Registration successfull");
+
+                    //reset login data
+                    setLoginData({
+                        username: "",
+                        password: "",
+                    });
+
                     setTimeout(() => {
                         navigate("/Login")
                     },2000)
@@ -146,7 +178,7 @@ function Index({type}) {
     const signup = () => {
         if (signupData.username !== "" && agreeTerms !== false && signupData.email !== "" && signupData.password !== "" && signupData.repassword !== "") {
             validator.isEmail(signupData.email) ?
-                (signupData.password === signupData.repassword) ? checkPasswordStrength(signupData.password) : alert("Password not matched !!")
+                (signupData.password === repassword.current.value) ? checkPasswordStrength(signupData.password) : alert("Password not matched !!")
                 : alert("please type right email format !")
         } else {
             alert("Please fill the all field value !!")
@@ -224,8 +256,7 @@ function Index({type}) {
                                     className='py-3 px-2'
                                     type="password"
                                     placeholder='Confirm password'
-                                    onChange={
-                                        (e) => setSignupData({...signupData, repassword: e.target.value})}
+                                    ref={repassword}
                                 />
                                 <VisibilityOffIcon id="icon" className='mx-1'/>
                             </div> : null
