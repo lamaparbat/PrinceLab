@@ -1,4 +1,5 @@
 import React,{useState, useEffect} from 'react';
+import {useNavigate} from "react-router-dom";
 import '../Form/index.css';
 import AccountCircleIcon from '@mui/icons-material/AccountCircle';
 import VpnKeyIcon from '@mui/icons-material/VpnKey';
@@ -7,9 +8,36 @@ import AppleIcon from '@mui/icons-material/Apple';
 import MailOutlineRoundedIcon from '@mui/icons-material/MailOutlineRounded';
 
 function Index({ type }) {
+  //create instance of useNavigate for routing
+  const navigate = useNavigate();
+
   // store the form_type state
   const [form_type, setForm_type] = useState(true);
-  
+
+  //login data
+  const [loginData, setLoginData] = useState({
+    email:"",
+    password:""
+  });
+
+  //signup data
+  const [signupData, setSignupData] = useState({
+    username:loginData.username,
+    email:"",
+    password:loginData.password,
+    repassword:""
+  });
+
+  // fill loginData to signUpData
+  useEffect(() => {
+    setSignupData({
+      username:loginData.username,
+      email:signupData.email,
+      password:loginData.password,
+      repassword:signupData.repassword
+    });
+  },[loginData])
+
   //update the form type -> signup or login
   useEffect(() => {
     setForm_type(type);
@@ -49,15 +77,24 @@ function Index({ type }) {
       </div>
    )
   }
+
+  //redirect the component
+  const redirectTo = (route) => {
+    navigate(route);
+  }
   
   // login btn clicked event
   const login = () => {
-    console.log("login btn clicked !!");
+    alert(loginData.username+loginData.password)
   }
   
   // login btn clicked event
   const signup = () => {
-    console.log("signup btn clicked !!");
+      if(signupData.username != "" && signupData.email != "" && signupData.password != "" && signupData.repassword != ""){
+       (signupData.password === signupData.repassword) ? alert("Password Matched !!"):alert("Password not matched !!")
+      }else{
+        alert("Please fill the all field value !!")
+      }
   }
 
   return (
@@ -73,17 +110,23 @@ function Index({ type }) {
         }
         <div className='content px-5 pt-3'>
           {
-            form_type != "signup" ? <h1 className='title fw-bold text-primary'>Sign in</h1> :
+            form_type != "signup" ?
+                <h1 className='title fw-bold text-primary'
+                >Sign in</h1> :
               <h1 className='title fw-bold text-danger'>Sign Up</h1>
           }
           <br />
+
           {/* username or email feild */}
           <div className='username_inp px-3'>
             <AccountCircleIcon id="icon" />
             <input
               className='py-3 px-2'
               type="text"
-              placeholder='Username' />
+              placeholder='Username'
+              onChange={
+              (e) => setLoginData({...loginData,username:e.target.value})}
+            />
           </div>
 
           {/* email for signup */}
@@ -94,7 +137,11 @@ function Index({ type }) {
                 <input
                   className='py-3 px-2'
                   type="email"
-                  placeholder='Email' />
+                  placeholder='Email'
+                  required
+                  onChange={
+                    (e) => setSignupData({...signupData,email:e.target.value})}
+                />
               </div> : null
           }
 
@@ -105,7 +152,10 @@ function Index({ type }) {
             <input
               className='py-3 px-2'
               type="password"
-              placeholder='Password' />
+              placeholder='Password'
+              onChange={
+                (e) => setLoginData({...loginData,password:e.target.value})}
+            />
             <VisibilityOffIcon id="icon" className='mx-1' />
           </div>
 
@@ -117,7 +167,10 @@ function Index({ type }) {
                 <input
                   className='py-3 px-2'
                   type="password"
-                  placeholder='Confirm password' />
+                  placeholder='Confirm password'
+                  onChange={
+                    (e) => setSignupData({...signupData,repassword:e.target.value})}
+                />
                 <VisibilityOffIcon id="icon" className='mx-1' />
               </div> : null
           }
@@ -143,11 +196,15 @@ function Index({ type }) {
             form_type != "signup" ?
               <div className='form_footer py-3'>
                 <span className='text-secondary'>New to the website ?</span>
-                <a href="#" >Signup Up Now</a>
+                <a
+                    onClick={() => redirectTo("/Signup")}
+                >Signup Up Now</a>
               </div> :
               <div className='form_footer py-3'>
                 <span className='text-secondary'>Already have an account ?</span>
-                <a href="#" className='text-danger' >Log in</a>
+                <a
+                    onClick={() => redirectTo("/Login")}
+                    className='text-danger' >Log in</a>
               </div>
           }
 

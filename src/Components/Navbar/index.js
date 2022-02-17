@@ -127,10 +127,10 @@ function Index() {
                     <p className="mt-2">prince@gmail.com</p>
                 </div>
                 <div className="profile_nav_row d-flex flex-column justify-content-center">
-                    <button className="mb-2 py-1">Edit Profile</button>
-                    <button className="mb-2 py-1">Change Password</button>
-                    <button className="mb-2 py-1">Notification</button>
-                    <button className="mb-2 py-1">Sign Out</button>
+                    <button className="mb-2 py-1 rounded-pill border-white">Edit Profile</button>
+                    <button className="mb-2 py-1 rounded-pill border-white">Change Password</button>
+                    <button className="mb-2 py-1 rounded-pill border-white">Notification</button>
+                    <button className="mb-2 py-1 rounded-pill border-white">Sign Out</button>
                 </div>
             </div>
         )

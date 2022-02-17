@@ -1,4 +1,4 @@
-const initialState = "show";
+const initialState = "hide";
 
 const sidebarVisibility = (state = initialState, action) =>{
     switch (action.type){
@@ -7,7 +7,7 @@ const sidebarVisibility = (state = initialState, action) =>{
         case "hide":
             return action.type;
         default:
-            return "show";
+            return initialState;
     }
 }
 

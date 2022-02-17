@@ -35,7 +35,7 @@ const Index = () => {
     const closeSidebar = () => {
         if(isSidebarVisible === false){
             setSidebarVisible(true);
-            //update the redux store
+            // //update the redux store
             dispatch(showSidebar())
         }else{
             setSidebarVisible(false);

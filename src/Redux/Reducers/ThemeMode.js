@@ -1,5 +1,5 @@
 //initial state
-const initialState = "light";
+const initialState = "unset";
 
 //change the background theme
 const changeTheme = (state = initialState,  action) => {
@@ -9,7 +9,7 @@ const changeTheme = (state = initialState,  action) => {
         case "light":
             return action.type;
         default:
-            return "light";
+            return initialState;
     }
 }
 

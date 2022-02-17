@@ -91,7 +91,8 @@ function App() {
 
     //track the theme update using redux
     store.subscribe(() => setTheme({
-        mode: store.getState().changeTheme
+        mode: store.getState().changeTheme === "unset" ?
+            localStorage.getItem("theme"):store.getState().changeTheme
     }));
 
     return (

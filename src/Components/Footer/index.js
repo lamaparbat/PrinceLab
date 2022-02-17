@@ -12,12 +12,16 @@ function Index() {
 
  //render component of link clicked
  const redirect = (route) => {
-  navigate(`/${route}`);
+  window.location.assign(route)
  }
 
 
  return (
-  <div className={'container-fluid footer d-' + (cur_route != "/Login" && cur_route != "/Signup" ? "flex":"none")} >
+  <div
+      className={'container-fluid footer d-' +
+          (cur_route != "/Login" &&
+          cur_route != "/Signup" &&
+          cur_route != "/QuickGuide"? "flex":"none")} >
    <div className='footer_row'>
     <div className='service_col'>
      <h5><b>Services</b><hr className='separator w-50'/></h5>
@@ -42,10 +46,18 @@ function Index() {
     <div className='follow_col'>
      <h5><b>Follow Us</b><hr className='separator w-25' /></h5>
      <div className='icons_cont'>
-      <div><img className='img-fluid' src={process.env.PUBLIC_URL + "/assets/fb.png"} /></div>
-      <div><img className='img-fluid' src={process.env.PUBLIC_URL + "/assets/twitter.png"} /></div>
-      <div><img className='img-fluid' src={process.env.PUBLIC_URL + "/assets/insta.png"} /></div>
-      <div><img className='img-fluid' src={process.env.PUBLIC_URL + "/assets/linked.png"} /></div>
+      <div onClick={() => redirect("https://www.facebook.com/people/Prince-Lab/100070712031228/")}>
+       <img className='img-fluid' src={process.env.PUBLIC_URL + "/assets/fb.png"} />
+      </div>
+      <div onClick={() =>  redirect("https://twitter.com/Princelab2") }>
+       <img className='img-fluid' src={process.env.PUBLIC_URL + "/assets/twitter.png"} />
+      </div>
+      <div onClick={() =>  redirect("https://www.instagram.com/_princelab_/")}>
+       <img className='img-fluid' src={process.env.PUBLIC_URL + "/assets/insta.png"} />
+      </div>
+      <div onClick={() => redirect("https://www.linkedin.com/in/prince-lab-3398a7217?originalSubdomain=np")}>
+       <img className='img-fluid' src={process.env.PUBLIC_URL + "/assets/linked.png"} />
+      </div>
      </div>
     </div>
    </div>
