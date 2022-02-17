@@ -23,6 +23,7 @@ import Terms from './Components/Terms/Index';
 import QuickGuide from './Components/QuickGuide/Index';
 
 function App() {
+    // theme state
     const [theme, setTheme] = useState({mode: ""});
 
     // current user location data
