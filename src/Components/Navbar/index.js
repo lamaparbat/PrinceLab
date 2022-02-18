@@ -266,6 +266,7 @@ function Index() {
                     <input
                         type="text"
                         name={"username"}
+                        placeholder={owner.username}
                         className={"form-control py-1 text-secondary shadow-none mb-2"}
                         onChange={editFormInput}
                     />

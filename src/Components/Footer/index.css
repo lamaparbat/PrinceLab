@@ -83,6 +83,7 @@
   height: 100%;
   width: 100%;
   border-radius: 5px !important;
+  background: unset !important;
 }
 
 @media (max-width:1100px) {
