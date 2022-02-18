@@ -7,6 +7,7 @@ import '../Navbar/index.css';
 import KeyboardArrowUpIcon from '@mui/icons-material/KeyboardArrowUp';
 import Avatar from '@mui/material/Avatar';
 import CancelIcon from '@mui/icons-material/Cancel';
+import KeyboardBackspaceIcon from '@mui/icons-material/KeyboardBackspace';
 
 function Index() {
     //creating instance of useNavigate
@@ -21,6 +22,13 @@ function Index() {
         }
     }
 
+    // edit profile data
+    const [editProfileData,setEditProfileData] = useState({
+        username:"",
+        email:"",
+        profile:{}
+    });
+
     //create instance of redux dispatch & useselectore
     const dispatch = useDispatch();
 
@@ -29,6 +37,12 @@ function Index() {
 
     // setting Nav visible
     const [isSettingNavVisible, setSettingNavVisible] = useState(false);
+
+    // edit Nav visible
+    const [isEditNavVisible, setEditNavVisible] = useState(false);
+
+    // change password Nav visible
+    const [isChangePasswordNavVisibile, setChangePasswordNavVisible] = useState(false);
 
     //track the cookies theme
     const [theme, setTheme] = useState("light");
@@ -146,9 +160,10 @@ function Index() {
             }
         }
 
-        //hide setting nav
-        const cancelSettingNav = () => {
+        // go back
+        const goBack = () => {
             isSettingNavVisible ? setSettingNavVisible(false) : setSettingNavVisible(true);
+            setNavVisible(true);
         }
 
         //logout
@@ -165,21 +180,165 @@ function Index() {
         return (
             <div
                 className={"profile_nav d-" + (isSettingNavVisible ? "block" : "none")}
-                style={{marginTop: "-500px"}}
+                style={{marginTop: "-450px"}}
             >
-                <CancelIcon id="cancleIcon" onClick={cancelSettingNav}/>
+                <KeyboardBackspaceIcon className="btn p-0" onClick={goBack}/>
                 <div className="pic">
                     <img src={owner.profile}/>
                     <p className="mt-2">{owner.email}</p>
                 </div>
                 <div className="profile_nav_row d-flex flex-column justify-content-center">
-                    <button className="mb-2 py-1 rounded-pill border-white">Edit Profile</button>
-                    <button className="mb-2 py-1 rounded-pill border-white">Change Password</button>
-                    <button className="mb-2 py-1 rounded-pill border-white">Notification</button>
+                    <button
+                        className="mb-2 py-1 rounded-pill border-white"
+                        onClick={() => {
+                            setSettingNavVisible(false);
+                            setEditNavVisible(true)
+                        }}
+                    >Edit Profile</button>
+                    <button
+                        className="mb-2 py-1 rounded-pill border-white"
+                        onClick={() => {
+                            setChangePasswordNavVisible(true);
+                            setSettingNavVisible(false);
+                        }}
+                    >Change Password</button>
                     <button
                         className="mb-2 py-1 rounded-pill border-white"
                         onClick={logout}
                     >Sign Out</button>
+                </div>
+            </div>
+        )
+    }
+
+    //custom setting nav items
+    const EditNav = () => {
+        //change theme
+        const changeTheme = () => {
+            if (localStorage.getItem("theme") === "light") {
+                localStorage.setItem("theme", "dark");
+                dispatch(darkTheme());
+                setTheme("dark");
+            } else {
+                localStorage.setItem("theme", "light");
+                dispatch(lightTheme());
+                setTheme("light");
+            }
+        }
+
+        // go back
+        const goBack = () => {
+            isEditNavVisible ? setEditNavVisible(false) : setEditNavVisible(true);
+            setSettingNavVisible(true)
+        }
+
+        //edit form handling
+        const editFormInput = (e) => {
+            e.target.name !="profile" ?
+                setEditProfileData({
+                    ...editProfileData,
+                    [e.target.name] : e.target.value
+                }) :
+                setEditProfileData({
+                    ...editProfileData,
+                    [e.target.name] : e.target.files[0]
+                })
+        }
+
+        // edit btn clicked
+        const editProfile = () => {
+            console.log(editProfileData)
+        }
+
+        return (
+            <div
+                className={"profile_nav d-" + (isEditNavVisible ? "block" : "none")}
+                style={{marginTop: "-550px"}} >
+                <KeyboardBackspaceIcon className="btn p-0"  onClick={goBack}/>
+                <div className="pic">
+                    <img src={owner.profile}/>
+                </div>
+                <div className="profile_nav_row d-flex flex-column justify-content-center">
+                    <span>Username</span>
+                    <input
+                        type="text"
+                        name={"username"}
+                        key={"123"}
+                        value={editProfileData.username}
+                        className={"form-control py-1 text-secondary shadow-none mb-2"}
+                        onChange={editFormInput}
+                    />
+                    <span>Email</span>
+                    <input
+                        type="email"
+                        name={"email"}
+                        value={editProfileData.email}
+                        className={"form-control py-1  text-secondary shadow-none mb-2"}
+                        placeholder={owner.email}
+                        onChange={editFormInput}
+                    />
+                    <span>Choose Profile Pic</span>
+                    <input
+                        className={"form-control mb-2"}
+                        type="file"
+                        name={"profile"}
+                        onChange={editFormInput}
+                    />
+                    <button
+                        className={"btn btn-primary rounded-1 mt-3 mb-2"}
+                        onClick={editProfile}
+                    >Save Changes</button>
+                </div>
+            </div>
+        )
+    }
+
+    // Change password
+    const ChangePassword = () => {
+        //change theme
+        const changeTheme = () => {
+            if (localStorage.getItem("theme") === "light") {
+                localStorage.setItem("theme", "dark");
+                dispatch(darkTheme());
+                setTheme("dark");
+            } else {
+                localStorage.setItem("theme", "light");
+                dispatch(lightTheme());
+                setTheme("light");
+            }
+        }
+
+        // go back
+        const goBack = () => {
+            isChangePasswordNavVisibile ?
+                setChangePasswordNavVisible(false) :
+                setChangePasswordNavVisible(true);
+            setSettingNavVisible(true)
+        }
+
+        return (
+            <div
+                className={"profile_nav d-" + (isChangePasswordNavVisibile ? "block" : "none")}
+                style={{marginTop: "-450px"}}
+            >
+                <KeyboardBackspaceIcon className="btn p-0"  onClick={goBack}/>
+                <div className="pic">
+                    <img src={owner.profile}/>
+                </div><br/>
+                <div className="profile_nav_row d-flex flex-column justify-content-center">
+                    <span>New Password</span>
+                    <input
+                        type="password"
+                        className={"form-control py-1  text-secondary shadow-none mb-2"}
+                        placeholder="Enter new password"
+                    />
+                    <span>Password</span>
+                    <input
+                        type="password"
+                        className={"form-control py-1 shadow-none mb-2"}
+                        placeholder="Reenter password"
+                    />
+                    <button className="btn btn-primary rounded-1 mt-2 mb-1">Change Password</button>
                 </div>
             </div>
         )
@@ -219,6 +378,8 @@ function Index() {
                 </li>
                 <ProfileNav/>
                 <SettingNav/>
+                <EditNav/>
+                <ChangePassword />
                 <button className='shortcut_btn btn btn-light' onClick={showNav}>
                     <KeyboardArrowUpIcon/>
                 </button>
@@ -240,7 +401,7 @@ function Index() {
                     <li className='link  text-decoration-none'>
                         <Avatar
                             id="avatar"
-                            src={process.env.PUBLIC_URL + "/assets/agriculture2.png"}
+                            src={owner.profile}
                             style={{border: "0.5px solid white"}}
                             onClick={showProfileNav}
                         />

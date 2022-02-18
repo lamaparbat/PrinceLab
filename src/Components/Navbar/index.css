@@ -95,7 +95,6 @@
    background-color: aliceblue;
 }
 
-
 .profile_nav{
    padding:20px;
    margin-top: -400px;
@@ -205,4 +204,11 @@
       display: none;
    }
 
+}
+
+@media (max-width:310px){
+   .profile_nav{
+      width: 100%;
+      left: 0;
+   }
 }
