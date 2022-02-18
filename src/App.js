@@ -21,6 +21,7 @@ import Extension from './Components/Extension/index';
 import Policy from './Components/Policy/Index';
 import Terms from './Components/Terms/Index';
 import QuickGuide from './Components/QuickGuide/Index';
+import ForgetPassword from "./Components/Form/ForgetPassword";
 
 function App() {
     // theme state

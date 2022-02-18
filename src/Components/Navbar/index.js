@@ -93,7 +93,10 @@ function Index() {
         }
 
         return (
-            <div className={"profile_nav d-" + (isNavVisible ? "block" : "none")}>
+            <div
+                className={"profile_nav d-" + (isNavVisible ? "block" : "none")}
+                style={owner.email != "" ? {marginTop: "-380px"} : {marginTop: "-280px"}}
+            >
                 {
                     (owner.username) ?
                         <>
@@ -180,7 +183,7 @@ function Index() {
         return (
             <div
                 className={"profile_nav d-" + (isSettingNavVisible ? "block" : "none")}
-                style={{marginTop: "-450px"}}
+                style={{marginTop: "-420px"}}
             >
                 <KeyboardBackspaceIcon className="btn p-0" onClick={goBack}/>
                 <div className="pic">
@@ -263,8 +266,6 @@ function Index() {
                     <input
                         type="text"
                         name={"username"}
-                        key={"123"}
-                        value={editProfileData.username}
                         className={"form-control py-1 text-secondary shadow-none mb-2"}
                         onChange={editFormInput}
                     />
@@ -272,7 +273,6 @@ function Index() {
                     <input
                         type="email"
                         name={"email"}
-                        value={editProfileData.email}
                         className={"form-control py-1  text-secondary shadow-none mb-2"}
                         placeholder={owner.email}
                         onChange={editFormInput}
