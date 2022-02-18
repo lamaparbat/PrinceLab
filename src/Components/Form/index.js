@@ -1,12 +1,13 @@
 import React, {useState, useEffect, useRef} from 'react';
-import {useNavigate} from "react-router-dom";
+import {useLocation, useNavigate} from "react-router-dom";
 import validator from "validator";
 import {passwordStrength} from 'check-password-strength';
-import {auth, db} from '../../firebaseDB';
+import {app, auth, db} from '../../firebaseDB';
+import {getAuth, signInWithPopup, GoogleAuthProvider} from "firebase/auth";
 import axios from 'axios';
 import '../Form/index.css';
 import $ from 'jquery';
-import { ToastContainer, toast } from 'react-toastify';
+import {ToastContainer, toast} from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import AccountCircleIcon from '@mui/icons-material/AccountCircle';
 import VpnKeyIcon from '@mui/icons-material/VpnKey';
@@ -17,6 +18,9 @@ import MailOutlineRoundedIcon from '@mui/icons-material/MailOutlineRounded';
 function Index({type}) {
     //all user data
     const [users, setUsers] = useState([]);
+
+    //get the current route
+    const cur_route = useLocation().pathname
 
     //create instance of useNavigate for routing
     const navigate = useNavigate();
@@ -50,7 +54,7 @@ function Index({type}) {
             snapshot.forEach(user => {
                 setUsers(prev => [
                     ...prev,
-                        user.val()
+                    user.val()
                 ])
             })
         });
@@ -116,9 +120,9 @@ function Index({type}) {
 
     // notice toast
     const notice = (type, message) => {
-        if(type === "success"){
+        if (type === "success") {
             toast.success(message);
-        }else{
+        } else {
             toast.error(message);
         }
     }
@@ -128,16 +132,16 @@ function Index({type}) {
         if (loginData.username !== "" && loginData.password !== "" && savepw !== false) {
             //sending data to the firebase db server
             users.forEach(user => {
-                if((user.username === loginData.username) && ( user.password === loginData.password)){
+                if ((user.username === loginData.username) && (user.password === loginData.password)) {
                     notice("success", "Login successfully")
                     localStorage.setItem("princelab", JSON.stringify({
-                        username:user.username,
-                        email:user.email
+                        username: user.username,
+                        email: user.email
                     }));
                     //delay the notice by 1 second
-                   setTimeout(() => {
-                       navigate("/")
-                   },1000)
+                    setTimeout(() => {
+                        navigate("/")
+                    }, 1000)
                 }
             })
         } else {
@@ -155,7 +159,7 @@ function Index({type}) {
             axios.post("https://princelab-b263f-default-rtdb.firebaseio.com/users.json", signupData)
                 .then(res => {
                     console.log(res)
-                    notice("success","Registration successfull");
+                    notice("success", "Registration successfull");
 
                     //reset login data
                     setLoginData({
@@ -165,10 +169,10 @@ function Index({type}) {
 
                     setTimeout(() => {
                         navigate("/Login")
-                    },2000)
+                    }, 2000)
                 })
                 .catch(err => {
-                    notice("success","Registration Failed");
+                    notice("success", "Registration Failed");
                     console.log(err.message)
                 })
         } else {
@@ -189,7 +193,40 @@ function Index({type}) {
 
     //show password
     const showPassword = (id) => {
-        $(`#${id}`).attr("type") === "password" ? $("#password").attr("type","text") : $("#password").attr("type","password")
+        $(`#${id}`).attr("type") === "password" ? $("#password").attr("type", "text") : $("#password").attr("type", "password")
+    }
+
+    //signup with google
+    const signupWithGoogle = () => {
+        const provider = new GoogleAuthProvider();
+        const auth = getAuth();
+        signInWithPopup(auth, provider)
+            .then((result) => {
+                console.log(result.user);
+                //auto fill the form
+                autoFillForm(result.user);
+            }).catch((error) => {
+            console.log(error)
+        });
+    }
+
+    //auto fillup the form fields
+    const autoFillForm = (data) => {
+        if (cur_route === "/Signup") {
+            $("#username").val(data.displayName)
+            $("#email").val(data.email)
+        } else {
+            notice("success", "Login successfully")
+            localStorage.setItem("princelab", JSON.stringify({
+                username: data.displayName,
+                email: data.email,
+                profile: data.photoURL
+            }));
+            //delay the notice by 1 second
+            setTimeout(() => {
+                navigate("/")
+            }, 1000)
+        }
     }
 
     return (
@@ -218,6 +255,7 @@ function Index({type}) {
                         <input
                             className='py-3 px-2'
                             type="text"
+                            id='username'
                             placeholder='Username'
                             onChange={
                                 (e) => setLoginData({...loginData, username: e.target.value})}
@@ -232,6 +270,7 @@ function Index({type}) {
                                 <input
                                     className='py-3 px-2'
                                     type="email"
+                                    id="email"
                                     placeholder='Email'
                                     onChange={
                                         (e) => setSignupData({...signupData, email: e.target.value})}
@@ -321,7 +360,10 @@ function Index({type}) {
                         <img
                             id='fb_icons'
                             src={process.env.PUBLIC_URL + "/assets/facebook.png"}/>
-                        <div id='google'>
+                        <div
+                            id='google'
+                            onClick={signupWithGoogle}
+                        >
                             <img
                                 src={process.env.PUBLIC_URL + "/assets/google.png"}/>
                         </div>
@@ -332,7 +374,7 @@ function Index({type}) {
 
                 </div>
             </div>
-            <ToastContainer />
+            <ToastContainer/>
         </div>
     )
 }

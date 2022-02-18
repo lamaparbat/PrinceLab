@@ -85,7 +85,7 @@ function Index() {
                         <>
                             <CancelIcon id="cancleIcon" onClick={showProfileNav}/>
                             <div className="pic">
-                                <img src={process.env.PUBLIC_URL + "/assets/agriculture2.png"}/>
+                                <img src={owner.profile}/>
                                 <p className="mt-2">{owner.email}</p>
                             </div>
                             <div className="profile_nav_row">
@@ -169,7 +169,7 @@ function Index() {
             >
                 <CancelIcon id="cancleIcon" onClick={cancelSettingNav}/>
                 <div className="pic">
-                    <img src={process.env.PUBLIC_URL + "/assets/agriculture2.png"}/>
+                    <img src={owner.profile}/>
                     <p className="mt-2">{owner.email}</p>
                 </div>
                 <div className="profile_nav_row d-flex flex-column justify-content-center">
@@ -212,7 +212,7 @@ function Index() {
                 <li className='link  text-decoration-none'>
                     <Avatar
                         id="avatar"
-                        src={process.env.PUBLIC_URL + "/assets/agriculture2.png"}
+                        src={owner.profile}
                         style={{border: "0.5px solid white"}}
                         onClick={showProfileNav}
                     />
