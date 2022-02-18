@@ -92,7 +92,7 @@ function Index({type}) {
                     <ToggleBtn/>
                     <span id='remem_span' className='mx-3'>Remember Password</span>
                 </div>
-                <a href='#'>Forget password ?</a>
+                <span className={"text-secondary"} id="forgetpassword_link">Forget password ?</span>
             </div>
         )
     }
@@ -107,7 +107,9 @@ function Index({type}) {
                        onClick={() => setAgreeTerms(true)}
                 />
                 <span className='mx-3 text-secondary'>I read & agree to
-          <span className='text-danger'> Terms and Condtion</span>
+          <span 
+              onClick={() => navigate("/Terms")}
+              className='text-danger btn p-0'> &nbsp;Terms and Condtion</span>
         </span>
             </div>
         )
@@ -145,7 +147,7 @@ function Index({type}) {
                 }
             })
         } else {
-            alert("Please fill the all field value !!")
+            toast.error("Please fill the all field value !!");
         }
     }
 
@@ -154,40 +156,39 @@ function Index({type}) {
         // strong pw =  A@2asdF2020!!*
         //weak pw = asdf1234
         //too weak = asdfasdf
-        if (passwordStrength(pw).value !== "Too weak") {
-            //sending data to the firebase db server
-            axios.post("https://princelab-b263f-default-rtdb.firebaseio.com/users.json", signupData)
-                .then(res => {
-                    console.log(res)
-                    notice("success", "Registration successfull");
 
-                    //reset login data
-                    setLoginData({
-                        username: "",
-                        password: "",
-                    });
+        notice("error",passwordStrength(pw).value);
 
-                    setTimeout(() => {
-                        navigate("/Login")
-                    }, 2000)
-                })
-                .catch(err => {
-                    notice("success", "Registration Failed");
-                    console.log(err.message)
-                })
-        } else {
-            alert(passwordStrength(pw).value)
-        }
+        //sending data to the firebase db server
+        axios.post("https://princelab-b263f-default-rtdb.firebaseio.com/users.json", signupData)
+            .then(res => {
+                console.log(res)
+                notice("success", "Registration successfull");
+
+                //reset login data
+                setLoginData({
+                    username: "",
+                    password: "",
+                });
+
+                setTimeout(() => {
+                    navigate("/Login")
+                }, 2000)
+            })
+            .catch(err => {
+                notice("success", "Registration Failed");
+                console.log(err.message)
+            })
     }
 
     // login btn clicked event
     const signup = () => {
         if (signupData.username !== "" && agreeTerms !== false && signupData.email !== "" && signupData.password !== "" && signupData.repassword !== "") {
             validator.isEmail(signupData.email) ?
-                (signupData.password === repassword.current.value) ? checkPasswordStrength(signupData.password) : alert("Password not matched !!")
-                : alert("please type right email format !")
+                (signupData.password === repassword.current.value) ? checkPasswordStrength(signupData.password) : toast.error("Password not matched !")
+                : toast.error("please type right email format !");
         } else {
-            alert("Please fill the all field value !!")
+            toast.error("Please fill the all field value !!");
         }
     }
 
@@ -335,16 +336,20 @@ function Index({type}) {
                     {
                         form_type != "signup" ?
                             <div className='form_footer py-3'>
-                                <span className='text-secondary'>New to the website ?</span>
+                                <span
+                                    className='text-secondary btn p-0'
+                                    onClick={() => navigate("/Signup")}
+                                >New to the website ?</span>
                                 <a
+                                    className={"text-secondary btn p-0"}
                                     onClick={() => redirectTo("/Signup")}
                                 >Signup Up Now</a>
                             </div> :
                             <div className='form_footer py-3'>
-                                <span className='text-secondary'>Already have an account ?</span>
+                                <span className='text-secondary btn p-0'>Already have an account ?</span>
                                 <a
                                     onClick={() => redirectTo("/Login")}
-                                    className='text-danger'>Log in</a>
+                                    className='text-danger btn p-0'>Log in</a>
                             </div>
                     }
 
