@@ -3,7 +3,7 @@ import {useLocation, useNavigate} from "react-router-dom";
 import validator from "validator";
 import {passwordStrength} from 'check-password-strength';
 import {app, auth, db} from '../../firebaseDB';
-import {getAuth, signInWithPopup, GoogleAuthProvider} from "firebase/auth";
+import {getAuth, signInWithPopup, GoogleAuthProvider, GithubAuthProvider} from "firebase/auth";
 import axios from 'axios';
 import '../Form/index.css';
 import $ from 'jquery';
@@ -158,7 +158,6 @@ function Index({type}) {
         //too weak = asdfasdf
 
         notice("error",passwordStrength(pw).value);
-
         //sending data to the firebase db server
         axios.post("https://princelab-b263f-default-rtdb.firebaseio.com/users.json", signupData)
             .then(res => {
@@ -210,6 +209,21 @@ function Index({type}) {
             console.log(error)
         });
     }
+
+    //signup with google
+    const signupWithGithub = () => {
+        const provider = new GithubAuthProvider();
+        const auth = getAuth();
+        signInWithPopup(auth, provider)
+            .then((result) => {
+                console.log(result.user);
+                //auto fill the form
+                autoFillForm(result.user);
+            }).catch((error) => {
+            console.log(error)
+        });
+    }
+
 
     //auto fillup the form fields
     const autoFillForm = (data) => {
@@ -361,10 +375,13 @@ function Index({type}) {
                     <center id="icon_title">
                         <span className='text-secondary'>Sign Up using</span>
                     </center>
-                    <div className='icons'>
+                    <div
+                        className='icons'
+                        onClick={signupWithGithub}
+                    >
                         <img
                             id='fb_icons'
-                            src={process.env.PUBLIC_URL + "/assets/facebook.png"}/>
+                            src={process.env.PUBLIC_URL + "/assets/github.png"}/>
                         <div
                             id='google'
                             onClick={signupWithGoogle}
