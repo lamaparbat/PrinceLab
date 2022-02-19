@@ -14,6 +14,7 @@ import VpnKeyIcon from '@mui/icons-material/VpnKey';
 import VisibilityOffIcon from '@mui/icons-material/VisibilityOff';
 import AppleIcon from '@mui/icons-material/Apple';
 import MailOutlineRoundedIcon from '@mui/icons-material/MailOutlineRounded';
+import GitHubIcon from '@mui/icons-material/GitHub';
 
 function Index({type}) {
     //all user data
@@ -107,7 +108,7 @@ function Index({type}) {
                        onClick={() => setAgreeTerms(true)}
                 />
                 <span className='mx-3 text-secondary'>I read & agree to
-          <span 
+          <span
               onClick={() => navigate("/Terms")}
               className='text-danger btn p-0'> &nbsp;Terms and Condtion</span>
         </span>
@@ -157,7 +158,7 @@ function Index({type}) {
         //weak pw = asdf1234
         //too weak = asdfasdf
 
-        notice("error",passwordStrength(pw).value);
+        notice("error", passwordStrength(pw).value);
         //sending data to the firebase db server
         axios.post("https://princelab-b263f-default-rtdb.firebaseio.com/users.json", signupData)
             .then(res => {
@@ -377,11 +378,14 @@ function Index({type}) {
                     </center>
                     <div
                         className='icons'
-                        onClick={signupWithGithub}
                     >
-                        <img
-                            id='fb_icons'
-                            src={process.env.PUBLIC_URL + "/assets/github.png"}/>
+                        <div
+                            className="btn p-0"
+                            id='google'
+                            onClick={signupWithGithub}
+                        >
+                            <GitHubIcon/>
+                        </div>
                         <div
                             id='google'
                             onClick={signupWithGoogle}
@@ -396,7 +400,7 @@ function Index({type}) {
 
                 </div>
             </div>
-            <ToastContainer/>
+            <ToastContainer/><br/><br/>
         </div>
     )
 }
