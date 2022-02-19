@@ -15,10 +15,11 @@ function Index() {
 
     //fetched the cache data
     let owner = JSON.parse(localStorage.getItem("princelab"))
-    if(owner == null){
+    if(owner === null || owner.username === ""){
         owner = {
             username:"",
-            email:""
+            email:"",
+            profile:""
         }
     }
 
@@ -324,7 +325,9 @@ function Index() {
             >
                 <KeyboardBackspaceIcon className="btn p-0"  onClick={goBack}/>
                 <div className="pic">
-                    <img src={owner.profile}/>
+                    <img
+                        src={owner.profile}
+                    />
                 </div><br/>
                 <div className="profile_nav_row d-flex flex-column justify-content-center">
                     <span>New Password</span>
@@ -372,7 +375,7 @@ function Index() {
                 <li className='link  text-decoration-none'>
                     <Avatar
                         id="avatar"
-                        src={owner.profile}
+                        src={owner.profile != "" ? owner.profile : process.env.PUBLIC_URL+"/assets/agriculture2.png"}
                         style={{border: "0.5px solid white"}}
                         onClick={showProfileNav}
                     />
@@ -402,7 +405,7 @@ function Index() {
                     <li className='link  text-decoration-none'>
                         <Avatar
                             id="avatar"
-                            src={owner.profile}
+                            src={owner.profile != "" ? owner.profile : process.env.PUBLIC_URL+"/assets/agriculture2.png"}
                             style={{border: "0.5px solid white"}}
                             onClick={showProfileNav}
                         />

@@ -44,13 +44,15 @@ function Index({type}) {
     //signup data
     const repassword = useRef()
     const [signupData, setSignupData] = useState({
-        username: loginData.username,
+        username:"",
         email: "",
-        password: loginData.password
+        password: "",
+        profile:""
     });
 
     //fetched all the user from firebase DB
     useEffect(() => {
+        console.log(signupData)
         db.ref(`/users`).on('value', snapshot => {
             snapshot.forEach(user => {
                 setUsers(prev => [
@@ -60,15 +62,6 @@ function Index({type}) {
             })
         });
     }, [])
-
-    // fill loginData to signUpData
-    useEffect(() => {
-        setSignupData({
-            username: loginData.username,
-            email: signupData.email,
-            password: loginData.password
-        });
-    }, [loginData])
 
     //update the form type -> signup or login
     useEffect(() => {
@@ -135,11 +128,13 @@ function Index({type}) {
         if (loginData.username !== "" && loginData.password !== "" && savepw !== false) {
             //sending data to the firebase db server
             users.forEach(user => {
+                console.log(user)
                 if ((user.username === loginData.username) && (user.password === loginData.password)) {
                     notice("success", "Login successfully")
                     localStorage.setItem("princelab", JSON.stringify({
                         username: user.username,
-                        email: user.email
+                        email: user.email,
+                        profile:user.profile
                     }));
                     //delay the notice by 1 second
                     setTimeout(() => {
@@ -181,8 +176,9 @@ function Index({type}) {
             })
     }
 
-    // login btn clicked event
+    // signup btn clicked event
     const signup = () => {
+        console.log(signupData)
         if (signupData.username !== "" && agreeTerms !== false && signupData.email !== "" && signupData.password !== "" && signupData.repassword !== "") {
             validator.isEmail(signupData.email) ?
                 (signupData.password === repassword.current.value) ? checkPasswordStrength(signupData.password) : toast.error("Password not matched !")
@@ -207,7 +203,7 @@ function Index({type}) {
                 //auto fill the form
                 autoFillForm(result.user);
             }).catch((error) => {
-            console.log(error)
+            console.log(error.message)
         });
     }
 
@@ -221,7 +217,7 @@ function Index({type}) {
                 //auto fill the form
                 autoFillForm(result.user);
             }).catch((error) => {
-            console.log(error)
+            console.log(error.message)
         });
     }
 
@@ -231,6 +227,13 @@ function Index({type}) {
         if (cur_route === "/Signup") {
             $("#username").val(data.displayName)
             $("#email").val(data.email)
+            //update the signupdata
+            setSignupData({
+                username:data.displayName,
+                email:data.email,
+                password:signupData.password,
+                profile:data.photoURL
+            })
         } else {
             notice("success", "Login successfully")
             localStorage.setItem("princelab", JSON.stringify({
@@ -256,7 +259,7 @@ function Index({type}) {
                             id='form_img'
                             src={process.env.PUBLIC_URL + "/assets/soil.png"} alt=""/>
                 }
-                <div className='content px-5 pt-3'>
+                <div className='content px-5 pt-5'>
                     {
                         form_type != "signup" ?
                             <h1 className='title fw-bold text-primary'
@@ -304,7 +307,10 @@ function Index({type}) {
                             placeholder='Password'
                             id="password"
                             onChange={
-                                (e) => setLoginData({...loginData, password: e.target.value})}
+                                (e) => {
+                                    form_type != "signup" ? setLoginData({...loginData, password: e.target.value})
+                                        : setSignupData({...signupData, password: e.target.value})
+                                }}
                         />
                         <VisibilityOffIcon
                             id="icon" className='mx-1'
