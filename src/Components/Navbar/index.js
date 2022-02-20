@@ -171,6 +171,7 @@ function Index() {
 
         //logout
         const logout = () => {
+            setSettingNavVisible(false)
             //reset the cache
             localStorage.setItem("princelab", JSON.stringify({
                 username:"",
