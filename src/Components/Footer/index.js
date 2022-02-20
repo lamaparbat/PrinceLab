@@ -40,7 +40,7 @@ function Index() {
      <h5><b>Company</b><hr className='separator w-50' /></h5>
      <a onClick={ () => redirect("Career")}>Career</a>
      <a onClick={ () => redirect("About")}>About Us</a>
-     <a onClick={ () => redirect("Policy")}>Private Policy</a>
+     <a onClick={ () => redirect("Policy")}>Privacy Policy</a>
      <a onClick={ () => redirect("Terms")}>Terms & Condition</a>
     </div>
     <div className='follow_col'>

@@ -9,6 +9,7 @@
 .cards .card1 {
   margin-right: 20px;
   width: 350px;
+  border-radius:10px !important;
 }
 
 .cards .card1 .body {
@@ -46,7 +47,11 @@
   width: 100%;
   display: flex;
   justify-content: space-between;
-  background-color: rgb(255, 220, 155);
+  background: rgb(255,255,154);
+  background: -moz-linear-gradient(90deg, rgba(255,255,154,1) 0%, rgba(255,196,196,1) 100%);
+  background: -webkit-linear-gradient(90deg, rgba(255,255,154,1) 0%, rgba(255,196,196,1) 100%);
+  background: linear-gradient(90deg, rgba(255,255,154,1) 0%, rgba(255,196,196,1) 100%);
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#ffff9a",endColorstr="#ffc4c4",GradientType=1);
   border-radius: 5px;
   box-shadow: 1px 0px 5px 2px rgba(181, 181, 181, 0.47);
   -webkit-box-shadow: 1px 0px 5px 2px rgba(181, 181, 181, 0.47);
@@ -59,8 +64,10 @@
 }
 
 .cards .card1 .card1_footer img {
+  left: 20px;
   height: 60px;
   width: 120px;
+  position:relative;
 }
 
 
@@ -68,6 +75,7 @@
 .cards .card2 {
   margin-left: 20px;
   width: 350px;
+  border-radius:10px !important;
   background-color: white;
   box-shadow: 1px 0px 5px 2px rgba(181, 181, 181, 0.47);
   -webkit-box-shadow: 1px 0px 5px 2px rgba(181, 181, 181, 0.47);

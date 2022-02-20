@@ -17,7 +17,7 @@ import VisibilityOffIcon from '@mui/icons-material/VisibilityOff';
 import AppleIcon from '@mui/icons-material/Apple';
 import MailOutlineRoundedIcon from '@mui/icons-material/MailOutlineRounded';
 import GitHubIcon from '@mui/icons-material/GitHub';
-import {redirectDestineRoute} from "../../Redux/Actions";
+import redirectRoute from "../../Redux/Reducers/RedirectRoute";
 
 function Index({type}) {
     //creating instance of useSelector() -> redux
@@ -143,6 +143,7 @@ function Index({type}) {
                         email: user.email,
                         profile:user.profile
                     }));
+
                     //delay the notice by 1 second
                     setTimeout(() => {
                         navigate("/")
@@ -173,9 +174,10 @@ function Index({type}) {
                     password: "",
                 });
 
-                setTimeout(() => {
-                    navigate("/Login")
-                }, 2000)
+                destineRoute !== "" ? navigate("/"+destineRoute) :
+                    setTimeout(() => {
+                        navigate("/")
+                    }, 1000)
             })
             .catch(err => {
                 notice("success", "Registration Failed");
@@ -249,6 +251,7 @@ function Index({type}) {
                 profile: data.photoURL
             }));
             //delay the notice by 1 second
+            destineRoute !== "" ? navigate("/"+destineRoute) :
             setTimeout(() => {
                 navigate("/")
             }, 1000)
@@ -387,7 +390,7 @@ function Index({type}) {
 
                     {/* social media icons */}
                     <center id="icon_title">
-                        <span className='text-secondary'>Sign Up using</span>
+                        <span className='text-secondary'>Sign-up using</span>
                     </center>
                     <div
                         className='icons'

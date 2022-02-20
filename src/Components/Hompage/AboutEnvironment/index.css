@@ -14,11 +14,11 @@
 }
 
 .AboutEnvironment .AboutEnvironment_rows img {
-  margin-top: 150px;
+  margin-top: 50px;
   padding:30px;
   padding-top: 50px;
   padding-bottom: 50px;
-  height: 320px;
+  height: 350px;
   width: 480px;
   border-radius: 10px/10px;
   background-color: white;
@@ -38,7 +38,7 @@
 }
 
 .AboutEnvironment .AboutEnvironment_rows .content h3 {
-  color: white;
+  color: #282828;
 }
 
 .AboutEnvironment .AboutEnvironment_rows .content span {
@@ -47,7 +47,7 @@
   border-radius: 5px;
   font-size: 33px;
   color: black;
-  background-color: rgb(255, 255, 255);
+  background-color: #ffd67c;
 }
 
 .AboutEnvironment .AboutEnvironment_rows .content p {

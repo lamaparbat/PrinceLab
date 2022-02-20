@@ -1,6 +1,7 @@
 .navbar {
    margin-bottom: 10px;
    padding: 15px;
+   height:67px;
    width: 80%;
    color: white;
    display: flex;
@@ -8,10 +9,11 @@
    justify-content: space-evenly;
    align-items: center;
    border-radius: 10px !important;
+   backdrop-filter: blur(5px);
    background-color: rgba(0, 0, 0, 0.7);
-   box-shadow: 0px 0px 5px 0px rgba(197, 197, 197, 0.75);
-   -webkit-box-shadow: 0px 0px 5px 0px rgba(180, 180, 180, 0.75);
-   -moz-box-shadow: 0px 0px 5px 0px rgba(199, 199, 199, 0.75);
+   /*box-shadow: 0px 0px 5px 0px rgba(197, 197, 197, 0.75);*/
+   /*-webkit-box-shadow: 0px 0px 5px 0px rgba(180, 180, 180, 0.75);*/
+   /*-moz-box-shadow: 0px 0px 5px 0px rgba(199, 199, 199, 0.75);*/
 }
 
 .navbar li {

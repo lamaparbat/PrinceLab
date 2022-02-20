@@ -2,7 +2,9 @@ const initialState = ""
 
 const RedirectRoute = (state= initialState, action) => {
     switch (action.type){
-        case "Login" : return action.payload;
-        default : return action.payload;
+        case "Login" : return "Login";
+        default : return state;
     }
 }
+
+export default RedirectRoute;

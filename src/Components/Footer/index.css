@@ -21,7 +21,7 @@
   padding: 8px;
   height: 43px;
   width: 43px;
-  border-radius: 50%;
+  border-radius: 50% !important;
   display: flex;
   justify-content: center;
   align-items: center;

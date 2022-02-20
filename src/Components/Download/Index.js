@@ -45,11 +45,11 @@ const Index = () => {
                 <div className="downloads_box_card_content">
                     {
                         btn_text != "MAC" ?
-                            windows_features.map(data => {
-                                return <span>{data}</span>
+                            windows_features.map((data,index) => {
+                                return <span key={index}>{data}</span>
                             }) :
-                            mac_features.map(data => {
-                                return <span>{data}</span>
+                            mac_features.map((data,index) => {
+                                return <span key={index}>{data}</span>
                             })
                     }
                 </div>

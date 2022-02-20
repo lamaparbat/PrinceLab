@@ -1,5 +1,5 @@
 import {useEffect, useState} from 'react';
-import {Link, useNavigate} from 'react-router-dom';
+import {Link, useNavigate, useLocation} from 'react-router-dom';
 import { useDispatch} from "react-redux";
 import {darkTheme, lightTheme} from "../../Redux/Actions";
 import $ from 'jquery';
@@ -12,6 +12,9 @@ import KeyboardBackspaceIcon from '@mui/icons-material/KeyboardBackspace';
 function Index() {
     //creating instance of useNavigate
     const navigate = useNavigate();
+
+    //creating instance of useLocation
+    const cur_route = useLocation();
 
     //fetched the cache data
     let owner = JSON.parse(localStorage.getItem("princelab"))
@@ -353,20 +356,42 @@ function Index() {
     return (
         <>
             <div className='container navbar fixed-bottom'>
-                <li className='link  text-decoration-none'>
-                    <Link className='text-decoration-none' to="/">Home</Link>
+                <li className='link  text-decoration-none text-danger'>
+                    <Link
+                        className={'text-decoration-none text-'}
+                        to="/">
+                        <span className={"text-"+
+                        (cur_route.pathname === "/" ? "secondary":"light")}>
+                            Home</span></Link>
                 </li>
                 <li className='link  text-decoration-none'>
-                    <Link className='text-decoration-none' to="/Feature">Feature</Link>
+                    <Link  className={'text-decoration-none text-danger ' }
+                           to="/Feature">
+                        <span className={"text-"+
+                            (cur_route.pathname === "/Feature" ? "secondary":"light")}>
+                            Feature</span>
+                    </Link>
                 </li>
                 <li className='link  text-decoration-none'>
-                    <Link className='text-decoration-none' to="/Download">Download</Link>
+                    <Link className='text-decoration-none' to="/Download">
+                        <span className={"text-"+
+                            (cur_route.pathname === "/Download" ? "secondary":"light")}>
+                            Download</span>
+                    </Link>
                 </li>
                 <li className='link  text-decoration-none'>
-                    <Link className='text-decoration-none' to="/Pricing">Pricing</Link>
+                    <Link className='text-decoration-none' to="/Pricing">
+                        <span className={"text-"+
+                            (cur_route.pathname === "/Pricing" ? "secondary":"light")}>
+                            Pricing</span>
+                    </Link>
                 </li>
                 <li className='link  text-decoration-none'>
-                    <Link className='text-decoration-none' to="/Store">Store</Link>
+                    <Link className='text-decoration-none' to="/Store">
+                        <span className={"text-"+
+                            (cur_route.pathname === "/Store" ? "secondary":"light")}>
+                            Store</span>
+                    </Link>
                 </li>
                 <li className='link  text-decoration-none'>
                     <Avatar
@@ -388,16 +413,37 @@ function Index() {
             {/* on mobile view */}
             <div className='resp_nav'>
                 <div className='items'>
-                    <li className='link  text-decoration-none'><Link className='text-decoration-none' to="/">Home</Link>
+                    <li className='link  text-decoration-none'>
+                        <Link className={'text-decoration-none'} to="/">
+                             <span className={"text-"+
+                                 (cur_route.pathname === "/" ? "secondary":"dark")}>
+                            Home</span>
+                        </Link>
                     </li>
-                    <li className='link  text-decoration-none'><Link className='text-decoration-none'
-                                                                     to="/Feature">Feature</Link></li>
-                    <li className='link  text-decoration-none'><Link className='text-decoration-none'
-                                                                     to="/Download">Download</Link></li>
-                    <li className='link  text-decoration-none'><Link className='text-decoration-none'
-                                                                     to="/Pricing">Pricing</Link></li>
-                    <li className='link  text-decoration-none'><Link className='text-decoration-none'
-                                                                     to="/Store">Store</Link></li>
+                    <li className='link  text-decoration-none'>
+                        <Link className='text-decoration-none' to="/Feature">
+                        <span className={"text-"+
+                            (cur_route.pathname === "/Feature" ? "secondary":"dark")}>
+                            Feature</span>
+                    </Link></li>
+                    <li className='link  text-decoration-none'>
+                        <Link className='text-decoration-none' to="/Download">
+                            <span className={"text-"+
+                                (cur_route.pathname === "/Download" ? "secondary":"dark")}>
+                                Download</span>
+                        </Link></li>
+                    <li className='link  text-decoration-none'>
+                        <Link className='text-decoration-none' to="/Pricing">
+                            <span className={"text-"+
+                                (cur_route.pathname === "/Pricing" ? "secondary":"dark")}>
+                            Pricing</span>
+                        </Link></li>
+                    <li className='link  text-decoration-none'>
+                        <Link className='text-decoration-none'  to="/Store">
+                        <span className={"text-"+
+                            (cur_route.pathname === "/Store" ? "secondary":"dark")}>
+                            Store</span>
+                    </Link></li>
                     <li className='link  text-decoration-none'>
                         <Avatar
                             id="avatar"
