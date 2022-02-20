@@ -94,6 +94,7 @@ function Index() {
                 dispatch(lightTheme());
                 setTheme("light");
             }
+            setNavVisible(false);
         }
 
         return (
@@ -131,7 +132,11 @@ function Index() {
                                         src={process.env.PUBLIC_URL + "/assets/themes.svg"} />
                                     <p>Theme</p>
                                 </div>
-                                <div className="nav_card" onClick={() => navigate("/Login")}>
+                                <div className="nav_card" onClick={() => {
+                                    navigate("/Login")
+                                    setNavVisible(false)
+                                }
+                                }>
                                     <img
                                         src={process.env.PUBLIC_URL + "/assets/user.svg"}/>
                                     <p>Sign In</p

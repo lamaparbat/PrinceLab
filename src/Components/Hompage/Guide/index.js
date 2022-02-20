@@ -1,7 +1,11 @@
 import React from 'react';
+import {useNavigate} from "react-router-dom";
 import '../Guide/index.css';
 
-function index() {
+function Index() {
+ //create instance of useNavigate
+ const navigate = useNavigate();
+
  return (
   <div className='container guide'>
    <div className="guide_rows mt-3">
@@ -22,10 +26,13 @@ function index() {
      And for more advanced and developer focused guides we have provided
      some sample videos and documentation. Learn how to use the software and take the advantage of
      the powerful parallel computing. </p>
-    <button className='btn text-light'>Get started</button>
+    <button
+        className='btn text-light'
+        onClick={() => navigate("/QuickGuide")}
+    >Get started</button>
    </div>
   </div>
  )
 }
 
-export default index
+export default Index

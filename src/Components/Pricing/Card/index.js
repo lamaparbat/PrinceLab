@@ -1,8 +1,22 @@
 import React from 'react';
 import './index.css';
+import {useNavigate} from "react-router-dom";
+import {toast, ToastContainer} from "react-toastify";
 import CheckIcon from '@mui/icons-material/Check';
 
-function index(props) {
+function Index(props) {
+  //create instance of useNavigate
+  const navigate = useNavigate();
+
+  //auth check
+  const auth = (type) => {
+    if(localStorage.getItem("princelab") != null && JSON.parse(localStorage.getItem("princelab")).username != ""){
+      toast.success("Ready to purchase !")
+    }else{
+      navigate("/Login")
+    }
+  }
+
   return (
     <>
       <div className='business py-5 mx-4 my-4'>
@@ -31,10 +45,14 @@ function index(props) {
           </div>
         </div>
         <center>
-          <button className={'btn px-5 rounded-1 bg-' + props.bg}>{props.bottom_btn}</button>
+          <button
+              className={'btn px-5 rounded-1 bg-' + props.bg}
+              onClick={() => auth(props.top_btn)}
+          >{props.bottom_btn}</button>
         </center><br/>
+        <ToastContainer />
       </div>
     </>);
 }
 
-export default index;
+export default Index;

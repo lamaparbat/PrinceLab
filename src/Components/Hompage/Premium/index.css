@@ -12,7 +12,7 @@
   width: 960px;
   display: flex;
   justify-content: center;
-  border-radius: 5px;
+  border-radius: 5px !important;
   background: url("/public/assets/camp.png");
   box-shadow: 0px 2px 5px 0px rgba(153, 153, 153, 0.75);
   -webkit-box-shadow: 0px 2px 5px 0px rgba(153, 153, 153, 0.75);
@@ -27,7 +27,7 @@
   text-align: center;
   backdrop-filter: blur(8px);
   background: rgba(138, 71, 71, 0.5);
-  border-radius: 10px;
+  border-radius: 10px !important;
 }
 
 .premium_row .body .text-content {

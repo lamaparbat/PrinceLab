@@ -264,10 +264,18 @@ function Index({type}) {
                 {
                     form_type != "signup" ? <img
                             id='form_img'
-                            src={process.env.PUBLIC_URL + "/assets/signin.png"} alt=""/> :
+                            src={
+                              localStorage.getItem("theme") !== "dark" ? process.env.PUBLIC_URL + "/assets/signin.png" :
+                                  process.env.PUBLIC_URL + "/assets/moon2.png"
+                            }
+                            alt=""/> :
                         <img
                             id='form_img'
-                            src={process.env.PUBLIC_URL + "/assets/soil.png"} alt=""/>
+                            src={
+                                localStorage.getItem("theme") !== "dark" ? process.env.PUBLIC_URL + "/assets/soil.png" :
+                                    process.env.PUBLIC_URL + "/assets/moon1.png"
+                            }
+                            alt=""/>
                 }
                 <div className='content px-5 pt-5'>
                     {

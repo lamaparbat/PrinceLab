@@ -1,7 +1,11 @@
 import React from 'react';
+import {useNavigate} from "react-router-dom";
 import '../Download/index.css';
 
-function index() {
+function Index() {
+  //creating instance of useNavigate
+  const navigate = useNavigate();
+
   return (
     <div className='container Download '>
       <div className="rows mt-3">
@@ -29,10 +33,13 @@ function index() {
               loading='lazy'
             /></div>
         </div>
-        <button className='btn text-light'>Download</button>
+        <button
+            className='btn text-light'
+            onClick={() => navigate("/Download")}
+        >Download</button>
       </div>
     </div>
   )
 }
 
-export default index
+export default Index

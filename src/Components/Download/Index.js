@@ -30,8 +30,8 @@ const Index = () => {
     const Card = ({bg, src, btn_text}) => {
         //verify the user
         const auth = (type) => {
-            if(localStorage.getItem("princelab") !== null){
-                (type != "MAC") ?  toast.info("Ready to download on Windows !")
+            if(localStorage.getItem("princelab") != null && JSON.parse(localStorage.getItem("princelab")).username !== ""){
+                (type !== "MAC") ?  toast.info("Ready to download on Windows !")
                     : toast.info("Ready to download on Mac !")
             }else{
                 dispatch(redirectDestineRoute("Download"))
