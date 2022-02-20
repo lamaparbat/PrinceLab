@@ -109,16 +109,12 @@ function Index() {
                             <div className="profile_nav_row">
                                 <div className="nav_card" onClick={changeTheme}>
                                     <img
-                                        src={localStorage.getItem("theme") === "light" ?
-                                            process.env.PUBLIC_URL + "/assets/theme.png" :
-                                            process.env.PUBLIC_URL + "/assets/theme1.png"}/>
+                                        src={process.env.PUBLIC_URL + "/assets/themes.svg"}/>
                                     <p>Theme</p>
                                 </div>
                                 <div className="nav_card" onClick={openSettingNav}>
                                     <img
-                                        src={localStorage.getItem("theme") === "light" ?
-                                            process.env.PUBLIC_URL + "/assets/profile.png" :
-                                            process.env.PUBLIC_URL + "/assets/profile1.png"}/>
+                                        src={process.env.PUBLIC_URL + "/assets/user.svg"}/>
                                     <p>Setting</p
                                     >
                                 </div>

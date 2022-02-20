@@ -1,0 +1,20 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="45" height="45" viewBox="0 0 45 45">
+  <g id="light_theme" data-name="light theme" transform="translate(-1253 -802.193)">
+    <g id="Ellipse_52" data-name="Ellipse 52" transform="translate(1253 802.193)" fill="#fff" stroke="#335aff" stroke-width="1.5">
+      <circle cx="22.5" cy="22.5" r="22.5" stroke="none"/>
+      <circle cx="22.5" cy="22.5" r="21.75" fill="none"/>
+    </g>
+    <g id="Ellipse_53" data-name="Ellipse 53" transform="translate(1253 806.193)" fill="none" stroke="#335aff" stroke-width="1">
+      <circle cx="17" cy="17" r="17" stroke="none"/>
+      <circle cx="17" cy="17" r="16.5" fill="none"/>
+    </g>
+    <g id="Ellipse_54" data-name="Ellipse 54" transform="translate(1259 802.193)" fill="none" stroke="#335aff" stroke-width="1">
+      <ellipse cx="17" cy="16.5" rx="17" ry="16.5" stroke="none"/>
+      <ellipse cx="17" cy="16.5" rx="16.5" ry="16" fill="none"/>
+    </g>
+    <g id="Ellipse_55" data-name="Ellipse 55" transform="translate(1265 806.193)" fill="none" stroke="#335aff" stroke-width="1">
+      <ellipse cx="16.5" cy="17" rx="16.5" ry="17" stroke="none"/>
+      <ellipse cx="16.5" cy="17" rx="16" ry="16.5" fill="none"/>
+    </g>
+  </g>
+</svg>
