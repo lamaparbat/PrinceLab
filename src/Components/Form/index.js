@@ -50,10 +50,10 @@ function Index({type}) {
     //signup data
     const repassword = useRef()
     const [signupData, setSignupData] = useState({
-        username:"",
+        username: "",
         email: "",
         password: "",
-        profile:""
+        profile: ""
     });
 
     //fetched all the user from firebase DB
@@ -131,7 +131,6 @@ function Index({type}) {
 
     // login btn clicked event
     const login = () => {
-        console.log(destineRoute)
         if (loginData.username !== "" && loginData.password !== "" && savepw !== false) {
             //sending data to the firebase db server
             users.forEach(user => {
@@ -141,13 +140,14 @@ function Index({type}) {
                     localStorage.setItem("princelab", JSON.stringify({
                         username: user.username,
                         email: user.email,
-                        profile:user.profile
+                        profile: user.profile
                     }));
 
                     //delay the notice by 1 second
-                    setTimeout(() => {
-                        navigate("/")
-                    }, 1000)
+                    destineRoute !== "" ? navigate("/" + destineRoute) :
+                        setTimeout(() => {
+                            navigate("/")
+                        }, 1000)
                 }
             })
         } else {
@@ -174,7 +174,7 @@ function Index({type}) {
                     password: "",
                 });
 
-                destineRoute !== "" ? navigate("/"+destineRoute) :
+                destineRoute !== "" ? navigate("/" + destineRoute) :
                     setTimeout(() => {
                         navigate("/")
                     }, 1000)
@@ -238,10 +238,10 @@ function Index({type}) {
             $("#email").val(data.email)
             //update the signupdata
             setSignupData({
-                username:data.displayName,
-                email:data.email,
-                password:signupData.password,
-                profile:data.photoURL
+                username: data.displayName,
+                email: data.email,
+                password: signupData.password,
+                profile: data.photoURL
             })
         } else {
             notice("success", "Login successfully")
@@ -251,10 +251,10 @@ function Index({type}) {
                 profile: data.photoURL
             }));
             //delay the notice by 1 second
-            destineRoute !== "" ? navigate("/"+destineRoute) :
-            setTimeout(() => {
-                navigate("/")
-            }, 1000)
+            destineRoute !== "" ? navigate("/" + destineRoute) :
+                setTimeout(() => {
+                    navigate("/")
+                }, 1000)
         }
     }
 

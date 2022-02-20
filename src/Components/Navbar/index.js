@@ -416,32 +416,32 @@ function Index() {
                     <li className='link  text-decoration-none'>
                         <Link className={'text-decoration-none'} to="/">
                              <span className={"text-"+
-                                 (cur_route.pathname === "/" ? "secondary":"dark")}>
+                                 (cur_route.pathname === "/" ? "secondary":"primary")}>
                             Home</span>
                         </Link>
                     </li>
                     <li className='link  text-decoration-none'>
                         <Link className='text-decoration-none' to="/Feature">
                         <span className={"text-"+
-                            (cur_route.pathname === "/Feature" ? "secondary":"dark")}>
+                            (cur_route.pathname === "/Feature" ? "secondary":"primary")}>
                             Feature</span>
                     </Link></li>
                     <li className='link  text-decoration-none'>
                         <Link className='text-decoration-none' to="/Download">
                             <span className={"text-"+
-                                (cur_route.pathname === "/Download" ? "secondary":"dark")}>
+                                (cur_route.pathname === "/Download" ? "secondary":"primary")}>
                                 Download</span>
                         </Link></li>
                     <li className='link  text-decoration-none'>
                         <Link className='text-decoration-none' to="/Pricing">
                             <span className={"text-"+
-                                (cur_route.pathname === "/Pricing" ? "secondary":"dark")}>
+                                (cur_route.pathname === "/Pricing" ? "secondary":"primary")}>
                             Pricing</span>
                         </Link></li>
                     <li className='link  text-decoration-none'>
                         <Link className='text-decoration-none'  to="/Store">
                         <span className={"text-"+
-                            (cur_route.pathname === "/Store" ? "secondary":"dark")}>
+                            (cur_route.pathname === "/Store" ? "secondary":"primary")}>
                             Store</span>
                     </Link></li>
                     <li className='link  text-decoration-none'>

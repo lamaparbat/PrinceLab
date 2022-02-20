@@ -24,7 +24,7 @@
 .discover_apps_card #icons {
  height: 90px;
  padding: 10px;
- border-radius: 10px;
+ border-radius: 10px !important;
  box-shadow: 1px 0px 5px 2px rgba(181, 181, 181, 0.47);
  -webkit-box-shadow: 1px 0px 5px 2px rgba(181, 181, 181, 0.47);
  -moz-box-shadow: 1px 0px 5px 2px rgba(181, 181, 181, 0.47);

@@ -29,7 +29,7 @@ export const hideSidebar = () => {
 // destine route -> redirect to the destine roote after login
 export const redirectDestineRoute = (route) => {
     return{
-        type:"Login",
+        type:route,
         payload: route
     }
 }

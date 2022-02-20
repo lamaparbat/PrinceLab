@@ -4,6 +4,7 @@ import {useDispatch} from 'react-redux';
 import '../Download/Index.css';
 import Premium from "../Hompage/Premium";
 import {redirectDestineRoute} from "../../Redux/Actions";
+import {toast, ToastContainer} from "react-toastify";
 
 const Index = () => {
     //creating instance of useDispatch()  -> redux
@@ -30,9 +31,10 @@ const Index = () => {
         //verify the user
         const auth = (type) => {
             if(JSON.parse(localStorage.getItem("princelab")).username != ""){
-                // (type != "MAC") ? :
+                (type != "MAC") ?  toast.info("Ready to download on Windows !")
+                    : toast.info("Ready to download on Mac !")
             }else{
-                dispatch(redirectDestineRoute("Login"))
+                dispatch(redirectDestineRoute("Download"))
                 navigate("/Login")
             }
         }
@@ -76,6 +78,7 @@ const Index = () => {
                    />
                </div><br/><br/>
                 <Premium />
+                <ToastContainer />
             </div>
         </>
     )
