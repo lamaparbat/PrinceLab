@@ -1,0 +1,174 @@
+.Download {
+   display: flex;
+   justify-content: center;
+}
+
+.Download .rows {
+   padding-top: 30px;
+   padding-bottom: 45px;
+   margin-left: -25px;
+   width: 954px;
+   height: fit-content;
+   display: flex;
+   flex-direction: column;
+   align-items: center;
+   border-radius: 8px;
+   /* background-color: red; */
+   box-shadow: 0px 2px 5px 0px rgba(153, 153, 153, 0.75);
+   -webkit-box-shadow: 0px 2px 5px 0px rgba(153, 153, 153, 0.75);
+   -moz-box-shadow: 0px 2px 5px 0px rgba(153, 153, 153, 0.75);
+
+}
+
+.Download .rows .title {
+   height: fit-content;
+   width: 100%;
+   display: flex;
+   justify-content: center;
+   align-items: center;
+}
+
+.Download .rows .title .input_icon {
+   height: 65px;
+   width: 120px;
+}
+
+.Download .rows p {
+   width: 600px;
+   font-size: 18px;
+   text-align: center;
+}
+
+.Download .rows div .img_container {
+   padding-right: 50px;
+   height: 150px;
+   display: flex;
+   align-items: center;
+   padding-left: 20px;
+}
+
+.Download .rows div .img_container:first-child {
+   border-right: 1px solid rgb(128, 128, 128);
+}
+
+.Download .rows div .img_container:nth-child(2) {
+   padding-left: 50px;
+}
+
+.Download .rows div .img_container img {
+   height: 100px;
+   padding-top: 15px;
+   padding-bottom: 15px;
+   background: #ffffff;
+   padding: 10px;
+   border-radius: 5px;
+   box-shadow: 0px 2px 5px 0px rgba(153, 153, 153, 0.75);
+   -webkit-box-shadow: 0px 2px 5px 0px rgba(153, 153, 153, 0.75);
+   -moz-box-shadow: 0px 2px 5px 0px rgba(153, 153, 153, 0.75);
+}
+
+#win_icon {
+   padding: 18px;
+}
+
+.Download .rows .btn {
+   width: 250px;
+   color: white;
+   font-weight: bold;
+   border:1px solid white !important;
+   background-color: rgb(28, 192, 28);
+   border-radius: 50px !important;
+}
+
+@media(max-width:1100px) {
+   .Download .rows {
+      padding: 140px;
+      padding-top: 30px;
+      padding-bottom: 30px;
+      margin-left: 0px;
+      width: 100%;
+      overflow: hidden;
+      box-shadow: none;
+   }
+
+   .Download .rows div .img_container {
+      height: 150px;
+   }
+
+   .Download .rows img {
+      margin-right: 10px;
+   }
+
+   .Download .rows p {
+      text-align: justify;
+      width: fit-content;
+   }
+
+   .Download .rows div .img_container:nth-child(2) {
+      padding-left: 70px;
+   }
+}
+
+@media(max-width:990px) {
+   .Download .rows {
+      padding: 40px;
+   }
+}
+
+@media(max-width:800px) {
+   .Download {
+      padding-right: 10px;
+      max-width: 100% !important;
+   }
+
+   .Download .rows {
+      padding: 20px;
+   }
+
+   .Download .rows .title {
+      justify-content: center;
+   }
+
+   .Download .rows div .img_container img {
+      height: 80px;
+   }
+
+   .Download .rows div .img_container {
+      padding-right: 30px;
+      height: fit-content;
+   }
+
+   .Download .rows .title .input_icon {
+      height: 55px;
+      width: 80px;
+   }
+
+   #win_icon {
+      padding: 15px;
+   }
+
+   .Download .rows div .img_container:nth-child(2) {
+      padding-left: 45px;
+   }
+}
+
+/* ipad mini */
+@media (max-width:820px) and (min-height:1180px) {
+   .Download .rows {
+      padding: 100px;
+      padding-top: 50px;
+      padding-bottom: 0;
+   }
+}
+
+@media (max-width:780px) and (min-height:1024px) {
+   .Download .rows div .img_container img {
+      height: 150px;
+   }
+}
+
+@media(max-width:396px) {
+   .Download .rows {
+      padding: 10px;
+   }
+}

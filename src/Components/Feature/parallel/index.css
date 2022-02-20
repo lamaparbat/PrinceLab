@@ -1,0 +1,57 @@
+.parallel {
+ background-color: rgb(238, 244, 246);
+}
+
+.parallel img{
+  border-radius: 10px;
+}
+.parallel .roundedDiv {
+ height: 200px;
+ width: 100%;
+ display: flex;
+ justify-content: center;
+ align-items: center;
+ border-radius: 150px;
+ background-color: rgb(255, 255, 255);
+}
+
+.parallel .roundedDiv img {
+ padding-top: 20px;
+ padding-bottom: 20px;
+ height: inherit;
+ border-radius: 50px;
+}
+
+.parallel .roundedDiv .content {
+ margin-left: 20px;
+ margin-right: 20px;
+}
+
+.parallel .roundedDiv .content button {
+ width: fit-content;
+ border-radius: 100px;
+ background-color: rgb(154, 17, 177);
+ color: white;
+ border: 0px;
+}
+
+
+/* responsive */
+@media (max-width:770px) {
+ .parallel .roundedDiv {
+  border-radius: 0px;
+ }
+}
+
+@media (max-width:550px) {
+ .parallel .roundedDiv img {
+  padding-top: 50px;
+  padding-bottom: 50px;
+ }
+}
+
+@media (max-width:500px) {
+ .parallel .roundedDiv img {
+  display: none;
+ }
+}

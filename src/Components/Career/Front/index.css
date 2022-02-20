@@ -1,0 +1,144 @@
+.front {
+   height: fit-content;
+   width: 100%;
+   overflow: hidden;
+}
+
+.front h1 {
+   margin-top: -80px;
+   font-size: 80px;
+}
+
+.front h1 #s {
+   top: 90px;
+   margin-right: 10px;
+   font-size: 250px;
+   color: red !important;
+   font-weight: bold;
+   position: relative;
+   background-color: unset !important;
+}
+
+.front h1 #tay {
+   top: -60px;
+   left: 65px;
+   position: relative;
+   background-color: unset !important;
+}
+
+.front #btn {
+   left: 50px;
+   font-size: 20px;
+   border: 2px solid rgb(150, 150, 150);
+   border-style: dotted;
+   border-radius: 40px;
+   position: relative;
+   background-color: white;
+}
+
+.front #btn .printf {
+   color: rgb(255, 70, 70) !important;
+}
+
+.front #front_img {
+   width: 800px;
+}
+
+
+/* responsive */
+@media (max-width:1100px) {
+   .front {
+      height: 100%;
+   }
+
+   .front #front_img {
+      width: 100%;
+   }
+
+   .front #btn {
+      top: 0px;
+      position: static;
+   }
+}
+
+@media (max-width:700px) {
+   .front h1 {
+      margin-top: 0px;
+      font-size: 30px;
+   }
+
+   .front h1 {
+      margin-top: -50px;
+      font-size: 60px;
+   }
+
+   .front h1 #s {
+      top: 40px;
+      font-size: 150px;
+   }
+
+   .front h1 #tay {
+      left: 40px;
+      top: -40px;
+   }
+
+   .front #btn {
+      top: -30px;
+      left: 0;
+      padding-top: 5px !important;
+      padding-bottom: 5px !important;
+      padding-left: 15px !important;
+      padding-right: 15px !important;
+      font-size: 16px;
+      position: relative;
+   }
+
+}
+
+@media (max-width:480px) {
+   .front h1 {
+      margin-top: 0px;
+      font-size: 30px;
+   }
+
+   .front h1 {
+      margin-top: -20px;
+      font-size: 40px;
+   }
+
+   .front h1 #s {
+      top: 40px;
+      font-size: 130px;
+   }
+
+   .front h1 #tay {
+      left: 37px;
+      top: -30px;
+   }
+
+   .front #btn {
+      top: -10px;
+   }
+}
+
+@media (max-width:355px) {
+   .front h1 {
+      font-size: 30px !important;
+   }
+
+   .front h1 {
+      margin-top: -20px;
+      font-size: 40px;
+   }
+
+   .front h1 #s {
+      top: 30px;
+      font-size: 100px;
+   }
+
+   .front h1 #tay {
+      left: 29px;
+      top: -25px;
+   }
+
+}

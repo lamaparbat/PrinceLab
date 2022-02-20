@@ -1,0 +1,42 @@
+.aistore .aistore_banner {
+ height: 60vh;
+ display: flex;
+ flex-direction: column-reverse;
+ background-image: url("/public/assets/aiBanner.png");
+ background-size: 100% 100%;
+ border-radius: 10px;
+}
+
+.aistore_banner_content {
+ padding: 30px;
+ padding-left: 30px;
+ color: white !important;
+ backdrop-filter: blur(20px);
+ background-color: rgba(0, 0, 0, 0.5);
+}
+
+.aistore_banner_content span {
+ top: -5px;
+ color: white !important;
+ position: relative;
+}
+
+/* responsive */
+@media(max-width:1400px) {
+ .aistore .aistore_banner {
+  height: 40vh;
+ }
+
+}
+
+@media(max-width:990px) {
+ .aistore .aistore_banner {
+  height: 50vh;
+ }
+}
+
+@media(max-width:500px) {
+ .aistore .aistore_banner {
+  height: 40vh;
+ }
+}

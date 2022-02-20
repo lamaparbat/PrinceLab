@@ -1,0 +1,67 @@
+.business {
+ height: fit-content;
+ border-radius: 6px !important;
+ box-shadow: 0px 1px 5px 1px rgba(201, 201, 201, 0.75);
+ -webkit-box-shadow: 0px 1px 5px 1px rgba(201, 201, 201, 0.75);
+ -moz-box-shadow: 0px 1px 5px 1px rgba(201, 201, 201, 0.75);
+}
+
+.business center{
+  height: 0 !important;
+} 
+.business .btn {
+ background-color: rgb(238, 156, 60);
+ color: white !important;
+ border-radius: 6px !important;
+ position: relative;
+}
+
+.business .top_btn {
+ top: -70px;
+ position: relative;
+}
+
+.business .business_content {
+ padding-left: 50px;
+ padding-right: 30px;
+ padding-top: 0px;
+ padding-bottom: 20px;
+ width: 400px;
+ height: fit-content;
+ display: flex;
+ flex-direction: column;
+ justify-content: center;
+ align-items: center;
+}
+
+.business .business_content #price {
+ font-size: 70px;
+}
+
+.business .business_content #month_name {
+ font-size: 20px;
+ color: rgb(41, 41, 41);
+}
+
+.business .business_content .separator {
+ height: 1.1px;
+ width: 80%;
+ background-color: rgb(223, 223, 223);
+}
+
+.business .business_content .feature_list #li {
+ display: flex;
+}
+
+.business .business_content .feature_list #li #icon {
+ padding: 3px;
+ border-radius: 50px !important;
+ color: white;
+ background-color: rgb(238, 156, 60);
+}
+
+@media (max-width:1100px) {
+ .business .business_content {
+  width: 100%;
+ }
+}

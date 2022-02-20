@@ -1,0 +1,33 @@
+@import url('https://fonts.googleapis.com/css2?family=Karla&family=PT+Sans&display=swap');
+
+/* custom css */
+body {
+    background-color: #8f8f8f;
+}
+
+
+p {
+    font-family: 'PT Sans', sans-serif;
+}
+
+h1, span, h3 {
+    color: rgb(46, 31, 31);
+}
+
+.btn {
+    border-radius: 50px !important;
+}
+
+@media (max-width: 1200px) {
+    * > h1 {
+        font-size: 18px;
+    }
+
+    * > h3 {
+        font-size: 16px;
+    }
+
+    * > p {
+        font-size: 15px;
+    }
+}

@@ -1,0 +1,345 @@
+.form {
+ height: 100vh;
+ display: flex;
+ flex-direction: column;
+ justify-content: center;
+ background-color: rgb(242, 237, 233);
+}
+
+.form .box {
+ height: 600px;
+ display: flex;
+ justify-content: center;
+ align-content: center;
+}
+
+.form .box #form_img {
+ width: 50%;
+}
+
+.form .box .content {
+ width: 45%;
+ display: flex;
+ flex-direction: column;
+ justify-content: center;
+}
+
+.form .box .content .title {
+ top: 15px;
+ margin-left: 5px;
+ color: rgb(20, 168, 248);
+ position: relative;
+}
+
+#forgetpassword_link{
+ margin-top: -10px;
+ cursor : pointer;
+}
+
+#error_text{
+  margin-top: 10px;
+  margin-left: 10px;
+  font-size: 14px;
+  transition: 0.5s ease-in-out;
+}
+.form .box .content .username_inp, .password_inp {
+ padding-left: 10px;
+ margin-top: 15px;
+ width: 100%;
+ height: fit-content;
+ display: flex;
+ align-items: center;
+ border-radius: 25px !important;
+ background-color: white;
+ border: 1px solid rgb(224, 224, 224);
+ overflow: hidden;
+}
+
+.form .box .content div #icon {
+ margin-right: 10px;
+ font-size: 25px !important;
+ color: rgb(110, 110, 110) !important;
+ cursor: pointer;
+}
+
+.form .box .content div #icon:hover {
+ color: #939393 !important;
+}
+
+.form .box .content div input {
+ width: 100%;
+ border: none;
+ outline-style: none;
+ font-size: 14px;
+}
+
+.form .box .content .save_info {
+ margin-bottom: 20px;
+ display: flex;
+ justify-content: space-between;
+ align-items: center;
+ border: none;
+ background-color: unset !important;
+}
+
+.agree_terms {
+ padding: 5px;
+ display: flex;
+ justify-content: unset !important;
+ align-items: center;
+}
+
+.agree_terms .checkbox {
+ width: 20px !important;
+}
+
+.form .box .content .save_info .save_pw {
+ padding-bottom: 10px;
+ padding-left: 0px;
+ margin-top: 20px !important;
+ width: fit-content;
+ background-color: unset !important;
+ border: 0px solid white !important;
+}
+
+.form .box .content .save_info .save_pw #remem_span {
+ top: 5px;
+ position: relative;
+}
+
+.form .box .content .save_info .save_pw span {
+ color: rgb(126, 126, 126) !important;
+}
+
+.form .box .content .save_info #icon {
+ font-size: 40px;
+}
+
+.form .box .content .form_footer {
+ padding-top: 0 !important;
+ margin-bottom: 10px;
+ display: flex;
+ justify-content: space-evenly;
+ background-color: unset !important;
+ border: none;
+}
+
+.form .box .content a {
+ text-decoration: none;
+ background-color: unset !important;
+}
+
+.form .box .content .divider {
+ height: 1px !important;
+ width: 100%;
+ background-color: rgb(148, 148, 148) !important;
+ border: none;
+}
+
+.form .box .content #or {
+ padding: 5px;
+ top: -17px;
+ left: 45%;
+ width: fit-content;
+ position: relative;
+ background-color: rgb(242, 237, 233);
+}
+
+.form .box .content .icons {
+ border: 0px solid white;
+ width: 100%;
+ display: flex;
+ justify-content: center;
+ align-items: center;
+ background-color: unset !important;
+}
+
+.form .box .content .icons img {
+ margin-left: 15px;
+ margin-right: 15px;
+ margin-bottom: -20px;
+ height: 50px;
+ width: 50px;
+ border-radius: 50px !important;
+ cursor: pointer;
+ box-shadow: 1px 0px 5px 2px rgba(181, 181, 181, 0.47);
+ -webkit-box-shadow: 1px 0px 5px 2px rgba(181, 181, 181, 0.47);
+ -moz-box-shadow: 1px 0px 5px 2px rgba(181, 181, 181, 0.47);
+ transition: 0.5s ease-in-out;
+}
+
+.form .box .content .form_btn {
+ height: 45px;
+ margin-top: 10px;
+ margin-bottom: 10px;
+ color: white !important;
+}
+
+.form .box .content .icons #google, .form .box .content .icons #apple {
+ padding: 6px !important;
+ margin-top: 20px;
+ margin-left: 15px;
+ margin-right: 15px;
+ height: fit-content;
+ width: fit-content;
+ display: flex;
+ justify-content: center;
+ align-items: center;
+ border-radius: 50px !important;
+ border: none;
+ box-shadow: 1px 0px 5px 2px rgba(181, 181, 181, 0.47);
+ -webkit-box-shadow: 1px 0px 5px 2px rgba(181, 181, 181, 0.47);
+ -moz-box-shadow: 1px 0px 5px 2px rgba(181, 181, 181, 0.47);
+ transition: 0.5s ease-in-out;
+}
+
+.css-i4bv87-MuiSvgIcon-root {
+ font-size: 36px !important;
+}
+
+.css-j204z7-MuiFormControlLabel-root .MuiFormControlLabel-label {
+ color: #707070 !important;
+}
+
+
+.form .box .content .icons #google img, .form .box .content .icons #apple img {
+ margin: 0;
+ height: 35px;
+ width: 35px;
+ box-shadow: none;
+}
+
+.form .box .content .icons #google:hover, .form .box .content .icons #apple:hover, .form .box .content .icons img:hover {
+ transform: scale(1.08);
+}
+
+
+/* toggle btn custom css */
+.switch {
+ position: relative;
+ display: inline-block;
+ width: 60px;
+ height: 34px;
+ background: white !important;
+ border-radius: 50px !important;
+}
+
+.switch input {
+ opacity: 0;
+ width: 0;
+ height: 0;
+}
+
+.slider {
+ position: absolute;
+ cursor: pointer;
+ top: 0;
+ left: 0;
+ right: 0;
+ bottom: 0;
+ background-color: #ccc;
+ -webkit-transition: .4s;
+ transition: .4s;
+}
+
+.slider:before {
+ position: absolute;
+ content: "";
+ height: 26px;
+ width: 26px;
+ left: 4px;
+ bottom: 4px;
+ background-color: white;
+ -webkit-transition: .4s;
+ transition: .4s;
+}
+
+input:checked+.slider {
+ background-color: green !important;
+}
+
+input:focus+.slider {
+ box-shadow: 0 0 1px #2196F3;
+}
+
+input:checked+.slider:before {
+ -webkit-transform: translateX(26px);
+ -ms-transform: translateX(26px);
+ transform: translateX(26px);
+}
+
+/* Rounded sliders */
+.slider.round {
+ border-radius: 34px !important;
+}
+
+.slider.round:before {
+ border-radius: 50%;
+}
+
+
+/* responsive */
+@media (max-width:1000px) {
+ .form {
+  padding-top: 30px;
+  padding-bottom: 30px;
+ }
+
+ .form .box .title {
+  text-align: center;
+ }
+
+ .form .box {
+  flex-direction: column;
+  align-items: center;
+ }
+
+ .form .box #form_img {
+  display: none;
+ }
+
+ .form .box .content {
+  width: 100%;
+ }
+
+ .form .box .content .username_inp, .password_inp {
+  height: fit-content;
+ }
+
+ .form .box .content div input {
+  padding: 8px !important;
+ }
+}
+
+@media (max-width:438px) {
+ #forgetpassword_link{
+  margin-top: 0px;
+  cursor : pointer;
+ }
+
+ .form .box .content .form_footer {
+  flex-direction: column;
+  align-items: center;
+ }
+
+ .form .box .content .save_info {
+  flex-direction: column !important;
+  align-items: center;
+ }
+
+ .form .box .content {
+  padding: 0px !important;
+ }
+
+}
+
+@media (max-width:338px) {
+ .form .box .content .form_footer {
+  flex-direction: column;
+ }
+
+ .form .box .content .save_info {
+  flex-direction: column;
+ }
+
+}
