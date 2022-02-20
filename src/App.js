@@ -21,6 +21,7 @@ import Extension from './Components/Extension/index';
 import Policy from './Components/Policy/Index';
 import Terms from './Components/Terms/Index';
 import QuickGuide from './Components/QuickGuide/Index';
+import Download from './Components/Download/Index';
 import ForgetPassword from "./Components/Form/ForgetPassword";
 
 function App() {
@@ -120,6 +121,7 @@ function App() {
                         <Route path="Policy" element={<Policy/>}/>
                         <Route path="Terms" element={<Terms/>}/>
                         <Route path="QuickGuide" element={<QuickGuide/>}/>
+                        <Route path="Download" element={<Download/>}/>
                     </Routes>
                     <Footer/>
                 </div>

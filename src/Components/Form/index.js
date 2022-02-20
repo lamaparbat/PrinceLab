@@ -1,5 +1,7 @@
 import React, {useState, useEffect, useRef} from 'react';
 import {useLocation, useNavigate} from "react-router-dom";
+import {useSelector} from "react-redux";
+import Store from "../../Store";
 import validator from "validator";
 import {passwordStrength} from 'check-password-strength';
 import {app, auth, db} from '../../firebaseDB';
@@ -15,8 +17,12 @@ import VisibilityOffIcon from '@mui/icons-material/VisibilityOff';
 import AppleIcon from '@mui/icons-material/Apple';
 import MailOutlineRoundedIcon from '@mui/icons-material/MailOutlineRounded';
 import GitHubIcon from '@mui/icons-material/GitHub';
+import {redirectDestineRoute} from "../../Redux/Actions";
 
 function Index({type}) {
+    //creating instance of useSelector() -> redux
+    const destineRoute = useSelector(state => state.RedirectRoute)
+
     //all user data
     const [users, setUsers] = useState([]);
 
@@ -125,6 +131,7 @@ function Index({type}) {
 
     // login btn clicked event
     const login = () => {
+        console.log(destineRoute)
         if (loginData.username !== "" && loginData.password !== "" && savepw !== false) {
             //sending data to the firebase db server
             users.forEach(user => {
