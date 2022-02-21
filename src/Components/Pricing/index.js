@@ -7,6 +7,7 @@ import ShowMore from '../Pricing/ShowMore/Index';
 function Index() {
     const [isMobile, setWidth] = useState(false);
     const [curItem, setCurrentNavClickedItem] = useState();
+    const [showMore, setShowMore] = useState(false);
 
     const list1 = ["Support for python", "Programming", "Able to make AI mode", "New update"];
     const list2 = ["Support For Python3 Programming", "Able to make flutter app", "AI model integration", "Application development", "Technical support", "New updates"];
@@ -22,14 +23,16 @@ function Index() {
         //on nav item clicked
         const navClick = (item) => {
             setCurrentNavClickedItem(item);
+            showMore === true ? setShowMore(false): setShowMore(true);
         }
 
-        return (<div className={"pricing_nav d-" + (isMobile ? "block " : "flex")}>
+        return (
+            <div className={"pricing_nav d-" + (isMobile ? "block " : "flex")}>
             <p
                 onClick={() => navClick("item1")}
                 className={"bg-" + (curItem === "item1" ? "dark text-white" : "unset")}
             >
-                {(curItem === "item1" ? "Show Less" : "Show More")}
+                {(curItem === "item1" && showMore === true ? "Show Less" : "Show More")}
             </p>
             <p
                 className={"bg-" + (curItem === "item2" ? "dark text-white" : "unset")}
@@ -80,11 +83,9 @@ function Index() {
                 <Pricing_Nav/>
             </div>
             <br/><br/>
-
             {
-                (curItem === "item1") ? <ShowMore /> : null
+                (curItem === "item1" && showMore === true) ? <ShowMore /> : null
             }
-
         </div>)
 }
 
