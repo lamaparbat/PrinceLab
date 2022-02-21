@@ -60,6 +60,12 @@
  background-color: rgb(238, 156, 60);
 }
 
+@media (max-width:1400px) {
+ .business .business_content {
+   width:fit-content;
+ }
+}
+
 @media (max-width:1100px) {
  .business .business_content {
   width: 100%;
