@@ -14,7 +14,9 @@
 }
 
 .form .box #form_img {
- width: 50%;
+ width: 40%;
+ height: 470px;
+ margin-top: 70px;
 }
 
 .form .box .content {
