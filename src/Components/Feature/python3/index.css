@@ -2,7 +2,7 @@
  padding-top: 30px;
  padding-bottom: 35px;
  color: white;
- border-radius: 10px;
+ border-radius: 15px !important;
  background: rgb(248,238,108);
  background: -moz-linear-gradient(90deg, rgba(248,238,108,1) 0%, rgba(242,101,123,1) 60%, rgba(0,212,255,1) 100%);
  background: -webkit-linear-gradient(90deg, rgba(248,238,108,1) 0%, rgba(242,101,123,1) 60%, rgba(0,212,255,1) 100%);

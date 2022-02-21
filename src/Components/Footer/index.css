@@ -61,8 +61,13 @@
   margin-top: 15px;
   display: flex;
   flex-direction: column;
-  color: rgb(187, 187, 187);
+  color: rgb(187, 187, 187) !important;
   text-decoration: none;
+  cursor: pointer !important;
+}
+
+.footer .footer_row a:hover{
+  color: white !important;
 }
 
 .footer .footer_row a:hover {
