@@ -23,6 +23,7 @@ import Terms from './Components/Terms/Index';
 import QuickGuide from './Components/QuickGuide/Index';
 import Download from './Components/Download/Index';
 import ForgetPassword from "./Components/Form/ForgetPassword";
+import Payment from '../src/Components/Payment/Index.js'
 
 function App() {
     // theme state
@@ -122,6 +123,7 @@ function App() {
                         <Route path="Terms" element={<Terms/>}/>
                         <Route path="QuickGuide" element={<QuickGuide/>}/>
                         <Route path="Download" element={<Download/>}/>
+                        <Route path="Payment" element={<Payment/>}/>
                     </Routes>
                     <Footer/>
                 </div>

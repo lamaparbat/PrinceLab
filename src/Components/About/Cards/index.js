@@ -53,7 +53,7 @@ function index() {
               <span><Dot />Respect talent and creativity </span><br />
               <span><Dot />Always think different</span><br />
             </div>
-            <button className='btn btn-dark w-50 py-1'>Join Us</button>
+            <button className='btn btn-dark border-white w-50 py-1'>Join Us</button>
           </div>
         </div>
       </>

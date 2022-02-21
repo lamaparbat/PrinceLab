@@ -9,12 +9,18 @@
 }
 
 .journey .leftBar {
- margin-top: 50px;
- width: 40%;
+ margin-top: 80px;
+ width: 35%;
  height: 200px;
+ display: flex;
+ flex-display: column;
+ align-items:end;
  background-color: red !important;
- border-top-right-radius: 100px;
- border-bottom-right-radius: 100px;
+}
+.journey .leftBar .leftBar_btm{
+   height:30px;
+   width:100%;
+   background: #2c2c2c;
 }
 
 .journey .content {
@@ -25,11 +31,12 @@
 .journey .content h1 {
  font-size: 300px;
  font-weight: bold;
- color: rgb(255, 72, 0);
+ color: red;
 }
 
 .journey .content #on {
  margin-left: 100px !important;
+ color: #383838 !important;
  background-color: unset !important;
 }
 
@@ -61,7 +68,7 @@
 }
 
 .journey #journey_step_img {
- margin-top: -1170px;
+ margin-top: -1130px;
  height: 100%;
  background-color: unset !important;
 }

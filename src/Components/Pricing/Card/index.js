@@ -1,17 +1,34 @@
-import React from 'react';
+import React, {useState} from 'react';
 import './index.css';
 import {useNavigate} from "react-router-dom";
+import axios from "axios";
 import {toast, ToastContainer} from "react-toastify";
 import CheckIcon from '@mui/icons-material/Check';
 
+
 function Index(props) {
+  //final payment data
+  const [paymentDetails, setPaymentDetails ] = useState({
+    type: "",
+    amount:0,
+
+  })
+
   //create instance of useNavigate
   const navigate = useNavigate();
 
   //auth check
   const auth = (type) => {
     if(localStorage.getItem("princelab") != null && JSON.parse(localStorage.getItem("princelab")).username != ""){
-      toast.success("Ready to purchase !")
+      //sending type to backend
+      axios.post("http://localhost:8000/subscription", {
+        type: type
+      }).then(res => {
+        console.log(res.data)
+        navigate("/Payment")
+      }).catch(err => {
+        console.log(err)
+      })
     }else{
       navigate("/Login")
     }

@@ -61,6 +61,8 @@
 .cards .card1 .card1_footer h6 {
   margin-right: 5px;
   width: 50%;
+  background:unset !important;
+  color: black !important;
 }
 
 .cards .card1 .card1_footer img {
@@ -68,6 +70,8 @@
   height: 60px;
   width: 120px;
   position:relative;
+  background:unset !important;
+  color: black !important;
 }
 
 
@@ -94,6 +98,8 @@
 .cards .card2 .quotes span {
   margin-top: -15px;
   display: flex;
+}
+.cards .card2 .btn{
 }
 
 .cards .card2 .quotes .dot {

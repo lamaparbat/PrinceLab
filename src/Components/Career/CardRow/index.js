@@ -39,7 +39,7 @@ function index() {
   return <div className='container cardRow py-5'>
     <img
       id='wire'
-      src={process.env.PUBLIC_URL + "/assets/wire.png"} />
+      src={process.env.PUBLIC_URL + "/assets/wire1.png"} />
     <div className='cardRow1'>
       <Card
         title="Software Engineer (Qt/UI)"

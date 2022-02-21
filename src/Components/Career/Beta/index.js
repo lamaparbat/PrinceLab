@@ -8,15 +8,15 @@ function index() {
   <div className='counter_div'>
    <div className='count1 d-flex flex-column'>
     10
-    <span className="h6 text-white">Day</span>
+    <span className="h3 text-white">Day</span>
    </div>
    <div className='count2 d-flex flex-column'>
     09
-    <span className="h6 text-white">Month</span>
+    <span className="h3 text-white">Month</span>
    </div>
    <div className='count3 d-flex flex-column'>
     22
-    <span className="h6 text-white">Year</span>
+    <span className="h3 text-white">Year</span>
    </div>
   </div>
  </div>;
