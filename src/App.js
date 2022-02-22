@@ -124,6 +124,7 @@ function App() {
                         <Route path="QuickGuide" element={<QuickGuide/>}/>
                         <Route path="Download" element={<Download/>}/>
                         <Route path="Payment" element={<Payment/>}/>
+                        <Route path="ForgetPassword" element={<ForgetPassword/>}/>
                     </Routes>
                     <Footer/>
                 </div>

@@ -58,7 +58,6 @@ function Index({type}) {
 
     //fetched all the user from firebase DB
     useEffect(() => {
-        console.log(signupData)
         db.ref(`/users`).on('value', snapshot => {
             snapshot.forEach(user => {
                 setUsers(prev => [
@@ -134,8 +133,7 @@ function Index({type}) {
         if (loginData.username !== "" && loginData.password !== "" && savepw !== false) {
             //sending data to the firebase db server
             users.forEach(user => {
-                console.log(user)
-                if ((user.username === loginData.username) && (user.password === loginData.password)) {
+                if ((user.username.trim() === loginData.username.trim()) && (user.password.trim() === loginData.password.trim())) {
                     notice("success", "Login successfully")
                     localStorage.setItem("princelab", JSON.stringify({
                         username: user.username,
@@ -165,7 +163,6 @@ function Index({type}) {
         //sending data to the firebase db server
         axios.post("https://princelab-b263f-default-rtdb.firebaseio.com/users.json", signupData)
             .then(res => {
-                console.log(res)
                 notice("success", "Registration successfull");
 
                 //reset login data
@@ -187,7 +184,6 @@ function Index({type}) {
 
     // signup btn clicked event
     const signup = () => {
-        console.log(signupData)
         if (signupData.username !== "" && agreeTerms !== false && signupData.email !== "" && signupData.password !== "" && signupData.repassword !== "") {
             validator.isEmail(signupData.email) ?
                 (signupData.password === repassword.current.value) ? checkPasswordStrength(signupData.password) : toast.error("Password not matched !")
@@ -208,7 +204,6 @@ function Index({type}) {
         const auth = getAuth();
         signInWithPopup(auth, provider)
             .then((result) => {
-                console.log(result.user);
                 //auto fill the form
                 autoFillForm(result.user);
             }).catch((error) => {
@@ -222,7 +217,6 @@ function Index({type}) {
         const auth = getAuth();
         signInWithPopup(auth, provider)
             .then((result) => {
-                console.log(result.user);
                 //auto fill the form
                 autoFillForm(result.user);
             }).catch((error) => {
@@ -244,6 +238,24 @@ function Index({type}) {
                 profile: data.photoURL
             })
         } else {
+
+            users.forEach(user => {
+                if ((user.username.trim() === loginData.username.trim()) && (user.password.trim() === loginData.password.trim())) {
+                    notice("success", "Login successfully")
+                    localStorage.setItem("princelab", JSON.stringify({
+                        username: user.username,
+                        email: user.email,
+                        profile: user.profile
+                    }));
+
+                    //delay the notice by 1 second
+                    destineRoute !== "" ? navigate("/" + destineRoute) :
+                        setTimeout(() => {
+                            navigate("/")
+                        }, 1000)
+                }
+            })
+
             notice("success", "Login successfully")
             localStorage.setItem("princelab", JSON.stringify({
                 username: data.displayName,
@@ -295,7 +307,10 @@ function Index({type}) {
                             id='username'
                             placeholder='Username'
                             onChange={
-                                (e) => setLoginData({...loginData, username: e.target.value})}
+                                (e) => {
+                                    setLoginData({...loginData, username: e.target.value})
+                                    setSignupData({...signupData, username: e.target.value})
+                                }}
                         />
                     </div>
 
@@ -392,35 +407,40 @@ function Index({type}) {
                             </div>
                     }
 
-                    {/* divider */}
-                    <div className='divider'></div>
-                    <span className='text-secondary' id='or'>OR</span>
 
                     {/* social media icons */}
-                    <center id="icon_title">
-                        <span className='text-secondary'>Sign-up using</span>
-                    </center>
-                    <div
-                        className='icons'
-                    >
-                        <div
-                            className="btn p-0"
-                            id='google'
-                            onClick={signupWithGithub}
-                        >
-                            <GitHubIcon/>
-                        </div>
-                        <div
-                            id='google'
-                            onClick={signupWithGoogle}
-                        >
-                            <img
-                                src={process.env.PUBLIC_URL + "/assets/google.png"}/>
-                        </div>
-                        <div id='apple'>
-                            <AppleIcon id="apple_icon"/>
-                        </div>
-                    </div>
+                    {
+                        form_type != "signup" ?
+                            <>
+                                {/* divider */}
+                                <div className='divider'></div>
+                                <span className='text-secondary' id='or'>OR</span>
+                                <center id="icon_title">
+                                    <span className='text-secondary'>Sign-up using</span>
+                                </center>
+                                <div
+                                    className='icons'
+                                >
+                                    <div
+                                        className="btn p-0"
+                                        id='google'
+                                        onClick={signupWithGithub}
+                                    >
+                                        <GitHubIcon/>
+                                    </div>
+                                    <div
+                                        id='google'
+                                        onClick={signupWithGoogle}
+                                    >
+                                        <img
+                                            src={process.env.PUBLIC_URL + "/assets/google.png"}/>
+                                    </div>
+                                    <div id='apple'>
+                                        <AppleIcon id="apple_icon"/>
+                                    </div>
+                                </div>
+                            </> : null
+                    }
 
                 </div>
             </div>

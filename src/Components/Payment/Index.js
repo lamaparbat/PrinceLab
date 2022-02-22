@@ -17,6 +17,8 @@ const Index = () => {
             product
         }
 
+        console.log(token)
+
         const header = {
             "Content-Type":"application/json"
         }

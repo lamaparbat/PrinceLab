@@ -1,33 +1,48 @@
 import React, {useState} from 'react';
+import '../ForgetPassword/index.css';
 
 const Index = () => {
-    //password data
-    const [password, setPassword] = useState("");
-    const [repassword, setRepassword] = useState("");
-
-    //save password
-    const savePassword = () => {
-        console.log(password+" "+repassword)
-    }
-
-    return(
-        <div className="container-fluid">
-            <div className="box">
-                <span>Enter New password</span>
-                <input
-                    placeholder="New password"
-                    onChange={(e) => setPassword(e.target.value)}
+    //custom card box
+    const Card = ({id, url, title, span}) => {
+        return(
+            <div className={"card1"}>
+                <img
+                    id={id}
+                    className={"img-fluid"}
+                    src={url}
                 />
-                <span>Enter old password</span>
-                <input
-                    placeholder="Reenter password"
-                    onChange={(e) => setRepassword(e.target.value)}
-                />
-                <button
-                    className={"btn btn-primary"}
-                    onClick={savePassword}
-                >Save Password</button>
+                <div className={"card_content"}>
+                    <h6>{title}</h6>
+                    <h5>{span}</h5>
+                </div>
             </div>
+        )
+    }
+    return (
+        <div className="container-fluid py-3 forget_cont">
+           <div className={"forget_cont_row"}>
+               <img
+                   src={process.env.PUBLIC_URL + "/assets/moon1.png"}/>
+               <div className="box">
+                   <div className={"box_title"}>
+                       <h1 className={"text-primary"}>Forget password ?</h1>
+                       <p>Please select one of the contact methods
+                    to reset your password. </p>
+                   </div><br/>
+                   <Card
+                       id={"sms"}
+                       url={process.env.PUBLIC_URL+"/assets/mobile.png"}
+                       title={"Send via SMS:"}
+                       span={".......431"}
+                   /><br/>
+                   <Card
+                       id={"mail"}
+                       url={process.env.PUBLIC_URL+"/assets/mail.png"}
+                       title={"Send via E-mail:"}
+                       span={".......ek@gmail.com"}
+                   /><br/>
+               </div>
+           </div>
         </div>
     )
 }

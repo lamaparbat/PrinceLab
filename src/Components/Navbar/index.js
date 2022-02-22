@@ -107,7 +107,7 @@ function Index() {
                         <>
                             <CancelIcon id="cancleIcon" onClick={showProfileNav}/>
                             <div className="pic">
-                                <img src={owner.profile}/>
+                                <img src={owner.profile != "" ? owner.profile : process.env.PUBLIC_URL+"/assets/agriculture2.png"}/>
                                 <p className="mt-2">{owner.email}</p>
                             </div>
                             <div className="profile_nav_row">
@@ -189,7 +189,7 @@ function Index() {
             >
                 <KeyboardBackspaceIcon className="btn p-0" onClick={goBack}/>
                 <div className="pic">
-                    <img src={owner.profile}/>
+                    <img src={owner.profile != "" ? owner.profile : process.env.PUBLIC_URL+"/assets/agriculture2.png"}/>
                     <p className="mt-2">{owner.email}</p>
                 </div>
                 <div className="profile_nav_row d-flex flex-column justify-content-center">
@@ -261,7 +261,7 @@ function Index() {
                 style={{marginTop: "-550px"}} >
                 <KeyboardBackspaceIcon className="btn p-0"  onClick={goBack}/>
                 <div className="pic">
-                    <img src={owner.profile}/>
+                    <img src={owner.profile != "" ? owner.profile : process.env.PUBLIC_URL+"/assets/agriculture2.png"}/>
                 </div>
                 <div className="profile_nav_row d-flex flex-column justify-content-center">
                     <span>Username</span>
@@ -327,7 +327,7 @@ function Index() {
                 <KeyboardBackspaceIcon className="btn p-0"  onClick={goBack}/>
                 <div className="pic">
                     <img
-                        src={owner.profile}
+                        src={owner.profile != "" ? owner.profile : process.env.PUBLIC_URL+"/assets/agriculture2.png"}
                     />
                 </div><br/>
                 <div className="profile_nav_row d-flex flex-column justify-content-center">

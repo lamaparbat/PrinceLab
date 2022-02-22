@@ -1,0 +1,47 @@
+.forget_cont{
+    height:fit-content;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+}
+.forget_cont .forget_cont_row{
+    display:flex;
+}
+.forget_cont  .forget_cont_row img{
+    height:500px;
+}
+.forget_cont  .forget_cont_row  .box{
+    padding:30px;
+}
+.forget_cont  .forget_cont_row  .box .card1{
+    padding: 45px;
+    height:50px;
+    width:320px;
+    display:flex;
+    align-items: center;
+    border-radius: 20px !important;
+    box-shadow: 1px 0px 5px 2px rgba(181, 181, 181, 0.47);
+    -webkit-box-shadow: 1px 0px 5px 2px rgba(181, 181, 181, 0.47);
+    -moz-box-shadow: 1px 0px 5px 2px rgba(181, 181, 181, 0.47);
+}
+.forget_cont  .forget_cont_row .box .box_title p{
+   width:300px;
+}
+.forget_cont  .forget_cont_row  .box .card1 #sms{
+    margin-left: -10px;
+    height:inherit;
+}
+.forget_cont  .forget_cont_row  .box .card1 #mail{
+    margin-left: -10px;
+    height:28px;
+}
+.forget_cont  .forget_cont_row  .box .card1 .card_content{
+    padding-top: 10px;
+    padding-left: 30px;
+}
+.forget_cont  .forget_cont_row  .box .card1 .card_content h5{
+    font-size: 19px;
+}
+
+
