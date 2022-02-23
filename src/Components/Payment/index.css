@@ -3,7 +3,7 @@
     display:grid;
     place-items: center;
 }
-.content{
+.payment_content{
     padding:30px;
     height:fit-content;
     width:fit-content;

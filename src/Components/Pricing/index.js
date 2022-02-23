@@ -52,7 +52,7 @@ function Index() {
         <div className={'container pricing'}>
             <div className="pricing_card_rows">
                 <Card
-                    bg="warning"
+                    bg="success"
                     top_btn="Community"
                     price="$0"
                     title="Free for both individual and teams "

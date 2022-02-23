@@ -57,7 +57,7 @@ const Index = () => {
     // 6️⃣ Construct UI.
     return (
         <form id="payment-form" onSubmit={handleSubmit}>
-           <div className={"content"}>
+           <div className={"payment_content"}>
                <h5>Checkout page</h5><br/><br/>
                <CardElement
                    id="card-element"

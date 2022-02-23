@@ -11,7 +11,6 @@ function Index(props) {
   const [paymentDetails, setPaymentDetails ] = useState({
     type: "",
     amount:0,
-
   })
 
   //create instance of useNavigate
@@ -63,7 +62,7 @@ function Index(props) {
         </div>
         <center>
           <button
-              className={'btn px-5 rounded-1 bg-' + props.bg}
+              className={'btn px-5 rounded-1 bg-'+props.bg}
               onClick={() => auth(props.top_btn)}
           >{props.bottom_btn}</button>
         </center><br/>
