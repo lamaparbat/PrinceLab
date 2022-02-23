@@ -7,13 +7,13 @@
 }
 .forget_cont .forget_cont_row{
     margin-bottom: 50px;
-    margin-top: 50px;
+    margin-top: 20px;
     display:flex;
     justify-content:space-between;
     align-items: center;
 }
 .forget_cont  .forget_cont_row img{
-    height:500px;
+    height:600px;
 }
 .forget_cont  .forget_cont_row .box{
     padding:100px;
@@ -64,4 +64,37 @@
     position: relative;
 }
 
+/*email verification card styling*/
+.emailVerifyCard{
+    position: relative;
+    padding:20px;
+    display: flex;
+    height:400px;
+    width:350px;
+    flex-direction: column;
+    align-items: center;
+    border:1px solid #e0e0e0;
+    border-radius: 10px;
+    box-shadow: 1px 0px 5px 2px rgba(181, 181, 181, 0.47);
+    -webkit-box-shadow: 1px 0px 5px 2px rgba(181, 181, 181, 0.47);
+    -moz-box-shadow: 1px 0px 5px 2px rgba(181, 181, 181, 0.47);
+}
+.emailVerifyCard #mobile{
+    margin-left: -5px;
+    height:80px;
+}
+.emailVerifyCard #mail{
+    margin-left: -5px;
+    height:50px;
+}
+.emailVerifyCard .digitContainer input{
+    margin-right: 10px;
+    height:50px;
+    width:60px;
+}
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
 
