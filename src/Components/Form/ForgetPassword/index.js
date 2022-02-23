@@ -8,28 +8,17 @@ const Index = () => {
 
     //theme state
     const [theme, setTheme] = useState({mode: ""});
-    const [url, setUrl] = useState({
-        url1:"",
-        url2:""
-    })
+    const [url1, setUrl1] = useState("")
+    const [url2, setUrl2] = useState("")
 
-    //check theme on component rendered
     useEffect(() => {
         setTheme({mode:localStorage.getItem("theme")});
-            theme.mode != "dark" ?
-                setUrl({
-                    url1: process.env.PUBLIC_URL+"/assets/mobile.png",
-                    url2: process.env.PUBLIC_URL+"/assets/mail.png"
-                }) : setUrl({
-                    url1: process.env.PUBLIC_URL+"/assets/mobile2.png",
-                    url2: process.env.PUBLIC_URL+"/assets/mail2.png"
-                })
-    }, [theme_state]);
-
+    }, [theme_state])
 
 
     //custom card box
     const Card = ({id, url, title, span}) => {
+        console.log(url)
         return(
             <div className={"card1"}>
                 <img
@@ -38,12 +27,15 @@ const Index = () => {
                     src={url}
                 />
                 <div className={"card_content"}>
-                    <span className={"fw-light"}>{title}</span>
+                    <span className={"card1_title"}>{title}</span>
                     <h5>{span}</h5>
                 </div>
             </div>
         )
     }
+
+    //email verification card content
+
 
     return (
         <div className="container-fluid py-5 forget_cont">
@@ -58,13 +50,15 @@ const Index = () => {
                    </div><br/>
                    <Card
                        id={"sms"}
-                       url={url.url1}
+                       url={(theme.mode != "dark") ? process.env.PUBLIC_URL+"/assets/mail.png" :
+                           process.env.PUBLIC_URL+"/assets/mail2.png" }
                        title={"Send via SMS:"}
                        span={".......431"}
                    /><br/>
                    <Card
                        id={"mail"}
-                       url={url.url2}
+                       url={(theme.mode != "dark") ? process.env.PUBLIC_URL+"/assets/mobile.png" :
+                           process.env.PUBLIC_URL+"/assets/mobile2.png" }
                        title={"Send via E-mail:"}
                        span={".......ek@gmail.com"}
                    /><br/>

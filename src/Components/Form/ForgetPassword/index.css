@@ -6,6 +6,8 @@
     overflow: hidden;
 }
 .forget_cont .forget_cont_row{
+    margin-bottom: 50px;
+    margin-top: 50px;
     display:flex;
     justify-content:space-between;
     align-items: center;
@@ -39,17 +41,21 @@
 }
 .forget_cont  .forget_cont_row  .box .card1 #sms{
     margin-left: -10px;
-    height:inherit;
+    height:35px;
 }
 .forget_cont  .forget_cont_row  .box .card1 #mail{
-    margin-left: -10px;
-    height:28px;
+    margin-left: -5px;
+    height:60px;
 }
 .forget_cont  .forget_cont_row  .box .card1 .card_content{
     padding-top: 10px;
     padding-left: 30px;
 }
+.forget_cont  .forget_cont_row  .box .card1 .card1_title{
+    font-size: 16px;
+}
 .forget_cont  .forget_cont_row  .box .card1 .card_content h5{
+    margin-top: 5px;
     font-size: 19px;
 }
 
