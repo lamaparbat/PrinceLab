@@ -34,7 +34,7 @@
 }
 
 #forgetpassword_link{
- margin-top: -10px;
+ margin-top: 10px;
  cursor : pointer;
 }
 
@@ -77,6 +77,7 @@
 
 .form .box .content .save_info {
  margin-bottom: 20px;
+ width:100%;
  display: flex;
  justify-content: space-between;
  align-items: center;
@@ -120,6 +121,7 @@
 .form .box .content .form_footer {
  padding-top: 0 !important;
  margin-bottom: 10px;
+ width: 100%;
  display: flex;
  justify-content: space-evenly;
  background-color: unset !important;

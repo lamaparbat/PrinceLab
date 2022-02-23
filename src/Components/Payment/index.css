@@ -1,0 +1,19 @@
+#payment-form{
+    height:100vh;
+    display:grid;
+    place-items: center;
+}
+.content{
+    padding:30px;
+    height:fit-content;
+    width:fit-content;
+    display:flex;
+    flex-direction:column;
+    justify-content: center;
+    align-items: center;
+    background: #ffe5e5;
+    border-radius: 10px;
+}
+#card-element{
+    width:300px;
+}
