@@ -106,3 +106,8 @@ input::-webkit-inner-spin-button {
     margin: 0;
 }
 
+
+/*reset password form*/
+#new_password{
+    background-color: #f1f1f1 !important;
+}

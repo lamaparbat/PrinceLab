@@ -1,6 +1,7 @@
 import React, {useEffect, useState} from 'react';
 import {useSelector} from "react-redux";
 import '../ForgetPassword/index.css';
+import $ from 'jquery';
 
 const Index = () => {
     //creating instance of useSelecotr
@@ -15,10 +16,41 @@ const Index = () => {
     const [isHomeCardVisible, setHomeCardVisible] = useState(true)
     const [isMobileCardVisible, setMobileCardVisible] = useState(false)
     const [isMailCardVisible, setMailCardVisible] = useState(false)
+    const [isResetPasswordVisible, setResetPasswordCardVisible] = useState(false);
 
+    //reset code
+    const [code, setCode] = useState({
+        code1:"",
+        code2:"",
+        code3:"",
+        code4:""
+    })
+
+    //fetched the cache data
     useEffect(() => {
         setTheme({mode:localStorage.getItem("theme")});
-    }, [theme_state])
+    }, [theme_state]);
+
+    //track the reset code
+    useEffect(() => {
+        if(code.code1 === "" && code.code2 === "" && code.code3 === "" && code.code4 === ""){
+            $("#code1").focus()
+        }else if(code.code1 != "" && code.code2 === "" && code.code3 === "" && code.code4 === ""){
+            $("#code2").focus()
+        }else if(code.code1 != "" && code.code2 != "" && code.code3 === "" && code.code4 === ""){
+            $("#code3").focus()
+        }else if(code.code1 != "" && code.code2 != "" && code.code3 != "" && code.code4 === ""){
+            $("#code4").focus()
+        }
+
+        //render s
+        if(code.code1 != "" && code.code2 != "" && code.code3 != "" && code.code4 != "") {
+            setResetPasswordCardVisible(true)
+            setMobileCardVisible(false);
+        }else{
+            setResetPasswordCardVisible(false);
+        }
+    }, [code.code1, code.code2, code.code3, code.code4])
 
     //open card function
     const openCard = (id) => {
@@ -51,6 +83,7 @@ const Index = () => {
 
     //email verification card content
     const MobileVerifyCard = () => {
+
         return(
             <div className={"emailVerifyCard"}>
                 <center>
@@ -64,10 +97,45 @@ const Index = () => {
                     <p>The recovery code was sent to your provided phone number</p>
                 </center>
                 <div className={"digitContainer d-flex"}>
-                    <input type={"number"} className={"p-1"} />
-                    <input type={"number"} className={"p-1"} />
-                    <input type={"number"} className={"p-1"} />
-                    <input type={"number"} className={"p-1"} />
+                    <input
+                        type={"number"}
+                        className={"p-1"}
+                        id="code1"
+                           value={code.code1}
+                           onChange={(e) =>setCode({
+                               ...code,
+                               code1:e.target.value
+                           })} />
+                    <input
+                        type={"number"}
+                        className={"p-1"}
+                        id="code2"
+                           value={code.code2}
+                           onChange={(e) =>setCode({
+                               ...code,
+                               code2:e.target.value
+                           })} />
+
+                    <input
+                        type={"number"}
+                        className={"p-1"}
+                        id="code3"
+                           value={code.code3}
+                           onChange={(e) =>setCode({
+                               ...code,
+                               code3:e.target.value
+                           })} />
+
+                    <input
+                        type={"number"}
+                        className={"p-1"}
+                        id="code4"
+                           value={code.code4}
+                           onChange={(e) =>setCode({
+                               ...code,
+                               code4:e.target.value
+                           })} />
+
                 </div>
             </div>
         )
@@ -93,6 +161,32 @@ const Index = () => {
         )
     }
 
+
+    //reset password component
+    const ResetPasswordForm = () => {
+        return(
+            <div className={"emailVerifyCard"}>
+                <center>
+                    <img
+                        id={"mail"}
+                        className={"img-fluid"}
+                        src={(theme.mode != "dark") ? process.env.PUBLIC_URL+"/assets/mobile.png" :
+                            process.env.PUBLIC_URL+"/assets/mobile2.png"}
+                    /><br/><br /><br/>
+                    <h5>Create your new password</h5><br/>
+                   <div className={"text-start"}>
+                       <span>New password</span>
+                       <input id={"new_password"} className={"form-control border-0"} type={"password"} />
+                   </div><br/>
+                    <div className={"text-start"}>
+                        <span>Reenter password</span>
+                        <input  id={"new_password"} className={"form-control border-0"} type={"password"} />
+                    </div>
+
+                </center>
+            </div>
+        )
+    }
 
     return (
         <div className="container-fluid py-5 forget_cont">
@@ -130,6 +224,9 @@ const Index = () => {
                    }
                    {
                        isMailCardVisible ? <EmailVerifyCard />:null
+                   }
+                   {
+                       isResetPasswordVisible ? <ResetPasswordForm /> : null
                    }
                </div>
            </div>
