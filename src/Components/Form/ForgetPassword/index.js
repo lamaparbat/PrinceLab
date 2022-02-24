@@ -1,4 +1,4 @@
-import React, {useEffect, useState} from 'react';
+import React, {useEffect, useState, useRef} from 'react';
 import {useSelector} from "react-redux";
 import '../ForgetPassword/index.css';
 import $ from 'jquery';
@@ -6,6 +6,9 @@ import $ from 'jquery';
 const Index = () => {
     //creating instance of useSelecotr
     const theme_state = useSelector(state => state.changeTheme)
+
+    // get reset email
+    const email = useRef();
 
     //theme state
     const [theme, setTheme] = useState({mode: ""});
@@ -83,7 +86,6 @@ const Index = () => {
 
     //email verification card content
     const MobileVerifyCard = () => {
-
         return(
             <div className={"emailVerifyCard"}>
                 <center>
@@ -143,6 +145,11 @@ const Index = () => {
 
     //email verification card content
     const EmailVerifyCard = () => {
+        //send reset tokan to gmail
+        const sendResetTokenVaiMail = () => {
+
+        }
+
         return(
             <div className={"emailVerifyCard"}>
                 <center>
@@ -154,8 +161,15 @@ const Index = () => {
                     /><br/><br /><br/>
                     <h5>Enter your email address</h5>
                     <p>The recovery code was sent to your email address</p><br/>
-                    <input type="email" className={"form-control rounded-3"} required/><br />
-                    <button className={"btn rounded-pill w-100 send_btn"}>Send</button>
+                    <input
+                        type="email"
+                        className={"form-control rounded-3"}
+                        ref={email}
+                        required/><br />
+                    <button
+                        className={"btn rounded-pill w-100 send_btn"}
+                        onClick={sendResetTokenVaiMail}
+                    >Send</button>
                 </center>
             </div>
         )
@@ -176,11 +190,11 @@ const Index = () => {
                     <h5>Create your new password</h5><br/>
                    <div className={"text-start"}>
                        <span>New password</span>
-                       <input id={"new_password"} className={"form-control border-0"} type={"password"} />
+                       <input id={"new_password"} className={"form-control text-dark border-0"} type={"password"} />
                    </div><br/>
                     <div className={"text-start"}>
                         <span>Reenter password</span>
-                        <input  id={"new_password"} className={"form-control border-0"} type={"password"} />
+                        <input  id={"new_password"} className={"form-control  text-dark border-0"} type={"password"} />
                     </div>
 
                 </center>
@@ -192,6 +206,7 @@ const Index = () => {
         <div className="container-fluid py-5 forget_cont">
            <div className={"forget_cont_row"}>
                <img
+                   id={"main_img"}
                    src={process.env.PUBLIC_URL + "/assets/moon1.png"}/>
                <div className="box py-5">
                    <div className={"box_title"}>

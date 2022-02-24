@@ -1,0 +1,19 @@
+.install_navbar_img{
+    height:100px;
+    width:100px;
+    display:grid;
+    place-items:center;
+    background-color:blue;
+}
+.install_navbar_img img{
+    height:60px;
+    width:60px;
+}
+.install_navbar {
+  background:red;
+    display:flex;
+}
+.install_navbar span{
+    top: -10px;
+    position:relative;
+}

@@ -65,7 +65,7 @@ function Index() {
                     price="$10"
                     title="Available for both individual and teams "
                     list={list2}
-                    bottom_btn="Purchase"
+                    bottom_btn="Upgrade"
                 />
 
                 <Card
@@ -74,7 +74,7 @@ function Index() {
                     price="$10"
                     title="For organizations and companies"
                     list={list2}
-                    bottom_btn="Purchase"
+                    bottom_btn="Upgrade"
                 />
             </div>
             <center><h3 className="py-3">Compare plans</h3></center>

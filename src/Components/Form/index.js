@@ -91,7 +91,11 @@ function Index({type}) {
                     <ToggleBtn/>
                     <span id='remem_span' className='mx-3'>Remember Password</span>
                 </div>
-                <span className={"text-secondary"} id="forgetpassword_link">Forget password ?</span>
+                <span
+                    className={"text-secondary"}
+                    id="forgetpassword_link"
+                    onClick={() => navigate("/ForgetPassword")}
+                >Forget password ?</span>
             </div>
         )
     }
@@ -391,8 +395,7 @@ function Index({type}) {
                         form_type != "signup" ?
                             <div className='form_footer py-3'>
                                 <span
-                                    className='text-secondary btn p-0'
-                                    onClick={() => navigate("/Signup")}
+                                    className='text-secondary p-0'
                                 >New to the website ?</span>
                                 <a
                                     className={"text-secondary btn p-0"}
