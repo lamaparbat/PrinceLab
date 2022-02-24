@@ -74,7 +74,7 @@
     flex-direction: column;
     align-items: center;
     border:1px solid #e0e0e0;
-    border-radius: 10px;
+    border-radius: 10px !important;
     box-shadow: 1px 0px 5px 2px rgba(181, 181, 181, 0.47);
     -webkit-box-shadow: 1px 0px 5px 2px rgba(181, 181, 181, 0.47);
     -moz-box-shadow: 1px 0px 5px 2px rgba(181, 181, 181, 0.47);
@@ -91,6 +91,14 @@
     margin-right: 10px;
     height:50px;
     width:60px;
+    color:black !important;
+    border-radius: 5px !important;
+    border:0px solid black !important;
+    background-color: #dadada !important;
+}
+.emailVerifyCard .send_btn{
+    background-color: #0477EA !important;
+    color: white !important;
 }
 input::-webkit-outer-spin-button,
 input::-webkit-inner-spin-button {

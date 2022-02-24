@@ -86,8 +86,8 @@ const Index = () => {
                     /><br/><br /><br/>
                     <h5>Enter your email address</h5>
                     <p>The recovery code was sent to your email address</p><br/>
-                    <input type="email" className={"form-control"} required/><br />
-                    <button className={"btn btn-primary rounded-pill w-100"}>Send</button>
+                    <input type="email" className={"form-control rounded-3"} required/><br />
+                    <button className={"btn rounded-pill w-100 send_btn"}>Send</button>
                 </center>
             </div>
         )
