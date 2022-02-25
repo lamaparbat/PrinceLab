@@ -1,8 +1,9 @@
-import React, {useState} from 'react';
+import React from 'react';
 import '../Collection/index.css';
 import {useDispatch, useSelector} from "react-redux";
 import {openInstallModel} from '../../../Redux/Actions/index';
 import InstallPopup from '../../InstallPopup/Index.js';
+
 
 // app card
 const AppCard = ({url, title, desc}) => {

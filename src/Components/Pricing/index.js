@@ -71,10 +71,10 @@ function Index() {
                 <Card
                     bg="dark"
                     top_btn="Business"
-                    price="$10"
+                    price="$"
                     title="For organizations and companies"
                     list={list2}
-                    bottom_btn="Upgrade"
+                    bottom_btn="Contact us"
                 />
             </div>
             <center><h3 className="py-3">Compare plans</h3></center>

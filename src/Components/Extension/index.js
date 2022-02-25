@@ -98,7 +98,7 @@ function index() {
  const ExtensionType = () => {
   return (
    <div className='container extension_type'>
-    <div className='python_ext'>
+    <div className='python_ext w-50'>
      <span>Programming</span>
      <h3>Best extensions for Python</h3>
      <AppCard

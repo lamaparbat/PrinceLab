@@ -7,16 +7,16 @@ function index() {
   <h5 id='sub_title'>version release</h5><br/><br/>
   <div className='counter_div'>
    <div className='count1 d-flex flex-column'>
-    10
-    <span className="h3 text-white">Day</span>
+    12
+    <span className="h3 text-white">Days</span>
    </div>
    <div className='count2 d-flex flex-column'>
     09
-    <span className="h3 text-white">Month</span>
+    <span className="h3 text-white">Hours</span>
    </div>
    <div className='count3 d-flex flex-column'>
     22
-    <span className="h3 text-white">Year</span>
+    <span className="h3 text-white">Minutes</span>
    </div>
   </div>
  </div>;

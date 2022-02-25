@@ -15,7 +15,7 @@
 .install_discover .install_discover_card{
     padding: 10px;
     padding-top: 20px;
-    height:75vh;
+    height:fit-content;
     width:90%;
     border-radius: 10px !important;
     overflow:hidden;
@@ -112,5 +112,12 @@
     .input_div{
         margin-top: 50px;
         margin-bottom: 50px;
+    }
+}
+
+@media(max-width:300px){
+    .input_div{
+        box-shadow:none;
+        padding:30px;
     }
 }

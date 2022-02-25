@@ -4,7 +4,7 @@ import {useDispatch, useSelector} from "react-redux";
 import {hideInstallModel} from '../../Redux/Actions/';
 import CancelRoundedIcon from '@mui/icons-material/CancelRounded';
 
-const Index = ({title, desc, url}) => {
+const Index = () => {
 
     //create instance of useDispatch & useSelector
     const dispatch = useDispatch();
