@@ -97,6 +97,11 @@ function Index() {
             setNavVisible(false);
         }
 
+        //hide the navbar on each component mount up
+        useEffect(() => {
+            $(".resp_nav").css("display", "none");
+        }, [cur_route.pathname])
+
         return (
             <div
                 className={"profile_nav d-" + (isNavVisible ? "block" : "none")}
