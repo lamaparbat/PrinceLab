@@ -7,7 +7,7 @@
     display:flex;
     justify-content:center;
     position: fixed;
-    z-index: 444;
+    z-index: 4;
     backdrop-filter: blur(5px);
     background: rgba(107, 106, 106, 0.5);
     overflow-y: scroll;

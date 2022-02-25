@@ -36,9 +36,10 @@ export const redirectDestineRoute = (route) => {
 
 
 // show discover install popup model
-export const openInstallModel = () =>{
+export const openInstallModel = (data) =>{
     return{
-        type: "open"
+        type: "open",
+        payload:data
     }
 }
 // hide discover install popup model

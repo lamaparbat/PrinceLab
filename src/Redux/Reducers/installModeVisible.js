@@ -2,8 +2,14 @@ const initialState = false
 
 const installModelVisible = (state= initialState, action) => {
     switch (action.type){
-        case "hide" : return false;
-        case "open" : return true;
+        case "hide" : return {
+            ...action.payload,
+            show:false
+        };
+        case "open" : return {
+            ...action.payload,
+            show:true
+        };
         default : return state;
     }
 }

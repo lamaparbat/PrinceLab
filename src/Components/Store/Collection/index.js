@@ -9,8 +9,13 @@ const AppCard = ({url, title, desc}) => {
     //create instance of useDispatch
     const dispatch = useDispatch()
 
-    const openModal = () => {
-        dispatch(openInstallModel(true))
+    const openModal = (url, title, desc) => {
+        const data = {
+            url:url,
+            title:title,
+            desc:desc
+        }
+        dispatch(openInstallModel(data))
     }
 
     return (
@@ -23,7 +28,7 @@ const AppCard = ({url, title, desc}) => {
                 <h5>{title}</h5>
                 <p>{desc}</p><br/>
                 <button
-                    onClick={openModal}
+                    onClick={() => openModal(url, title, desc)}
                     className='btn btn-primary py-0 px-4'>Get
                 </button>
             </div>
@@ -33,7 +38,7 @@ const AppCard = ({url, title, desc}) => {
 
 function Index({title, data}) {
     // fetch the redux store InstallModel Value
-    const model_visible = useSelector(state => state.installModelVisible);
+    const modelData = useSelector(state => state.installModelVisible);
 
     return (
         <div className='container-fluid py-3 discover'>
@@ -107,7 +112,11 @@ function Index({title, data}) {
                 />
             </div>
             {
-                model_visible ?  <InstallPopup />:null
+                modelData.show ?
+                    <InstallPopup
+                        data = {modelData}
+                    />
+                    :null
             }
         </div>
     )
