@@ -50,7 +50,7 @@ const Index = () => {
     return(
         <div className="container-fluid install_discover py-5">
             <div className="install_discover_card">
-                <InstallPopupNavbar />
+                <InstallPopupNavbar /><br/><br/>
                 <div className={"discover_card_content"}>
                     <InputComp />
                     <img

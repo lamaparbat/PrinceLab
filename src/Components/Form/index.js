@@ -14,6 +14,7 @@ import 'react-toastify/dist/ReactToastify.css';
 import AccountCircleIcon from '@mui/icons-material/AccountCircle';
 import VpnKeyIcon from '@mui/icons-material/VpnKey';
 import VisibilityOffIcon from '@mui/icons-material/VisibilityOff';
+import VisibilityIcon from '@mui/icons-material/Visibility';
 import AppleIcon from '@mui/icons-material/Apple';
 import MailOutlineRoundedIcon from '@mui/icons-material/MailOutlineRounded';
 import GitHubIcon from '@mui/icons-material/GitHub';
@@ -25,6 +26,9 @@ function Index({type}) {
 
     //all user data
     const [users, setUsers] = useState([]);
+
+    //change password icon on show mode
+    const [isKeyIconShow, setKeyIconShow] = useState(false);
 
     //get the current route
     const cur_route = useLocation().pathname
@@ -199,7 +203,13 @@ function Index({type}) {
 
     //show password
     const showPassword = (id) => {
-        $(`#${id}`).attr("type") === "password" ? $("#password").attr("type", "text") : $("#password").attr("type", "password")
+        if($(`#${id}`).attr("type") === "password"){
+            $("#password").attr("type", "text")
+            setKeyIconShow(true)
+        }else{
+            $("#password").attr("type", "password")
+            setKeyIconShow(false)
+        }
     }
 
     //signup with google
@@ -349,10 +359,12 @@ function Index({type}) {
                                         : setSignupData({...signupData, password: e.target.value})
                                 }}
                         />
-                        <VisibilityOffIcon
-                            id="icon" className='mx-1'
-                            onClick={() => showPassword("password")}
-                        />
+                        {
+                            isKeyIconShow ? <VisibilityIcon id="icon" onClick={() => showPassword("password")} />: <VisibilityOffIcon
+                                id="icon" className='mx-1'
+                                onClick={() => showPassword("password")}
+                            />
+                        }
                     </div>
 
                     {/* repassword for signup */}

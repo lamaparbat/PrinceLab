@@ -78,13 +78,12 @@
 }
 
 .installBottomNav{
-    margin-top: 120px;
+    margin-top: 80px;
 }
 .installBottomNav div .icons{
     background:unset !important;
 }
 
-/*rsponsive*/
 /*responsive*/
 @media(max-width:1100px){
     .install_discover .install_discover_card {
