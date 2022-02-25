@@ -46,7 +46,9 @@
     align-items: center;
     background: #eaeaea;
     border-radius: 5px !important;
+    border: 1px solid #464646;
 }
+
 #result_title{
     width:100%;
 }
@@ -61,10 +63,13 @@
     color: white;
 }
 .save{
-    background:#4A3BFF;
+    background:#4A3BFF !important;
 }
 .mic{
-    background:#7200E3;
+    background:#7200E3 !important;
+}
+.installBottomNav div .icons{
+    background:unset !important;
 }
 
 /*rsponsive*/
