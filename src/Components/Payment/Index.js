@@ -13,19 +13,27 @@ const Index = () => {
     const stripe = useStripe();
     const elements = useElements();
 
+
+
+
     //fetched the secret key from server
     useEffect(() => {
         // 3️⃣ Create PaymentIntent and fetch client secret as soon as the page loads
         window.fetch("http://localhost:8080/create-payment-intent", {
             method: "POST", headers: {
                 "Content-Type": "application/json",
-            }, body: JSON.stringify({items: [{id: "xl-tshirt"}]}),
+            }, body: JSON.stringify({subscription: "professional"}),
         }).then((res) => {
             return res.json();
         }).then((data) => {
             setClientSecret(data.clientSecret);
         });
     }, []);
+
+
+
+
+
 
     //track the card issues
     const handleChange = async (event) => {

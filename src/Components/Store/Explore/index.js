@@ -1,7 +1,7 @@
 import React from 'react';
 import '../Explore/index.css';
 
-function index({ bg_src1, bg_src2,heading, src1, title1, desc1, id1, src2, title2, desc2, id2 }) {
+function Index({ bg_src1, bg_src2,heading, src1, title1, desc1, id1, src2, title2, desc2, id2 }) {
  return (
   <div className='container explore px-21'>
    <h2 className='pb-3 px-2'>{heading}</h2>
@@ -47,4 +47,4 @@ function index({ bg_src1, bg_src2,heading, src1, title1, desc1, id1, src2, title
  )
 }
 
-export default index
+export default Index

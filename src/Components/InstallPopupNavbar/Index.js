@@ -1,8 +1,18 @@
 import React from "react";
 import '../InstallPopupNavbar/Index.css';
+import {useDispatch} from "react-redux";
+import {hideInstallModel} from '../../Redux/Actions/';
 import CancelRoundedIcon from '@mui/icons-material/CancelRounded';
 
 const Index = () => {
+    //create instance of useDispatch
+    const dispatch = useDispatch();
+
+    //close the model
+    const closeModal = () => {
+        dispatch(hideInstallModel());
+    }
+
     return(
         <div className="install_navbar">
             <div className={"install_navbar_row"}>
@@ -17,7 +27,10 @@ const Index = () => {
                         <span className={"text-primary btn p-0"}>More info</span>
                     </div>
                 </div>
-                <CancelRoundedIcon className={"cancel_btn text-dark btn p-0"} />
+                <CancelRoundedIcon
+                    className={"cancel_btn text-dark btn p-0"}
+                    onClick={closeModal}
+                />
             </div>
         </div>
     )

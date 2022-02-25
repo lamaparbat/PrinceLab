@@ -51,13 +51,12 @@ const Index = () => {
         <div className="container-fluid install_discover py-5">
             <div className="install_discover_card">
                 <InstallPopupNavbar />
-                <br/><br/><br/>
                 <div className={"discover_card_content"}>
                     <InputComp />
                     <img
                         src={process.env.PUBLIC_URL+"/assets/connector.png"} />
                     <OutputComp />
-                </div><br/><br/><br/>
+                </div><br/>
                 <InstallPopupBottomNavbar />
             </div>
         </div>
