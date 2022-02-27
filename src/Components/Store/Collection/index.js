@@ -2,7 +2,7 @@ import React from 'react';
 import '../Collection/index.css';
 import {useDispatch, useSelector} from "react-redux";
 import {openInstallModel} from '../../../Redux/Actions/index';
-import InstallPopup from '../../InstallPopup/Index.js';
+import InstallPopup from '../../InstallPopupModel/Index.js';
 
 
 // app card

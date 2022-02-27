@@ -25,7 +25,7 @@ import Download from './Components/Download/Index';
 import ForgetPassword from "./Components/Form/ForgetPassword";
 import Payment from "../src/Components/Payment/Index";
 import { loadStripe } from "@stripe/stripe-js";
-import InstallPopup from '../src/Components/InstallPopup/Index';
+import InstallPopup from './Components/InstallPopupModel/Index';
 import { Elements } from "@stripe/react-stripe-js";
 
 function App() {

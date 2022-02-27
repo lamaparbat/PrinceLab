@@ -361,7 +361,7 @@ function Index({type}) {
                         />
                         {
                             isKeyIconShow ? <VisibilityIcon id="icon" onClick={() => showPassword("password")} />: <VisibilityOffIcon
-                                id="icon" className='mx-1'
+                                id="icon"
                                 onClick={() => showPassword("password")}
                             />
                         }

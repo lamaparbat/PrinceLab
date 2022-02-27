@@ -55,6 +55,8 @@
 
 .business .business_content .feature_list #li #icon {
  padding: 3px;
+ height:0.8em;
+ width: 0.8em;
  border-radius: 50px !important;
  color: white;
  background-color: rgb(238, 156, 60);
