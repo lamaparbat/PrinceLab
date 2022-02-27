@@ -71,7 +71,7 @@ function Index() {
                 <Card
                     bg="dark"
                     top_btn="Business"
-                    price="Custom"
+                    price="custom"
                     title="For organizations and companies"
                     list={list2}
                     bottom_btn="Contact us"

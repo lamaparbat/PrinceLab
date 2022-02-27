@@ -10,7 +10,7 @@
   height: 0 !important;
 } 
 .business .btn {
- background-color: rgb(238, 156, 60);
+ /*background-color: rgb(238, 156, 60);*/
  color: white !important;
  border-radius: 6px !important;
  position: relative;

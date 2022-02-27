@@ -39,11 +39,11 @@ function Index(props) {
         <center>
           <button
               className={'btn top_btn px-5 rounded-1 ' +( props.bg != "success" ? "bg-"+props.bg: "")}
-              style={(props.bg === "success" ? {backgroundColor:"#FF9E2C"}: null)}
+              style={(props.bg === "success" ? {backgroundColor:'#FF9E2C'}: null)}
           >{props.top_btn}</button>
         </center>
         <div className='business_content'>
-          <h1 id='price'>{props.price !="Custom" ?
+          <h1 id='price'>{props.price !="custom" ?
               <>
                 {props.price}
                 <span id='month_name'> /monthly</span>
