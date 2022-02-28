@@ -1,6 +1,7 @@
 import React, {useState, useEffect} from "react";
 import '../Payment/index.css';
 import {CardElement, useStripe, useElements} from "@stripe/react-stripe-js";
+import axios from "axios";
 
 const Index = () => {
     const [succeeded, setSucceeded] = useState(false);
@@ -16,22 +17,15 @@ const Index = () => {
     //fetched the secret key from server
     useEffect(() => {
         // 3️⃣ Create PaymentIntent and fetch client secret as soon as the page loads
-        window.fetch("https://testing-stripe-paradox.herokuapp.com/users/payment_intent/", {
-            method: "POST", headers: {
-                "Access-Control-Allow-Origin": "*",
-                "Content-Type": "application/json",
-            }, body: JSON.stringify({subscription: "professional"}),  // professional||basic||business
-        }).then((res) => {
-            return res.json();
-        }).then((data) => {
-            console.log(data.secret)
-            // setClientSecret(data.secret);
-        });
+        axios.post("https://testing-stripe-paradox.herokuapp.com/users/payment_intent/",
+            {subscription: "business"} )
+            .then(data => {
+                setClientSecret(data.data.secret)
+            })
+            .catch(err => {
+                console.log(err)
+            })
     }, []);
-
-
-
-
 
 
     //track the card issues
@@ -62,30 +56,28 @@ const Index = () => {
     };
 
     // 6️⃣ Construct UI.
-    return (
-        <form id="payment-form" onSubmit={handleSubmit}>
-           <div className={"payment_content"}>
-               <h5>Checkout page</h5><br/><br/>
-               <CardElement
-                   id="card-element"
-                   options={{}}
-                   onChange={handleChange}
-               /><br />
-               <button className={"btn btn-info px-5 py-1"} disabled={processing || disabled || succeeded} id="submit">
+    return (<form id="payment-form" onSubmit={handleSubmit}>
+            <div className={"payment_content"}>
+                <h5>Checkout page</h5><br/><br/>
+                <CardElement
+                    id="card-element"
+                    options={{}}
+                    onChange={handleChange}
+                /><br/>
+                <button className={"btn btn-info px-5 py-1"} disabled={processing || disabled || succeeded} id="submit">
                 <span id="button-text">
-                    {processing ?
-                        <div className="spinner" id="spinner"></div> : "Pay"}
+                    {processing ? <div className="spinner" id="spinner"></div> : "Pay"}
                 </span>
-               </button><br/>
+                </button>
+                <br/>
 
-               {/* Show any error that happens when processing the payment */}
-               {error && (<div className="card-error text-danger" role="alert">{error}</div>)}
-               {/* Show a success message upon completion */}
+                {/* Show any error that happens when processing the payment */}
+                {error && (<div className="card-error text-danger" role="alert">{error}</div>)}
+                {/* Show a success message upon completion */}
 
-               <p>{succeeded ? "Payment successfull" : ""}</p>
-           </div>
-        </form>
-    );
+                <p>{succeeded ? "Payment successfull" : ""}</p>
+            </div>
+        </form>);
 }
 
 export default Index;

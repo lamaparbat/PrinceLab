@@ -26,6 +26,7 @@ import ForgetPassword from "./Components/Form/ForgetPassword";
 import Payment from "../src/Components/Payment/Index";
 import { loadStripe } from "@stripe/stripe-js";
 import InstallPopup from './Components/InstallPopupModel/Index';
+import NewFeatures from '../src/Components/NewFeatures/Index';
 import { Elements } from "@stripe/react-stripe-js";
 
 function App() {
@@ -133,6 +134,7 @@ function App() {
                         <Route path="Payment" element={<Payment/>}/>
                         <Route path="ForgetPassword" element={<ForgetPassword/>}/>
                         <Route path="InstallPopup" element={<InstallPopup/>}/>
+                        <Route path="NewFeatures" element={<NewFeatures/>}/>
                     </Routes>
                     <Footer/>
                 </div>
