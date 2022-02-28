@@ -108,7 +108,7 @@ const Index = () => {
                 <h1>
                     What's <span className={"text-primary"}>new</span>
                 </h1>
-                <p className={"h4 mb-3"}>All new features & bug fixes</p>
+                <p className={"h4 mb-3 text-center"}>All new features & bug fixes</p>
             </div>)
     }
 
@@ -119,7 +119,7 @@ const Index = () => {
                 <DropdownBtn
                     id="platform"
                     data={platform_list}
-                />
+                /><br/>
                 <DropdownBtn
                     id="version"
                     data={version_list}
@@ -130,12 +130,12 @@ const Index = () => {
     //custom feature container
     const ListContainer = () => {
         return (
-            <div className={"my-5 w-75 d-flex justify-content-center"}>
-                <div className={"features_content d-flex flex-column align-center w-50"}>
+            <div className={"feature_container my-5 w-75 d-flex justify-content-center"}>
+                <div className={"features_content d-flex flex-column w-50"}>
                     <h2 className={"fw-bold my-4"}>Features</h2>
                     <List id={"feature"} lists={latestPcFeatures} />
                 </div>
-                <div className={"bug_content d-flex flex-column align-center w-50"}>
+                <div className={"features_content bug_content d-flex flex-column w-50"}>
                     <h2 className={"fw-bold my-4"}>Bug fixes</h2>
                     <List id={"bug"} lists={latestBugFixes} />
                 </div>
