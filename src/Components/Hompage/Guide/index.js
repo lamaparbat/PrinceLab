@@ -27,8 +27,9 @@ function Index() {
      some sample videos and documentation. Learn how to use the software and take the advantage of
      the powerful parallel computing. </p>
     <button
-        className='btn text-light'
-        onClick={() => navigate("/QuickGuide")}
+        className='btn text-light disabled'
+        style={{cursor:"unset"}}
+        // onClick={() => navigate("/QuickGuide")}
     >Get started</button>
    </div>
   </div>

@@ -63,7 +63,7 @@ function Index(props) {
               onClick={() => auth(props.top_btn)}
           >{props.bottom_btn}</button>
         </center><br/>
-        <ToastContainer />
+        <ToastContainer position="top-center" />
       </div>
     </>);
 }

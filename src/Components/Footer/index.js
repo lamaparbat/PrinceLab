@@ -12,7 +12,7 @@ function Index() {
 
  //render component of link clicked
  const redirect = (route) => {
-  window.location.assign(route)
+  navigate("/"+route)
  }
 
 
@@ -34,7 +34,7 @@ function Index() {
      <a href='#'>Setup Guide</a>
      <a href='#'>Features</a>
      <a href='#'>Tutorial</a>
-     <a href='#'>Discord</a>
+     <a onClick={() => redirect("NewFeatures")}>New Features</a>
     </div>
     <div className='company_col'>
      <h5><b>Company</b><hr className='separator w-50' /></h5>

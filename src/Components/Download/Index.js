@@ -32,11 +32,9 @@ const Index = () => {
         const auth = (type) => {
             if (localStorage.getItem("princelab") != null && JSON.parse(localStorage.getItem("princelab")).username !== "") {
                 if(type !== "MAC"){
-                    toast.info("Ready to download on Windows..")
+                    toast.info("Download started...")
                     window.location.assign("https://www.dropbox.com/s/7u6655dcwxiiu7i/paradox%20installer.zip?dl=1");
-
-                }else{
-                    toast.info("Ready to download on Mac !")
+                    return;
                 }
             } else {
                 dispatch(redirectDestineRoute("Download"))
@@ -65,7 +63,7 @@ const Index = () => {
                     onClick={() => auth(btn_text)}
                 >
                     {
-                        btn_text != "MAC" ? "Donwload": "Coming soon......"
+                        btn_text != "MAC" ? "Donwload": "Coming soon.."
                     }
                 </button>
             </div>
@@ -88,7 +86,7 @@ const Index = () => {
                 </div>
                 <br/><br/>
                 <Premium/>
-                <ToastContainer/>
+                <ToastContainer position="top-center"/>
             </div>
         </>
     )
