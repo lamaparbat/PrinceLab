@@ -1,6 +1,7 @@
 .pricing {
   padding-bottom: 50px;
   height:fit-content;
+  max-width:fit-content;
 }
 .pricing .pricing_card_rows{
  padding-top: 60px;

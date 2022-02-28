@@ -18,19 +18,7 @@ function Index(props) {
 
   //auth check
   const auth = (type) => {
-    if(localStorage.getItem("princelab") != null && JSON.parse(localStorage.getItem("princelab")).username != ""){
-      //sending type to backend
-      axios.post("http://localhost:8000/subscription", {
-        type: type
-      }).then(res => {
-        console.log(res.data)
-        navigate("/Payment")
-      }).catch(err => {
-        console.log(err)
-      })
-    }else{
-      navigate("/Login")
-    }
+    type === "Professional" ? navigate("/Payment"): toast.info("In progress......")
   }
 
   return (
