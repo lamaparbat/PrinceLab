@@ -31,8 +31,13 @@ const Index = () => {
         //verify the user
         const auth = (type) => {
             if (localStorage.getItem("princelab") != null && JSON.parse(localStorage.getItem("princelab")).username !== "") {
-                (type !== "MAC") ? toast.info("Ready to download on Windows !")
-                    : toast.info("Ready to download on Mac !")
+                if(type !== "MAC"){
+                    toast.info("Ready to download on Windows..")
+                    window.location.assign("https://www.dropbox.com/s/7u6655dcwxiiu7i/paradox%20installer.zip?dl=1");
+
+                }else{
+                    toast.info("Ready to download on Mac !")
+                }
             } else {
                 dispatch(redirectDestineRoute("Download"))
                 navigate("/Login")

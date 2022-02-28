@@ -19,7 +19,7 @@ const Index = () => {
     //fetched the secret key from server
     useEffect(() => {
         // 3️⃣ Create PaymentIntent and fetch client secret as soon as the page loads
-        window.fetch("http://localhost:8080/create-payment-intent", {
+        window.fetch("https://testing-stripe-paradox.herokuapp.com/users/payment_intent/", {
             method: "POST", headers: {
                 "Content-Type": "application/json",
             }, body: JSON.stringify({subscription: "professional"}),
