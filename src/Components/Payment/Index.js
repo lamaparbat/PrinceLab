@@ -13,20 +13,19 @@ const Index = () => {
     const stripe = useStripe();
     const elements = useElements();
 
-
-
-
     //fetched the secret key from server
     useEffect(() => {
         // 3️⃣ Create PaymentIntent and fetch client secret as soon as the page loads
         window.fetch("https://testing-stripe-paradox.herokuapp.com/users/payment_intent/", {
             method: "POST", headers: {
+                "Access-Control-Allow-Origin": "*",
                 "Content-Type": "application/json",
-            }, body: JSON.stringify({subscription: "professional"}),
+            }, body: JSON.stringify({subscription: "professional"}),  // professional||basic||business
         }).then((res) => {
             return res.json();
         }).then((data) => {
-            setClientSecret(data.clientSecret);
+            console.log(data.secret)
+            // setClientSecret(data.secret);
         });
     }, []);
 
