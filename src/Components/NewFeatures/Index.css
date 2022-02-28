@@ -39,11 +39,6 @@
 .dropdown-toggle::after {
     margin-left: 1em !important;
 }
-
-.css-i4bv87-MuiSvgIcon-root {
-    width: 0.5em !important;
-    height: 0.5em !important;
-}
 .content_list{
     padding:10px;
     height:fit-content;
@@ -62,11 +57,13 @@
     color: #363636;
 }
 #feature_dot{
+    height:1.3rem !important;
     margin-left: 10px;
     margin-right: 20px;
     color: #3C34FF;
 }
 #bug_dot{
+    height:1.3rem !important;
     margin-left: 10px;
     margin-right: 20px;
     color: #FD852D;
