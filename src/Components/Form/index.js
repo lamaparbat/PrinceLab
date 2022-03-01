@@ -166,10 +166,10 @@ function Index({type}) {
         // strong pw =  A@2asdF2020!!*
         //weak pw = asdf1234
         //too weak = asdfasdf
+        // notice("error", passwordStrength(pw).value);
 
-        notice("error", passwordStrength(pw).value);
         //sending data to the firebase db server
-        axios.post("https://princelab-b263f-default-rtdb.firebaseio.com/users.json", signupData)
+        axios.post("https://princelab-f13cd-default-rtdb.firebaseio.com/users.json", signupData)
             .then(res => {
                 notice("success", "Registration successfull");
 
@@ -185,7 +185,7 @@ function Index({type}) {
                     }, 1000)
             })
             .catch(err => {
-                notice("success", "Registration Failed");
+                toast.error("Registration Failed");
                 console.log(err.message)
             })
     }

@@ -1,6 +1,7 @@
 import React, {useEffect, useState, useRef} from 'react';
 import {useSelector} from "react-redux";
 import '../ForgetPassword/index.css';
+import { app, auth, db } from '../../../firebaseDB';
 import $ from 'jquery';
 
 const Index = () => {
@@ -147,7 +148,11 @@ const Index = () => {
     const EmailVerifyCard = () => {
         //send reset tokan to gmail
         const sendResetTokenVaiMail = () => {
-
+            auth.sendPasswordResetEmail(email.current.value).then(() => {
+                console.log('email sent!');
+            }).catch(function(error) {
+                // An error happened.
+            });
         }
 
         return(

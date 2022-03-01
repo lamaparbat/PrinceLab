@@ -43,7 +43,7 @@ function Index({title, data}) {
 
     return (
         <div className='container-fluid py-3 discover'>
-            <div className='container'>
+            <div className='container-fluid'>
                 {
                     title === "Learn a better way" ?
                         <span className='text-primary fw-bold' id='discover_title'

@@ -32,7 +32,7 @@ function Index() {
     <div className='info_col'>
      <h5><b>Information</b><hr className='separator w-50' /></h5>
      <a href='#'>Setup Guide</a>
-     <a href='#'>Features</a>
+     <a onClick={ () => redirect("Feature")}>Features</a>
      <a href='#'>Tutorial</a>
      <a onClick={() => redirect("NewFeatures")}>New Features</a>
     </div>
