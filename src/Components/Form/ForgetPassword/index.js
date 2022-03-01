@@ -151,7 +151,7 @@ const Index = () => {
             auth.sendPasswordResetEmail(email.current.value).then(() => {
                 console.log('email sent!');
             }).catch(function(error) {
-                // An error happened.
+                console.log(error.message)
             });
         }
 

@@ -1,6 +1,7 @@
 .extension .row {
+ margin-left: -30px;
  display: flex;
- justify-content: center;
+ justify-content: space-evenly;
 }
 
 .extension .row .col-6 .card_box {

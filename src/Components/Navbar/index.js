@@ -394,12 +394,19 @@ function Index() {
                     </Link>
                 </li>
                 <li className='link  text-decoration-none'>
-                    <Link className='text-decoration-none' to="/Store">
+                    <Link className='text-decoration-none' to="/About">
                         <span className={"text-"+
-                            (cur_route.pathname === "/Store" ? "secondary":"light")}>
-                            Store</span>
+                            (cur_route.pathname === "/About" ? "secondary":"light")}>
+                            About</span>
                     </Link>
                 </li>
+                {/*<li className='link  text-decoration-none'>*/}
+                {/*    <Link className='text-decoration-none' to="/Store">*/}
+                {/*        <span className={"text-"+*/}
+                {/*            (cur_route.pathname === "/Store" ? "secondary":"light")}>*/}
+                {/*            Store</span>*/}
+                {/*    </Link>*/}
+                {/*</li>*/}
                 <li className='link  text-decoration-none'>
                     <Avatar
                         id="avatar"
