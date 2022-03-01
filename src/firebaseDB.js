@@ -5,9 +5,9 @@ import 'firebase/compat/auth';
 import 'firebase/compat/database';
 
 const firebaseConfig = {
-    apiKey:`${process.env.DB_API_KEY}`,
+    apiKey:`${process.env.REACT_APP_DB_API_KEY}`,
     authDomain: "princelab-f13cd.firebaseapp.com",
-    databaseURL: process.env.DB_URL,
+    databaseURL: process.env.REACT_APP_DB_URL,
     projectId: "princelab-f13cd",
     storageBucket: "princelab-f13cd.appspot.com",
     messagingSenderId: "539468354501",

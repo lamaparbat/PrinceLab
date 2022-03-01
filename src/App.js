@@ -30,6 +30,7 @@ import { loadStripe } from "@stripe/stripe-js";
 import InstallPopup from './Components/InstallPopupModel/Index';
 import NewFeatures from '../src/Components/NewFeatures/Index';
 import { Elements } from "@stripe/react-stripe-js";
+import ResetForm from "./Components/Form/ResetForm";
 
 function App() {
     // theme state
@@ -137,6 +138,7 @@ function App() {
                         <Route path="ForgetPassword" element={<ForgetPassword/>}/>
                         <Route path="InstallPopup" element={<InstallPopup/>}/>
                         <Route path="NewFeatures" element={<NewFeatures/>}/>
+                        <Route path="ResetForm" element={<ResetForm/>}/>
                     </Routes>
                     <Footer/>
                 </div>

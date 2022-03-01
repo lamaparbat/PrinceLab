@@ -24,6 +24,9 @@ function Index({type}) {
     //creating instance of useSelector() -> redux
     const destineRoute = useSelector(state => state.RedirectRoute)
 
+    // CRUD DB URL
+    const crud_url =  process.env.REACT_APP_CRUD_DB_URL+"users.json";
+
     //all user data
     const [users, setUsers] = useState([]);
 
@@ -127,22 +130,13 @@ function Index({type}) {
         navigate(route);
     }
 
-    // notice toast
-    const notice = (type, message) => {
-        if (type === "success") {
-            toast.success(message);
-        } else {
-            toast.error(message);
-        }
-    }
-
     // login btn clicked event
     const login = () => {
         if (loginData.username !== "" && loginData.password !== "" && savepw !== false) {
             //sending data to the firebase db server
             users.forEach(user => {
                 if ((user.username.trim() === loginData.username.trim()) && (user.password.trim() === loginData.password.trim())) {
-                    notice("success", "Login successfully")
+                    toast.success( "Login successfully")
                     localStorage.setItem("princelab", JSON.stringify({
                         username: user.username,
                         email: user.email,
@@ -161,33 +155,45 @@ function Index({type}) {
         }
     }
 
+    //check if user already exists
+    const isUserAlreadyRegistered = () => {
+        let flag = false;
+        users.map(user => {
+            if (user.email.trim() === signupData.email.trim()) {
+                flag = true;
+            }
+        });
+
+        return flag;
+    }
+
     //check password strength
     const checkPasswordStrength = (pw) => {
-        // strong pw =  A@2asdF2020!!*
-        //weak pw = asdf1234
-        //too weak = asdfasdf
         // notice("error", passwordStrength(pw).value);
 
         //sending data to the firebase db server
-        axios.post("https://princelab-f13cd-default-rtdb.firebaseio.com/users.json", signupData)
-            .then(res => {
-                notice("success", "Registration successfull");
+        console.log(isUserAlreadyRegistered())
+        if(isUserAlreadyRegistered()){
+            toast.error("User already exists");
+        }else{
+            axios.post(crud_url, signupData)
+                .then(res => {
+                    toast.success("Registration successfull");
 
-                //reset login data
-                setLoginData({
-                    username: "",
-                    password: "",
-                });
+                    //reset login data
+                    setLoginData({
+                        username: "",
+                        password: "",
+                    });
 
-                destineRoute !== "" ? navigate("/" + destineRoute) :
                     setTimeout(() => {
-                        navigate("/")
+                        navigate("/Login")
                     }, 1000)
-            })
-            .catch(err => {
-                toast.error("Registration Failed");
-                console.log(err.message)
-            })
+                })
+                .catch(err => {
+                    toast.error("Registration Failed");
+                })
+        }
     }
 
     // signup btn clicked event
@@ -221,7 +227,7 @@ function Index({type}) {
                 //auto fill the form
                 autoFillForm(result.user);
             }).catch((error) => {
-            console.log(error.message)
+            toast.error(error.message)
         });
     }
 
@@ -234,7 +240,7 @@ function Index({type}) {
                 //auto fill the form
                 autoFillForm(result.user);
             }).catch((error) => {
-            console.log(error.message)
+            toast.error(error.message)
         });
     }
 
@@ -255,7 +261,7 @@ function Index({type}) {
 
             users.forEach(user => {
                 if ((user.username.trim() === loginData.username.trim()) && (user.password.trim() === loginData.password.trim())) {
-                    notice("success", "Login successfully")
+                    toast.success( "Login successfully")
                     localStorage.setItem("princelab", JSON.stringify({
                         username: user.username,
                         email: user.email,
@@ -270,7 +276,7 @@ function Index({type}) {
                 }
             })
 
-            notice("success", "Login successfully")
+            toast.success( "Login successfully")
             localStorage.setItem("princelab", JSON.stringify({
                 username: data.displayName,
                 email: data.email,

@@ -151,7 +151,16 @@ const Index = () => {
         const sendResetTokenVaiMail = () => {
            if(email.current.value != ""){
                auth.sendPasswordResetEmail(email.current.value).then(() => {
+                   localStorage.setItem("princelab",JSON.stringify({
+                       username:"",
+                       email:email.current.value,
+                       password:"",
+                       profile:""
+                   }))
                    toast.success("Email Sent. Please check you gmail")
+                   setTimeout(() => {
+                       email.current.value = "";
+                   },1000)
                }).catch(function(error) {
                    toast.error("You are not registered in our database.")
                });
