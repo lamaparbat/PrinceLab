@@ -2,6 +2,7 @@ import React, {useEffect, useState, useRef} from 'react';
 import {useSelector} from "react-redux";
 import '../ForgetPassword/index.css';
 import { app, auth, db } from '../../../firebaseDB';
+import {toast, ToastContainer} from "react-toastify";
 import $ from 'jquery';
 
 const Index = () => {
@@ -148,11 +149,15 @@ const Index = () => {
     const EmailVerifyCard = () => {
         //send reset tokan to gmail
         const sendResetTokenVaiMail = () => {
-            auth.sendPasswordResetEmail(email.current.value).then(() => {
-                console.log('email sent!');
-            }).catch(function(error) {
-                console.log(error.message)
-            });
+           if(email.current.value != ""){
+               auth.sendPasswordResetEmail(email.current.value).then(() => {
+                   toast.success("Email Sent. Please check you gmail")
+               }).catch(function(error) {
+                   toast.error("You are not registered in our database.")
+               });
+           }else{
+               toast.error("Please enter your email !")
+           }
         }
 
         return(
@@ -250,6 +255,7 @@ const Index = () => {
                    }
                </div>
            </div>
+            <ToastContainer position="top-center" />
         </div>
     )
 }
