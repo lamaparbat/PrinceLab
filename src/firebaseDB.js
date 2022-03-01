@@ -5,7 +5,7 @@ import 'firebase/compat/auth';
 import 'firebase/compat/database';
 
 const firebaseConfig = {
-    apiKey: process.env.DB_API_KEY,
+    apiKey:`${process.env.DB_API_KEY}`,
     authDomain: "princelab-f13cd.firebaseapp.com",
     databaseURL: process.env.DB_URL,
     projectId: "princelab-f13cd",
