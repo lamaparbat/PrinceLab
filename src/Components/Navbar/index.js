@@ -304,7 +304,7 @@ function Index() {
                                             profile:downloadURL
                                         })
                                             .then(res => {
-                                                // toast.success("Profile updated...")
+                                                toast.success("Profile updated...")
                                             })
                                             .catch(err => {
                                                 toast.error(err.message)
