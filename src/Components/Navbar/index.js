@@ -304,7 +304,7 @@ function Index() {
                                             profile:downloadURL
                                         })
                                             .then(res => {
-                                                toast.success("Profile updated...")
+                                                // toast.success("Profile updated...")
                                             })
                                             .catch(err => {
                                                 toast.error(err.message)
@@ -414,7 +414,6 @@ function Index() {
     const showProfileNav = () => {
         isNavVisible ? setNavVisible(false) : setNavVisible(true);
     }
-
 
     return (<>
         <div className='container navbar fixed-bottom'>
