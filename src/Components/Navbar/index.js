@@ -36,6 +36,7 @@ function Index() {
     const [editProfileData, setEditProfileData] = useState({
         username: owner.username,
         email: owner.email,
+        password:"",
         profile: {}
     });
 
@@ -264,57 +265,73 @@ function Index() {
         const editProfile = () => {
             let fileName = editProfileData.profile.name
 
-            const storage = getStorage();
-            const metadata = {
-                contentType: 'image/jpeg'
-            };
-            const storageRef = ref(storage, 'uploads/' + fileName);
-            const uploadTask = uploadBytesResumable(storageRef, editProfileData.profile, metadata);
+            //compare and get user password
+            db.ref(`/users`).on('value', snapshot => {
+                snapshot.forEach((user) => {
+                    if (user.val().email === owner.email) {
+                        console.log(user.val().password)
+                        setEditProfileData({
+                            ...editProfileData,
+                            password: user.val().password
+                        });
+                        const storage = getStorage();
+                        const metadata = {
+                            contentType: 'image/jpeg'
+                        };
+                        const storageRef = ref(storage, 'uploads/' + fileName);
+                        const uploadTask = uploadBytesResumable(storageRef, editProfileData.profile, metadata);
 
-            uploadTask.on('state_changed',
-                (snapshot) => {
-                    // Get task progress, including the number of bytes uploaded and the total number of bytes to be uploaded
-                    const progress = (snapshot.bytesTransferred / snapshot.totalBytes) * 100;
-                    toast.info('Upload is ' + progress + '% done');
-                    // switch (snapshot.state) {
-                    //     case 'paused':
-                    //         toast.info('Upload is paused');
-                    //         break;
-                    //     case 'running':
-                    //         toast.info('Upload is running');
-                    //         break;
-                    // }
-                },
-                (error) => {
-                    toast.error(error.message)
-                },
-                () => {
-                    // Upload completed successfully, now we can get the download URL
-                    getDownloadURL(uploadTask.snapshot.ref).then((downloadURL) => {
-                        // upload data to real time databse
-                            db.ref(`/users`).on('value', snapshot => {
-                                snapshot.forEach((user) => {
-                                    if (user.val().email === owner.email) {
-                                        const docKey = user.key;
-                                        //save the user data in db
-                                        const db_api = process.env.REACT_APP_CRUD_DB_URL+`users/${docKey}.json`;
-                                        axios.put(db_api,{
-                                            username:editProfileData.username,
-                                            email:editProfileData.email,
-                                            profile:downloadURL
+                        uploadTask.on('state_changed',
+                            (snapshot) => {
+                                // Get task progress, including the number of bytes uploaded and the total number of bytes to be uploaded
+                                const progress = (snapshot.bytesTransferred / snapshot.totalBytes) * 100;
+                                // toast.info('Upload is ' + progress + '% done');
+                                // switch (snapshot.state) {
+                                //     case 'paused':
+                                //         toast.info('Upload is paused');
+                                //         break;
+                                //     case 'running':
+                                //         toast.info('Upload is running');
+                                //         break;
+                                // }
+                            },
+                            (error) => {
+                                toast.error(error.message)
+                            },
+                            async() => {
+                                // Upload completed successfully, now we can get the download URL
+                                await getDownloadURL(uploadTask.snapshot.ref).then((downloadURL) => {
+                                    // upload data to real time databse
+                                    db.ref(`/users`).on('value', snapshot => {
+                                        snapshot.forEach((user) => {
+                                            if (user.val().email === owner.email) {
+                                                const docKey = user.key;
+                                                //save the user data in db
+                                                const db_api = process.env.REACT_APP_CRUD_DB_URL+`users/${docKey}.json`;
+                                                const dbData = {
+                                                    username:editProfileData.username,
+                                                    email:editProfileData.email,
+                                                    password:editProfileData.password,
+                                                    profile:downloadURL
+                                                }
+                                                axios.put(db_api,dbData)
+                                                    .then(res => {
+                                                        setEditNavVisible(false);
+                                                        return;
+                                                        // toast.success("Profile updated...")
+                                                    })
+                                                    .catch(err => {
+                                                        toast.error(err.message)
+                                                    })
+                                            }
                                         })
-                                            .then(res => {
-                                                // toast.success("Profile updated...")
-                                            })
-                                            .catch(err => {
-                                                toast.error(err.message)
-                                            })
-                                    }
-                                })
-                            });
-                    });
-                }
-            );
+                                    });
+                                });
+                            }
+                        );
+                    }
+                })
+            });
         }
 
         return (<div

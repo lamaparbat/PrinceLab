@@ -143,6 +143,8 @@ function Index({type}) {
                         profile: user.profile
                     }));
 
+                    //refresh the page
+                    window.location.assign("");
                     //delay the notice by 1 second
                     destineRoute !== "" ? navigate("/" + destineRoute) :
                         setTimeout(() => {
@@ -172,7 +174,6 @@ function Index({type}) {
         // notice("error", passwordStrength(pw).value);
 
         //sending data to the firebase db server
-        console.log(isUserAlreadyRegistered())
         if(isUserAlreadyRegistered()){
             toast.error("User already exists");
         }else{
@@ -465,7 +466,7 @@ function Index({type}) {
 
                 </div>
             </div>
-            <ToastContainer/><br/><br/>
+            <ToastContainer position={"top-center"}/><br/><br/>
         </div>
     )
 }

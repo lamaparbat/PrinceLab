@@ -23,7 +23,7 @@ const Index = () => {
 
     //reset handling
     const reset = () => {
-        const email = JSON.parse(localStorage.getItem("princelab")).email;
+        const email = JSON.parse(localStorage.getItem("reset_email")).email;
 
         //db update
         db.ref(`/users`).on('value', snapshot => {

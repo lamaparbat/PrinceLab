@@ -151,11 +151,8 @@ const Index = () => {
         const sendResetTokenVaiMail = () => {
            if(email.current.value != ""){
                auth.sendPasswordResetEmail(email.current.value).then(() => {
-                   localStorage.setItem("princelab",JSON.stringify({
-                       username:"",
-                       email:email.current.value,
-                       password:"",
-                       profile:""
+                   localStorage.setItem("reset_email",JSON.stringify({
+                       email:email.current.value
                    }))
                    toast.success("Email Sent. Please check you gmail")
                    setTimeout(() => {
