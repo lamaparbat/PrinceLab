@@ -25,9 +25,9 @@ function Index() {
    <div className='footer_row'>
     <div className='service_col'>
      <h5><b>Services</b><hr className='separator w-50'/></h5>
-     <a href='#'>Paradox</a>
-     <a href='#'>Download</a>
-     <a href='#'>Pricing</a>
+     <a onClick={ () => redirect("")}>Paradox</a>
+     <a onClick={ () => redirect("Download")}>Download</a>
+     <a onClick={ () => redirect("Pricing")}>Pricing</a>
     </div>
     <div className='info_col'>
      <h5><b>Information</b><hr className='separator w-50' /></h5>
