@@ -1,4 +1,4 @@
-import {useEffect, useState} from 'react';
+import {useEffect, useState, useRef} from 'react';
 import {Link, useNavigate, useLocation} from 'react-router-dom';
 import {useDispatch} from "react-redux";
 import {darkTheme, lightTheme} from "../../Redux/Actions";
@@ -48,6 +48,10 @@ function Index() {
 
     // setting Nav visible
     const [isSettingNavVisible, setSettingNavVisible] = useState(false);
+
+    //old password & new password
+    const oldPassword = useRef("")
+    const newPassword = useRef("")
 
     // edit Nav visible
     const [isEditNavVisible, setEditNavVisible] = useState(false);
@@ -298,10 +302,10 @@ function Index() {
                             (error) => {
                                 toast.error(error.message)
                             },
-                            async() => {
+                            () => {
                                 // Upload completed successfully, now we can get the download URL
-                                await getDownloadURL(uploadTask.snapshot.ref).then((downloadURL) => {
-                                    // upload data to real time databse
+                                getDownloadURL(uploadTask.snapshot.ref).then((downloadURL) => {
+                                    // upload data to real time database
                                     db.ref(`/users`).on('value', snapshot => {
                                         snapshot.forEach((user) => {
                                             if (user.val().email === owner.email) {
@@ -398,7 +402,40 @@ function Index() {
             setSettingNavVisible(true)
         }
 
-        return (<div
+        //on btn click
+        const btnClick = () => {
+            console.log(oldPassword.current.value," , ",newPassword.current.value)
+            //db update
+            db.ref(`/users`).on('value', snapshot => {
+                snapshot.forEach((user) => {
+                    if (user.val().password === oldPassword.current.value) {
+                        const docKey = user.key
+                        const userData = {
+                            username:user.val().username,
+                            email: user.val().email,
+                            password: newPassword.current.value,
+                            profile: user.val().profile
+                        }
+
+                        //save the user data in db
+                        const db_api = process.env.REACT_APP_CRUD_DB_URL+`users/${docKey}.json`;
+                        axios.put(db_api,userData)
+                            .then(res => {
+                                toast.success("Password successfully reset.")
+                                setTimeout(() => {
+                                    navigate("/Login");
+                                },2000)
+                            })
+                            .catch(err => {
+                                toast.error(err.message)
+                            })
+                    }
+                })
+            });
+        }
+
+        return (
+            <div
             className={"profile_nav d-" + (isChangePasswordNavVisibile ? "block" : "none")}
             style={{marginTop: "-450px"}}
         >
@@ -413,16 +450,18 @@ function Index() {
                 <span>New Password</span>
                 <input
                     type="password"
+                    ref={newPassword}
                     className={"form-control py-1  text-secondary shadow-none mb-2"}
                     placeholder="Enter new password"
                 />
-                <span>Password</span>
+                <span>Old Password</span>
                 <input
                     type="password"
+                    ref={oldPassword}
                     className={"form-control py-1 shadow-none mb-2"}
                     placeholder="Reenter password"
                 />
-                <button className="btn btn-primary rounded-1 mt-2 mb-1">Change Password</button>
+                <button className="btn btn-primary rounded-1 mt-2 mb-1" onClick={btnClick}>Change Password</button>
             </div>
         </div>)
     }
