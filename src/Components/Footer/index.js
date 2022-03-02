@@ -46,16 +46,16 @@ function Index() {
     <div className='follow_col'>
      <h5><b>Follow Us</b><hr className='separator w-25' /></h5>
      <div className='icons_cont'>
-      <div onClick={() => redirect("https://www.facebook.com/people/Prince-Lab/100070712031228/")}>
+      <div onClick={() => window.location.assign("https://www.facebook.com/people/Prince-Lab/100070712031228/")}>
        <img className='img-fluid' src={process.env.PUBLIC_URL + "/assets/fb.png"} />
       </div>
-      <div onClick={() =>  redirect("https://twitter.com/Princelab2") }>
+      <div onClick={() =>   window.location.assign("https://twitter.com/Princelab2") }>
        <img className='img-fluid' src={process.env.PUBLIC_URL + "/assets/twitter.png"} />
       </div>
-      <div onClick={() =>  redirect("https://www.instagram.com/_princelab_/")}>
+      <div onClick={() =>   window.location.assign("https://www.instagram.com/_princelab_/")}>
        <img className='img-fluid' src={process.env.PUBLIC_URL + "/assets/insta.png"} />
       </div>
-      <div onClick={() => redirect("https://www.linkedin.com/in/prince-lab-3398a7217?originalSubdomain=np")}>
+      <div onClick={() =>  window.location.assign("https://www.linkedin.com/in/prince-lab-3398a7217?originalSubdomain=np")}>
        <img className='img-fluid' src={process.env.PUBLIC_URL + "/assets/linked.png"} />
       </div>
      </div>

@@ -1,7 +1,7 @@
 {
   "name": "princelab",
   "version": "0.1.0",
-  "homepage": "https://lamaparbat.github.io/prince",
+  "homepage": "https://c.github.io/prince",
   "private": true,
   "dependencies": {
     "@emotion/react": "^11.7.1",
