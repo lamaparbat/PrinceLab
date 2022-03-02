@@ -1,7 +1,7 @@
 {
   "name": "princelab",
   "version": "0.1.0",
-  "homepage": "https://gitname.github.io/react-gh-pages",
+  "homepage": "https://lamaparbat.github.io/prince",
   "private": true,
   "dependencies": {
     "@emotion/react": "^11.7.1",
@@ -37,10 +37,10 @@
     "web-vitals": "^2.1.4"
   },
   "scripts": {
-    "start": "react-scripts start",
-    "build": "react-scripts build",
     "predeploy": "npm run build",
     "deploy": "gh-pages -d build",
+    "start": "react-scripts start",
+    "build": "react-scripts build",
     "build:local": "env-cmd -f ./.env.production.local npm run build",
     "build:production": "env-cmd -f ./.env.production npm run build",
     "test": "react-scripts test --env=jsdom",
