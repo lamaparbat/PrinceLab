@@ -1,7 +1,6 @@
 {
   "name": "princelab",
   "version": "0.1.0",
-  "homepage": "https://lamaparbat.github.io/prince",
   "private": true,
   "dependencies": {
     "@emotion/react": "^11.7.1",
@@ -63,8 +62,5 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
-  },
-  "devDependencies": {
-    "gh-pages": "^3.2.3"
   }
 }
