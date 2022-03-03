@@ -8,7 +8,7 @@ import KeyboardArrowUpIcon from '@mui/icons-material/KeyboardArrowUp';
 import Avatar from '@mui/material/Avatar';
 import CancelIcon from '@mui/icons-material/Cancel';
 import KeyboardBackspaceIcon from '@mui/icons-material/KeyboardBackspace';
-import { getStorage, ref, uploadBytesResumable, getDownloadURL } from "firebase/storage";
+import {getStorage, ref, uploadBytesResumable, getDownloadURL} from "firebase/storage";
 import {toast, ToastContainer} from "react-toastify";
 import axios from 'axios';
 import {app, db} from "../../firebaseDB";
@@ -36,7 +36,7 @@ function Index() {
     const [editProfileData, setEditProfileData] = useState({
         username: owner.username,
         email: owner.email,
-        password:"",
+        password: "",
         profile: {}
     });
 
@@ -113,50 +113,51 @@ function Index() {
             $(".resp_nav").css("display", "none");
         }, [cur_route.pathname])
 
-        return (<div
-            className={"profile_nav d-" + (isNavVisible ? "block" : "none")}
-            style={owner.email != "" ? {marginTop: "-380px"} : {marginTop: "-280px"}}
-        >
-            {(owner.username) ? <>
-                <CancelIcon id="cancleIcon" onClick={showProfileNav}/>
-                <div className="pic">
-                    <img
-                        src={owner.profile != "" ? owner.profile : process.env.PUBLIC_URL + "/assets/agriculture2.png"}/>
-                    <p className="mt-2">{owner.email}</p>
-                </div>
-                <div className="profile_nav_row">
-                    <div className="nav_card" onClick={changeTheme}>
+        return (
+            <div
+                className={"profile_nav d-" + (isNavVisible ? "block" : "none")}
+                style={owner.email != "" ? {marginTop: "-380px"} : {marginTop: "-280px"}}
+            >
+                {(owner.username) ? <>
+                    <CancelIcon id="cancleIcon" onClick={showProfileNav}/>
+                    <div className="pic">
                         <img
-                            src={process.env.PUBLIC_URL + "/assets/themes.svg"}/>
-                        <p>Theme</p>
+                            src={owner.profile != "" ? owner.profile : process.env.PUBLIC_URL + "/assets/agriculture2.png"}/>
+                        <p className="mt-2">{owner.email}</p>
                     </div>
-                    <div className="nav_card" onClick={openSettingNav}>
-                        <img
-                            src={process.env.PUBLIC_URL + "/assets/user.svg"}/>
-                        <p>Setting</p
-                        >
+                    <div className="profile_nav_row">
+                        <div className="nav_card" onClick={changeTheme}>
+                            <img
+                                src={process.env.PUBLIC_URL + "/assets/themes.svg"}/>
+                            <p>Theme</p>
+                        </div>
+                        <div className="nav_card" onClick={openSettingNav}>
+                            <img
+                                src={process.env.PUBLIC_URL + "/assets/user.svg"}/>
+                            <p>Setting</p
+                            >
+                        </div>
                     </div>
-                </div>
-            </> : <>
-                <CancelIcon id="cancleIcon" onClick={showProfileNav}/>
-                <div className="profile_nav_row mt-5">
-                    <div className="nav_card" onClick={changeTheme}>
-                        <img
-                            src={process.env.PUBLIC_URL + "/assets/themes.svg"}/>
-                        <p>Theme</p>
+                </> : <>
+                    <CancelIcon id="cancleIcon" onClick={showProfileNav}/>
+                    <div className="profile_nav_row mt-5">
+                        <div className="nav_card" onClick={changeTheme}>
+                            <img
+                                src={process.env.PUBLIC_URL + "/assets/themes.svg"}/>
+                            <p>Theme</p>
+                        </div>
+                        <div className="nav_card" onClick={() => {
+                            navigate("/Login")
+                            setNavVisible(false)
+                        }}>
+                            <img
+                                src={process.env.PUBLIC_URL + "/assets/user.svg"}/>
+                            <p>Sign In</p
+                            >
+                        </div>
                     </div>
-                    <div className="nav_card" onClick={() => {
-                        navigate("/Login")
-                        setNavVisible(false)
-                    }}>
-                        <img
-                            src={process.env.PUBLIC_URL + "/assets/user.svg"}/>
-                        <p>Sign In</p
-                        >
-                    </div>
-                </div>
-            </>}
-        </div>)
+                </>}
+            </div>)
     }
 
     //custom setting nav items
@@ -191,40 +192,41 @@ function Index() {
             navigate("/Login")
         }
 
-        return (<div
-            className={"profile_nav d-" + (isSettingNavVisible ? "block" : "none")}
-            style={{marginTop: "-420px"}}
-        >
-            <KeyboardBackspaceIcon className="btn p-0" onClick={goBack}/>
-            <div className="pic">
-                <img
-                    src={owner.profile != "" ? owner.profile : process.env.PUBLIC_URL + "/assets/agriculture2.png"}/>
-                <p className="mt-2">{owner.email}</p>
-            </div>
-            <div className="profile_nav_row d-flex flex-column justify-content-center">
-                <button
-                    className="mb-2 py-1 rounded-pill border-white"
-                    onClick={() => {
-                        setSettingNavVisible(false);
-                        setEditNavVisible(true)
-                    }}
-                >Edit Profile
-                </button>
-                <button
-                    className="mb-2 py-1 rounded-pill border-white"
-                    onClick={() => {
-                        setChangePasswordNavVisible(true);
-                        setSettingNavVisible(false);
-                    }}
-                >Change Password
-                </button>
-                <button
-                    className="mb-2 py-1 rounded-pill border-white"
-                    onClick={logout}
-                >Sign Out
-                </button>
-            </div>
-        </div>)
+        return (
+            <div
+                className={"profile_nav d-" + (isSettingNavVisible ? "block" : "none")}
+                style={{marginTop: "-420px"}}
+            >
+                <KeyboardBackspaceIcon className="btn p-0" onClick={goBack}/>
+                <div className="pic">
+                    <img
+                        src={owner.profile != "" ? owner.profile : process.env.PUBLIC_URL + "/assets/agriculture2.png"}/>
+                    <p className="mt-2">{owner.email}</p>
+                </div>
+                <div className="profile_nav_row d-flex flex-column justify-content-center">
+                    <button
+                        className="mb-2 py-1 rounded-pill border-white"
+                        onClick={() => {
+                            setSettingNavVisible(false);
+                            setEditNavVisible(true)
+                        }}
+                    >Edit Profile
+                    </button>
+                    <button
+                        className="mb-2 py-1 rounded-pill border-white"
+                        onClick={() => {
+                            setChangePasswordNavVisible(true);
+                            setSettingNavVisible(false);
+                        }}
+                    >Change Password
+                    </button>
+                    <button
+                        className="mb-2 py-1 rounded-pill border-white"
+                        onClick={logout}
+                    >Sign Out
+                    </button>
+                </div>
+            </div>)
     }
 
     //custom setting nav items
@@ -273,7 +275,6 @@ function Index() {
             db.ref(`/users`).on('value', snapshot => {
                 snapshot.forEach((user) => {
                     if (user.val().email === owner.email) {
-                        console.log(user.val().password)
                         setEditProfileData({
                             ...editProfileData,
                             password: user.val().password
@@ -311,18 +312,18 @@ function Index() {
                                             if (user.val().email === owner.email) {
                                                 const docKey = user.key;
                                                 //save the user data in db
-                                                const db_api = process.env.REACT_APP_CRUD_DB_URL+`users/${docKey}.json`;
+                                                const db_api = process.env.REACT_APP_CRUD_DB_URL + `users/${docKey}.json`;
                                                 const dbData = {
-                                                    username:editProfileData.username,
-                                                    email:editProfileData.email,
-                                                    password:editProfileData.password,
-                                                    profile:downloadURL
+                                                    username: editProfileData.username,
+                                                    email: editProfileData.email,
+                                                    password: editProfileData.password,
+                                                    profile: downloadURL
                                                 }
-                                                axios.put(db_api,dbData)
+                                                axios.put(db_api, dbData)
                                                     .then(res => {
+                                                        console.log(user.val().password)
                                                         setEditNavVisible(false);
-                                                        return;
-                                                        // toast.success("Profile updated...")
+                                                        return true;
                                                     })
                                                     .catch(err => {
                                                         toast.error(err.message)
@@ -338,7 +339,8 @@ function Index() {
             });
         }
 
-        return (<div
+        return (
+            <div
             className={"profile_nav d-" + (isEditNavVisible ? "block" : "none")}
             style={{marginTop: "-550px"}}>
             <KeyboardBackspaceIcon className="btn p-0" onClick={goBack}/>
@@ -404,27 +406,27 @@ function Index() {
 
         //on btn click
         const btnClick = () => {
-            console.log(oldPassword.current.value," , ",newPassword.current.value)
+            console.log(oldPassword.current.value, " , ", newPassword.current.value)
             //db update
             db.ref(`/users`).on('value', snapshot => {
                 snapshot.forEach((user) => {
                     if (user.val().password === oldPassword.current.value) {
                         const docKey = user.key
                         const userData = {
-                            username:user.val().username,
+                            username: user.val().username,
                             email: user.val().email,
                             password: newPassword.current.value,
                             profile: user.val().profile
                         }
 
                         //save the user data in db
-                        const db_api = process.env.REACT_APP_CRUD_DB_URL+`users/${docKey}.json`;
-                        axios.put(db_api,userData)
+                        const db_api = process.env.REACT_APP_CRUD_DB_URL + `users/${docKey}.json`;
+                        axios.put(db_api, userData)
                             .then(res => {
                                 toast.success("Password successfully reset.")
                                 setTimeout(() => {
                                     navigate("/Login");
-                                },2000)
+                                }, 2000)
                             })
                             .catch(err => {
                                 toast.error(err.message)
@@ -436,34 +438,34 @@ function Index() {
 
         return (
             <div
-            className={"profile_nav d-" + (isChangePasswordNavVisibile ? "block" : "none")}
-            style={{marginTop: "-450px"}}
-        >
-            <KeyboardBackspaceIcon className="btn p-0" onClick={goBack}/>
-            <div className="pic">
-                <img
-                    src={owner.profile != "" ? owner.profile : process.env.PUBLIC_URL + "/assets/agriculture2.png"}
-                />
-            </div>
-            <br/>
-            <div className="profile_nav_row d-flex flex-column justify-content-center">
-                <span>New Password</span>
-                <input
-                    type="password"
-                    ref={newPassword}
-                    className={"form-control py-1  text-secondary shadow-none mb-2"}
-                    placeholder="Enter new password"
-                />
-                <span>Old Password</span>
-                <input
-                    type="password"
-                    ref={oldPassword}
-                    className={"form-control py-1 shadow-none mb-2"}
-                    placeholder="Reenter password"
-                />
-                <button className="btn btn-primary rounded-1 mt-2 mb-1" onClick={btnClick}>Change Password</button>
-            </div>
-        </div>)
+                className={"profile_nav d-" + (isChangePasswordNavVisibile ? "block" : "none")}
+                style={{marginTop: "-450px"}}
+            >
+                <KeyboardBackspaceIcon className="btn p-0" onClick={goBack}/>
+                <div className="pic">
+                    <img
+                        src={owner.profile != "" ? owner.profile : process.env.PUBLIC_URL + "/assets/agriculture2.png"}
+                    />
+                </div>
+                <br/>
+                <div className="profile_nav_row d-flex flex-column justify-content-center">
+                    <span>New Password</span>
+                    <input
+                        type="password"
+                        ref={newPassword}
+                        className={"form-control py-1  text-secondary shadow-none mb-2"}
+                        placeholder="Enter new password"
+                    />
+                    <span>Old Password</span>
+                    <input
+                        type="password"
+                        ref={oldPassword}
+                        className={"form-control py-1 shadow-none mb-2"}
+                        placeholder="Reenter password"
+                    />
+                    <button className="btn btn-primary rounded-1 mt-2 mb-1" onClick={btnClick}>Change Password</button>
+                </div>
+            </div>)
     }
 
     //show showProfileNav
@@ -568,7 +570,7 @@ function Index() {
                 </li>
             </div>
         </div>
-        <ToastContainer position="top-center"/>
+        <ToastContainer autoClose={1000} position="top-center"/>
     </>);
 }
 

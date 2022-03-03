@@ -466,7 +466,7 @@ function Index({type}) {
 
                 </div>
             </div>
-            <ToastContainer position={"top-center"}/><br/><br/>
+            <ToastContainer autoClose={1000} position={"top-center"}/><br/><br/>
         </div>
     )
 }

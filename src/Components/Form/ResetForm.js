@@ -69,7 +69,7 @@ const Index = () => {
                 >Reset
                 </button>
             </div>
-            <ToastContainer position="top-center" />
+            <ToastContainer autoClose={1000} position="top-center" />
         </div>
     )
 }
