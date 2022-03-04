@@ -131,7 +131,7 @@ function Index({type}) {
 
     // login btn clicked event
     const login = () => {
-        if (loginData.username !== "" && loginData.password !== "" && savepw !== false) {
+        if (loginData.username !== "" && loginData.password !== "") {
             //sending data to the firebase db server
             users.forEach(user => {
                 if ((user.username.trim() === loginData.username.trim()) && (user.password.trim() === loginData.password.trim())) {
@@ -217,29 +217,6 @@ function Index({type}) {
             setKeyIconShow(false)
         }
     }
-
-
-    //.Toastify__toast-theme--light {
-    //     background: #e5e4e4;
-    //     color: var(--toastify-text-color-light);
-    //     border-radius: 10px !important;
-    // }
-// .Toastify__toast {
-//         position: relative;
-//         min-height: var(--toastify-toast-min-height);
-//         box-sizing: border-box;
-//         margin-bottom: 1rem;
-//         padding: 8px;
-//         border-radius: 4px;
-//         box-shadow: 0 1px 10px 0 rgb(0 0 0 / 10%), 0 2px 15px 0 rgb(0 0 0 / 5%);
-//         display: flex;
-//         justify-content: space-between;
-//         max-height: var(--toastify-toast-max-height);
-//         overflow: hidden;
-//         font-family: var(--toastify-font-family);
-//         cursor: pointer;
-//         direction: ltr;
-//     }
 
     //signup with google
     const signupWithGoogle = () => {
