@@ -32,6 +32,7 @@ function Index({type}) {
 
     //change password icon on show mode
     const [isKeyIconShow, setKeyIconShow] = useState(false);
+    const [isKeyIcon2Show, setKeyIcon2Show] = useState(false);
 
     //get the current route
     const cur_route = useLocation().pathname
@@ -218,6 +219,17 @@ function Index({type}) {
         }
     }
 
+    //show repassword
+    const showRePassword = (id) => {
+        if($(`#${id}`).attr("type") === "password"){
+            $(`#${id}`).attr("type", "text")
+            setKeyIcon2Show(true)
+        }else{
+            $(`#${id}`).attr("type", "password")
+            setKeyIcon2Show(false)
+        }
+    }
+
     //signup with google
     const signupWithGoogle = () => {
         const provider = new GoogleAuthProvider();
@@ -388,10 +400,12 @@ function Index({type}) {
                                     placeholder='Confirm password'
                                     ref={repassword}
                                 />
-                                <VisibilityOffIcon
-                                    id="icon"
-                                    onClick={() => showPassword("repassword")}
-                                    className='mx-1'/>
+                                {
+                                    isKeyIcon2Show ? <VisibilityIcon id="icon" onClick={() => showRePassword("repassword")} />: <VisibilityOffIcon
+                                        id="icon"
+                                        onClick={() => showRePassword("repassword")}
+                                    />
+                                }
                             </div> : null
                     }
 

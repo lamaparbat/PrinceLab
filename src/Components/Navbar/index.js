@@ -141,7 +141,7 @@ function Index() {
                     <div className="profile_nav_row">
                         <div className="nav_card" onClick={changeTheme}>
                             <img
-                                src={process.env.PUBLIC_URL + "/assets/themes.svg"}/>
+                                src={(theme === "light" ? process.env.PUBLIC_URL + "/assets/themes.svg" : process.env.PUBLIC_URL + "/assets/theme2.svg")}/>
                             <p>Theme</p>
                         </div>
                         <div className="nav_card" onClick={openSettingNav}>
