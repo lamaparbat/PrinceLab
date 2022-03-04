@@ -21,6 +21,7 @@ const Index = () => {
             {subscription: "business"} )
             .then(data => {
                 setClientSecret(data.data.secret)
+                console.log(data.data.secret)
             })
             .catch(err => {
                 console.log(err)

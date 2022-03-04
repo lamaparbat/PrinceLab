@@ -109,7 +109,6 @@ function Index({type}) {
 
     // custom agree terms and condition component
     const AgreeTerms = () => {
-
         return (
             <div className='agree_terms'>
                 <input type="checkbox"
@@ -143,12 +142,12 @@ function Index({type}) {
                         profile: user.profile
                     }));
 
-                    //refresh the page
-                    window.location.assign("");
                     //delay the notice by 1 second
                     destineRoute !== "" ? navigate("/" + destineRoute) :
                         setTimeout(() => {
                             navigate("/")
+                            //refresh the page
+                            window.location.assign("");
                         }, 1000)
                 }
             })

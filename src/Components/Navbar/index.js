@@ -316,12 +316,11 @@ function Index() {
                                                 const dbData = {
                                                     username: editProfileData.username,
                                                     email: editProfileData.email,
-                                                    password: editProfileData.password,
+                                                    password: user.val().password,
                                                     profile: downloadURL
                                                 }
                                                 axios.put(db_api, dbData)
                                                     .then(res => {
-                                                        console.log(user.val().password)
                                                         setEditNavVisible(false);
                                                         return true;
                                                     })
@@ -406,7 +405,6 @@ function Index() {
 
         //on btn click
         const btnClick = () => {
-            console.log(oldPassword.current.value, " , ", newPassword.current.value)
             //db update
             db.ref(`/users`).on('value', snapshot => {
                 snapshot.forEach((user) => {
