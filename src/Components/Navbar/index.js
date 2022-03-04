@@ -495,6 +495,7 @@ function Index() {
         isNavVisible ? setNavVisible(false) : setNavVisible(true);
     }
 
+
     return (<>
         <div className='container navbar fixed-bottom'>
             <li className='link  text-decoration-none text-danger'>
@@ -518,7 +519,8 @@ function Index() {
                 </Link>
             </li>
             <li className='link  text-decoration-none'>
-                <Link className='text-decoration-none' to="/Pricing">
+                <Link className='text-decoration-none' to={ (JSON.parse(localStorage.getItem("princelab")).username === "") ?
+                    "/Login" : "/Pricing"}>
                         <span className={"text-" + (cur_route.pathname === "/Pricing" ? "secondary" : "light")}>
                             Pricing</span>
                 </Link>

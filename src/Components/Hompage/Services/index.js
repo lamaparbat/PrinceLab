@@ -36,12 +36,11 @@ function Index() {
                         block uploaded by the developers that can be used in your program. </p>
                     <a
                         className='btn btn-dark py-1 px-4 mt-1 text-whitesmoke'
-                        onClick={() => navigate("/Store")}
+                        // onClick={() => navigate("/Store")}
                     >
                         Visit our store
                     </a>
                 </div>
-                <img src={process.env.PUBLIC_URL + "/assets/service.jpg"} loading='lazy'/>
             </div>
             {/* rows2 -> services cards */}
             <div className='container d-flex justify-content-center'>

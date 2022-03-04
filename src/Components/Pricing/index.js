@@ -1,4 +1,5 @@
-import React, {useState} from 'react';
+import React, {useState, useEffect} from 'react';
+import {useNavigate} from "react-router-dom";
 import $ from 'jquery';
 import Card from '../Pricing/Card/index.js';
 import '../Pricing/index.css';
@@ -9,8 +10,12 @@ function Index() {
     const [curItem, setCurrentNavClickedItem] = useState();
     const [showMore, setShowMore] = useState(false);
 
+    //create instanc ef useNavigate
+    const navigate = useNavigate()
+
     const list1 = ["Support for python", "Programming", "Able to make AI mode", "New update"];
     const list2 = ["Support For Python3 Programming", "Able to make flutter app", "AI model integration", "Application development", "Technical support", "New updates"];
+
 
     // track the width of screen
     $(window).resize(() => {
