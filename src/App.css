@@ -22,6 +22,9 @@ h1, span, h3 {
     background: #e5e4e4 !important;
     border-radius: 10px !important;
 }
+.navbar li a span {
+    background: unset !important;
+}
 
 @media (max-width: 1200px) {
     * > h1 {

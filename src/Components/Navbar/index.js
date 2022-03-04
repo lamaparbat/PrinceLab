@@ -20,6 +20,9 @@ function Index() {
     //creating instance of useLocation
     const cur_route = useLocation();
 
+    //store the database data insertion
+    const [isLoading, setLoading] = useState(false);
+
     //fetched the cache data
     let owner = JSON.parse(localStorage.getItem("princelab"))
     if (owner === null || owner.username === "") {
@@ -30,7 +33,6 @@ function Index() {
 
     // track the changes in browser cache
     useEffect(() => {
-        console.log(owner.email)
         setEditProfileData({
             username: owner.username,
             email:( owner.email != null ? owner.email : ""),
@@ -286,10 +288,16 @@ function Index() {
             db.ref(`/users`).on('value', snapshot => {
                 snapshot.forEach((user) => {
                     if (user.val().email === owner.email) {
+                        //loading starts
+                        setLoading(true);
+
+                        //update the password field value
                         setEditProfileData({
                             ...editProfileData,
                             password: user.val().password
                         });
+
+                        //db config
                         const storage = getStorage();
                         const metadata = {
                             contentType: 'image/jpeg'
@@ -297,6 +305,7 @@ function Index() {
                         const storageRef = ref(storage, 'uploads/' + fileName);
                         const uploadTask = uploadBytesResumable(storageRef, editProfileData.profile, metadata);
 
+                        //upload
                         uploadTask.on('state_changed',
                             (snapshot) => {
                                 // Get task progress, including the number of bytes uploaded and the total number of bytes to be uploaded
@@ -332,11 +341,12 @@ function Index() {
                                                 }
                                                 axios.put(db_api, dbData)
                                                     .then(res => {
+                                                        setLoading(false);
                                                         setEditNavVisible(false);
                                                         return true;
                                                     })
                                                     .catch(err => {
-                                                        toast.error(err.message)
+                                                        return false;
                                                     })
                                             }
                                         })
@@ -385,9 +395,12 @@ function Index() {
                     onChange={editFormInput}
                 />
                 <button
-                    className={"btn btn-primary rounded-1 mt-3 mb-2"}
+                    className={isLoading ? "btn btn-primary rounded-1 mt-3 mb-2 disabled" : "btn btn-primary rounded-1 mt-3 mb-2"}
                     onClick={editProfile}
-                >Save Changes
+                >
+                    {
+                        isLoading ? "Uploading...." : "Save Changes"
+                    }
                 </button>
             </div>
         </div>)

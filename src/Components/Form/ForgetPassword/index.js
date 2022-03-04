@@ -70,9 +70,9 @@ const Index = () => {
     }
 
     //custom card box
-    const Card = ({id, url, title, span}) => {
+    const Card = ({id, url, title, span, display}) => {
         return(
-            <div className={"card1"} onClick={() => openCard(id)}>
+            <div className={"card1 d-"+display} onClick={() => openCard(id)}>
                 <img
                     id={id}
                     className={"img-fluid"}
@@ -238,6 +238,7 @@ const Index = () => {
                                    process.env.PUBLIC_URL+"/assets/mail2.png" }
                                title={"Send via SMS:"}
                                span={".......431"}
+                               display="none"
                            /><br/>
                            <Card
                                id={"mail"}
@@ -245,6 +246,7 @@ const Index = () => {
                                    process.env.PUBLIC_URL+"/assets/mobile2.png" }
                                title={"Send via E-mail:"}
                                span={".......ek@gmail.com"}
+                               display="flex"
                            /><br/>
                            <button
                                className={"btn btn-primary px-5 py-1 signin"}>Sigin</button>
