@@ -11,7 +11,7 @@ function index() {
             <h3>See our </h3>
             <h4>mind behind the scene</h4>
             <img
-              src={process.env.PUBLIC_URL + "/assets/create.png"}
+              src={process.env.PUBLIC_URL + "/assets/intro.svg"}
               loading="lazy"
             />
           </div>

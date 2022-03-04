@@ -579,7 +579,7 @@ function Index() {
                     </Link></li>
                 <li className='link  text-decoration-none'>
                     <Link className='text-decoration-none' to="/About">
-                        <span className={"text-" + (cur_route.pathname === "/About" ? "secondary" : "light")}>
+                        <span className={"text-" + (cur_route.pathname === "/About" ? "secondary" : "primary")}>
                             About </span>
                     </Link>
                 </li>

@@ -19,8 +19,8 @@ h1, span, h3 {
 }
 
 .Toastify__toast {
-    background: #e5e4e4 !important;
     border-radius: 10px !important;
+    border: 1px solid white;
 }
 .navbar li a span {
     background: unset !important;
