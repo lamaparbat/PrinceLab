@@ -46,10 +46,10 @@ function Index() {
             {/* rows2 -> services cards */}
             <div className='container d-flex justify-content-center'>
                 <div className='card_rows'>
-                    <Card src={process.env.PUBLIC_URL + "/assets/media.png"} title="Applications"/>
-                    <Card src={process.env.PUBLIC_URL + "/assets/ai.jpeg"} title="Artificial Intelligence"/>
-                    <Card src={process.env.PUBLIC_URL + "/assets/extension.jpeg"} title="Extension"/>
-                    <Card src={process.env.PUBLIC_URL + "/assets/authentication.jpeg"} title="Block"/>
+                    <Card src={process.env.PUBLIC_URL + "/assets/application.png"} title="Applications"/>
+                    <Card src={process.env.PUBLIC_URL + "/assets/ai.png"} title="Artificial Intelligence"/>
+                    <Card src={process.env.PUBLIC_URL + "/assets/extension.png"} title="Extension"/>
+                    <Card src={process.env.PUBLIC_URL + "/assets/block2.png"} title="Block"/>
                 </div>
             </div>
         </div>

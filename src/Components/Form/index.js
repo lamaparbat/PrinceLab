@@ -224,8 +224,12 @@ function Index({type}) {
         const auth = getAuth();
         signInWithPopup(auth, provider)
             .then((result) => {
+                //refresh the page
+                window.location.assign("");
+
                 //auto fill the form
                 autoFillForm(result.user);
+
             }).catch((error) => {
             toast.error(error.message)
         });
@@ -258,7 +262,6 @@ function Index({type}) {
                 profile: data.photoURL
             })
         } else {
-
             users.forEach(user => {
                 if ((user.username.trim() === loginData.username.trim()) && (user.password.trim() === loginData.password.trim())) {
                     toast.success( "Login successfully")
@@ -273,6 +276,7 @@ function Index({type}) {
                         setTimeout(() => {
                             navigate("/")
                         }, 1000)
+                    return true;
                 }
             })
 

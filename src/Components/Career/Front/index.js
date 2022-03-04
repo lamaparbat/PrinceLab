@@ -3,9 +3,6 @@ import '../Front/index.css';
 
 function Index() {
   const [imgUrl, setUrl] = useState();
-  useEffect(() => {
-    true ? setUrl(process.env.PUBLIC_URL + "/assets/create.png") : setUrl(process.env.PUBLIC_URL + "/assets/create.jpg");
-  }, [])
   
   return (
     <div className='front'>
@@ -21,7 +18,7 @@ function Index() {
       </button><br />
       <img
         id='front_img'
-        src={imgUrl} />
+        src={process.env.PUBLIC_URL + "/assets/intro.svg"} />
     </div>
   )
 }
