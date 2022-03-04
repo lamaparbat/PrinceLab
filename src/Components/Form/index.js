@@ -218,6 +218,29 @@ function Index({type}) {
         }
     }
 
+
+    //.Toastify__toast-theme--light {
+    //     background: #e5e4e4;
+    //     color: var(--toastify-text-color-light);
+    //     border-radius: 10px !important;
+    // }
+// .Toastify__toast {
+//         position: relative;
+//         min-height: var(--toastify-toast-min-height);
+//         box-sizing: border-box;
+//         margin-bottom: 1rem;
+//         padding: 8px;
+//         border-radius: 4px;
+//         box-shadow: 0 1px 10px 0 rgb(0 0 0 / 10%), 0 2px 15px 0 rgb(0 0 0 / 5%);
+//         display: flex;
+//         justify-content: space-between;
+//         max-height: var(--toastify-toast-max-height);
+//         overflow: hidden;
+//         font-family: var(--toastify-font-family);
+//         cursor: pointer;
+//         direction: ltr;
+//     }
+
     //signup with google
     const signupWithGoogle = () => {
         const provider = new GoogleAuthProvider();
@@ -225,17 +248,16 @@ function Index({type}) {
         signInWithPopup(auth, provider)
             .then((result) => {
                 //refresh the page
-                window.location.assign("");
 
                 //auto fill the form
                 autoFillForm(result.user);
 
             }).catch((error) => {
-            toast.error(error.message)
+            console.error(error.message)
         });
     }
 
-    //signup with google
+    //signup with github
     const signupWithGithub = () => {
         const provider = new GithubAuthProvider();
         const auth = getAuth();
@@ -244,7 +266,7 @@ function Index({type}) {
                 //auto fill the form
                 autoFillForm(result.user);
             }).catch((error) => {
-            toast.error(error.message)
+            console.error(error.message)
         });
     }
 
@@ -460,9 +482,9 @@ function Index({type}) {
                                         <img
                                             src={process.env.PUBLIC_URL + "/assets/google.png"}/>
                                     </div>
-                                    <div id='apple'>
-                                        <AppleIcon id="apple_icon"/>
-                                    </div>
+                                    {/*<div id='apple'>*/}
+                                    {/*    <AppleIcon id="apple_icon"/>*/}
+                                    {/*</div>*/}
                                 </div>
                             </> : null
                     }

@@ -28,6 +28,17 @@ function Index() {
         }
     }
 
+    // track the changes in browser cache
+    useEffect(() => {
+        console.log(owner.email)
+        setEditProfileData({
+            username: owner.username,
+            email:( owner.email != null ? owner.email : ""),
+            password: "",
+            profile: {}
+        })
+    }, [owner.username])
+
     //form focus
     const [usernameFocus, setUsernameFocus] = useState(true);
     const [emailFocus, setEmailFocus] = useState(false);
