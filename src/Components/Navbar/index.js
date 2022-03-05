@@ -25,10 +25,13 @@ function Index() {
 
     //fetched the cache data
     let owner = JSON.parse(localStorage.getItem("princelab"))
-    if (owner === null || owner.username === "") {
+
+    if (owner === null) {
         owner = {
             username: "", email: "", profile: ""
         }
+        //set the default value to cache
+        localStorage.setItem("princelab", JSON.stringify(owner));
     }
 
     // track the changes in browser cache
