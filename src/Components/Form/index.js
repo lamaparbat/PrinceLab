@@ -27,6 +27,9 @@ function Index({type}) {
     // CRUD DB URL
     const crud_url =  process.env.REACT_APP_CRUD_DB_URL+"users.json";
 
+    //loading features on manipulating database
+    const [isLoading, setLoading] = useState(false);
+
     //all user data
     const [users, setUsers] = useState([]);
 
@@ -133,6 +136,7 @@ function Index({type}) {
     // login btn clicked event
     const login = () => {
         if (loginData.username !== "" && loginData.password !== "") {
+            setLoading(true);
             //sending data to the firebase db server
             users.forEach(user => {
                 if ((user.username.trim() === loginData.username.trim()) && (user.password.trim() === loginData.password.trim())) {
@@ -145,6 +149,7 @@ function Index({type}) {
 
                     //delay the notice by 1 second
                     destineRoute !== "" ? navigate("/" + destineRoute) :
+                        setLoading(false);
                         setTimeout(() => {
                             navigate("/")
                             //refresh the page
@@ -152,6 +157,9 @@ function Index({type}) {
                         }, 1000)
                 }
             })
+            if(isLoading === false){
+                toast.error("Login failed !!")
+            }
         } else {
             toast.error("Please fill the all field value !!");
         }

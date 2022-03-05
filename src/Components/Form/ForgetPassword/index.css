@@ -131,6 +131,11 @@ input::-webkit-inner-spin-button {
     }
 }
 @media (max-width:300px) {
+    .forget_cont .forget_cont_row .box .box_title h1 {
+        font-size: 2.3rem !important;
+    }
+}
+@media (max-width:300px) {
     .forget_cont .forget_cont_row .box .box_title p {
          width: 100%;
     }

@@ -53,7 +53,7 @@
   background: -webkit-linear-gradient(90deg, rgba(255,255,154,1) 0%, rgba(255,196,196,1) 100%);
   background: linear-gradient(90deg, rgba(255,255,154,1) 0%, rgba(255,196,196,1) 100%);
   filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#ffff9a",endColorstr="#ffc4c4",GradientType=1);
-  border-radius: 5px;
+  border-radius: 5px !important;
   box-shadow: 1px 0px 5px 2px rgba(181, 181, 181, 0.47);
   -webkit-box-shadow: 1px 0px 5px 2px rgba(181, 181, 181, 0.47);
   -moz-box-shadow: 1px 0px 5px 2px rgba(181, 181, 181, 0.47);
@@ -109,7 +109,7 @@
   height: 15px;
   width: 15px;
   background-color: rgb(72, 253, 133);
-  border-radius: 10px;
+  border-radius: 10px !important;
 }
 
 .card2_features {
