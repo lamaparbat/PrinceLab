@@ -399,8 +399,7 @@ function Index() {
                 />
                 <button
                     className={isLoading ? "btn btn-primary rounded-1 mt-3 mb-2 disabled" : "btn btn-primary rounded-1 mt-3 mb-2"}
-                    onClick={editProfile}
-                >
+                    onClick={editProfile}>
                     {
                         isLoading ? "Uploading...." : "Save Changes"
                     }
