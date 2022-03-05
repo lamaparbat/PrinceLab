@@ -39,7 +39,7 @@ const Index = () => {
                         }
 
                         //save the user data in db
-                        const db_apis = process.env.REACT_APP_CRUD_DB_URL+`users/${docKey}.json`;
+                        const db_apis = `https://princelab-f13cd-default-rtdb.firebaseio.com/users/${docKey}.json`;
                         axios.put(db_apis,userData)
                             .then(res => {
                                 toast.success("Password successfully reset.")

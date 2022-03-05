@@ -335,7 +335,7 @@ function Index() {
                                             if (user.val().email === owner.email) {
                                                 const docKey = user.key;
                                                 //save the user data in db
-                                                const db_api = process.env.REACT_APP_CRUD_DB_URL + `users/${docKey}.json`;
+                                                const db_api = `https://princelab-f13cd-default-rtdb.firebaseio.com/users/${docKey}.json`;
                                                 const dbData = {
                                                     username: editProfileData.username,
                                                     email: editProfileData.email,
@@ -445,7 +445,7 @@ function Index() {
                         }
 
                         //save the user data in db
-                        const db_api = process.env.REACT_APP_CRUD_DB_URL + `users/${docKey}.json`;
+                        const db_api = `https://princelab-f13cd-default-rtdb.firebaseio.com/users/${docKey}.json`;
                         axios.put(db_api, userData)
                             .then(res => {
                                 toast.success("Password successfully reset.")
