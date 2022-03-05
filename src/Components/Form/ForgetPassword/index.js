@@ -4,6 +4,7 @@ import '../ForgetPassword/index.css';
 import { app, auth, db } from '../../../firebaseDB';
 import {toast, ToastContainer} from "react-toastify";
 import $ from 'jquery';
+import axios from "axios";
 
 const Index = () => {
     //creating instance of useSelecotr
@@ -11,6 +12,9 @@ const Index = () => {
 
     // get reset email
     const email = useRef();
+
+    //loading features while sending emaik
+    const [isLoading, setLoading] = useState(false);
 
     //theme state
     const [theme, setTheme] = useState({mode: ""});
@@ -147,17 +151,25 @@ const Index = () => {
 
     //email verification card content
     const EmailVerifyCard = () => {
-        //send reset tokan to gmail
+        //send reset token to gmail
         const sendResetTokenVaiMail = () => {
            if(email.current.value != ""){
-               auth.sendPasswordResetEmail(email.current.value).then(() => {
-                   localStorage.setItem("reset_email",JSON.stringify({
-                       email:email.current.value
-                   }))
-                   toast.success("Email Sent. Please check you gmail")
-                   setTimeout(() => {
-                       email.current.value = "";
-                   },1000)
+               setLoading(true);
+               const emailVal = email.current.value;
+               auth.sendPasswordResetEmail().then((emailVal) => {
+                   //upload the mail id to database for verification
+                   const email_db_api =  process.env.REACT_APP_CRUD_DB_URL+"users.json";
+                   console.log(emailVal)
+                   const data = {
+                       emailID: emailVal
+                   }
+                   axios.post(email_db_api, data).then(res => {
+                       setLoading(false);
+                       toast.success("Email Sent. Please check you gmail")
+                       setTimeout(() => {
+                           email.current.value = "";
+                       },1000)
+                   });
                }).catch(function(error) {
                    toast.error("You are not registered in our database.")
                });
@@ -176,16 +188,17 @@ const Index = () => {
                             process.env.PUBLIC_URL+"/assets/mail2.png"}
                     /><br/><br /><br/>
                     <h5>Enter your email address</h5>
-                    <p>The recovery code was sent to your email address</p><br/>
+                    <p>The recovery code will be send to your email address</p><br/>
                     <input
                         type="email"
-                        className={"form-control rounded-3"}
+                        className={isLoading ? "form-control rounded-3 border-dark":"form-control rounded-3" }
                         ref={email}
+                        readOnly={isLoading ? true:false}
                         required/><br />
                     <button
-                        className={"btn rounded-pill w-100 send_btn"}
-                        onClick={sendResetTokenVaiMail}
-                    >Send</button>
+                        className={isLoading ? "btn rounded-pill w-100 send_btn disabled" : "btn rounded-pill w-100 send_btn"}
+                        onClick={isLoading ? null:sendResetTokenVaiMail}
+                    >{isLoading ? "Sending...":"Send"}</button>
                 </center>
             </div>
         )

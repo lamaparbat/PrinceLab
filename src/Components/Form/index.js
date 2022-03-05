@@ -26,6 +26,7 @@ function Index({type}) {
 
     // CRUD DB URL
     const crud_url =  process.env.REACT_APP_CRUD_DB_URL+"users.json";
+    
 
     //loading features on manipulating database
     const [isLoading, setLoading] = useState(false);
@@ -185,7 +186,7 @@ function Index({type}) {
         if(isUserAlreadyRegistered()){
             toast.error("User already exists");
         }else{
-            axios.post(crud_url, signupData)
+            axios.post("https://princelab-f13cd-default-rtdb.firebaseio.com/users.json", signupData)
                 .then(res => {
                     toast.success("Registration successfull");
 

@@ -23,35 +23,39 @@ const Index = () => {
 
     //reset handling
     const reset = () => {
-        const email = JSON.parse(localStorage.getItem("reset_email")).email;
+        if(password.current.value != ""){
+            const email = JSON.parse(localStorage.getItem("reset_email")).email;
 
-        //db update
-        db.ref(`/users`).on('value', snapshot => {
-            snapshot.forEach((user) => {
-                if (user.val().email === email) {
-                     const docKey = user.key
-                     const userData = {
-                        username:user.val().username,
-                        email: user.val().email,
-                        password: password.current.value,
-                        profile: user.val().profile
+            //db update
+            db.ref(`/users`).on('value', snapshot => {
+                snapshot.forEach((user) => {
+                    if (user.val().email === email) {
+                        const docKey = user.key
+                        const userData = {
+                            username:user.val().username,
+                            email: user.val().email,
+                            password: password.current.value,
+                            profile: user.val().profile
+                        }
+
+                        //save the user data in db
+                        const db_apis = process.env.REACT_APP_CRUD_DB_URL+`users/${docKey}.json`;
+                        axios.put(db_apis,userData)
+                            .then(res => {
+                                toast.success("Password successfully reset.")
+                                setTimeout(() => {
+                                    navigate("/Login");
+                                },2000)
+                            })
+                            .catch(err => {
+                                toast.error(err.message)
+                            })
                     }
-
-                    //save the user data in db
-                    const db_api = process.env.REACT_APP_CRUD_DB_URL+`users/${docKey}.json`;
-                    axios.put(db_api,userData)
-                        .then(res => {
-                            toast.success("Password successfully reset.")
-                            setTimeout(() => {
-                                navigate("/Login");
-                            },2000)
-                        })
-                        .catch(err => {
-                            toast.error(err.message)
-                        })
-                }
-            })
-        });
+                })
+            });
+        }else{
+            toast.error("Please enter password !")
+        }
     }
 
     return (
