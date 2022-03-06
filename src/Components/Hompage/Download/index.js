@@ -36,7 +36,7 @@ function Index() {
         <button
             className='btn text-light'
             onClick={() => navigate("/Download")}
-        >Download</button>
+        >Download</button><br/>
       </div>
     </div>
   )

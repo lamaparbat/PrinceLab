@@ -3,92 +3,24 @@ import {createGlobalStyle} from "styled-components";
 export const DarkTheme = createGlobalStyle`
   * {
     color: white !important;
-    background-color: rgb(10, 7, 7, 0.8) !important;
-    border-radius: 0.1px !important;
+    background-color: #0B0B0B !important;
+    border-radius: 10px !important;
+    border-color: black !important;
   }
-  ,
-  .btn, button {
-    border: 0.2px solid white !important;
-    border-radius: 5px !important;
-  },
-  .cards .card1 .body {
-    color:white !important;
-  },
-  p, a {
-    color: rgb(170, 170, 170) !important;
+  img{
+    background:unset !important;
   }
-
-  ,
-  .footer .footer_row {
-    border-top: 0.5px solid rgb(155, 155, 155);
+  h1,h2,h3,h4,h5,h6,b,p , span, font{
+    background:unset !important;
   }
-
-  ,
-  .AboutEnvironment .AboutEnvironment_rows .content span {
-    background-color: white !important;
-    color: black !important;
+  button,.btn, a{
+    border:0px solid black !important;
   }
-
-  ,
-  .AboutEnvironment .AboutEnvironment_rows img {
-    background: white;
+  .languages{
+    background:#131341 !important;
   }
-
-  ,
-  .premium_row .body {
-    background: rgba(31, 11, 11, 0.5) !important;
-  }
-
-  ,
-  .premium_row .body :is(div, h4, span) {
-    background-color: unset !important;
-  }
-
-  ,
-  .premium_row .body .text-content a {
-    border-color: rgb(255, 255, 255) !important;
-    transition: 0.5s ease-in-out;
-  }
-
-  ,
-  .premium_row .body .text-content a:hover, .btn:hover {
-    border-color: rgb(255, 0, 0) !important;
-    color: red !important;
-  }
-
-  ,
-  li:hover {
-    border: 0.5px solid red !important;
-  }
-
-  ,
-  .navbar {
-    background: #2e2e2e !important;
-  }
-
-  ,
-  .navbar li, .navbar li a {
-    background: #2e2e2e !important;
-  }
-
-  ,
-  .navbar li:hover {
-    border: unset !important;
-  }
-
-  ,
-  .slider {
-    background-color: #ccc !important;
-  }
-
-  ,
-  input:checked + .slider {
-    background-color: green !important;
-  }
-
-  ,
-  .beta {
-    border-bottom: 0.5px solid rgb(85, 85, 85) !important;
-    background-image: unset !important;
+  .Download .rows {
+    padding: 20px;
+    background: #1C1C1C !important;
   }
 `;

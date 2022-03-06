@@ -6,6 +6,8 @@
 }
 
 .card_container .row img {
+  margin-left: 20px;
+  margin-right: 20px;
   margin-top: 30px;
   margin-bottom: 0px;
   height: 430px;
@@ -53,7 +55,7 @@
   }
 }
 
-@media (max-width:540px) {
+@media (max-width:800px) {
   .card_container .row img {
     margin-top: 0px;
     margin-bottom: 0px;
@@ -62,6 +64,22 @@
   }
 }
 
+@media (max-width:540px) {
+  .card_container .row img {
+    margin-top: 0px;
+    margin-bottom: 0px;
+    height: 200px;
+    width: 200px;
+  }
+}
+@media (max-width:500px) {
+  .card_container .row img {
+    margin-top: 0px;
+    margin-bottom: 0px;
+    height: 200px;
+    width: 160px;
+  }
+}
 @media (max-width:434px) {
   .card_container .row img {
     margin-top: 0px;

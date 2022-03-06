@@ -50,7 +50,7 @@ function index() {
       <Comp1 />
       <Comp2 />
       <img
-        src={process.env.PUBLIC_URL + "/assets/f2.png"}
+        src={process.env.PUBLIC_URL + "/assets/intro-liner.svg"}
         id='intro_liner'
       />
     </div>

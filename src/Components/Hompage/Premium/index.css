@@ -25,20 +25,20 @@
   padding-right: 50px;
   width: fit-content;
   text-align: center;
-  backdrop-filter: blur(8px);
-  background: rgba(138, 71, 71, 0.5);
+  backdrop-filter: blur(8px) !important;
+  background: rgba(138, 71, 71, 0.5) !important;
   border-radius: 10px !important;
 }
 
 .premium_row .body .text-content {
-  opacity: 1px !important;
+  opacity: 1 !important;
   background:unset !important;
 }
 .premium_row .body .text-content h4 {
   background:unset !important;
 }
 .premium_row .body .text-content a {
-  border:1px solid white !important;
+  width:50%;
   border-radius: 50px !important;
 }
 
@@ -71,11 +71,6 @@
   .premium_row .body .text-content span {
     color: rgb(255, 242, 242) !important;
   }
-
-    .premium_row .body .text-content a {
-      width: 100%;
-    }
-
   }
 
   @media (max-width:800px) {
@@ -84,8 +79,10 @@
       width: 100%;
       margin-left: 0px;
     }
-
-    .premium_row .body .text-content a {
-      width: 100%;
-    }
   }
+
+@media (max-width:400px) {
+  .premium_row .body .text-content a {
+    width:90%;
+  }
+}

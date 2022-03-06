@@ -2,7 +2,7 @@
   margin-bottom: 140px;
   height: 400px;
   width: 100%;
-  background-color: rgb(255 127 80);
+  background-color: rgb(255 127 80)!important;
 }
 
 .AboutEnvironment .AboutEnvironment_rows {
@@ -11,6 +11,7 @@
   display: flex;
   flex-direction: row;
   justify-content: center;
+  background:unset !important;
 }
 
 .AboutEnvironment .AboutEnvironment_rows img {
@@ -21,7 +22,7 @@
   height: 350px;
   width: 480px;
   border-radius: 10px/10px;
-  background-color: white;
+  background-color: white !important;
   box-shadow: 0px 2px 5px 0px rgba(153, 153, 153, 0.75);
   -webkit-box-shadow: 0px 2px 5px 0px rgba(153, 153, 153, 0.75);
   -moz-box-shadow: 0px 2px 5px 0px rgba(153, 153, 153, 0.75);
@@ -31,14 +32,17 @@
   padding-left: 60px;
   width: 500px;
   text-align: justify;
+  background:unset !important;
 }
 
-.AboutEnvironment .AboutEnvironment_rows .content h1 {
+.AboutEnvironment .AboutEnvironment_rows .content h1, .AboutEnvironment .AboutEnvironment_rows .content b{
   letter-spacing: 2px;
+  color: black !important;
 }
 
 .AboutEnvironment .AboutEnvironment_rows .content h3 {
   color: #282828;
+  color: black !important;
 }
 
 .AboutEnvironment .AboutEnvironment_rows .content span {
@@ -46,16 +50,23 @@
   padding-right: 10px;
   border-radius: 5px;
   font-size: 33px;
-  color: black;
-  background-color: #ffd67c;
+  background-color: #ffd67c !important;
+  color: black !important;
 }
 
 .AboutEnvironment .AboutEnvironment_rows .content p {
-  letter-spacing: 1px;
+  color: black !important;
 }
 
 .AboutEnvironment .AboutEnvironment_rows .content a {
   border-radius: 50px;
+}
+
+#rightArrowIcon{
+  background: unset !important;
+}
+.css-i4bv87-MuiSvgIcon-root{
+  fill:back !important;
 }
 
 /* responsive */

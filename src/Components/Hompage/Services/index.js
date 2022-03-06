@@ -1,6 +1,7 @@
 import React from 'react';
 import {useNavigate} from "react-router-dom";
 import '../Services/index.css';
+import ArrowRightAltIcon from "@mui/icons-material/ArrowRightAlt";
 
 // services card
 const Card = (props) => {
@@ -34,12 +35,7 @@ function Index() {
                         have all the apps that are powered/uses AI to run their app, Extensions have all the
                         necessary extension to be used and the block contains all the pre-defined custom code
                         block uploaded by the developers that can be used in your program. </p>
-                    <a
-                        className='btn btn-dark py-1 px-4 mt-1 text-whitesmoke'
-                        // onClick={() => navigate("/Store")}
-                    >
-                        Visit our store
-                    </a>
+                    <font className={"text-primary bg-none font-weight-bold btn p-0"}>Visit our store <ArrowRightAltIcon className={"text-dark"} /></font>
                 </div>
             </div>
             {/* rows2 -> services cards */}

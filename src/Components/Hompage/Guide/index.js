@@ -24,10 +24,11 @@ function Index() {
     </div>
     <p className='mb-4'>To learn how to use paradox, we have some quick guide for you to get started.
      And for more advanced and developer focused guides we have provided
-     some sample videos and documentation. Learn how to use the software and take the advantage of
+     some sample videos and documentation.<br/><br/><br/>
+     Learn how to use the software and take the advantage of
      the powerful parallel computing. </p>
     <button
-        className='btn text-light disabled'
+        className='btn mt-2 text-light disabled'
         style={{cursor:"unset"}}
         // onClick={() => navigate("/QuickGuide")}
     >Get started</button>

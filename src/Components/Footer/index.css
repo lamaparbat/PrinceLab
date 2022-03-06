@@ -35,8 +35,11 @@
   background:unset !important;
 }
 
+.footer .footer_row .follow_col .icons_cont div{
+  background-color: #565656 !important;
+}
 .footer .footer_row .follow_col .icons_cont div:hover {
-  background-color: red !important;
+  background-color: darkslateblue !important;
   transform: rotate(-10deg) scale(1.1);
 }
 
@@ -54,7 +57,7 @@
 .footer .footer_row .separator {
   margin-top: 5px;
   height: 3px;
-  background-color: rgb(255, 255, 255);
+  background-color: rgb(229, 229, 229) !important;
 }
 
 .footer .footer_row a {

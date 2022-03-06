@@ -4,7 +4,7 @@ import '../Languages/index.css';
 function index() {
   return (
     <>
-      <div className='container languages'>
+      <div className='container-fluid languages'>
         <center>
           <h1 id='title'>Languages we ought to simplify</h1>
         </center><br />
