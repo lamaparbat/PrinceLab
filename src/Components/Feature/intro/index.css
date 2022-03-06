@@ -8,7 +8,7 @@
 
 .intro .comp1 h1 {
  top: 70px;
- left: 20%;
+ margin-left: 100px;
  font-size: 150px;
  letter-spacing: 20px;
  position: absolute;
@@ -54,6 +54,8 @@
  box-shadow: 0px 2px 5px 0px rgba(153, 153, 153, 0.75);
  -webkit-box-shadow: 0px 2px 5px 0px rgba(153, 153, 153, 0.75);
  -moz-box-shadow: 0px 2px 5px 0px rgba(153, 153, 153, 0.75);
+ position: relative;
+ z-index: 3;
 }
 
 .intro .comp2 .comp2_header {
@@ -85,9 +87,8 @@
  height: 200px;
 }
 
-.intro .comp2 .comp2_footer h3 {
+.intro .comp2 .comp2_footer span {
  padding-right: 20px;
- font-weight: lighter !important;
  text-align: justify;
 }
 
@@ -105,7 +106,6 @@
  .intro {
   height: 85vh !important;
  }
-
  .intro #intro_liner {
   top: 45%;
  }
@@ -116,18 +116,16 @@
  .intro {
   height: 30vh !important;
  }
-
  .intro #intro_liner {
   top: 0%;
  }
 }
 
-@media (min-width:980px) {
+@media (max-width:1150px){
  .intro .comp1 h1 {
-  left: 10%;
+  margin-left: 10px;
  }
 }
-
 @media (max-width:992px) {
  .intro {
   height: 70vh;
@@ -179,12 +177,6 @@
 
  .intro .comp2 .comp2_footer h3 {
   font-size: 20px;
- }
-}
-
-@media (max-width:820px) {
- .intro .comp1 h1 {
-  left: 120px;
  }
 }
 
@@ -257,9 +249,8 @@
  .intro .comp1 img {
   margin-top: 50px;
  }
-
  .intro .comp1 h1 {
-  left: 10%;
+  left: 5%;
  }
 }
 
@@ -294,7 +285,6 @@
 
  .intro .comp1 h1 {
   top: 20px;
-  left: 10%;
  }
 }
 

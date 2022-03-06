@@ -1,5 +1,6 @@
 .parallel {
- background-color: rgb(238, 244, 246);
+ border-radius: 10px !important;
+ background-color: #EEF4F6;
 }
 
 .parallel img{
@@ -13,6 +14,7 @@
  align-items: center;
  border-radius: 150px !important;
  background-color: rgb(255, 255, 255);
+ overflow: hidden;
 }
 
 .parallel .roundedDiv img {
@@ -30,7 +32,7 @@
 .parallel .roundedDiv .content button {
  width: fit-content;
  border-radius: 100px !important;
- background-color: rgb(154, 17, 177);
+ background-color: rgb(154, 17, 177) !important;
  color: white;
  border: 0px;
 }

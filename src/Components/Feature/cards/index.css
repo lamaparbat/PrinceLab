@@ -13,7 +13,8 @@
  display: flex;
  flex-direction: column;
  align-items: center;
- background-color: rgb(238, 244, 246);
+ border: none;
+ background-color: #EEF4F6;
  box-shadow: 1px 0px 5px 2px rgba(181, 181, 181, 0.47);
  -webkit-box-shadow: 1px 0px 5px 2px rgba(181, 181, 181, 0.47);
  -moz-box-shadow: 1px 0px 5px 2px rgba(181, 181, 181, 0.47);
@@ -49,7 +50,8 @@
   flex-direction: column;
   align-items: center;
   border-radius: 10px;
-  background-color: rgb(238, 244, 246);
+  border: none;
+  background-color: #EEF4F6;
   box-shadow: 1px 0px 5px 2px rgba(181, 181, 181, 0.47);
   -webkit-box-shadow: 1px 0px 5px 2px rgba(181, 181, 181, 0.47);
   -moz-box-shadow: 1px 0px 5px 2px rgba(181, 181, 181, 0.47);

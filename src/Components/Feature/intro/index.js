@@ -6,7 +6,16 @@ const Comp1 = () => {
   return (
     <>
       <div className='comp1'>
-        <img src={process.env.PUBLIC_URL+"/assets/dot.png"} alt="" />
+          {
+              localStorage.getItem("theme") === "dark" ?
+                  <img
+                      style={{zIndex:"0"}}
+                      src={process.env.PUBLIC_URL+"/assets/dot.svg"} alt=""
+                  /> :
+                  <img
+                      style={{zIndex:"0 px"}}
+                      src={process.env.PUBLIC_URL+"/assets/dot.png"} alt="" />
+          }
         <h1>FEAT<span id='u'>U</span><span id='res'>RES</span></h1>
       </div>
     </>
@@ -34,10 +43,10 @@ const Comp2 = () => {
             id='pen2'
             loading='lazy'
           />
-          <h3>Write notes into your flows by hand using
+          <span>Write notes into your flows by hand using
             a stylus pen. Effective use of this feature
             significantly support clarity and adds a
-            whole new dimension to your visual flows. </h3>
+            whole new dimension to your visual flows. </span>
         </div>
       </div>
     </>
