@@ -521,8 +521,7 @@ function Index() {
                 </Link>
             </li>
             <li className='link  text-decoration-none'>
-                <Link className='text-decoration-none' to={ (JSON.parse(localStorage.getItem("princelab")).username === "") ?
-                    "/Login" : "/Pricing"}>
+                <Link className='text-decoration-none' to={"/Pricing"}>
                         <span className={"text-" + (cur_route.pathname === "/Pricing" ? "secondary" : "light")}>
                             Pricing</span>
                 </Link>

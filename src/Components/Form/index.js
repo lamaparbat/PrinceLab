@@ -18,6 +18,7 @@ import VisibilityIcon from '@mui/icons-material/Visibility';
 import AppleIcon from '@mui/icons-material/Apple';
 import MailOutlineRoundedIcon from '@mui/icons-material/MailOutlineRounded';
 import GitHubIcon from '@mui/icons-material/GitHub';
+import GoogleIcon from '@mui/icons-material/Google';
 import redirectRoute from "../../Redux/Reducers/RedirectRoute";
 
 function Index({type}) {
@@ -479,8 +480,7 @@ function Index({type}) {
                                         id='google'
                                         onClick={signupWithGoogle}
                                     >
-                                        <img
-                                            src={process.env.PUBLIC_URL + "/assets/google.png"}/>
+                                        <GoogleIcon/>
                                     </div>
                                     {/*<div id='apple'>*/}
                                     {/*    <AppleIcon id="apple_icon"/>*/}

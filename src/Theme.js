@@ -15,7 +15,14 @@ export const DarkTheme = createGlobalStyle`
     color: white !important;
     background: unset !important;
   }
+  .profile_nav button, .profile_nav .btn {
+    color: white !important;
+  }
 
+  .pricing_navigation .pricing_nav p {
+    border: 1px solid #656565 !important;
+    border-radius: 0px !important;
+  }
   button, .btn, a {
     border: 0px solid black !important;
   }
@@ -110,5 +117,11 @@ export const DarkTheme = createGlobalStyle`
   }
   .dropdown-menu a {
     color: white !important;
+  }
+  .slider {
+    background-color: #414040 !important;
+  }
+  .css-i4bv87-MuiSvgIcon-root{ 
+    fill: white !important;
   }
 `;
