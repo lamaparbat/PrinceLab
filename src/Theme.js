@@ -51,4 +51,8 @@ export const DarkTheme = createGlobalStyle`
       border-radius:20px !important;
     }
   }
+
+  .cards .card1 .body,.cards .card2,.cards .card2 .card2_features , .cards .card2 .quotes {
+    background-color: #1C1C1C !important;
+  }
 `;

@@ -3,7 +3,6 @@
 .intro {
  height: 100vh;
  padding-bottom: 0px;
- overflow: hidden;
 }
 
 .intro .comp1 h1 {
@@ -69,10 +68,11 @@
 }
 
 .intro .comp2 .comp2_header #pen1 {
+ margin-right: -100px;
  margin-top: 10px;
- right: 0;
+ right:0px;
  height: 25px;
- width: 15%;
+ width: 40%;
  position: absolute;
  border-radius: 100px;
 }
@@ -90,6 +90,7 @@
 .intro .comp2 .comp2_footer span {
  padding-right: 20px;
  text-align: justify;
+ font-size: 24px;
 }
 
 .intro #intro_liner {
@@ -97,7 +98,7 @@
  left: 17%;
  height: 40%;
  position: absolute;
- z-index: -2;
+ z-index: 0;
 }
 
 
@@ -177,6 +178,9 @@
 
  .intro .comp2 .comp2_footer h3 {
   font-size: 20px;
+ }
+ .intro .comp2 .comp2_footer span {
+  font-size: 18px;
  }
 }
 
