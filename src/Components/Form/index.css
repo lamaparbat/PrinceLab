@@ -36,6 +36,7 @@
 #forgetpassword_link{
  margin-top: 10px;
  cursor : pointer;
+ color: #3A9999 !important;
 }
 
 #error_text{
@@ -53,7 +54,7 @@
  align-items: center;
  border-radius: 25px !important;
  background-color: white;
- border: 1px solid rgb(224, 224, 224);
+ border: 1px solid rgb(253, 253, 253) !important;
  overflow: hidden;
 }
 
@@ -73,6 +74,7 @@
  border: none;
  outline-style: none;
  font-size: 14px;
+ border: none !important;
 }
 
 .form .box .content .save_info {
@@ -131,6 +133,7 @@
 .form .box .content a {
  text-decoration: none;
  background-color: unset !important;
+ color: #3A9999 !important;
 }
 
 .form .box .content .divider {
@@ -146,7 +149,7 @@
  left: 45%;
  width: fit-content;
  position: relative;
- background-color: rgb(242, 237, 233);
+ background-color: rgb(242, 237, 233) !important;
 }
 
 .form .box .content .icons {
@@ -177,6 +180,8 @@
  margin-top: 10px;
  margin-bottom: 10px;
  color: white !important;
+ background:#21A3E8 !important;
+ border:unset !important;
 }
 
 .form .box .content .icons #google, .form .box .content .icons #apple {
@@ -241,7 +246,7 @@
  left: 0;
  right: 0;
  bottom: 0;
- background-color: #ccc;
+ background-color: #ccc !important;
  -webkit-transition: .4s;
  transition: .4s;
 }

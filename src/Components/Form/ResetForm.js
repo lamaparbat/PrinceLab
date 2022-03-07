@@ -68,7 +68,7 @@ const Index = () => {
                     ref={password}
                 /><br/>
                 <button
-                    className={"btn btn-primary px-5"}
+                    className={"btn px-5 reset_btn"}
                     onClick={reset}
                 >Reset
                 </button>

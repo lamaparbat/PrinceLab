@@ -262,7 +262,7 @@ const Index = () => {
                                display="flex"
                            /><br/>
                            <button
-                               className={"btn btn-primary px-5 py-1 signin"}>Sigin</button>
+                               className={"btn text-light px-5 py-1 signin"}>Sigin</button>
                        </> : null
                    }
                    {
