@@ -15,6 +15,9 @@
     background-color: #F5F5F5 !important;
     border-radius: 5px !important;
 }
+.dropdown-item {
+    background:unset !important;
+}
 .dropdown-menu {
     top:-5px !important;
     min-width: 12rem !important;
@@ -51,6 +54,7 @@
     width: fit-content;
     display: flex;
     align-items: center;
+    background:unset !important;
 }
 #content_list_item_text{
     font-size: 18px;
@@ -68,6 +72,7 @@
     margin-right: 20px;
     color: #FD852D;
 }
+
 
 /*responsive*/
 @media(max-width:1010px){

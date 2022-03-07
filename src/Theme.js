@@ -95,11 +95,20 @@ export const DarkTheme = createGlobalStyle`
     background:#343434 !important;
     border-radius: 5px !important;
   }
-  .css-i4bv87-MuiSvgIcon-root {
-    background: unset !important;
-  }
   .downloads_box_card_content {
     background:#343434 !important;
   }
-
+  .content_list {
+    background: #484848!important;
+  }
+  .dropdown #dropdownMenuButton{
+    background: #484848!important;
+  }
+  .dropdown-menu.show {
+    background: #484848!important;
+    color: white !important;
+  }
+  .dropdown-menu a {
+    color: white !important;
+  }
 `;
