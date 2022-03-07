@@ -21,7 +21,7 @@ function index() {
       <div className='cardRow_card mb-3' id={props.id}>
         <h3 className='my-3'>{props.title}</h3>
         <button className='btn sub_title px-2 py-1'>{props.btn1}</button>
-        <h5 className='mt-3 text-secondary'>{props.sub_title}</h5>
+        <h5 className='mt-3'>{props.sub_title}</h5>
         <div className='card_features d-flex flex-column'>
           {
             props.span.map((item, index) => {

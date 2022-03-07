@@ -11,6 +11,7 @@ export const DarkTheme = createGlobalStyle`
     background:unset !important;
   }
   h1,h2,h3,h4,h5,h6,b,p , span, font{
+    color: white !important;
     background:unset !important;
   }
   button,.btn, a{
@@ -55,4 +56,14 @@ export const DarkTheme = createGlobalStyle`
   .cards .card1 .body,.cards .card2,.cards .card2 .card2_features , .cards .card2 .quotes {
     background-color: #1C1C1C !important;
   }
+  .journey .content #on {
+    color: #e8e8e8 !important;
+  }
+  .cardRow_card {
+    background: #1C1C1C !important;
+  }
+  .cardRow_card .card_features span {
+    color: #e9e9e9 !important;
+  }
+  
 `;

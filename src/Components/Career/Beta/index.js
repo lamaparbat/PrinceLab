@@ -4,7 +4,7 @@ import '../Beta/index.css';
 function index() {
  return <div className='container-fluid beta'>
   <h1 id='title'>Upcoming Event</h1>
-  <h5 id='sub_title'>version release</h5><br/><br/>
+  <h5 id='sub_title'>version release</h5><br/>
   <div className='counter_div'>
    <div className='count1 d-flex flex-column'>
     12

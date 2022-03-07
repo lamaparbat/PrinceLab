@@ -18,7 +18,6 @@ function index() {
   </div>
   <img
    id='journey_step_img'
-
    src={process.env.PUBLIC_URL + "/assets/step.png"} />
  </div>;
 }
