@@ -11,6 +11,16 @@
     align-items: center;
     background-color: #e8e8e8;
 }
+.show_more_list .show_more_list_div span .css-i4bv87-MuiSvgIcon-root {
+    background: none !important;
+}
+.show_more_list .show_more_list_div span .successIcon{
+    fill: #2AD601 !important;
+}
+
+.show_more_list .show_more_list_div span .wrongIcon{
+    fill: #050101 !important;
+}
 
 
 

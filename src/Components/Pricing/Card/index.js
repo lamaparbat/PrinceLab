@@ -18,7 +18,12 @@ function Index(props) {
 
   //auth check
   const auth = (type) => {
-    type === "Professional" ? navigate("/Payment"): toast.info("In progress......")
+    if(type === "Professional"){
+      JSON.parse(localStorage.getItem("princelab")) != null && JSON.parse(localStorage.getItem("princelab")).username !==""
+          ? navigate("/Payment") : navigate("/Login")
+    }else{
+      toast.info("In progress......")
+    }
   }
 
   return (

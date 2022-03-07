@@ -18,8 +18,8 @@ function Index({title, items}) {
                                         (title === "Pricing") ?
                                             list.c2 :
                                             (list.c2 === true) ?
-                                                <DoneIcon className="p-1 text-success"/> :
-                                                <CloseIcon className="p-1"/>
+                                                <DoneIcon className="p-1 text-success successIcon"/> :
+                                                <CloseIcon className="p-1 wrongIcon"/>
                                     }
                                 </span>
                             <span>
@@ -27,7 +27,7 @@ function Index({title, items}) {
                                         (title === "Pricing") ?
                                             list.c3 :
                                             (list.c3 === true) ?
-                                                <DoneIcon className="p-1 text-success"/> :
+                                                <DoneIcon className="p-1 text-success successIcon"/> :
                                                 <CloseIcon className="p-1"/>
                                     }
                                 </span>

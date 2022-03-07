@@ -35,11 +35,10 @@
 }
 
 .journey .content #on {
- margin-left: 100px !important;
+ margin-left: 200px !important;
  color: #383838 !important;
  background-color: unset !important;
 }
-
 .journey .content #step {
  margin-top: -100px;
  margin-left: -300px !important;
