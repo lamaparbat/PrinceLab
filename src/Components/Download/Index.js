@@ -46,7 +46,7 @@ const Index = () => {
             <div className="downloads_box_card">
                 <img
                     src={src}/>
-                <button className={"btn text-white my-3 w-50 btn-" + bg}>{btn_text}</button>
+                <button className={"btn text-white my-3 w-50 btn-" + bg+" "+bg}>{btn_text}</button>
                 <div className="downloads_box_card_content">
                     {
                         btn_text != "MAC" ?
@@ -59,7 +59,7 @@ const Index = () => {
                     }
                 </div>
                 <button
-                    className={"btn btn-primary text-white my-3 w-100 rounded-1 btn-" + bg}
+                    className={"btn btn-primary text-white my-3 w-100 rounded-1 btn-" + bg+" "+bg}
                     onClick={() => auth(btn_text)}
                 >
                     {

@@ -21,6 +21,14 @@
     -webkit-box-shadow: 1px 0px 5px 2px rgba(181, 181, 181, 0.47);
     -moz-box-shadow: 1px 0px 5px 2px rgba(181, 181, 181, 0.47);
 }
+.downloads_box_card .primary{
+    background-color:#1C73F2 !important;
+    border:none !important;
+}
+.downloads_box_card .info{
+    background-color:#00ADEF !important;
+    border:none !important;
+}
 .downloads_box_card img{
    height: 200px;
     width: 200px;

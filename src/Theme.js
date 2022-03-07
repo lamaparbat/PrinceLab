@@ -98,5 +98,8 @@ export const DarkTheme = createGlobalStyle`
   .css-i4bv87-MuiSvgIcon-root {
     background: unset !important;
   }
+  .downloads_box_card_content {
+    background:#343434 !important;
+  }
 
 `;
