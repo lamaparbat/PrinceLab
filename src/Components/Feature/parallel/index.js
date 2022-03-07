@@ -9,14 +9,14 @@ function index() {
      className='img-fluid' loading='lazy' />
     <div className='roundedDiv my-5'>
      <img
-      src={process.env.PUBLIC_URL + "/assets/parallel2.png"}
+      src={localStorage.getItem("theme") != "light" ? process.env.PUBLIC_URL + "/assets/parallel2.png" :process.env.PUBLIC_URL + "/assets/parallel4.png"}
       loading='lazy' />
      <div className='content'>
       <h1>Parallel Computing</h1><br/>
       <center><button className='px-3 py-1'>Data Flow</button></center>
      </div>
      <img
-      src={process.env.PUBLIC_URL + "/assets/parallel3.png"}
+         src={localStorage.getItem("theme") != "light" ? process.env.PUBLIC_URL + "/assets/parallel3.png" :process.env.PUBLIC_URL + "/assets/parallel5.png"}
       className='img-fluid' loading='lazy' />
     </div>
     </div>

@@ -1,7 +1,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Almarai:wght@700&family=Roboto+Mono:wght@500&display=swap');
 
 .intro {
- height: 100vh;
+ height: fit-content;
  padding-bottom: 0px;
 }
 
@@ -38,8 +38,6 @@
 }
 
 /* stylus support */
-
-
 .intro .comp2 {
  margin-top: -200px;
  margin-left: 40%;
@@ -94,44 +92,23 @@
 }
 
 .intro #intro_liner {
- top: 60%;
- left: 17%;
- height: 40%;
- position: absolute;
- z-index: 0;
+ margin-top: -180px;
+ margin-left:50px;
+ height:300px;
+ position: sticky;
 }
 
 
 /* responsiveness */
-@media (max-width:1920px) and (min-height:1080px) {
- .intro {
-  height: 85vh !important;
- }
- .intro #intro_liner {
-  top: 45%;
- }
-}
-
-
-@media (max-width:1600px) and (min-height:2560px) {
- .intro {
-  height: 30vh !important;
- }
- .intro #intro_liner {
-  top: 0%;
- }
-}
-
 @media (max-width:1150px){
  .intro .comp1 h1 {
   margin-left: 10px;
  }
+ .intro #intro_liner {
+  height:300px;
+ }
 }
 @media (max-width:992px) {
- .intro {
-  height: 70vh;
- }
-
  .intro .comp1 h1 {
   font-size: 100px;
  }
@@ -154,13 +131,6 @@
 
  .intro .comp1 img {
   height: 400px;
- }
-
- .intro #intro_liner {
-  top: 30%;
-  height: 40%;
-  position: absolute;
-  z-index: -2;
  }
 
  .intro .comp2 .comp2_header .comp2_header_title {
@@ -239,16 +209,6 @@
  }
 }
 
-@media (max-width:640px) and (height:140px) {
- .intro {
-  height: 100vh !important;
- }
-
- .intro #intro_liner {
-  top: 45%;
- }
-}
-
 @media (max-width:530px) {
  .intro .comp1 img {
   margin-top: 50px;
@@ -308,10 +268,6 @@
 }
 
 @media (max-width:330px) {
- .intro {
-  height: 60vh;
- }
-
  .intro .comp1 h1 {
   margin-top: 10px;
   font-size: 40px;
@@ -340,26 +296,5 @@
 
  .intro .comp2 .comp2_footer h3 {
   font-size: 18px;
- }
-}
-
-@media (max-width:320px) and (max-height:600px) {
- .intro {
-  height: 85vh !important;
- }
-
- .intro #intro_liner {
-  top: 50%;
- }
-}
-
-/* galaxy fold */
-@media (max-width:280px) and (max-height:653px) {
- .intro {
-  height: 85vh !important;
- }
-
- .intro #intro_liner {
-  top: 50%;
  }
 }
