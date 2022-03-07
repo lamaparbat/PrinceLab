@@ -36,7 +36,7 @@
  justify-content: center;
  align-items: center;
 backdrop-filter: blur(5px) !important;
- background-color: rgb(17, 17, 17,0.5) !important;
+ background-color: rgb(44 36 36 / 50%) !important;
  border-radius: 10px !important;
 }
 

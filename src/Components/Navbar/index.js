@@ -139,7 +139,7 @@ function Index() {
                     <div className="pic">
                         <img
                             src={owner.profile != "" ? owner.profile : process.env.PUBLIC_URL + "/assets/agriculture2.png"}/>
-                        <p className="mt-2">{owner.email}</p>
+                        <p className="mt-2">{owner.username}</p>
                     </div>
                     <div className="profile_nav_row">
                         <div className="nav_card" onClick={changeTheme}>

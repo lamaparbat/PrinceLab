@@ -20,8 +20,7 @@ export const DarkTheme = createGlobalStyle`
   .languages{
     background:#131341 !important;
   }
-  .Download .rows {
-    padding: 20px;
+  .Download .rows , .guide .guide_rows{
     background: #1C1C1C !important;
   }
 

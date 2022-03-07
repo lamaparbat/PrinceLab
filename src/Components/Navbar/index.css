@@ -11,9 +11,6 @@
    border-radius: 10px !important;
    backdrop-filter: blur(5px);
    background-color: rgba(0, 0, 0, 0.7);
-   /*box-shadow: 0px 0px 5px 0px rgba(197, 197, 197, 0.75);*/
-   /*-webkit-box-shadow: 0px 0px 5px 0px rgba(180, 180, 180, 0.75);*/
-   /*-moz-box-shadow: 0px 0px 5px 0px rgba(199, 199, 199, 0.75);*/
 }
 
 .navbar li {
@@ -29,9 +26,9 @@
    background-color: unset !important;
 }
 .navbar #avatar{
-   box-shadow: 0px 0px 5px 0px rgba(0, 0, 0, 0.75);
-   -webkit-box-shadow: 0px 0px 5px 0px rgba(0, 0, 0, 0.75);
-   -moz-box-shadow: 0px 0px 5px 0px rgba(0, 0, 0, 0.75);
+   box-shadow: 0px 0px 5px 0px rgba(0, 0, 0, 0.75) !important;
+   -webkit-box-shadow: 0px 0px 5px 0px rgba(0, 0, 0, 0.75) !important;
+   -moz-box-shadow: 0px 0px 5px 0px rgba(0, 0, 0, 0.75) !important;
    border-radius: 40px !important;
 }
 .css-1wlk0hk-MuiAvatar-root {
@@ -51,9 +48,9 @@
    visibility: visible;
    border-radius: 50%;
    position: fixed;
-   box-shadow: 0px 0px 5px 0px rgba(0, 0, 0, 0.75);
-   -webkit-box-shadow: 0px 0px 5px 0px rgba(0, 0, 0, 0.75);
-   -moz-box-shadow: 0px 0px 5px 0px rgba(0, 0, 0, 0.75);
+   box-shadow: 0px 0px 5px 0px rgba(0, 0, 0, 0.75) !important;
+   -webkit-box-shadow: 0px 0px 5px 0px rgba(0, 0, 0, 0.75) !important;
+   -moz-box-shadow: 0px 0px 5px 0px rgba(0, 0, 0, 0.75) !important;
    display: none;
 }
 
@@ -64,8 +61,8 @@
    display: flex;
    justify-content: center;
    align-items: center;
-   background-color: rgb(228, 227, 227, 0.7);
-   backdrop-filter: blur(4px);
+   background-color: rgb(228, 227, 227, 0.7) !important;
+   backdrop-filter: blur(4px) !important;
    position: absolute;
    z-index: 44;
 }
@@ -108,9 +105,9 @@
    position:absolute;
    visibility:visible !important;
    backdrop-filter: blur(100px);
-   box-shadow: 1px 0px 5px 2px rgba(181, 181, 181, 0.47);
-   -webkit-box-shadow: 1px 0px 5px 2px rgba(181, 181, 181, 0.47);
-   -moz-box-shadow: 1px 0px 5px 2px rgba(181, 181, 181, 0.47);
+   box-shadow: 1px 0px 5px 2px rgba(181, 181, 181, 0.47) !important;
+   -webkit-box-shadow: 1px 0px 5px 2px rgba(181, 181, 181, 0.47) !important;
+   -moz-box-shadow: 1px 0px 5px 2px rgba(181, 181, 181, 0.47) !important;
 }
 #cancleIcon{
    background:unset !important;
@@ -129,14 +126,17 @@
    align-items: center;
    background-color:unset !important;
 }
+input, .profile_nav button, .profile_nav .btn{
+   border: 1px solid #606060 !important;
+}
 .profile_nav .pic img{
    height:80px;
    width: 80px;
    border:0.5px solid white;
    border-radius: 50px !important;
-   box-shadow: 1px 0px 5px 2px rgba(181, 181, 181, 0.47);
-   -webkit-box-shadow: 1px 0px 5px 2px rgba(181, 181, 181, 0.47);
-   -moz-box-shadow: 1px 0px 5px 2px rgba(181, 181, 181, 0.47);
+   box-shadow: 1px 0px 5px 2px rgba(181, 181, 181, 0.47) !important;
+   -webkit-box-shadow: 1px 0px 5px 2px rgba(181, 181, 181, 0.47) !important;
+   -moz-box-shadow: 1px 0px 5px 2px rgba(181, 181, 181, 0.47) !important;
 }
 .profile_nav .pic p{
    background:unset !important;
@@ -159,9 +159,9 @@
    color: black;
    cursor: pointer;
    transition:0.3s ease-in-out;
-   box-shadow: 1px 0px 5px 2px rgba(181, 181, 181, 0.47);
-   -webkit-box-shadow: 1px 0px 5px 2px rgba(181, 181, 181, 0.47);
-   -moz-box-shadow: 1px 0px 5px 2px rgba(181, 181, 181, 0.47);
+   box-shadow: 1px 0px 5px 2px rgba(181, 181, 181, 0.47) !important;
+   -webkit-box-shadow: 1px 0px 5px 2px rgba(181, 181, 181, 0.47) !important;
+   -moz-box-shadow: 1px 0px 5px 2px rgba(181, 181, 181, 0.47) !important;
 }
 .profile_nav .profile_nav_row .nav_card:hover{
    transform:scale(1.04);

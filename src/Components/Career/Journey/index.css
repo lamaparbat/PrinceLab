@@ -139,8 +139,9 @@
   margin-left: 0px;
  }
  .journey .leftBar {
-  border-top-right-radius: 40px !important;
-  border-bottom-right-radius: 40px !important;
+  border-top-right-radius: 50px !important;
+  border-bottom-right-radius: 50px !important;
+  border-top-left-radius: unset !important;
   overflow:hidden;
  }
 }
