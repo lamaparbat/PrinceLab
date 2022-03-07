@@ -2,7 +2,6 @@ import {createGlobalStyle} from "styled-components";
 
 export const DarkTheme = createGlobalStyle`
   * {
-    color: white !important;
     background-color: #0B0B0B !important;
     border-radius: 10px !important;
     border-color: black !important;
@@ -12,7 +11,7 @@ export const DarkTheme = createGlobalStyle`
     background: unset !important;
   }
 
-  h1, h2, h3, h4, h5, h6, b, p, span, font {
+  h1, h2, h3, h4, h5, h6, b, p, span, font,center {
     color: white !important;
     background: unset !important;
   }
@@ -28,7 +27,6 @@ export const DarkTheme = createGlobalStyle`
   .Download .rows, .guide .guide_rows {
     background: #1C1C1C !important;
   }
-
   .parallel {
     background-color: #1C1C1C !important;
   }
@@ -88,6 +86,17 @@ export const DarkTheme = createGlobalStyle`
   }
   .formCont{
     background:#343434 !important;
+  }
+  .emailVerifyCard{
+    border:none;
+    background:#343434 !important;
+  }
+  .show_more_list .show_more_list_div span {
+    background:#343434 !important;
+    border-radius: 5px !important;
+  }
+  .css-i4bv87-MuiSvgIcon-root {
+    background: unset !important;
   }
 
 `;

@@ -26,7 +26,7 @@ function Index(props) {
       <div className='business py-5 mx-4 my-4'>
         <center>
           <button
-              className={'btn top_btn px-5 rounded-1 ' +( props.bg != "success" ? "bg-"+props.bg: "")}
+              className={'btn top_btn px-5 rounded-1 bg-' +props.bg}
               style={(props.bg === "success" ? {backgroundColor:'#FF9E2C'}: null)}
           >{props.top_btn}</button>
         </center>
@@ -45,8 +45,7 @@ function Index(props) {
                 return (
                   <>
                     <div id='li' key={index+1}>
-                      <CheckIcon key={index+2}  id='icon' className={( props.bg != "success" ? "bg-"+props.bg: "")}
-                                 style={(props.bg === "success" ? {backgroundColor:"#FF9E2C"}: null)} />
+                      <CheckIcon key={index+2}  id='icon' className={"bg-"+props.bg}/>
                       <p className='mx-3' key={index+3}>{item}</p>
                     </div>
                   </>
@@ -58,8 +57,7 @@ function Index(props) {
         </div>
         <center>
           <button
-              className={'btn px-5 rounded-1 '+( props.bg != "success" ? "bg-"+props.bg: "")}
-              style={(props.bg === "success" ? {backgroundColor:"#FF9E2C"}: null)}
+              className={'btn px-5 rounded-1 bg-'+props.bg}
               onClick={() => auth(props.top_btn)}
           >{props.bottom_btn}</button>
         </center><br/>
