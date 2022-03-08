@@ -1,6 +1,7 @@
-import React, {useState} from 'react';
+import React, {useEffect, useState} from 'react';
 import '../NewFeatures/Index.css';
 import FiberManualRecordIcon from '@mui/icons-material/FiberManualRecord';
+import $ from "jquery";
 
 //main function
 const Index = () => {
@@ -32,6 +33,11 @@ const Index = () => {
         "Window responsiveness",
         "Custom themes"
     ])
+
+    //auto scroll to the top when page rendered
+    useEffect(()  => {
+        $(window).scrollTop({top:0, behavior:"smooth"})
+    }, [])
 
     //current platform and version
     const [cur_platform, setCurPlatform] = useState(platform_list[0]);

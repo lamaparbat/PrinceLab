@@ -1,7 +1,13 @@
-import React from 'react';
+import React, {useEffect} from 'react';
 import '../Terms/Index.css';
+import $ from "jquery";
 
 function Index() {
+    //auto scroll to the top when page rendered
+    useEffect(() => {
+        $(window).scrollTop({top: 0, behavior: "smooth"})
+    }, [])
+
     return (
         <div className="container terms py-5">
             <h1>Princelab Terms & Condition</h1>

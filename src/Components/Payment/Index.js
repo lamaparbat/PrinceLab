@@ -2,6 +2,7 @@ import React, {useState, useEffect} from "react";
 import '../Payment/index.css';
 import {CardElement, useStripe, useElements} from "@stripe/react-stripe-js";
 import axios from "axios";
+import $ from "jquery";
 
 const Index = () => {
     const [succeeded, setSucceeded] = useState(false);
@@ -16,6 +17,9 @@ const Index = () => {
 
     //fetched the secret key from server
     useEffect(() => {
+        //auto scroll to the top when page rendered
+        $(window).scrollTop({top:0, behavior:"smooth"})
+
         // 3️⃣ Create PaymentIntent and fetch client secret as soon as the page loads
         axios.post("https://testing-stripe-paradox.herokuapp.com/users/payment_intent/",
             {subscription: "business"} )

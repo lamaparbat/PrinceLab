@@ -31,6 +31,7 @@ import InstallPopup from './Components/InstallPopupModel/Index';
 import NewFeatures from '../src/Components/NewFeatures/Index';
 import { Elements } from "@stripe/react-stripe-js";
 import ResetForm from "./Components/Form/ResetForm";
+import $ from "jquery";
 
 function App() {
     // theme state
@@ -49,6 +50,11 @@ function App() {
         mode: store.getState().changeTheme === "unset" ?
             localStorage.getItem("theme"):store.getState().changeTheme
     }));
+
+    //scroll to top
+    const topScroll = () => {
+        alert("scroll")
+    }
 
     return (
         <ThemeProvider theme={theme}>

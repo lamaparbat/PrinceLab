@@ -319,7 +319,8 @@ function Index({type}) {
         <div className='container-fluid form'>
             <div className={'box d-flex flex-' + (form_type === "signup" ? "row-reverse" : "row")}>
                 {
-                    form_type != "signup" ? <img
+                    form_type != "signup" ?
+                        <img
                             id='form_img'
                             src={
                               localStorage.getItem("theme") !== "dark" ? process.env.PUBLIC_URL + "/assets/signin.png" :

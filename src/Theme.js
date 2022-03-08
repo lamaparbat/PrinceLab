@@ -11,7 +11,7 @@ export const DarkTheme = createGlobalStyle`
     background: unset !important;
   }
 
-  h1, h2, h3, h4, h5, h6, b, p, span, font,center {
+  h1, h2, h3, h4, h5, h6, b, p, span, font,center ,input{
     color: white !important;
     background: unset !important;
   }

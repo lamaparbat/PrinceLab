@@ -1,10 +1,14 @@
-import React from 'react';
+import React, {useEffect} from 'react';
 import Intro from '../About/Intro/index.js';
 import Ceo from '../About/Ceo/index.js';
 import Cards from '../About/Cards/index.js';
 import '../About/index.css';
+import $ from "jquery";
 
-function index() {
+function Index() {
+    useEffect(()  => {
+        $(window).scrollTop({top:0, behavior:"smooth"})
+    }, [])
   return (
     <>
       <div className='container-fluid about'>
@@ -16,4 +20,4 @@ function index() {
   );
 }
 
-export default index;
+export default Index;

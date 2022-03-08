@@ -5,6 +5,7 @@ import '../Download/Index.css';
 import Premium from "../Hompage/Premium";
 import {redirectDestineRoute} from "../../Redux/Actions";
 import {toast, ToastContainer} from "react-toastify";
+import $ from "jquery";
 
 const Index = () => {
     //creating instance of useDispatch()  -> redux
@@ -12,6 +13,11 @@ const Index = () => {
 
     //creating instance of useNavigate four route pushing
     const navigate = useNavigate();
+
+    //auto scroll to the top when page rendered
+    useEffect(()  => {
+        $(window).scrollTop({top:0, behavior:"smooth"})
+    }, [])
 
     // all the mac & windows features in list
     const [mac_features, setMac] = useState([

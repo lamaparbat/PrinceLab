@@ -1,10 +1,11 @@
-import React from 'react';
+import React, {useEffect} from 'react';
 import '../Store/index.css';
 import TopNav from '../Store/TopNav/index';
 import StoreIntro from '../Store/StoreIntro/index';
 import Collection from '../Store/Collection/index';
 import Explore from '../Store/Explore/index';
 import Help from '../Store/Help/index';
+import $ from "jquery";
 
 function Index() {
   //discover comp data
@@ -55,6 +56,11 @@ function Index() {
       src:process.env.PUBLIC_URL + "/assets/night.png"
     }
   ];
+
+  //auto scroll to the top when page rendered
+  useEffect(() => {
+    $(window).scrollTop({top: 0, behavior: "smooth"})
+  }, [])
 
   return (
     <div className='container-fluid store'>

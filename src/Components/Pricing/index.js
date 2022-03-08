@@ -13,6 +13,11 @@ function Index() {
     //create instanc ef useNavigate
     const navigate = useNavigate()
 
+    //auto scroll to the top when page rendered
+    useEffect(()  => {
+        $(window).scrollTop({top:0, behavior:"smooth"})
+    }, [])
+
     const list1 = ["Support for python", "Programming", "Able to make AI mode", "New update"];
     const list2 = ["Support For Python3 Programming", "Able to make flutter app", "AI model integration", "Application development", "Technical support", "New updates"];
 
