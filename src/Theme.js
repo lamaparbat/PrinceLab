@@ -11,10 +11,11 @@ export const DarkTheme = createGlobalStyle`
     background: unset !important;
   }
 
-  h1, h2, h3, h4, h5, h6, b, p, span, font,center ,input{
+  h1, h2, h3, h4, h5, h6, b, p, span, font, center, input {
     color: white !important;
     background: unset !important;
   }
+
   .profile_nav button, .profile_nav .btn {
     color: white !important;
   }
@@ -23,6 +24,7 @@ export const DarkTheme = createGlobalStyle`
     border: 1px solid #656565 !important;
     border-radius: 0px !important;
   }
+
   button, .btn, a {
     border: 0px solid black !important;
   }
@@ -34,6 +36,7 @@ export const DarkTheme = createGlobalStyle`
   .Download .rows, .guide .guide_rows {
     background: #1C1C1C !important;
   }
+
   .parallel {
     background-color: #1C1C1C !important;
   }
@@ -88,40 +91,58 @@ export const DarkTheme = createGlobalStyle`
   .resp_nav .items li {
     border: 1px solid #3d3d3d !important;
   }
+
   .form .box .content .username_inp, .password_inp {
     border: 1px solid rgb(87, 87, 87) !important;
   }
-  .formCont{
-    background:#343434 !important;
+
+  .formCont {
+    background: #343434 !important;
   }
-  .emailVerifyCard{
-    border:none;
-    background:#343434 !important;
+
+  .emailVerifyCard {
+    border: none;
+    background: #343434 !important;
   }
+
   .show_more_list .show_more_list_div span {
-    background:#343434 !important;
+    background: #343434 !important;
     border-radius: 5px !important;
   }
+
   .downloads_box_card_content {
-    background:#343434 !important;
+    background: #343434 !important;
   }
+
   .content_list {
-    background: #484848!important;
+    background: #484848 !important;
   }
-  .dropdown #dropdownMenuButton{
-    background: #484848!important;
+
+  .dropdown #dropdownMenuButton {
+    background: #484848 !important;
   }
+
   .dropdown-menu.show {
-    background: #484848!important;
+    background: #484848 !important;
     color: white !important;
   }
+
   .dropdown-menu a {
     color: white !important;
   }
+
   .slider {
     background-color: #414040 !important;
   }
+
   .css-viou3o-MuiAutocomplete-root .MuiOutlinedInput-root .MuiAutocomplete-input {
     color: red !important;
+  }
+
+  .payment_content {
+    border: 0.5px solid #313131 !important;
+    box-shadow: 1px 0px 5px 2px rgb(49, 49, 49);
+    -webkit-box-shadow: 1px 0px 5px 2px rgb(49, 49, 49);
+    -moz-box-shadow: 1px 0px 5px 2px rgb(49, 49, 49);
   }
 `;

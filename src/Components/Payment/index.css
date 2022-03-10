@@ -33,6 +33,9 @@ label[data-shrink=false]+.MuiInputBase-formControl .css-nxo287-MuiInputBase-inpu
 .payment_content #email {
     border: 0.5px solid #c5c5c5 !important;
 }
+.dropdown-menu.show {
+    width:100% !important;
+}
 
 .css-viou3o-MuiAutocomplete-root .MuiOutlinedInput-root .MuiAutocomplete-input {
     border: none !important;
@@ -41,6 +44,10 @@ label[data-shrink=false]+.MuiInputBase-formControl .css-nxo287-MuiInputBase-inpu
 #card-element {
     width: 300px;
 }
+#dropdownMenuButton{
+    width:100% !important;
+}
+
 
 #submit {
     color: white !important;
