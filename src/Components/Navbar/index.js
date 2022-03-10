@@ -28,7 +28,9 @@ function Index() {
 
     if (owner === null) {
         owner = {
-            username: "", email: "", profile: ""
+            username: "",
+            email: "",
+            profile: ""
         }
         //set the default value to cache
         localStorage.setItem("princelab", JSON.stringify(owner));
@@ -542,7 +544,11 @@ function Index() {
             <li className='link  text-decoration-none'>
                 <Avatar
                     id="avatar"
-                    src={owner.profile != "" ? owner.profile : process.env.PUBLIC_URL + "/assets/agriculture2.png"}
+                    src={
+                        owner.profile != undefined ?
+                            owner.profile :
+                            process.env.PUBLIC_URL + "/assets/agriculture2.png"
+                    }
                     style={{border: "0.5px solid white"}}
                     onClick={showProfileNav}
                 />
@@ -594,7 +600,11 @@ function Index() {
                 <li className='link  text-decoration-none'>
                     <Avatar
                         id="avatar"
-                        src={owner.profile != "" ? owner.profile : process.env.PUBLIC_URL + "/assets/agriculture2.png"}
+                        src={
+                            owner.profile != undefined ?
+                                owner.profile :
+                                process.env.PUBLIC_URL + "/assets/agriculture2.png"
+                        }
                         style={{border: "0.5px solid white"}}
                         onClick={showProfileNav}
                     />
