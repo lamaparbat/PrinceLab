@@ -504,7 +504,7 @@ const Index = () => {
                 /><br/><br/><br/><br/>
                 <span className="text-secondary footer_span">
                     Payment by
-                    <b> Stripe </b>
+                    <b className="text-secondary footer_span"> Stripe </b>
                     &nbsp; &copy;  &nbsp;
                     || &nbsp; princelab.org
                 </span>
@@ -534,7 +534,7 @@ const Index = () => {
                         options={countries}
                         sx={{width: 300}}
                         renderInput={(params) =>
-                            <TextField {...params} label="Select Country"/>
+                            <TextField {...params} label="Select Country" />
                         }
                     />
                 </div>

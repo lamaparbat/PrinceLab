@@ -11,6 +11,10 @@
     align-items: center;
 }
 
+label[data-shrink=false]+.MuiInputBase-formControl .css-nxo287-MuiInputBase-input-MuiOutlinedInput-input {
+    background: white !important;
+    color:black !important;
+}
 .payment_content {
     margin-left: 20px;
     padding: 50px;
@@ -41,10 +45,11 @@
 #submit {
     color: white !important;
     border-radius: 5px !important;
+    background-color: #ff8253 !important;
 }
 
 #submit #button-text {
-    color: black !important;
+    color: white !important;
     font-weight: bold;
 }
 
@@ -112,5 +117,7 @@
     }
     .css-viou3o-MuiAutocomplete-root {
          width:100% !important;
+        background-color:white !important;
+        color: white !important;
     }
 }

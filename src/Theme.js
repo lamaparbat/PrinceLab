@@ -121,7 +121,7 @@ export const DarkTheme = createGlobalStyle`
   .slider {
     background-color: #414040 !important;
   }
-  .css-i4bv87-MuiSvgIcon-root{ 
-    fill: white !important;
+  .css-viou3o-MuiAutocomplete-root .MuiOutlinedInput-root .MuiAutocomplete-input {
+    color: red !important;
   }
 `;
