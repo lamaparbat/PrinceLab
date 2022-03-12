@@ -284,7 +284,7 @@ function Index({type}) {
             })
         } else {
             users.forEach(user => {
-                if ((user.username.trim() === loginData.username.trim()) && (user.password.trim() === loginData.password.trim())) {
+                if ((user.username === loginData.username.trim()) && (user.password.trim() === loginData.password.trim())) {
                     toast.success( "Login successfully")
                     localStorage.setItem("princelab", JSON.stringify({
                         username: user.username,

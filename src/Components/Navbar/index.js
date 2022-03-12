@@ -90,6 +90,10 @@ function Index() {
         })
     }, [])
 
+    console.log(owner.profile != undefined?
+        owner.profile :
+        process.env.PUBLIC_URL + "/assets/agriculture2.png")
+
     // show parent nav bar
     const showNav = () => {
         if ($(".resp_nav").css("display") === "none") {
@@ -545,7 +549,7 @@ function Index() {
                 <Avatar
                     id="avatar"
                     src={
-                        owner.profile != undefined ?
+                        owner.profile != undefined?
                             owner.profile :
                             process.env.PUBLIC_URL + "/assets/agriculture2.png"
                     }
@@ -601,7 +605,7 @@ function Index() {
                     <Avatar
                         id="avatar"
                         src={
-                            owner.profile != undefined ?
+                            owner.profile != undefined?
                                 owner.profile :
                                 process.env.PUBLIC_URL + "/assets/agriculture2.png"
                         }
