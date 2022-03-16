@@ -40,7 +40,7 @@ function Index() {
             <div className={"pricing_nav d-" + (isMobile ? "block " : "flex")}>
             <p
                 onClick={() => navClick("item1")}
-                className={"bg-" + (curItem === "item1" ? "dark text-white" : "unset")}
+                className={"bg-" + (curItem === "item1" ? "text-white" : "unset")}
             >
                 {(curItem === "item1" && showMore === true ? "Show Less" : "Show More")}
             </p>
