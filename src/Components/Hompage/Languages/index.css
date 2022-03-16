@@ -30,9 +30,6 @@
 }
 
 @media (max-width:1100px) {
-  .languages #title {
-    font-size: 30px;
-  }
   .languages .icon_container {
     padding-left: 0;
     padding-right: 0;
@@ -44,5 +41,11 @@
   .languages .icon_container #icon {
     height: 50px;
     width: 50px;
+  }
+}
+
+@media (max-width:400px) {
+  .languages #title {
+    font-size: 30px;
   }
 }

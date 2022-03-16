@@ -510,32 +510,58 @@ function Index() {
                 <Link
                     className={'text-decoration-none text-'}
                     to="/">
-                        <span className={"text-" + (cur_route.pathname === "/" ? "secondary" : "light")}>
-                            Home</span></Link>
+                    {
+                        (cur_route.pathname === "/" ?
+                            <span className="text-white py-1">
+                            Home <hr className="bg-white position-relative my-2" /></span>
+                        :  <span className="text-white">Home</span>
+                        )
+                    }
+                  </Link>
             </li>
             <li className='link  text-decoration-none'>
-                <Link className={'text-decoration-none text-danger '}
+                <Link className={'text-decoration-none text-white '}
                       to="/Feature">
-                        <span className={"text-" + (cur_route.pathname === "/Feature" ? "secondary" : "light")}>
-                            Feature</span>
+                    {
+                        (cur_route.pathname === "/Feature" ?
+                                <span className="text-white py-1">
+                            Features <hr className="bg-white position-relative my-2" /></span>
+                                :  <span className="text-white">Features</span>
+                        )
+                    }
                 </Link>
             </li>
             <li className='link  text-decoration-none'>
                 <Link className='text-decoration-none' to="/Download">
-                        <span className={"text-" + (cur_route.pathname === "/Download" ? "secondary" : "light")}>
-                            Download</span>
+                    {
+                        (cur_route.pathname === "/Download" ?
+                                <span className="text-white py-1">
+                            Download <hr className="bg-white position-relative my-2" /></span>
+                                :  <span className="text-white">Download</span>
+                        )
+                    }
                 </Link>
             </li>
             <li className='link  text-decoration-none'>
                 <Link className='text-decoration-none' to={"/Pricing"}>
-                        <span className={"text-" + (cur_route.pathname === "/Pricing" ? "secondary" : "light")}>
-                            Pricing</span>
+                    {
+                        (cur_route.pathname === "/Pricing" ?
+                                <span className="text-white py-1">
+                            Pricing <hr className="bg-white position-relative my-2" /></span>
+                                :  <span className="text-white">Pricing</span>
+                        )
+                    }
                 </Link>
             </li>
             <li className='link  text-decoration-none'>
                 <Link className='text-decoration-none' to="/About">
-                        <span className={"text-" + (cur_route.pathname === "/About" ? "secondary" : "light")}>
-                            About </span>
+                    {
+                        (cur_route.pathname === "/About" ?
+                                <span className="text-white py-1">
+                            About <hr className="bg-white position-relative my-2" /></span>
+                                :  <span className="text-white">About</span>
+                        )
+                    }
                 </Link>
             </li>
             {/*<li className='link  text-decoration-none'>*/}

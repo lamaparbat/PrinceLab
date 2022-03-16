@@ -12,7 +12,7 @@ function index() {
       src={localStorage.getItem("theme") != "light" ? process.env.PUBLIC_URL + "/assets/parallel2.png" :process.env.PUBLIC_URL + "/assets/parallel4.png"}
       loading='lazy' />
      <div className='content'>
-      <h1>Parallel Computing</h1><br/>
+      <h1 className="text-center parallel_title">Parallel Computing</h1><br/>
       <center><button className='px-3 py-1'>Data Flow</button></center>
      </div>
      <img
