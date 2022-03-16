@@ -44,15 +44,20 @@ function Index() {
             >
                 {(curItem === "item1" && showMore === true ? "Show Less" : "Show More")}
             </p>
-            <p
-                className={"bg-" + (curItem === "item2" ? "dark text-white" : "unset")}
-                onClick={() => navClick("item2")}
+                {
+                    showMore === true ?
+                        <>
+                            <p
+                                className={"bg-" + (curItem === "item2" ? "dark text-white" : "unset")}
+                                onClick={() => navClick("item2")}
 
-            >Free</p>
-            <p
-                className={"bg-" + (curItem === "item3" ? "dark text-white" : "unset")}
-                onClick={() => navClick("item3")}
-            >Professional</p>
+                            >Free</p>
+                            <p
+                                className={"bg-" + (curItem === "item3" ? "dark text-white" : "unset")}
+                                onClick={() => navClick("item3")}
+                            >Professional</p>
+                        </>:null
+                }
         </div>)
     }
 

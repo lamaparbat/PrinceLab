@@ -21,8 +21,7 @@ export const DarkTheme = createGlobalStyle`
   }
 
   .pricing_navigation .pricing_nav p {
-    border: 1px solid #656565 !important;
-    border-radius: 0px !important;
+    border-radius: 5px !important;
   }
 
   button, .btn, a {
