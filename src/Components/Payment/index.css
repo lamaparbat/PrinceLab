@@ -1,8 +1,24 @@
 #payment-form {
-    height: 100vh;
+    height: 95vh;
     display: grid;
     place-items: center;
 }
+
+#payment-form #main_title1 {
+    padding-left: 10px;
+    padding-right: 10px;
+    font-size: 45px;
+    background-color: #076BFF !important;
+    border-radius: 10px;
+    color: white;
+    letter-spacing: 2px;
+}
+
+#payment-form #main_title2 {
+    font-size: 45px;
+    letter-spacing: 2px;
+}
+
 
 .payment_row {
     width: 100%;
@@ -13,28 +29,38 @@
 
 label[data-shrink=false]+.MuiInputBase-formControl .css-nxo287-MuiInputBase-input-MuiOutlinedInput-input {
     background: white !important;
-    color:black !important;
+    color: black !important;
 }
+
 .payment_content {
     margin-left: 20px;
     padding: 50px;
+    padding-top: 0px;
     height: fit-content;
     width: fit-content;
     display: flex;
     flex-direction: column;
-    align-items: center;
-    border-radius: 10px;
-    border: 0.5px solid #eaeaea !important;
-    box-shadow: 1px 0px 5px 2px rgb(234, 234, 234);
-    -webkit-box-shadow: 1px 0px 5px 2px rgb(234, 234, 234);
-    -moz-box-shadow: 1px 0px 5px 2px rgb(234, 234, 234);
+    justify-content: start;
+}
+
+.payment_content_title {
+    font-size: 40px;
+}
+
+.full_name_input {
+    background-color: rgb(241, 241, 241);
+    border-radius: 8px;
 }
 
 .payment_content #email {
-    border: 0.5px solid #c5c5c5 !important;
+    margin-left: -10px;
+    margin-top: -10px;
+    border: none !important;
+    background: none;
 }
+
 .dropdown-menu.show {
-    width:100% !important;
+    width: 100% !important;
 }
 
 .css-viou3o-MuiAutocomplete-root .MuiOutlinedInput-root .MuiAutocomplete-input {
@@ -44,15 +70,12 @@ label[data-shrink=false]+.MuiInputBase-formControl .css-nxo287-MuiInputBase-inpu
 #card-element {
     width: 300px;
 }
-#dropdownMenuButton{
-    width:100% !important;
-}
 
 
 #submit {
     color: white !important;
-    border-radius: 5px !important;
-    background-color: #ff8253 !important;
+    border-radius: 10px !important;
+    background-color: #076BFF !important;
 }
 
 #submit #button-text {
@@ -60,13 +83,54 @@ label[data-shrink=false]+.MuiInputBase-formControl .css-nxo287-MuiInputBase-inpu
     font-weight: bold;
 }
 
+
+/* payment details */
 .PaymentDetails {
-    width: 400px;
+    width: 455px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    border-radius: 10px;
+    border: 0.5px solid #eaeaea !important;
+    box-shadow: 1px 0px 5px 2px rgb(234, 234, 234);
+    -webkit-box-shadow: 1px 0px 5px 2px rgb(234, 234, 234);
+    -moz-box-shadow: 1px 0px 5px 2px rgb(234, 234, 234);
 }
 
-#product_image {
-    border-radius: 5px !important;
+.PaymentDetails #price {
+    font-size: 70px;
 }
+
+.PaymentDetails #month_span {
+    font-size: 16px;
+    letter-spacing: 2px;
+}
+
+.PaymentDetails .divider {
+    height: 2px;
+    width: 85%;
+    background-color: rgb(167, 167, 167);
+}
+
+.PaymentDetails .feature_list #li {
+    display: flex;
+}
+
+.PaymentDetails .feature_list #li #icon {
+    padding: 3px;
+    height: 0.8em;
+    width: 0.8em;
+    border-radius: 50px !important;
+    color: white !important;
+    background-color: rgb(238, 156, 60);
+}
+
+.PaymentDetails .css-i4bv87-MuiSvgIcon-root {
+    fill: white !important;
+}
+
+
 
 .footer_span {
     font-size: 14px;
@@ -94,6 +158,7 @@ label[data-shrink=false]+.MuiInputBase-formControl .css-nxo287-MuiInputBase-inpu
     .payment_row {
         flex-direction: column;
     }
+
     .payment_content {
         margin-left: 0;
     }
@@ -107,8 +172,9 @@ label[data-shrink=false]+.MuiInputBase-formControl .css-nxo287-MuiInputBase-inpu
     .payment_row {
         flex-direction: column;
     }
+
     .payment_content {
-        width:100%;
+        width: 100%;
         margin-left: 0;
         box-shadow: none;
     }
@@ -119,12 +185,14 @@ label[data-shrink=false]+.MuiInputBase-formControl .css-nxo287-MuiInputBase-inpu
         width: 100%;
         overflow: hidden;
     }
+
     #card-element {
         width: 100% !important;
     }
+
     .css-viou3o-MuiAutocomplete-root {
-         width:100% !important;
-        background-color:white !important;
+        width: 100% !important;
+        background-color: white !important;
         color: white !important;
     }
 }

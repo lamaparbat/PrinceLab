@@ -1,8 +1,9 @@
-import React, {useState, useEffect} from "react";
+import React, { useState, useEffect } from "react";
 import '../Payment/index.css';
-import {CardElement, useStripe, useElements} from "@stripe/react-stripe-js";
+import { CardElement, useStripe, useElements } from "@stripe/react-stripe-js";
 import axios from "axios";
 import $ from "jquery";
+import CheckIcon from '@mui/icons-material/Check';
 
 const Index = () => {
     const [succeeded, setSucceeded] = useState(false);
@@ -11,22 +12,9 @@ const Index = () => {
     const [disabled, setDisabled] = useState(true);
     const [clientSecret, setClientSecret] = useState("");
 
-    //list of features
-    const [version_list, setVersionList] = useState([
-        "Nepal",
-        "India",
-        "China",
-        "USA",
-        "UK",
-        "Canada",
-        "Germany",
-        "Russia",
-        "Ukraine",
-        "Bangladesh",
-        "Japan",
-        "Korea"
-    ]);
-    const [country, setCountry] = useState("");
+    //professional features
+    const list2 = ["Support For Python3 Programming", "Able to make flutter app", "AI model integration", "Application development", "Technical support", "New updates"];
+
 
     // 2️⃣ Store reference to Stripe
     const stripe = useStripe();
@@ -35,11 +23,11 @@ const Index = () => {
     //fetched the secret key from server
     useEffect(() => {
         //auto scroll to the top when page rendered
-        $(window).scrollTop({top: 0, behavior: "smooth"})
+        $(window).scrollTop({ top: 0, behavior: "smooth" })
 
         // 3️⃣ Create PaymentIntent and fetch client secret as soon as the page loads
         axios.post("https://testing-stripe-paradox.herokuapp.com/users/payment_intent/",
-            {subscription: "business"})
+            { subscription: "business" })
             .then(data => {
                 setClientSecret(data.data.secret)
             })
@@ -50,7 +38,7 @@ const Index = () => {
 
 
     //track the card issues
-    const handleChange = async (e) =>  (event) =>{
+    const handleChange = async (e) => (event) => {
         event.preventDefault()
         // 4️⃣ Listen for changes in the CardElement and display any errors as the customer types their card details
         setDisabled(e.empty);
@@ -79,61 +67,33 @@ const Index = () => {
 
     //custom PaymentDetails component
     const PaymentDetails = () => {
-        return (
-            <div className="PaymentDetails py-3">
-                <h4 id="product_title"><b>Pricing</b></h4><br/>
-                <span id="sub_type" className="text-secondary">
-                    <b>Subscription type:</b> Professional
-                </span>
-                <h1 className={"font-weight-bolder"}>$10.00 /-</h1><br/>
-                <img
-                    height={200}
-                    src={process.env.PUBLIC_URL+"/assets/premium.jpeg"}
-                    id="product_image"
-                /><br/><br/><br/><br/>
-                <span className="text-secondary footer_span">
-                    Payment by
-                    <b className="text-secondary footer_span"> Stripe </b>
-                    &nbsp; &copy;  &nbsp;
-                    || &nbsp; princelab.org
-                </span>
-            </div>
-        )
-    }
-
-    //custom dropdown button
-    const DropdownBtn = ({id, data}) => {
-        // update the current item selection
-        const selectCountry = (item) => {
-            setCountry(item);
-        }
-
-        return (
-            <div className="dropdown mr-2 w-100">
-                <button className="btn px-4 rounded-4 text-secondary dropdown-toggle shadow-none" type="button"
-                        id="dropdownMenuButton"
-                        data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+        const FeatureList = () => {
+            return (
+                <div className='feature_list'>
                     {
-                        id === "platform"
-                    }
-                    {
-                        country != "" ? country : "Choose country"
-                    }
-                </button>
-                <div className="dropdown-menu text-primary" aria-labelledby="dropdownMenuButton">
-                    {
-                        data.map((item, index) => {
+                        list2.map((item, index) => {
                             return (
-                                <a
-                                    className="dropdown-item"
-                                    href="#"
-                                    key={index}
-                                    onClick={() => selectCountry(item)}
-                                >{item}</a>
+                                
+                                    <div id='li' key={index + 1}>
+                                        <CheckIcon key={index + 2} id='icon' className={"bg-primary"} />
+                                        <p className='mx-3' key={index + 3}>{item}</p>
+                                    </div>
+                            
                             )
                         })
                     }
+
                 </div>
+            )
+        }
+        return (
+            <div className="PaymentDetails py-3">
+                <h1 id="price">$5
+                    <span id="month_span">/monthly</span>
+                </h1>
+                <p className="mb-4">Available for both individual and teams </p>
+                <div className="divider"></div><br />
+                <FeatureList />
             </div>
         )
     }
@@ -142,30 +102,25 @@ const Index = () => {
     const PaymentForm = () => {
         return (
             <div className={"payment_content"}>
-                <div className="w-100">
-                    <h4 className={"font-weight-bolder my-3"}>Paradox Checkout</h4><br/>
-                    <span className="text-secondary">Email</span>
-                    <input type="email" className="form-control shadow-none" id="email"/>
+                <span className={"my-3 payment_content_title"}>Credit card/Debit Card</span>
+                <br /><br /><br/>
+                <div className="w-100 px-3 py-1 full_name_input">
+                    <span className="text-secondary">Full Name</span>
+                    <input type="email" className="form-control shadow-none" id="email" />
                 </div>
-                <br/>
+                <br />
                 <CardElement
                     id="card-element"
                     options={{}}
                     onChange={handleChange}
-                /><br/>
-                <div className="w-100 py-2">
-                    <DropdownBtn
-                        id="platform"
-                        data={version_list}
-                    />
-                </div>
-                <br/>
-                <button className={"btn btn-warning w-100 px-5 py-1"} disabled={processing || disabled || succeeded} id="submit">
-                <span id="button-text">
-                    {processing ? <div className="spinner" id="spinner"></div> : "Pay"}
-                </span>
+                /><br />
+                <br />
+                <button className={"btn btn-warning w-100 px-5 py-2"} disabled={processing || disabled || succeeded} id="submit">
+                    <span id="button-text">
+                        {processing ? <div className="spinner" id="spinner"></div> : "Pay Now"}
+                    </span>
                 </button>
-                <br/>
+                <br />
                 {error && (<div className="card-error text-danger" role="alert">{error}</div>)}
                 <p>{succeeded ? "Payment successfull" : ""}</p>
             </div>
@@ -175,9 +130,13 @@ const Index = () => {
     // 6️⃣ Construct UI.
     return (
         <form id="payment-form" onSubmit={handleSubmit}>
+            <h1>
+                <span id="main_title1">Professional</span>
+                <span id="main_title2"> subscription</span>
+            </h1>
             <div className="payment_row">
-                <PaymentDetails/>
-                <PaymentForm/>
+                <PaymentDetails />
+                <PaymentForm />
             </div>
         </form>
     );
