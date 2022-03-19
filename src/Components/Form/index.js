@@ -246,8 +246,6 @@ function Index({type}) {
         const auth = getAuth();
         signInWithPopup(auth, provider)
             .then((result) => {
-                //refresh the page
-
                 //auto fill the form
                 autoFillForm(result.user);
 
@@ -272,25 +270,22 @@ function Index({type}) {
 
     //auto fillup the form fields
     const autoFillForm = (data) => {
-        if (cur_route === "/Signup") {
-            $("#username").val(data.displayName)
-            $("#email").val(data.email)
-            //update the signupdata
-            setSignupData({
-                username: data.displayName,
-                email: data.email,
-                password: signupData.password,
-                profile: data.photoURL
-            })
-        } else {
-            users.forEach(user => {
-                if ((user.username === loginData.username.trim()) && (user.password.trim() === loginData.password.trim())) {
+        console.log(data.email)
+        users.forEach(user => {
+                console.log(data.email === user.email)
+                if (user.username === data.displayName) {
                     toast.success( "Login successfully")
                     localStorage.setItem("princelab", JSON.stringify({
                         username: user.username,
                         email: user.email,
                         profile: user.profile
                     }));
+                    
+                    console.log({
+                        username: user.username,
+                        email: user.email,
+                        profile: user.profile
+                    })
 
                     //delay the notice by 1 second
                     destineRoute !== "" ? navigate("/" + destineRoute) :
@@ -300,19 +295,6 @@ function Index({type}) {
                     return true;
                 }
             })
-
-            toast.success( "Login successfully")
-            localStorage.setItem("princelab", JSON.stringify({
-                username: data.displayName,
-                email: data.email,
-                profile: data.photoURL
-            }));
-            //delay the notice by 1 second
-            destineRoute !== "" ? navigate("/" + destineRoute) :
-                setTimeout(() => {
-                    navigate("/")
-                }, 1000)
-        }
     }
 
     return (

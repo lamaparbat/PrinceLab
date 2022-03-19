@@ -152,8 +152,7 @@ function Index() {
                         <div className="nav_card" onClick={openSettingNav}>
                             <img
                                 src={process.env.PUBLIC_URL + "/assets/user.svg"}/>
-                            <p>Setting</p
-                            >
+                            <p>Setting</p>
                         </div>
                     </div>
                 </> : <>
@@ -170,8 +169,7 @@ function Index() {
                         }}>
                             <img
                                 src={process.env.PUBLIC_URL + "/assets/user.svg"}/>
-                            <p>Sign In</p
-                            >
+                            <p>Sign In</p>
                         </div>
                     </div>
                 </>}
@@ -287,7 +285,7 @@ function Index() {
 
         // edit btn clicked
         const editProfile = () => {
-            let fileName = editProfileData.profile.name
+            let fileName = editProfileData.profile.name;
 
             //compare and get user password
             db.ref(`/users`).on('value', snapshot => {
