@@ -7,7 +7,7 @@
 #payment-form #main_title1 {
     padding-left: 10px;
     padding-right: 10px;
-    font-size: 45px;
+    font-size: 38px;
     background-color: #076BFF !important;
     border-radius: 10px;
     color: white;
@@ -86,7 +86,7 @@ label[data-shrink=false]+.MuiInputBase-formControl .css-nxo287-MuiInputBase-inpu
 
 /* payment details */
 .PaymentDetails {
-    width: 455px;
+    width: 370px;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -148,10 +148,6 @@ label[data-shrink=false]+.MuiInputBase-formControl .css-nxo287-MuiInputBase-inpu
         padding: 30px;
         margin-top: 20px;
     }
-
-    .PaymentDetails {
-        width: fit-content;
-    }
 }
 
 @media (max-width: 730px) {
@@ -169,6 +165,13 @@ label[data-shrink=false]+.MuiInputBase-formControl .css-nxo287-MuiInputBase-inpu
 }
 
 @media (max-width: 390px) {
+#payment-form #main_title1 {
+    font-size: 25px;
+}
+
+#payment-form #main_title2 {
+    font-size: 30px;
+}
     .payment_row {
         flex-direction: column;
     }

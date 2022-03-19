@@ -87,9 +87,9 @@ const Index = () => {
             )
         }
         return (
-            <div className="PaymentDetails py-3">
+            <div className="PaymentDetails py-4">
                 <h1 id="price">$5
-                    <span id="month_span">/monthly</span>
+                    <span id="month_span"> /monthly</span>
                 </h1>
                 <p className="mb-4">Available for both individual and teams </p>
                 <div className="divider"></div><br />
@@ -130,8 +130,9 @@ const Index = () => {
     // 6️⃣ Construct UI.
     return (
         <form id="payment-form" onSubmit={handleSubmit}>
-            <h1>
-                <span id="main_title1">Professional</span>
+           
+            <h1 className="text-center">
+                <span className="py-0" id="main_title1">Professional</span>
                 <span id="main_title2"> subscription</span>
             </h1>
             <div className="payment_row">

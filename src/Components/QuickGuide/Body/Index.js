@@ -2,7 +2,7 @@ import React, {useEffect} from 'react';
 import '../Body/Index.css';
 import {useSelector, useDispatch} from "react-redux";
 import {showSidebar, hideSidebar} from "../../../Redux/Actions";
-import MenuOpenIcon from '@mui/icons-material/MenuOpen';
+import MenuIcon from '@mui/icons-material/Menu';
 
 //main function
 const Index = () => {
@@ -42,7 +42,7 @@ const Index = () => {
     return (
         <div className="quick_guide_body px-4 py-3 w-100">
             <div className="body_nav">
-                <MenuOpenIcon
+                <MenuIcon
                     className={"btn p-0 position-fixed animate__animated animate__slideInLeft animate__faster"}
                     onClick={() => dispatch(showSidebar())}/>
             </div>
