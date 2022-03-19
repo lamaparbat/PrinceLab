@@ -282,12 +282,6 @@ function Index({type}) {
                         profile: user.profile
                     }));
                     
-                    console.log({
-                        username: user.username,
-                        email: user.email,
-                        profile: user.profile
-                    })
-
                     //delay the notice by 1 second
                     destineRoute !== "" ? navigate("/" + destineRoute) :
                         setTimeout(() => {
