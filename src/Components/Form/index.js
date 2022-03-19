@@ -271,6 +271,7 @@ function Index({type}) {
     //auto fillup the form fields
     const autoFillForm = (data) => {
         console.log(data.email)
+        console.log(data)
         users.forEach(user => {
                 console.log(data.email === user.email)
                 if (user.username === data.displayName) {
