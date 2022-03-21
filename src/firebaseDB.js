@@ -4,7 +4,7 @@ import 'firebase/compat/auth';
 import 'firebase/compat/database';
 
 const firebaseConfig = {
-    apiKey:"AIzaSyB-n4q7JJ1gkV7FjwK59Nyy5OyH-gjPFSQ",
+    apiKey: "AIzaSyB-n4q7JJ1gkV7FjwK59Nyy5OyH-gjPFSQ",
     authDomain: "princelab-f13cd.firebaseapp.com",
     databaseURL: "https://princelab-f13cd-default-rtdb.firebaseio.com",
     projectId: "princelab-f13cd",

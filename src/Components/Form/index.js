@@ -5,7 +5,7 @@ import Store from "../../Store";
 import validator from "validator";
 import {passwordStrength} from 'check-password-strength';
 import {app, auth, db} from '../../firebaseDB';
-import {getAuth, signInWithPopup, GoogleAuthProvider, GithubAuthProvider} from "firebase/auth";
+import { getAuth, signInWithPopup, GoogleAuthProvider, GithubAuthProvider, sendEmailVerification } from "firebase/auth";
 import axios from 'axios';
 import '../Form/index.css';
 import $ from 'jquery';
@@ -79,7 +79,9 @@ function Index({type}) {
                 ])
             })
         });
+        
     }, [])
+    
 
     //update the form type -> signup or login
     useEffect(() => {
@@ -251,7 +253,8 @@ function Index({type}) {
 
             }).catch((error) => {
             console.error(error.message)
-        });
+            });
+
     }
 
     //signup with github

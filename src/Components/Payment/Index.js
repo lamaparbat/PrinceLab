@@ -88,7 +88,7 @@ const Index = () => {
         }
         return (
             <div className="PaymentDetails py-4">
-                <h1 id="price">$5
+                <h1 id="price">$10
                     <span id="month_span"> /monthly</span>
                 </h1>
                 <p className="mb-4">Available for both individual and teams </p>
