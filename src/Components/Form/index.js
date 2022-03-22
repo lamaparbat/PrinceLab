@@ -25,10 +25,6 @@ function Index({type}) {
     //creating instance of useSelector() -> redux
     const destineRoute = useSelector(state => state.RedirectRoute)
 
-    // CRUD DB URL
-    const crud_url =  process.env.REACT_APP_CRUD_DB_URL+"users.json";
-    
-
     //loading features on manipulating database
     const [isLoading, setLoading] = useState(false);
 
@@ -71,7 +67,7 @@ function Index({type}) {
 
     //fetched all the user from firebase DB
     useEffect(() => {
-        db.ref(`/users`).on('value', snapshot => {
+        db.ref("users").on('value', snapshot => {
             snapshot.forEach(user => {
                 setUsers(prev => [
                     ...prev,
@@ -80,7 +76,10 @@ function Index({type}) {
             })
         });
         
+        console.log(users)
+        
     }, [])
+    
     
 
     //update the form type -> signup or login
@@ -189,7 +188,7 @@ function Index({type}) {
         if(isUserAlreadyRegistered()){
             toast.error("User already exists");
         }else{
-            axios.post("https://princelab-f13cd-default-rtdb.firebaseio.com/users.json", signupData)
+            axios.post("https://paradoxauth-56b93-default-rtdb.asia-southeast1.firebasedatabase.app/users.json", signupData)
                 .then(res => {
                     toast.success("Registration successfull");
 
@@ -273,11 +272,9 @@ function Index({type}) {
 
     //auto fillup the form fields
     const autoFillForm = (data) => {
-        console.log(data.email)
-        console.log(data)
         users.forEach(user => {
-                console.log(data.email === user.email)
-                if (user.username === data.displayName) {
+                console.log("db"+user.email)
+                if (user.email === data.email) {
                     toast.success( "Login successfully")
                     localStorage.setItem("princelab", JSON.stringify({
                         username: user.username,
@@ -445,7 +442,7 @@ function Index({type}) {
                                 <div className='divider'></div>
                                 <span className='text-secondary' id='or'>OR</span>
                                 <center id="icon_title">
-                                    <span className='text-secondary'>Sign-up using</span>
+                                    <span className='text-secondary'>Sign-in using</span>
                                 </center>
                                 <div
                                     className='icons'

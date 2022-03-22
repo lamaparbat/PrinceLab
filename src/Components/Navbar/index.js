@@ -12,6 +12,7 @@ import {getStorage, ref, uploadBytesResumable, getDownloadURL} from "firebase/st
 import {toast, ToastContainer} from "react-toastify";
 import axios from 'axios';
 import {app, db} from "../../firebaseDB";
+import { ReplySharp } from '@mui/icons-material';
 
 function Index() {
     //creating instance of useNavigate
@@ -22,6 +23,7 @@ function Index() {
 
     //store the database data insertion
     const [isLoading, setLoading] = useState(false);
+    const [refresh, setRefresh] = useState(false);
 
     //fetched the cache data
     let owner = JSON.parse(localStorage.getItem("princelab"))
@@ -38,13 +40,14 @@ function Index() {
 
     // track the changes in browser cache
     useEffect(() => {
+        localStorage.setItem("princelab", JSON.stringify(owner));
         setEditProfileData({
             username: owner.username,
             email:( owner.email != null ? owner.email : ""),
             password: "",
             profile: {}
         })
-    }, [owner.username])
+    }, [])
 
     //form focus
     const [usernameFocus, setUsernameFocus] = useState(true);
@@ -330,12 +333,12 @@ function Index() {
                                 // Upload completed successfully, now we can get the download URL
                                 getDownloadURL(uploadTask.snapshot.ref).then((downloadURL) => {
                                     // upload data to real time database
-                                    db.ref(`/users`).on('value', snapshot => {
+                                    db.ref("users").on('value', snapshot => {
                                         snapshot.forEach((user) => {
                                             if (user.val().email === owner.email) {
                                                 const docKey = user.key;
                                                 //save the user data in db
-                                                const db_api = `https://princelab-f13cd-default-rtdb.firebaseio.com/users/${docKey}.json`;
+                                                const db_api = `https://paradoxauth-56b93-default-rtdb.asia-southeast1.firebasedatabase.app/users/${docKey}.json`;
                                                 const dbData = {
                                                     username: editProfileData.username,
                                                     email: editProfileData.email,
@@ -344,8 +347,17 @@ function Index() {
                                                 }
                                                 axios.put(db_api, dbData)
                                                     .then(res => {
+                                                        //saving data to cookies
+                                                        localStorage.setItem("princelab", JSON.stringify({
+                                                            username: editProfileData.username,
+                                                            email: editProfileData.email,
+                                                            profile: downloadURL
+                                                        }))
                                                         setLoading(false);
                                                         setEditNavVisible(false);
+                                                        
+                                                        //refresh once
+                                                        window.location.assign("")
                                                         return true;
                                                     })
                                                     .catch(err => {
@@ -431,10 +443,12 @@ function Index() {
 
         //on btn click
         const btnClick = () => {
+            const current_user_email = JSON.parse(localStorage.getItem("princelab")).email
+            
             //db update
             db.ref(`/users`).on('value', snapshot => {
                 snapshot.forEach((user) => {
-                    if (user.val().password === oldPassword.current.value) {
+                    if (user.val().email === current_user_email && user.val().password === oldPassword.current.value) {
                         const docKey = user.key
                         const userData = {
                             username: user.val().username,
@@ -444,7 +458,7 @@ function Index() {
                         }
 
                         //save the user data in db
-                        const db_api = `https://princelab-f13cd-default-rtdb.firebaseio.com/users/${docKey}.json`;
+                        const db_api = `https://paradoxauth-56b93-default-rtdb.asia-southeast1.firebasedatabase.app/users/${docKey}.json`;
                         axios.put(db_api, userData)
                             .then(res => {
                                 toast.success("Password successfully reset.")
@@ -458,6 +472,8 @@ function Index() {
                     }
                 })
             });
+            
+            
         }
 
         return (
@@ -568,11 +584,7 @@ function Index() {
             <li className='link  text-decoration-none'>
                 <Avatar
                     id="avatar"
-                    src={
-                        owner.profile != undefined?
-                            owner.profile :
-                            process.env.PUBLIC_URL + "/assets/agriculture2.png"
-                    }
+                    src={owner.profile != "" ? owner.profile : process.env.PUBLIC_URL + "/assets/agriculture2.png"}
                     style={{border: "0.5px solid white"}}
                     onClick={showProfileNav}
                 />
@@ -624,11 +636,7 @@ function Index() {
                 <li className='link  text-decoration-none'>
                     <Avatar
                         id="avatar"
-                        src={
-                            owner.profile != undefined?
-                                owner.profile :
-                                process.env.PUBLIC_URL + "/assets/agriculture2.png"
-                        }
+                        src={owner.profile != "" ? owner.profile : process.env.PUBLIC_URL + "/assets/agriculture2.png"}
                         style={{border: "0.5px solid white"}}
                         onClick={showProfileNav}
                     />
