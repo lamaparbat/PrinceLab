@@ -74,10 +74,7 @@ function Index({type}) {
                     user.val()
                 ])
             })
-        });
-        
-        console.log(users)
-        
+        });    
     }, [])
     
     
@@ -273,7 +270,6 @@ function Index({type}) {
     //auto fillup the form fields
     const autoFillForm = (data) => {
         users.forEach(user => {
-                console.log("db"+user.email)
                 if (user.email === data.email) {
                     toast.success( "Login successfully")
                     localStorage.setItem("princelab", JSON.stringify({

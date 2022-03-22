@@ -23,7 +23,6 @@ function Index() {
 
     //store the database data insertion
     const [isLoading, setLoading] = useState(false);
-    const [refresh, setRefresh] = useState(false);
 
     //fetched the cache data
     let owner = JSON.parse(localStorage.getItem("princelab"))
@@ -444,33 +443,39 @@ function Index() {
         //on btn click
         const btnClick = () => {
             const current_user_email = JSON.parse(localStorage.getItem("princelab")).email
-            
             //db update
-            db.ref(`/users`).on('value', snapshot => {
-                snapshot.forEach((user) => {
-                    if (user.val().email === current_user_email && user.val().password === oldPassword.current.value) {
-                        const docKey = user.key
-                        const userData = {
-                            username: user.val().username,
-                            email: user.val().email,
-                            password: newPassword.current.value,
-                            profile: user.val().profile
-                        }
+            db.ref("users").on('value', snapshot => {
+                if (newPassword.current.value.length > 0 && oldPassword.current.value.length > 0) {
+                    setLoading(true);
+                    snapshot.forEach((user) => {     
+                        if (oldPassword.current.value.length > 0 && user.val().email === current_user_email && user.val().password === oldPassword.current.value.trim()) {
+                            const docKey = user.key
+                            const userData = {
+                                username: user.val().username,
+                                email: user.val().email,
+                                password: newPassword.current.value,
+                                profile: user.val().profile
+                            }
 
-                        //save the user data in db
-                        const db_api = `https://paradoxauth-56b93-default-rtdb.asia-southeast1.firebasedatabase.app/users/${docKey}.json`;
-                        axios.put(db_api, userData)
-                            .then(res => {
-                                toast.success("Password successfully reset.")
-                                setTimeout(() => {
-                                    navigate("/Login");
-                                }, 2000)
-                            })
-                            .catch(err => {
-                                toast.error(err.message)
-                            })
-                    }
-                })
+                            //save the user data in db
+                            const db_api = `https://paradoxauth-56b93-default-rtdb.asia-southeast1.firebasedatabase.app/users/${docKey}.json`;
+                            axios.put(db_api, userData)
+                                .then(res => {
+                                    setLoading(false);
+                                    toast.success("Password successfully reset.")
+                                    setTimeout(() => {
+                                        navigate("/Login");
+                                    }, 2000)
+                                })
+                                .catch(err => {
+                                    toast.error(err.message)
+                                })
+                        } else {
+                            setLoading(false);
+                            toast.error("Old password donot matched !!")
+                        }
+                    })
+                } 
             });
             
             
@@ -503,7 +508,11 @@ function Index() {
                         className={"form-control py-1 shadow-none mb-2"}
                         placeholder="Reenter password"
                     />
-                    <button className="btn btn-primary rounded-1 mt-2 mb-1" onClick={btnClick}>Change Password</button>
+                    <button
+                        className={isLoading ? "btn btn-primary rounded-1 mt-3 mb-2 disabled" : "btn btn-primary rounded-1 mt-3 mb-2"}
+                        onClick={isLoading ? null : btnClick}>{
+                            isLoading ? "Changing...." : "Change password"
+                        }</button>
                 </div>
             </div>)
     }
