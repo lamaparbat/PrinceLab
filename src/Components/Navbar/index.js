@@ -593,7 +593,7 @@ function Index() {
             <li className='link  text-decoration-none'>
                 <Avatar
                     id="avatar"
-                    src={owner.profile != "" ? owner.profile : process.env.PUBLIC_URL + "/assets/agriculture2.png"}
+                    src={owner.profile === "" || owner.profile === undefined ? process.env.PUBLIC_URL + "/assets/agriculture2.png" : owner.profile}
                     style={{border: "0.5px solid white"}}
                     onClick={showProfileNav}
                 />
@@ -645,7 +645,7 @@ function Index() {
                 <li className='link  text-decoration-none'>
                     <Avatar
                         id="avatar"
-                        src={owner.profile != "" ? owner.profile : process.env.PUBLIC_URL + "/assets/agriculture2.png"}
+                        src={owner.profile === "" || owner.profile === undefined ? process.env.PUBLIC_URL + "/assets/agriculture2.png" : owner.profile }
                         style={{border: "0.5px solid white"}}
                         onClick={showProfileNav}
                     />

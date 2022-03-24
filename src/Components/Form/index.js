@@ -260,6 +260,7 @@ function Index({type}) {
         signInWithPopup(auth, provider)
             .then((result) => {
                 //auto fill the form
+                console.log(result.user)
                 autoFillForm(result.user);
             }).catch((error) => {
             console.error(error.message)
@@ -269,6 +270,7 @@ function Index({type}) {
 
     //auto fillup the form fields
     const autoFillForm = (data) => {
+        console.log(data.email)
         users.forEach(user => {
                 if (user.email === data.email) {
                     toast.success( "Login successfully")
@@ -282,6 +284,7 @@ function Index({type}) {
                     destineRoute !== "" ? navigate("/" + destineRoute) :
                         setTimeout(() => {
                             navigate("/")
+                            window.location.assign("")
                         }, 1000)
                     return true;
                 }
