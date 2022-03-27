@@ -1,13 +1,8 @@
 const { render } = require("@testing-library/react")
-import Homepage from '../src/Components/Hompage/index';
-import { BrowserRouter, Routes } from 'react-router-dom';
+import React from 'react';
+import ReactDOM from 'react-dom';
+import App from './App';
 
-test("Homepage", () => { 
-  render(
-    <BrowserRouter>
-      <Routes> 
-        <Homepage />        
-      </Routes>
-      </BrowserRouter>)
-  screen.debug();
+test("rendering Homepage", () => { 
+  
 })

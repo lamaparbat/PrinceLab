@@ -37,7 +37,7 @@ function App() {
     // theme state
     const [theme, setTheme] = useState({mode: ""});
 
-    // Specicy Stripe Publishable API key here
+    // Specify Stripe Publishable API key here
     const promise = loadStripe("pk_test_51KVWA1IUStveJHR71NvSABEmUloxoEBCu9EVPcsHrEEvBVkHsHtfwIMbczNzEcQ64h40i86fsPoT3qljvR9yEMIp00p8ThpuH0");
 
     //check theme on component rendered
