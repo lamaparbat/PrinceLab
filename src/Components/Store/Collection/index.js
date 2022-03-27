@@ -42,7 +42,7 @@ function Index({title, data}) {
     const modelData = useSelector(state => state.installModelVisible);
 
     return (
-        <div className='container-fluid py-3 discover'>
+        <div className='container py-3 discover'>
             <div className='container'>
                 {
                     title === "Learn a better way" ?
