@@ -68,12 +68,14 @@
     box-shadow: 1px 0px 5px 2px rgb(229, 229, 229);
     -webkit-box-shadow: 1px 0px 5px 2px rgb(229, 229, 229);
     -moz-box-shadow: 1px 0px 5px 2px rgb(232, 232, 232);
+    overflow: hidden;
 }
 .discover_card_content .photoContainer #photo_icon {
-    height: 3em;
-    width: 3em;
+    height: 100%;
+    width: 100%;
     color: #808080;
     cursor: pointer;
+object-fit: contain;
 }
 .discover_card_content .photoContainer #photo_icon:hover{
     opacity:0.8;

@@ -1,5 +1,6 @@
-import React from 'react';
-import './/Index.css';
+import React,{useState} from 'react';
+import './Index.css';
+import $ from 'jquery';
 import InstallPopupNavbar from '../InstallPopupNavbar/Index';
 import AudioFileOutlinedIcon from '@mui/icons-material/AudioFileOutlined';
 import SaveAltRoundedIcon from '@mui/icons-material/SaveAltRounded';
@@ -7,6 +8,7 @@ import MicRoundedIcon from '@mui/icons-material/MicRounded';
 import VideocamOutlinedIcon from '@mui/icons-material/VideocamOutlined';
 import PhotoSizeSelectActualOutlinedIcon from '@mui/icons-material/PhotoSizeSelectActualOutlined';
 import CameraAltOutlinedIcon from '@mui/icons-material/CameraAltOutlined';
+import { Avatar } from '@mui/material';
 
 //custom input div
 const InputComp = ({type}) => {
@@ -69,7 +71,16 @@ const OutputComp = () => {
 }
 
 //bottom navbar
-const InstallPopupBottomNavbar = ({type}) => {
+const InstallPopupBottomNavbar = ({ type }) => {
+    const chooseImage = () => {
+        $("#hidden_img").click();
+    }
+    
+    const saveFileData = (event) => {
+        const url = URL.createObjectURL(event.target.files[0])
+        console.log(event.target.files[0])
+        $(".discover_card_content .photoContainer #photo_icon").attr("src", url)
+    }
     return (
         <div className="installBottomNav mb-5 w-100">
             {
@@ -98,7 +109,10 @@ const InstallPopupBottomNavbar = ({type}) => {
                 type === "img_classification" ?
                     <>
                         <div className={"rounded-pill btn mx-4 save p-2"}>
-                            <SaveAltRoundedIcon className={"p-1 icons"}/>
+                            <input type="file" className="d-none" id="hidden_img" onChange={saveFileData} />
+                            <SaveAltRoundedIcon className={"p-1 icons"}
+                                onClick={chooseImage}
+                            />
                         </div>
                         <div className={"rounded-pill btn mic p-2"}>
                             <CameraAltOutlinedIcon className={"p-1 icons"}/>
@@ -109,7 +123,7 @@ const InstallPopupBottomNavbar = ({type}) => {
     )
 }
 
-const Index = ({data}) => {
+const Index = ({ data }) => {    
     return (
         <div className="container-fluid install_discover py-5">
             <div className="install_discover_card">
@@ -160,7 +174,7 @@ const Index = ({data}) => {
                         <>
                             <div className={"discover_card_content"}>
                                 <div className={"photoContainer"}>
-                                    <PhotoSizeSelectActualOutlinedIcon id={"photo_icon"}/>
+                                    <img src='http://localhost:3000/assets/signin.png' id={"photo_icon"}/>
                                 </div>
                                 <img
                                     src={process.env.PUBLIC_URL + "/assets/connector.png"}/>
