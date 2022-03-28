@@ -174,7 +174,7 @@ const Index = ({ data }) => {
                         <>
                             <div className={"discover_card_content"}>
                                 <div className={"photoContainer"}>
-                                    <img src='http://localhost:3000/assets/signin.png' id={"photo_icon"}/>
+                                    <img src={process.env.PUBLIC_URL+"/assets/img_icon.png"} id={"photo_icon"}/>
                                 </div>
                                 <img
                                     src={process.env.PUBLIC_URL + "/assets/connector.png"}/>

@@ -12,7 +12,8 @@ import {getStorage, ref, uploadBytesResumable, getDownloadURL} from "firebase/st
 import {toast, ToastContainer} from "react-toastify";
 import axios from 'axios';
 import {app, db} from "../../firebaseDB";
-import { ReplySharp } from '@mui/icons-material';
+import { SignalCellularNull } from '@mui/icons-material';
+import jquery from 'jquery';
 
 function Index() {
     //creating instance of useNavigate
@@ -36,7 +37,7 @@ function Index() {
         //set the default value to cache
         localStorage.setItem("princelab", JSON.stringify(owner));
     }
-
+    
     // track the changes in browser cache
     useEffect(() => {
         localStorage.setItem("princelab", JSON.stringify(owner));
@@ -181,17 +182,17 @@ function Index() {
     //custom setting nav items
     const SettingNav = () => {
         //change theme
-        const changeTheme = () => {
-            if (localStorage.getItem("theme") === "light") {
-                localStorage.setItem("theme", "dark");
-                dispatch(darkTheme());
-                setTheme("dark");
-            } else {
-                localStorage.setItem("theme", "light");
-                dispatch(lightTheme());
-                setTheme("light");
-            }
-        }
+        // const changeTheme = () => {
+        //     if (localStorage.getItem("theme") === "light") {
+        //         localStorage.setItem("theme", "dark");
+        //         dispatch(darkTheme());
+        //         setTheme("dark");
+        //     } else {
+        //         localStorage.setItem("theme", "light");
+        //         dispatch(lightTheme());
+        //         setTheme("light");
+        //     }
+        // }
 
         // go back
         const goBack = () => {
@@ -249,6 +250,9 @@ function Index() {
 
     //custom setting nav items
     const EditNav = () => {
+        //check if new image file for profile choose or not ?
+        const [isProfileChoose, setProfileChoose] = useState(false);
+        
         //change theme
         const changeTheme = () => {
             if (localStorage.getItem("theme") === "light") {
@@ -288,7 +292,45 @@ function Index() {
         // edit btn clicked
         const editProfile = () => {
             let fileName = editProfileData.profile.name;
+            
+            const finalEditUpdate = () => {
+         
+                // upload data to real time database
+                db.ref("users").on('value', snapshot => {
+                    snapshot.forEach((user) => {
+                        if (user.val().email === owner.email) {
+                            const docKey = user.key;
+                            //save the user data in db
+                            const db_api = `https://paradoxauth-56b93-default-rtdb.asia-southeast1.firebasedatabase.app/users/${docKey}.json`;
+                            const dbData = {
+                                username: editProfileData.username,
+                                email: editProfileData.email,
+                                password: user.val().password,
+                                profile: editProfileData.profile
+                            }
+                            axios.put(db_api, dbData)
+                                .then(res => {
+                                    //saving data to cookies
+                                    localStorage.setItem("princelab", JSON.stringify({
+                                        username: editProfileData.username,
+                                        email: editProfileData.email,
+                                        profile: editProfileData.profile
+                                    }))
+                                    setLoading(false);
+                                    setEditNavVisible(false);
 
+                                    //refresh once
+                                    window.location.assign("")
+                                    return true;
+                                })
+                                .catch(err => {
+                                    return false;
+                                })
+                        }
+                    })
+                });
+            }
+            
             //compare and get user password
             db.ref(`/users`).on('value', snapshot => {
                 snapshot.forEach((user) => {
@@ -296,78 +338,52 @@ function Index() {
                         //loading starts
                         setLoading(true);
 
-                        //update the password field value
-                        setEditProfileData({
-                            ...editProfileData,
-                            password: user.val().password
-                        });
-
-                        //db config
-                        const storage = getStorage();
-                        const metadata = {
-                            contentType: 'image/jpeg'
-                        };
-                        const storageRef = ref(storage, 'uploads/' + fileName);
-                        const uploadTask = uploadBytesResumable(storageRef, editProfileData.profile, metadata);
-
-                        //upload
-                        uploadTask.on('state_changed',
-                            (snapshot) => {
-                                // Get task progress, including the number of bytes uploaded and the total number of bytes to be uploaded
-                                const progress = (snapshot.bytesTransferred / snapshot.totalBytes) * 100;
-                                // toast.info('Upload is ' + progress + '% done');
-                                // switch (snapshot.state) {
-                                //     case 'paused':
-                                //         toast.info('Upload is paused');
-                                //         break;
-                                //     case 'running':
-                                //         toast.info('Upload is running');
-                                //         break;
-                                // }
-                            },
-                            (error) => {
-                                toast.error(error.message)
-                            },
-                            () => {
-                                // Upload completed successfully, now we can get the download URL
-                                getDownloadURL(uploadTask.snapshot.ref).then((downloadURL) => {
-                                    // upload data to real time database
-                                    db.ref("users").on('value', snapshot => {
-                                        snapshot.forEach((user) => {
-                                            if (user.val().email === owner.email) {
-                                                const docKey = user.key;
-                                                //save the user data in db
-                                                const db_api = `https://paradoxauth-56b93-default-rtdb.asia-southeast1.firebasedatabase.app/users/${docKey}.json`;
-                                                const dbData = {
-                                                    username: editProfileData.username,
-                                                    email: editProfileData.email,
-                                                    password: user.val().password,
-                                                    profile: downloadURL
-                                                }
-                                                axios.put(db_api, dbData)
-                                                    .then(res => {
-                                                        //saving data to cookies
-                                                        localStorage.setItem("princelab", JSON.stringify({
-                                                            username: editProfileData.username,
-                                                            email: editProfileData.email,
-                                                            profile: downloadURL
-                                                        }))
-                                                        setLoading(false);
-                                                        setEditNavVisible(false);
-                                                        
-                                                        //refresh once
-                                                        window.location.assign("")
-                                                        return true;
-                                                    })
-                                                    .catch(err => {
-                                                        return false;
-                                                    })
-                                            }
-                                        })
+                        //update if the new image added or not ?
+                        if (fileName === undefined) {
+                            //update the password field value
+                            setEditProfileData({
+                                ...editProfileData,
+                                profile:user.val().profile,
+                                password: user.val().password
+                            });
+                            finalEditUpdate()
+                        } else {
+                            //update the password field value
+                            setEditProfileData({
+                                ...editProfileData,
+                                password: user.val().password
+                            });
+                            
+                            //db config
+                            const storage = getStorage();
+                            const metadata = {
+                                contentType: 'image/jpeg'
+                            };
+                            const storageRef = ref(storage, 'uploads/' + fileName);
+                            const uploadTask = uploadBytesResumable(storageRef, editProfileData.profile, metadata);
+                            //upload
+                            uploadTask.on('state_changed',
+                                (snapshot) => {
+                                    // Get task progress, including the number of bytes uploaded and the total number of bytes to be uploaded
+                                    const progress = (snapshot.bytesTransferred / snapshot.totalBytes) * 100;
+                                },
+                                (error) => {
+                                    toast.error(error.message)
+                                },
+                                () => {
+                                    // Upload completed successfully, now we can get the download URL
+                                    getDownloadURL(uploadTask.snapshot.ref).then((downloadURL) => {
+                                        //update the password field value
+                                        setEditProfileData({
+                                            ...editProfileData,
+                                            profile:downloadURL
+                                        });
+                                        finalEditUpdate()
                                     });
-                                });
-                            }
-                        );
+                                }
+                            );
+                        }
+
                     }
                 })
             });
