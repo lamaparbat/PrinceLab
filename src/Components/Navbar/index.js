@@ -41,10 +41,10 @@ function Index() {
         localStorage.setItem("princelab", JSON.stringify(owner));
         setEditProfileData({
             username: owner.username,
-            email:( owner.email != null ? owner.email : ""),
+            email: (owner.email != null ? owner.email : ""),
             password: "",
             profile: {}
-        })
+        });
     }, [])
 
     //form focus
@@ -187,19 +187,14 @@ function Index() {
 
     //custom setting nav items
     const SettingNav = () => {
-        //change theme
-        // const changeTheme = () => {
-        //     if (localStorage.getItem("theme") === "light") {
-        //         localStorage.setItem("theme", "dark");
-        //         dispatch(darkTheme());
-        //         setTheme("dark");
-        //     } else {
-        //         localStorage.setItem("theme", "light");
-        //         dispatch(lightTheme());
-        //         setTheme("light");
-        //     }
-        // }
-
+        //disabled the edit & password button on socialAuth mode
+        useEffect(() => {
+            if (owner.mode != "custom") {
+                $("#edit_profile_btn").prop("disabled", true)
+                $("#change_password_btn").prop("disabled", true)
+            }
+        },[owner.mode])
+        
         // go back
         const goBack = () => {
             isSettingNavVisible ? setSettingNavVisible(false) : setSettingNavVisible(true);
@@ -211,7 +206,10 @@ function Index() {
             setSettingNavVisible(false)
             //reset the cache
             localStorage.setItem("princelab", JSON.stringify({
-                username: "", email: ""
+                username: "",
+                email: "",
+                profile:"",
+                mode: ""
             }))
 
             navigate("/Login")
@@ -233,6 +231,7 @@ function Index() {
                 <div className="profile_nav_row d-flex flex-column justify-content-center">
                     <button
                         className="mb-2 py-1 rounded-pill border-white"
+                        id="edit_profile_btn"
                         onClick={() => {
                             setSettingNavVisible(false);
                             setEditNavVisible(true)
@@ -241,10 +240,12 @@ function Index() {
                     </button>
                     <button
                         className="mb-2 py-1 rounded-pill border-white"
+                        id="change_password_btn"
                         onClick={() => {
                             setChangePasswordNavVisible(true);
                             setSettingNavVisible(false);
                         }}
+                       
                     >Change Password
                     </button>
                     <button

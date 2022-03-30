@@ -1,15 +1,15 @@
-import React, {useState, useEffect, useRef} from 'react';
-import {useLocation, useNavigate} from "react-router-dom";
-import {useSelector} from "react-redux";
+import React, { useState, useEffect, useRef } from 'react';
+import { useLocation, useNavigate } from "react-router-dom";
+import { useSelector } from "react-redux";
 import Store from "../../Store";
 import validator from "validator";
 // import {passwordStrength} from 'check-password-strength';
-import {app, auth, db} from '../../firebaseDB';
+import { app, auth, db } from '../../firebaseDB';
 import { getAuth, signInWithPopup, GoogleAuthProvider, GithubAuthProvider, sendEmailVerification } from "firebase/auth";
 import axios from 'axios';
 import '../Form/index.css';
 import $ from 'jquery';
-import {ToastContainer, toast} from 'react-toastify';
+import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import AccountCircleIcon from '@mui/icons-material/AccountCircle';
 import VpnKeyIcon from '@mui/icons-material/VpnKey';
@@ -22,22 +22,22 @@ import GoogleIcon from '@mui/icons-material/Google';
 import imageCompression from 'browser-image-compression';
 // import redirectRoute from "../../Redux/Reducers/RedirectRoute";
 
-function Index({type}) {
+function Index({ type }) {
     //creating instance of useSelector() -> redux
     const destineRoute = useSelector(state => state.RedirectRoute)
-    
+
     //get the update background mode form redux-store
     const bgMode = useSelector(state => state.changeTheme)
 
     //loading features on manipulating database
     const [isLoading, setLoading] = useState(false);
-    
+
     //set src base on signin form type
     const [currentFormImg1, setCurrentFormImg1] = useState(() => {
         return localStorage.getItem("theme") !== "dark" ? process.env.PUBLIC_URL + "/assets/signin.png" :
             process.env.PUBLIC_URL + "/assets/moon2.png"
     })
-    
+
     //set src base on signup form type
     const [currentFormImg2, setCurrentFormImg2] = useState(() => {
         return localStorage.getItem("theme") !== "dark" ? process.env.PUBLIC_URL + "/assets/soil.png" :
@@ -90,11 +90,11 @@ function Index({type}) {
                     user.val()
                 ])
             })
-        });  
-        setForm_type(type);        
-        
+        });
+        setForm_type(type);
+
     }, [])
-    
+
     //change the background content based on current mode/theme
     useEffect(() => {
         setCurrentFormImg1(() => {
@@ -111,7 +111,7 @@ function Index({type}) {
     const ToggleBtn = () => {
         return (
             <label className="switch">
-                <input type="checkbox"/>
+                <input type="checkbox" />
                 <span className="slider round"></span>
             </label>
         )
@@ -122,7 +122,7 @@ function Index({type}) {
         return (
             <div className='save_info'>
                 <div className='save_pw' onClick={() => setPw(true)}>
-                    <ToggleBtn/>
+                    <ToggleBtn />
                     <span id='remem_span' className='mx-3'>Remember Password</span>
                 </div>
                 <span
@@ -139,14 +139,14 @@ function Index({type}) {
         return (
             <div className='agree_terms'>
                 <input type="checkbox"
-                       className="checkbox"
-                       onClick={() => setAgreeTerms(true)}
+                    className="checkbox"
+                    onClick={() => setAgreeTerms(true)}
                 />
                 <span className='mx-3 text-secondary'>I read & agree to
-          <span
-              onClick={() => navigate("/Terms")}
-              className='text-danger btn p-0'> &nbsp;Terms and Condtion</span>
-        </span>
+                    <span
+                        onClick={() => navigate("/Terms")}
+                        className='text-danger btn p-0'> &nbsp;Terms and Condtion</span>
+                </span>
             </div>
         )
     }
@@ -163,24 +163,25 @@ function Index({type}) {
             //sending data to the firebase db server
             users.forEach(user => {
                 if ((user.username.trim() === loginData.username.trim()) && (user.password.trim() === loginData.password.trim())) {
-                    toast.success( "Login successfully")
+                    toast.success("Login successfully")
                     localStorage.setItem("princelab", JSON.stringify({
                         username: user.username,
                         email: user.email,
-                        profile: user.profile
+                        profile: user.profile,
+                        mode: "custom"
                     }));
 
                     //delay the notice by 1 second
                     destineRoute !== "" ? navigate("/" + destineRoute) :
                         setLoading(false);
-                        setTimeout(() => {
-                            navigate("/")
-                            //refresh the page
-                            window.location.assign("");
-                        }, 1000)
+                    setTimeout(() => {
+                        navigate("/")
+                        //refresh the page
+                        window.location.assign("");
+                    }, 1000)
                 }
             })
-            if(isLoading === false){
+            if (isLoading === false) {
                 toast.error("Login failed !!")
             }
         } else {
@@ -205,9 +206,9 @@ function Index({type}) {
         // notice("error", passwordStrength(pw).value);
 
         //sending data to the firebase db server
-        if(isUserAlreadyRegistered()){
+        if (isUserAlreadyRegistered()) {
             toast.error("User already exists");
-        }else{
+        } else {
             await axios.post("https://paradoxauth-56b93-default-rtdb.asia-southeast1.firebasedatabase.app/users.json", signupData)
                 .then(res => {
                     toast.success("Registration successfull");
@@ -241,10 +242,10 @@ function Index({type}) {
 
     //show password
     const showPassword = (id) => {
-        if($(`#${id}`).attr("type") === "password"){
+        if ($(`#${id}`).attr("type") === "password") {
             $("#password").attr("type", "text")
             setKeyIconShow(true)
-        }else{
+        } else {
             $("#password").attr("type", "password")
             setKeyIconShow(false)
         }
@@ -252,10 +253,10 @@ function Index({type}) {
 
     //show repassword
     const showRePassword = (id) => {
-        if($(`#${id}`).attr("type") === "password"){
+        if ($(`#${id}`).attr("type") === "password") {
             $(`#${id}`).attr("type", "text")
             setKeyIcon2Show(true)
-        }else{
+        } else {
             $(`#${id}`).attr("type", "password")
             setKeyIcon2Show(false)
         }
@@ -271,7 +272,7 @@ function Index({type}) {
                 autoFillForm(result.user);
 
             }).catch((error) => {
-            console.error(error.message)
+                console.error(error.message)
             });
 
     }
@@ -283,34 +284,31 @@ function Index({type}) {
         await signInWithPopup(auth, provider)
             .then((result) => {
                 //auto fill the form
-                console.log(result.user)
                 autoFillForm(result.user);
             }).catch((error) => {
-            console.error(error.message)
-        });
+                console.error(error.message)
+            });
     }
 
 
     //auto fillup the form fields
-    const autoFillForm = async (data) => {
-        await users.forEach(user => {
-                if (user.email === data.email) {
-                    toast.success( "Login successfully")
-                    localStorage.setItem("princelab", JSON.stringify({
-                        username: user.username,
-                        email: user.email,
-                        profile: user.profile
-                    }));
-                    
-                    //delay the notice by 1 second
-                    destineRoute !== "" ? navigate("/" + destineRoute) :
-                        setTimeout(() => {
-                            navigate("/")
-                            window.location.assign("")
-                        }, 1000)
-                    return true;
-                }
-            })
+    const autoFillForm = (data) => {
+        toast.success("Login successfully")
+        localStorage.setItem("princelab", JSON.stringify({
+            username: data.displayName,
+            email: data.email,
+            profile: data.photoURL,
+            mode:"socialAuth"
+        }));
+
+        //delay the notice by 1 second
+        destineRoute !== "" ? navigate("/" + destineRoute) :
+            setLoading(false);
+        setTimeout(() => {
+            navigate("/")
+            //refresh the page
+            window.location.assign("");
+        }, 1000)
     }
 
     return (
@@ -325,15 +323,15 @@ function Index({type}) {
                             src={
                                 currentFormImg1
                             }
-                            alt=""/> :
+                            alt="" /> :
                         <img
                             id='form_img'
                             className='img-fluid'
                             loading='lazy'
                             src={
-                               currentFormImg2
+                                currentFormImg2
                             }
-                            alt=""/>
+                            alt="" />
                 }
                 <div className='content px-5 pt-5'>
                     {
@@ -342,11 +340,11 @@ function Index({type}) {
                             >Sign in</h1> :
                             <h1 className='title fw-bold text-danger'>Sign Up</h1>
                     }
-                    <br/>
+                    <br />
 
                     {/* username or email feild */}
                     <div className='username_inp px-3'>
-                        <AccountCircleIcon id="icon"/>
+                        <AccountCircleIcon id="icon" />
                         <input
                             className='py-3 px-2'
                             type="text"
@@ -354,8 +352,8 @@ function Index({type}) {
                             placeholder='Username'
                             onChange={
                                 (e) => {
-                                    setLoginData({...loginData, username: e.target.value})
-                                    setSignupData({...signupData, username: e.target.value})
+                                    setLoginData({ ...loginData, username: e.target.value })
+                                    setSignupData({ ...signupData, username: e.target.value })
                                 }}
                         />
                     </div>
@@ -364,14 +362,14 @@ function Index({type}) {
                     {
                         form_type === "signup" ?
                             <div className='username_inp px-3'>
-                                <MailOutlineRoundedIcon id="icon"/>
+                                <MailOutlineRoundedIcon id="icon" />
                                 <input
                                     className='py-3 px-2'
                                     type="email"
                                     id="email"
                                     placeholder='Email'
                                     onChange={
-                                        (e) => setSignupData({...signupData, email: e.target.value})}
+                                        (e) => setSignupData({ ...signupData, email: e.target.value })}
                                 />
                             </div> : null
                     }
@@ -379,7 +377,7 @@ function Index({type}) {
 
                     {/* password feild */}
                     <div className='password_inp px-3'>
-                        <VpnKeyIcon id="icon"/>
+                        <VpnKeyIcon id="icon" />
                         <input
                             className='py-3 px-2'
                             type="password"
@@ -387,12 +385,12 @@ function Index({type}) {
                             id="password"
                             onChange={
                                 (e) => {
-                                    form_type != "signup" ? setLoginData({...loginData, password: e.target.value})
-                                        : setSignupData({...signupData, password: e.target.value})
+                                    form_type != "signup" ? setLoginData({ ...loginData, password: e.target.value })
+                                        : setSignupData({ ...signupData, password: e.target.value })
                                 }}
                         />
                         {
-                            isKeyIconShow ? <VisibilityIcon id="icon" onClick={() => showPassword("password")} />: <VisibilityOffIcon
+                            isKeyIconShow ? <VisibilityIcon id="icon" onClick={() => showPassword("password")} /> : <VisibilityOffIcon
                                 id="icon"
                                 onClick={() => showPassword("password")}
                             />
@@ -403,7 +401,7 @@ function Index({type}) {
                     {
                         form_type === "signup" ?
                             <div className='password_inp px-3'>
-                                <VpnKeyIcon id="icon"/>
+                                <VpnKeyIcon id="icon" />
                                 <input
                                     className='py-3 px-2'
                                     type="password"
@@ -412,7 +410,7 @@ function Index({type}) {
                                     ref={repassword}
                                 />
                                 {
-                                    isKeyIcon2Show ? <VisibilityIcon id="icon" onClick={() => showRePassword("repassword")} />: <VisibilityOffIcon
+                                    isKeyIcon2Show ? <VisibilityIcon id="icon" onClick={() => showRePassword("repassword")} /> : <VisibilityOffIcon
                                         id="icon"
                                         onClick={() => showRePassword("repassword")}
                                     />
@@ -422,7 +420,7 @@ function Index({type}) {
 
                     {/* save password on login or agree on signup  */}
                     {
-                        form_type != "signup" ? <SavePassword/> : <AgreeTerms/>
+                        form_type != "signup" ? <SavePassword /> : <AgreeTerms />
                     }
 
                     {/* login or signup btn clicked */}
@@ -475,13 +473,13 @@ function Index({type}) {
                                         id='google'
                                         onClick={signupWithGithub}
                                     >
-                                        <GitHubIcon/>
+                                        <GitHubIcon />
                                     </div>
                                     <div
                                         id='google'
                                         onClick={signupWithGoogle}
                                     >
-                                        <GoogleIcon/>
+                                        <GoogleIcon />
                                     </div>
                                     {/*<div id='apple'>*/}
                                     {/*    <AppleIcon id="apple_icon"/>*/}
@@ -492,7 +490,7 @@ function Index({type}) {
 
                 </div>
             </div>
-            <ToastContainer autoClose={1000} position={"top-center"}/><br/><br/>
+            <ToastContainer autoClose={1000} position={"top-center"} /><br /><br />
         </div>
     )
 }
