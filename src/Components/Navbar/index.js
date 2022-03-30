@@ -12,8 +12,6 @@ import {getStorage, ref, uploadBytesResumable, getDownloadURL} from "firebase/st
 import {toast, ToastContainer} from "react-toastify";
 import axios from 'axios';
 import {app, db} from "../../firebaseDB";
-import { SignalCellularNull } from '@mui/icons-material';
-import jquery from 'jquery';
 
 function Index() {
     //creating instance of useNavigate
@@ -143,17 +141,21 @@ function Index() {
                     <CancelIcon id="cancleIcon" onClick={showProfileNav}/>
                     <div className="pic">
                         <img
+                            loading='lazy'
+                            alt="agriculture"
                             src={owner.profile != "" ? owner.profile : process.env.PUBLIC_URL + "/assets/agriculture2.png"}/>
                         <p className="mt-2">{owner.username}</p>
                     </div>
                     <div className="profile_nav_row">
                         <div className="nav_card" onClick={changeTheme}>
                             <img
+                                loading='lazy'
                                 src={(theme === "light" ? process.env.PUBLIC_URL + "/assets/themes.svg" : process.env.PUBLIC_URL + "/assets/theme2.svg")}/>
                             <p>Theme</p>
                         </div>
                         <div className="nav_card" onClick={openSettingNav}>
                             <img
+                                loading='lazy'
                                 src={process.env.PUBLIC_URL + "/assets/user.svg"}/>
                             <p>Setting</p>
                         </div>
@@ -162,7 +164,9 @@ function Index() {
                     <CancelIcon id="cancleIcon" onClick={showProfileNav}/>
                     <div className="profile_nav_row mt-5">
                         <div className="nav_card" onClick={changeTheme}>
-                            <img
+                                <img
+                                    loading='lazy'
+                                    alt="theme"
                                 src={process.env.PUBLIC_URL + "/assets/themes.svg"}/>
                             <p>Theme</p>
                         </div>
@@ -170,7 +174,9 @@ function Index() {
                             navigate("/Login")
                             setNavVisible(false)
                         }}>
-                            <img
+                                <img
+                                    alt="user"
+                                    loading='lazy'
                                 src={process.env.PUBLIC_URL + "/assets/user.svg"}/>
                             <p>Sign In</p>
                         </div>
@@ -219,6 +225,8 @@ function Index() {
                 <KeyboardBackspaceIcon className="btn p-0" onClick={goBack}/>
                 <div className="pic">
                     <img
+                        loading='lazy'
+                        alt="agriculture"
                         src={owner.profile != "" ? owner.profile : process.env.PUBLIC_URL + "/assets/agriculture2.png"}/>
                     <p className="mt-2">{owner.email}</p>
                 </div>
@@ -395,7 +403,9 @@ function Index() {
             style={{marginTop: "-550px"}}>
             <KeyboardBackspaceIcon className="btn p-0" onClick={goBack}/>
             <div className="pic">
-                <img
+                    <img
+                        alt="agriculture"
+                        loading='lazy'
                     src={owner.profile != "" ? owner.profile : process.env.PUBLIC_URL + "/assets/agriculture2.png"}/>
             </div>
             <div className="profile_nav_row d-flex flex-column justify-content-center">
@@ -505,6 +515,7 @@ function Index() {
                 <KeyboardBackspaceIcon className="btn p-0" onClick={goBack}/>
                 <div className="pic">
                     <img
+                        alt="agriculture"
                         src={owner.profile != "" ? owner.profile : process.env.PUBLIC_URL + "/assets/agriculture2.png"}
                     />
                 </div>
@@ -661,6 +672,8 @@ function Index() {
                 <li className='link  text-decoration-none'>
                     <Avatar
                         id="avatar"
+                        loading='lazy'
+                        defer="async"
                         src={owner.profile === "" || owner.profile === undefined ? process.env.PUBLIC_URL + "/assets/agriculture2.png" : owner.profile }
                         style={{border: "0.5px solid white"}}
                         onClick={showProfileNav}

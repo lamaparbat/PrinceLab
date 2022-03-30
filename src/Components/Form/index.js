@@ -3,7 +3,7 @@ import {useLocation, useNavigate} from "react-router-dom";
 import {useSelector} from "react-redux";
 import Store from "../../Store";
 import validator from "validator";
-import {passwordStrength} from 'check-password-strength';
+// import {passwordStrength} from 'check-password-strength';
 import {app, auth, db} from '../../firebaseDB';
 import { getAuth, signInWithPopup, GoogleAuthProvider, GithubAuthProvider, sendEmailVerification } from "firebase/auth";
 import axios from 'axios';
@@ -15,18 +15,34 @@ import AccountCircleIcon from '@mui/icons-material/AccountCircle';
 import VpnKeyIcon from '@mui/icons-material/VpnKey';
 import VisibilityOffIcon from '@mui/icons-material/VisibilityOff';
 import VisibilityIcon from '@mui/icons-material/Visibility';
-import AppleIcon from '@mui/icons-material/Apple';
+// import AppleIcon from '@mui/icons-material/Apple';
 import MailOutlineRoundedIcon from '@mui/icons-material/MailOutlineRounded';
 import GitHubIcon from '@mui/icons-material/GitHub';
 import GoogleIcon from '@mui/icons-material/Google';
-import redirectRoute from "../../Redux/Reducers/RedirectRoute";
+import imageCompression from 'browser-image-compression';
+// import redirectRoute from "../../Redux/Reducers/RedirectRoute";
 
 function Index({type}) {
     //creating instance of useSelector() -> redux
     const destineRoute = useSelector(state => state.RedirectRoute)
+    
+    //get the update background mode form redux-store
+    const bgMode = useSelector(state => state.changeTheme)
 
     //loading features on manipulating database
     const [isLoading, setLoading] = useState(false);
+    
+    //set src base on signin form type
+    const [currentFormImg1, setCurrentFormImg1] = useState(() => {
+        return localStorage.getItem("theme") !== "dark" ? process.env.PUBLIC_URL + "/assets/signin.png" :
+            process.env.PUBLIC_URL + "/assets/moon2.png"
+    })
+    
+    //set src base on signup form type
+    const [currentFormImg2, setCurrentFormImg2] = useState(() => {
+        return localStorage.getItem("theme") !== "dark" ? process.env.PUBLIC_URL + "/assets/soil.png" :
+            process.env.PUBLIC_URL + "/assets/moon1.png"
+    })
 
     //all user data
     const [users, setUsers] = useState([]);
@@ -74,15 +90,22 @@ function Index({type}) {
                     user.val()
                 ])
             })
-        });    
+        });  
+        setForm_type(type);        
+        
     }, [])
     
-    
-
-    //update the form type -> signup or login
+    //change the background content based on current mode/theme
     useEffect(() => {
-        setForm_type(type);
-    }, [])
+        setCurrentFormImg1(() => {
+            return localStorage.getItem("theme") !== "dark" ? process.env.PUBLIC_URL + "/assets/signin.png" :
+                process.env.PUBLIC_URL + "/assets/moon2.png"
+        })
+        setCurrentFormImg2(() => {
+            return localStorage.getItem("theme") !== "dark" ? process.env.PUBLIC_URL + "/assets/soil.png" :
+                process.env.PUBLIC_URL + "/assets/moon1.png"
+        })
+    }, [bgMode])
 
     // custom toggle btn
     const ToggleBtn = () => {
@@ -178,14 +201,14 @@ function Index({type}) {
     }
 
     //check password strength
-    const checkPasswordStrength = (pw) => {
+    const checkPasswordStrength = async (pw) => {
         // notice("error", passwordStrength(pw).value);
 
         //sending data to the firebase db server
         if(isUserAlreadyRegistered()){
             toast.error("User already exists");
         }else{
-            axios.post("https://paradoxauth-56b93-default-rtdb.asia-southeast1.firebasedatabase.app/users.json", signupData)
+            await axios.post("https://paradoxauth-56b93-default-rtdb.asia-southeast1.firebasedatabase.app/users.json", signupData)
                 .then(res => {
                     toast.success("Registration successfull");
 
@@ -239,10 +262,10 @@ function Index({type}) {
     }
 
     //signup with google
-    const signupWithGoogle = () => {
+    const signupWithGoogle = async () => {
         const provider = new GoogleAuthProvider();
         const auth = getAuth();
-        signInWithPopup(auth, provider)
+        await signInWithPopup(auth, provider)
             .then((result) => {
                 //auto fill the form
                 autoFillForm(result.user);
@@ -254,10 +277,10 @@ function Index({type}) {
     }
 
     //signup with github
-    const signupWithGithub = () => {
+    const signupWithGithub = async () => {
         const provider = new GithubAuthProvider();
         const auth = getAuth();
-        signInWithPopup(auth, provider)
+        await signInWithPopup(auth, provider)
             .then((result) => {
                 //auto fill the form
                 console.log(result.user)
@@ -269,9 +292,8 @@ function Index({type}) {
 
 
     //auto fillup the form fields
-    const autoFillForm = (data) => {
-        console.log(data.email)
-        users.forEach(user => {
+    const autoFillForm = async (data) => {
+        await users.forEach(user => {
                 if (user.email === data.email) {
                     toast.success( "Login successfully")
                     localStorage.setItem("princelab", JSON.stringify({
@@ -298,16 +320,18 @@ function Index({type}) {
                     form_type != "signup" ?
                         <img
                             id='form_img'
+                            className='img-fluid'
+                            loading='lazy'
                             src={
-                              localStorage.getItem("theme") !== "dark" ? process.env.PUBLIC_URL + "/assets/signin.png" :
-                                  process.env.PUBLIC_URL + "/assets/moon2.png"
+                                currentFormImg1
                             }
                             alt=""/> :
                         <img
                             id='form_img'
+                            className='img-fluid'
+                            loading='lazy'
                             src={
-                                localStorage.getItem("theme") !== "dark" ? process.env.PUBLIC_URL + "/assets/soil.png" :
-                                    process.env.PUBLIC_URL + "/assets/moon1.png"
+                               currentFormImg2
                             }
                             alt=""/>
                 }
