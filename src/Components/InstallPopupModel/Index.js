@@ -8,7 +8,7 @@ import MicRoundedIcon from '@mui/icons-material/MicRounded';
 import VideocamOutlinedIcon from '@mui/icons-material/VideocamOutlined';
 import PhotoSizeSelectActualOutlinedIcon from '@mui/icons-material/PhotoSizeSelectActualOutlined';
 import CameraAltOutlinedIcon from '@mui/icons-material/CameraAltOutlined';
-import { Avatar } from '@mui/material';
+
 
 //custom input div
 const InputComp = ({type}) => {
@@ -80,6 +80,8 @@ const InstallPopupBottomNavbar = ({ type }) => {
         const url = URL.createObjectURL(event.target.files[0])
         console.log(event.target.files[0])
         $(".discover_card_content .photoContainer #photo_icon").attr("src", url)
+        
+        //loading the image object into tf model
     }
     return (
         <div className="installBottomNav mb-5 w-100">
