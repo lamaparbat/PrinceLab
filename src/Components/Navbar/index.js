@@ -36,6 +36,14 @@ function Index() {
         localStorage.setItem("princelab", JSON.stringify(owner));
     }
     
+    // edit profile data
+    const [editProfileData, setEditProfileData] = useState({
+        username: owner.username,
+        email: owner.email,
+        password: "",
+        profile: {}
+    });
+    
     // track the changes in browser cache
     useEffect(() => {
         localStorage.setItem("princelab", JSON.stringify(owner));
@@ -50,14 +58,6 @@ function Index() {
     //form focus
     const [usernameFocus, setUsernameFocus] = useState(true);
     const [emailFocus, setEmailFocus] = useState(false);
-
-    // edit profile data
-    const [editProfileData, setEditProfileData] = useState({
-        username: owner.username,
-        email: owner.email,
-        password: "",
-        profile: {}
-    });
 
     //create instance of redux dispatch & useselectore
     const dispatch = useDispatch();
@@ -262,6 +262,7 @@ function Index() {
         //check if new image file for profile choose or not ?
         const [isProfileChoose, setProfileChoose] = useState(false);
         
+        
         //change theme
         const changeTheme = () => {
             if (localStorage.getItem("theme") === "light") {
@@ -301,10 +302,10 @@ function Index() {
         // edit btn clicked
         const editProfile = () => {
             let fileName = editProfileData.profile.name;
-            
-            const finalEditUpdate = () => {
-         
+          
+            const finalEditUpdate = (url) => {
                 // upload data to real time database
+                console.log(url);
                 db.ref("users").on('value', snapshot => {
                     snapshot.forEach((user) => {
                         if (user.val().email === owner.email) {
@@ -315,15 +316,18 @@ function Index() {
                                 username: editProfileData.username,
                                 email: editProfileData.email,
                                 password: user.val().password,
-                                profile: editProfileData.profile
+                                profile: url != null ? url:editProfileData.profile
                             }
+                            console.log(dbData)
+                        
                             axios.put(db_api, dbData)
                                 .then(res => {
                                     //saving data to cookies
                                     localStorage.setItem("princelab", JSON.stringify({
                                         username: editProfileData.username,
                                         email: editProfileData.email,
-                                        profile: editProfileData.profile
+                                        profile: url != null ? url : editProfileData.profile,
+                                        mode:"custom"
                                     }))
                                     setLoading(false);
                                     setEditNavVisible(false);
@@ -355,7 +359,8 @@ function Index() {
                                 profile:user.val().profile,
                                 password: user.val().password
                             });
-                            finalEditUpdate()
+        
+                            finalEditUpdate(null)
                         } else {
                             //update the password field value
                             setEditProfileData({
@@ -382,12 +387,8 @@ function Index() {
                                 () => {
                                     // Upload completed successfully, now we can get the download URL
                                     getDownloadURL(uploadTask.snapshot.ref).then((downloadURL) => {
-                                        //update the password field value
-                                        setEditProfileData({
-                                            ...editProfileData,
-                                            profile:downloadURL
-                                        });
-                                        finalEditUpdate()
+                                        
+                                        finalEditUpdate(downloadURL)
                                     });
                                 }
                             );
