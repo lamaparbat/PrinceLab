@@ -211,7 +211,6 @@ function Index() {
                 profile:"",
                 mode: ""
             }))
-
             navigate("/Login")
         }
 
