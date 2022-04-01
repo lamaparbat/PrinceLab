@@ -305,7 +305,6 @@ function Index() {
           
             const finalEditUpdate = (url) => {
                 // upload data to real time database
-                console.log(url);
                 db.ref("users").on('value', snapshot => {
                     snapshot.forEach((user) => {
                         if (user.val().email === owner.email) {
@@ -318,7 +317,6 @@ function Index() {
                                 password: user.val().password,
                                 profile: url != null ? url:editProfileData.profile
                             }
-                            console.log(dbData)
                         
                             axios.put(db_api, dbData)
                                 .then(res => {
@@ -360,7 +358,7 @@ function Index() {
                                 password: user.val().password
                             });
         
-                            finalEditUpdate(null)
+                            finalEditUpdate(user.val().profile)
                         } else {
                             //update the password field value
                             setEditProfileData({
