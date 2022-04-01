@@ -171,14 +171,19 @@ function Index({ type }) {
                         mode: "custom"
                     }));
 
-                    //delay the notice by 1 second
-                    destineRoute !== "" ? navigate("/" + destineRoute) :
+                    console.log(destineRoute)
+                    //auto redirect after login
+                    if (destineRoute !== "") {
+                        navigate("/" + destineRoute)
+                    } else {
                         setLoading(false);
-                    setTimeout(() => {
-                        navigate("/")
-                        //refresh the page
-                        window.location.assign("");
-                    }, 1000)
+                        //delay the notice by 1 second
+                        setTimeout(() => {
+                            navigate("/")
+                            //refresh the page
+                            window.location.assign("");
+                        }, 1000)
+                    }
                 }
             })
             if (isLoading === false) {
@@ -219,9 +224,11 @@ function Index({ type }) {
                         password: "",
                     });
 
+                    //auto redirect after successfully data insert
                     setTimeout(() => {
                         navigate("/Login")
                     }, 1000)
+                    
                 })
                 .catch(err => {
                     toast.error("Registration Failed");
@@ -269,6 +276,7 @@ function Index({ type }) {
         await signInWithPopup(auth, provider)
             .then((result) => {
                 //auto fill the form
+                console.log(result)
                 autoFillForm(result.user);
 
             }).catch((error) => {
@@ -301,14 +309,20 @@ function Index({ type }) {
             mode:"socialAuth"
         }));
 
-        //delay the notice by 1 second
-        destineRoute !== "" ? navigate("/" + destineRoute) :
+        
+        console.log(destineRoute)
+        //auto redirect after login
+        if (destineRoute !== "") {
+            navigate("/" + destineRoute)
+        } else {
             setLoading(false);
-        setTimeout(() => {
-            navigate("/")
-            //refresh the page
-            window.location.assign("");
-        }, 1000)
+            //delay the notice by 1 second
+            setTimeout(() => {
+                navigate("/")
+                //refresh the page
+                window.location.assign("");
+            }, 1000)
+        }
     }
 
     return (

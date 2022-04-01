@@ -190,8 +190,8 @@ function Index() {
         //disabled the edit & password button on socialAuth mode
         useEffect(() => {
             if (owner.mode != "custom") {
-                $("#edit_profile_btn").prop("disabled", true)
-                $("#change_password_btn").prop("disabled", true)
+                $("#edit_profile_btn").css("display", "none")
+                $("#change_password_btn").css("display", "none")
             }
         },[owner.mode])
         
