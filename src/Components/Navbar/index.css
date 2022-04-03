@@ -26,10 +26,7 @@
    background-color: unset !important;
 }
 .navbar #avatar{
-   box-shadow: 0px 0px 5px 0px rgba(0, 0, 0, 0.75) !important;
-   -webkit-box-shadow: 0px 0px 5px 0px rgba(0, 0, 0, 0.75) !important;
-   -moz-box-shadow: 0px 0px 5px 0px rgba(0, 0, 0, 0.75) !important;
-   border-radius: 40px !important;
+   border: none !important;
 }
 .css-1wlk0hk-MuiAvatar-root {
    border-radius:50% !important;
@@ -82,8 +79,6 @@
    width: 170px;
    text-align: center;
    list-style: none;
-   border: 1px solid #eaeaea !important;
-   border-radius: 50px !important;
    cursor: pointer;
    display: flex;
    flex-direction: column;

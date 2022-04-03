@@ -141,7 +141,6 @@ function Index() {
                     <CancelIcon id="cancleIcon" onClick={showProfileNav}/>
                     <div className="pic">
                         <img
-                            loading='lazy'
                             alt="agriculture"
                             src={owner.profile != "" ? owner.profile : process.env.PUBLIC_URL + "/assets/agriculture2.png"}/>
                         <p className="mt-2">{owner.username}</p>
@@ -149,14 +148,15 @@ function Index() {
                     <div className="profile_nav_row">
                         <div className="nav_card" onClick={changeTheme}>
                             <img
-                                loading='lazy'
-                                src={(theme === "light" ? process.env.PUBLIC_URL + "/assets/themes.svg" : process.env.PUBLIC_URL + "/assets/theme2.svg")}/>
+                                alt="nav_icon"
+                                src={process.env.PUBLIC_URL + "/assets/theme.png"}/>
                             <p>Theme</p>
                         </div>
                         <div className="nav_card" onClick={openSettingNav}>
                             <img
-                                loading='lazy'
-                                src={process.env.PUBLIC_URL + "/assets/user.svg"}/>
+                                src={process.env.PUBLIC_URL + "/assets/user.svg"}
+                                alt="nav_icon"
+                            />
                             <p>Setting</p>
                         </div>
                     </div>
@@ -167,7 +167,7 @@ function Index() {
                                 <img
                                     loading='lazy'
                                     alt="theme"
-                                src={process.env.PUBLIC_URL + "/assets/themes.svg"}/>
+                                src={process.env.PUBLIC_URL + "/assets/theme.png"}/>
                             <p>Theme</p>
                         </div>
                         <div className="nav_card" onClick={() => {
