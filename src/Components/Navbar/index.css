@@ -10,7 +10,7 @@
    align-items: center;
    border-radius: 10px !important;
    backdrop-filter: blur(10px);
-   background-color: rgba(65, 65, 65, 0.6);
+   background-color: rgba(65, 65, 65, 0.6) !important;
 }
 
 .navbar li {
