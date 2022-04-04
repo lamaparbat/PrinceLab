@@ -12,23 +12,23 @@ function Index({title, items}) {
                 items.map((list, index) => {
                     return (
                         <div className="show_more_list_div" key={index}>
-                            <span>{list.c1}</span>
-                            <span>
+                            <span key={index+1}>{list.c1}</span>
+                            <span key={index+2}>
                                     {
                                         (title === "Pricing") ?
                                             list.c2 :
                                             (list.c2 === true) ?
-                                                <DoneIcon className="p-1 text-success successIcon"/> :
-                                                <CloseIcon className="p-1 wrongIcon"/>
+                                            <DoneIcon className="p-1 text-success successIcon" key={index+3} /> :
+                                            <CloseIcon className="p-1 wrongIcon" key={index+4} />
                                     }
                                 </span>
-                            <span>
+                            <span key={index+5}>
                                     {
                                         (title === "Pricing") ?
                                             list.c3 :
                                             (list.c3 === true) ?
-                                                <DoneIcon className="p-1 text-success successIcon"/> :
-                                                <CloseIcon className="p-1"/>
+                                            <DoneIcon className="p-1 text-success successIcon" key={index+6} /> :
+                                            <CloseIcon className="p-1" key={index+7} />
                                     }
                                 </span>
                         </div>
