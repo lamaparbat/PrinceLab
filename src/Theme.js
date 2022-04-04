@@ -87,10 +87,6 @@ export const DarkTheme = createGlobalStyle`
     background-color: rgb(28, 28, 28) !important;
   }
 
-  .resp_nav .items li {
-    border: 1px solid #3d3d3d !important;
-  }
-
   .form .box .content .username_inp, .password_inp {
     border: 1px solid rgb(87, 87, 87) !important;
   }

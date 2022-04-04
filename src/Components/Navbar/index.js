@@ -229,7 +229,7 @@ function Index() {
                 </div>
                 <div className="profile_nav_row d-flex flex-column justify-content-center">
                     <button
-                        className="mb-2 py-1 rounded-pill border-white"
+                        className="mb-2 py-1 border-white"
                         id="edit_profile_btn"
                         onClick={() => {
                             setSettingNavVisible(false);
@@ -238,7 +238,7 @@ function Index() {
                     >Edit Profile
                     </button>
                     <button
-                        className="mb-2 py-1 rounded-pill border-white"
+                        className="mb-2 py-1 border-white"
                         id="change_password_btn"
                         onClick={() => {
                             setChangePasswordNavVisible(true);
@@ -248,7 +248,7 @@ function Index() {
                     >Change Password
                     </button>
                     <button
-                        className="mb-2 py-1 rounded-pill border-white"
+                        className="mb-2 py-1 border-white"
                         onClick={logout}
                     >Sign Out
                     </button>

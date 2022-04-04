@@ -86,10 +86,6 @@
    justify-content: center;
 }
 
-.resp_nav .items li:hover {
-   background-color: aliceblue;
-}
-
 .profile_nav{
    padding:20px;
    right:20px;
@@ -123,7 +119,8 @@
    background-color:unset !important;
 }
 input, .profile_nav button{
-   border: 1px solid #606060 !important;
+   border: 0.5px solid #606060 !important;
+   border-radius: 7px !important;
 }
 .profile_nav .pic img{
    height:80px;
