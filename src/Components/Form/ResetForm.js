@@ -1,10 +1,19 @@
-import React, {useRef, useState} from 'react';
+import React, {useRef, useState, useEffect} from 'react';
 import {useNavigate} from "react-router-dom";
 import axios from 'axios';
 import {db} from "../../firebaseDB";
-import {toast, ToastContainer} from "react-toastify";
+import { toast, ToastContainer } from "react-toastify";
+import $ from 'jquery';
 
 const Index = () => {
+    //loading state
+    const [isLoading, setLoading] = useState(false);
+    
+    //disabled the button if loading
+    useEffect(() => {
+        isLoading ? $(".reset_btn").prop("disabled", true) : $(".reset_btn").prop("disabled", false)
+    }, [isLoading])
+    
     //create instance of useNavigate hooks
     const navigate = useNavigate()
 
@@ -15,21 +24,18 @@ const Index = () => {
         backgroundColor: "whitesmoke"
     }
 
-    //cur user login data
-    const [docKey, setDocKey] = useState("");
-
-    //new password
+    //form data
+    const email = useRef();
     const password = useRef();
 
     //reset handling
     const reset = () => {
-        if(password.current.value != ""){
-            const email = JSON.parse(localStorage.getItem("reset_email")).email;
-
+        if (password.current.value !== "") {
+            setLoading(true)
             //db update
             db.ref(`/users`).on('value', snapshot => {
                 snapshot.forEach((user) => {
-                    if (user.val().email === email) {
+                    if (user.val().email === email.current.value) {
                         const docKey = user.key
                         const userData = {
                             username:user.val().username,
@@ -37,13 +43,13 @@ const Index = () => {
                             password: password.current.value,
                             profile: user.val().profile
                         }
-
                         //save the user data in db
-                        const db_apis = `https://princelab-f13cd-default-rtdb.firebaseio.com/users/${docKey}.json`;
+                        const db_apis = `https://paradoxauth-56b93-default-rtdb.asia-southeast1.firebasedatabase.app//users/${docKey}.json`;
                         axios.put(db_apis,userData)
                             .then(res => {
-                                toast.success("Password successfully reset.")
                                 setTimeout(() => {
+                                    setLoading(false)
+                                    toast.success("Password successfully reset.")
                                     navigate("/Login");
                                 },2000)
                             })
@@ -54,24 +60,37 @@ const Index = () => {
                 })
             });
         }else{
-            toast.error("Please enter password !")
+            toast.error("Please fill the field !")
         }
     }
 
     return (
         <div className={"container-fluid d-flex justify-content-center py-5"}>
             <div className="formCont p-5" style={styles}>
+                <span>Enter registered email ID</span>
+                <input
+                    className={"form-control"}
+                    type={"email"}
+                    ref={email}
+                    required
+                /><br />
                 <span>Enter new password</span>
                 <input
                     className={"form-control"}
                     type={"password"}
                     ref={password}
+                    required
                 /><br/>
-                <button
-                    className={"btn px-5 reset_btn"}
-                    onClick={reset}
-                >Reset
-                </button>
+                <center>
+                    <button
+                        className={"btn px-5 reset_btn text-light "}
+                        onClick={reset}
+                    >
+                        { 
+                            isLoading ? "Reseting..." : "Reset"
+                        }
+                    </button>
+                </center>
             </div>
             <ToastContainer autoClose={1000} position="top-center" />
         </div>

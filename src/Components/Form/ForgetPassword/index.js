@@ -1,7 +1,7 @@
 import React, {useEffect, useState, useRef} from 'react';
 import {useSelector} from "react-redux";
 import '../ForgetPassword/index.css';
-import { app, auth, db } from '../../../firebaseDB';
+import { auth } from '../../../firebaseDB';
 import {toast, ToastContainer} from "react-toastify";
 import $ from 'jquery';
 import axios from "axios";
@@ -18,8 +18,6 @@ const Index = () => {
 
     //theme state
     const [theme, setTheme] = useState({mode: ""});
-    const [url1, setUrl1] = useState("")
-    const [url2, setUrl2] = useState("")
     
     //select reset password method
     const [isHomeCardVisible, setHomeCardVisible] = useState(true)
@@ -44,16 +42,16 @@ const Index = () => {
     useEffect(() => {
         if(code.code1 === "" && code.code2 === "" && code.code3 === "" && code.code4 === ""){
             $("#code1").focus()
-        }else if(code.code1 != "" && code.code2 === "" && code.code3 === "" && code.code4 === ""){
+        }else if(code.code1 !== "" && code.code2 === "" && code.code3 === "" && code.code4 === ""){
             $("#code2").focus()
-        }else if(code.code1 != "" && code.code2 != "" && code.code3 === "" && code.code4 === ""){
+        }else if(code.code1 !== "" && code.code2 !== "" && code.code3 === "" && code.code4 === ""){
             $("#code3").focus()
-        }else if(code.code1 != "" && code.code2 != "" && code.code3 != "" && code.code4 === ""){
+        }else if(code.code1 !== "" && code.code2 !== "" && code.code3 !== "" && code.code4 === ""){
             $("#code4").focus()
         }
 
         //render s
-        if(code.code1 != "" && code.code2 != "" && code.code3 != "" && code.code4 != "") {
+        if (code.code1 !== "" && code.code2 !== "" && code.code3 !== "" && code.code4 !== "") {
             setResetPasswordCardVisible(true)
             setMobileCardVisible(false);
         }else{
@@ -64,7 +62,7 @@ const Index = () => {
     //open card function
     const openCard = (id) => {
         setHomeCardVisible(false);
-        if(id != "mail"){
+        if (id !== "mail"){
             setMobileCardVisible(true)
             setMailCardVisible(false);
         }else{
@@ -81,6 +79,7 @@ const Index = () => {
                     id={id}
                     className={"img-fluid"}
                     src={url}
+                    alt="img"
                 />
                 <div className={"card_content"}>
                     <span className={"card1_title"}>{title}</span>
@@ -98,8 +97,9 @@ const Index = () => {
                     <img
                         id={"mobile"}
                         className={"img-fluid"}
-                        src={(theme.mode != "dark") ? process.env.PUBLIC_URL+"/assets/mobile.png" :
-                            process.env.PUBLIC_URL+"/assets/mobile2.png"}
+                        src={(theme.mode !== "dark") ? process.env.PUBLIC_URL+"/assets/mobile.png" :
+                            process.env.PUBLIC_URL + "/assets/mobile2.png"}
+                        alt="img"
                     /><br/><br /><br/>
                     <h5>Enter the 4-digit recovery code</h5>
                     <p>The recovery code was sent to your provided phone number</p>
@@ -153,12 +153,12 @@ const Index = () => {
     const EmailVerifyCard = () => {
         //send reset token to gmail
         const sendResetTokenVaiMail = () => {
-           if(email.current.value != ""){
+            if (email.current.value !== ""){
                setLoading(true);
                const emailVal = email.current.value;
-               auth.sendPasswordResetEmail().then((emailVal) => {
+               auth.sendPasswordResetEmail(emailVal).then((emailVal) => {
                    //upload the mail id to database for verification
-                   const email_db_api =  process.env.REACT_APP_CRUD_DB_URL+"users.json";
+                   const email_db_api = process.env.REACT_APP_DB_URL+"users.json";
                    console.log(emailVal)
                    const data = {
                        emailID: emailVal
@@ -170,7 +170,8 @@ const Index = () => {
                            email.current.value = "";
                        },1000)
                    });
-               }).catch(function(error) {
+               }).catch(function (error) {
+                   console.log(error)
                    toast.error("You are not registered in our database.")
                });
            }else{
@@ -184,8 +185,9 @@ const Index = () => {
                     <img
                         id={"mail"}
                         className={"img-fluid"}
-                        src={(theme.mode != "dark") ? process.env.PUBLIC_URL+"/assets/mail.png" :
-                            process.env.PUBLIC_URL+"/assets/mail2.png"}
+                        src={(theme.mode !== "dark") ? process.env.PUBLIC_URL+"/assets/mail.png" :
+                            process.env.PUBLIC_URL + "/assets/mail2.png"}
+                        alt="img"
                     /><br/><br /><br/>
                     <h5>Enter your email address</h5>
                     <p>The recovery code will be send to your email address</p><br/>
@@ -213,8 +215,9 @@ const Index = () => {
                     <img
                         id={"mail"}
                         className={"img-fluid"}
-                        src={(theme.mode != "dark") ? process.env.PUBLIC_URL+"/assets/mobile.png" :
-                            process.env.PUBLIC_URL+"/assets/mobile2.png"}
+                        src={(theme.mode !== "dark") ? process.env.PUBLIC_URL+"/assets/mobile.png" :
+                            process.env.PUBLIC_URL + "/assets/mobile2.png"}
+                        alt="img"
                     /><br/><br /><br/>
                     <h5>Create your new password</h5><br/>
                    <div className={"text-start"}>
@@ -236,7 +239,9 @@ const Index = () => {
            <div className={"forget_cont_row"}>
                <img
                    id={"main_img"}
-                   src={process.env.PUBLIC_URL + "/assets/moon1.png"}/>
+                    src={process.env.PUBLIC_URL + "/assets/moon1.png"}
+                    alt="img"
+                />
                <div className="box py-5">
                    <div className={"box_title"}>
                        <h1 className={"text-primary"}>Forget password ?</h1>
@@ -247,7 +252,7 @@ const Index = () => {
                        isHomeCardVisible ? <>
                            <Card
                                id={"sms"}
-                               url={(theme.mode != "dark") ? process.env.PUBLIC_URL+"/assets/mail.png" :
+                                url={(theme.mode !== "dark") ? process.env.PUBLIC_URL+"/assets/mail.png" :
                                    process.env.PUBLIC_URL+"/assets/mail2.png" }
                                title={"Send via SMS:"}
                                span={".......431"}
@@ -255,7 +260,7 @@ const Index = () => {
                            /><br/>
                            <Card
                                id={"mail"}
-                               url={(theme.mode != "dark") ? process.env.PUBLIC_URL+"/assets/mobile.png" :
+                                url={(theme.mode !== "dark") ? process.env.PUBLIC_URL+"/assets/mobile.png" :
                                    process.env.PUBLIC_URL+"/assets/mobile2.png" }
                                title={"Send via E-mail:"}
                                span={".......ek@gmail.com"}
