@@ -98,8 +98,8 @@ function Index({title, data}) {
             <div className='container-fluid discover_apps'>
                 <AppCard
                     url={data[6].src}
-                    title={"Goodnight"}
-                    desc={"Make your day better"}
+                    title={"Image Classification"}
+                    desc={"Predict the choosen or captured image"}
                 />
                 <AppCard
                     url={data[7].src}

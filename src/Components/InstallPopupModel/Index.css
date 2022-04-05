@@ -89,9 +89,8 @@ object-fit: contain;
 }
 
 .input_div {
-    padding: 20px;
     height: fit-content;
-    width: 300px;
+    width: 400px;
     border-radius: 10px !important;
     border: 0.5px solid #e5e1e1;
     overflow: hidden;
@@ -102,9 +101,8 @@ object-fit: contain;
 }
 
 .input_div_item {
-    width: 100%;
+    width: 90%;
     display: flex;
-    align-items: center;
     background: #eaeaea;
     border-radius: 5px !important;
     border: 1px solid #464646;
