@@ -6,7 +6,6 @@ import AudioFileOutlinedIcon from '@mui/icons-material/AudioFileOutlined';
 import SaveAltRoundedIcon from '@mui/icons-material/SaveAltRounded';
 import MicRoundedIcon from '@mui/icons-material/MicRounded';
 import VideocamOutlinedIcon from '@mui/icons-material/VideocamOutlined';
-import PhotoSizeSelectActualOutlinedIcon from '@mui/icons-material/PhotoSizeSelectActualOutlined';
 import CameraAltOutlinedIcon from '@mui/icons-material/CameraAltOutlined';
 import * as mobilenet from '@tensorflow-models/mobilenet';
 import Webcam from 'react-webcam';
@@ -236,6 +235,21 @@ const Index = ({ data }) => {
                         </> : null
                 } */}
 
+                {
+                    data.title === "Image Classification" ?
+                        <>
+                            <div className={"discover_card_content"}>
+                                <div className={"photoContainer"}>
+                                    <img src={process.env.PUBLIC_URL + "/assets/img_icon.png"} id={"photo_icon"} />
+                                </div>
+                                <img
+                                    src={process.env.PUBLIC_URL + "/assets/connector.png"} />
+                                <OutputComp />
+                            </div>
+                            <br />
+                            <InstallPopupBottomNavbar type={"img_classification"} />
+                        </> : null
+                }
                 {
                     data.title === "Goodnight" ?
                         <>
