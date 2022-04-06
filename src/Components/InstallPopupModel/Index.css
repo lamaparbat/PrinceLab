@@ -89,6 +89,7 @@ object-fit: contain;
 }
 
 .input_div {
+    padding: 20px;
     height: fit-content;
     width: 400px;
     border-radius: 10px !important;

@@ -11,7 +11,9 @@
 #discover_subtitle {
  margin-left: 100px;
 }
+
 .discover .discover_apps .discover_apps_card {
+ width: 100%;
  margin-right: 80px;
  display: flex;
 }

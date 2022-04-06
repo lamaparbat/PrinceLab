@@ -10,6 +10,7 @@ const AppCard = ({url, title, desc}) => {
     //create instance of useDispatch
     const dispatch = useDispatch()
 
+    //open model
     const openModal = (url, title, desc) => {
         const data = {
             url:url,
@@ -18,6 +19,17 @@ const AppCard = ({url, title, desc}) => {
         }
         dispatch(openInstallModel(data))
     }
+    
+    
+    //install model
+    const installModel = (url, title, desc) => {
+        alert("installing modal")
+        if (false) {
+            installModel(url, title, desc)
+        } else {
+        }
+    }
+    
 
     return (
         <div className='discover_apps_card'>
@@ -29,8 +41,8 @@ const AppCard = ({url, title, desc}) => {
                 <h5>{title}</h5>
                 <p>{desc}</p><br/>
                 <button
-                    onClick={() => openModal(url, title, desc)}
-                    className='btn btn-primary py-0 px-4'>Get
+                    onClick={() => installModel(url, title, desc)}
+                    className='btn btn-primary py-0 px-3 h6'>Install
                 </button>
             </div>
         </div>
@@ -71,8 +83,8 @@ function Index({title, data}) {
                 />
                 <AppCard
                     url={data[2].src}
-                    title={"Health"}
-                    desc={"Make your day better"}
+                    title={"Toxic"}
+                    desc={"Detects whether text contains toxic content "}
                 />
             </div>
             <br/>
