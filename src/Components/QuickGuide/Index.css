@@ -1,7 +1,6 @@
 .quick_guide{
     height:100vh;
     width:100%;
-    display:flex;
-    flex-flow: wrap;
-    overflow-y:scroll;
+    display: flex;
+    overflow-y:scroll; 
 }

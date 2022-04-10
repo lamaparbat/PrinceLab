@@ -10,6 +10,15 @@ import Dexie from 'dexie';
 const AppCard = ({ id, url, title, desc, isInstall }) => {
     //loading data
     const [isLoading, setLoading] = useState(false);
+    const [isInstallModel, setInstallModel] = useState(false);
+    
+    useEffect(() => {
+        setInstallModel(isInstall);
+        if (isInstall) {
+            console.log(isInstall)
+        }
+    },[isInstallModel])
+    
 
     //create instance of useDispatch
     const dispatch = useDispatch()
@@ -23,22 +32,21 @@ const AppCard = ({ id, url, title, desc, isInstall }) => {
         }
         dispatch(openInstallModel(data))
     }
-
-
+    
     //install model
-    const installModel = async (url, title, desc, e) => {
-        //disbaling the install button
-        const cardBtnID = e.target.id;
-        $(".discover_apps_card_content #" + cardBtnID).prop("disabled", true)
-        setLoading(true);
-
-        //installing model
-
-        //uploading model into indexDB
+    const installModel = async (e) => {
+        //indexDB config
         const indexDB = new Dexie("princelabModel");
         indexDB.version(1).stores({
             Model: "name, file"
         })
+        //disbaling the install button
+        const cardBtnID = e.target.id;
+        $(".discover_apps_card_content #" + cardBtnID).prop("disabled", true)
+        setLoading(true);
+        
+         //installing model
+
         try {
             await indexDB.Model.add({
                 name: "Image Classification",
@@ -52,10 +60,11 @@ const AppCard = ({ id, url, title, desc, isInstall }) => {
             //set off the loading & remove disable mode
             setLoading(false);
             $(".discover_apps_card_content #" + cardBtnID).prop("disabled", false);
+            $(".discover_apps_card_content #" + cardBtnID).text("Uninstall");
             
             
             //open modal
-            openModal(url, title, desc);
+            // openModal(url, title, desc);
             
         } catch (error) {
             //set off the loading & remove disable mode
@@ -66,6 +75,21 @@ const AppCard = ({ id, url, title, desc, isInstall }) => {
         }
     }
 
+    //delete saved model from indexdb
+    const uninstallModel = async () => {
+        //indexDB config
+        const indexDB = new Dexie("princelabModel");
+        indexDB.version(1).stores({
+            Model: "name, file"
+        })
+        await indexDB.delete().then(() => {
+            console.log("successfully deleted")
+            setInstallModel(false);
+        }).catch(err => {
+            console.log(err)
+        })
+    }
+    
 
     return (
         <div className='discover_apps_card'>
@@ -77,13 +101,13 @@ const AppCard = ({ id, url, title, desc, isInstall }) => {
                 <h5>{title}</h5>
                 <p>{desc}</p><br />
                 <button
-                    onClick={(e) => installModel(url, title, desc, e)}
+                    onClick={isInstall ? uninstallModel  : (e) => installModel(e)}
                     className={'btn btn-primary py-0 px-3 h6 '} id={id} >
                     {
                         isLoading ? "Installing....." :null
                     }
                     {
-                        isInstall ? "Uninstall":"Install"
+                        isInstallModel ? "Uninstall":"Install"
                     }
                 </button>
             </div>
@@ -92,19 +116,28 @@ const AppCard = ({ id, url, title, desc, isInstall }) => {
 }
 
 function Index({ title, data }) {
-    const [indexDB_Data, setIndexDB_Data] = useState({});
+    const [ModelfileName, setModelFilename] = useState(null);
+    
+    const fetchIndexDB_DATA = async () => {
+        try {
+            const dbName = 'princelabModel';
+            const isExisting = (await window.indexedDB.databases()).map(db => db.name).includes(dbName);
+            if (isExisting) {
+                const indexDB = new Dexie("princelabModel")
+                indexDB.version(1).stores({
+                    Model: "name, file"
+                })
+                const data = await indexDB.Model.toArray();
+                setModelFilename(data[0].name);
+            }
+        } catch (error) {
+            console.log("indexDB is empty !");
+        }
+    }
+    
     //track the installed model
     useEffect(() => {
-        const fetchIndexDB_DATA = async () => {
-            const indexDB = new Dexie("princelabModel")
-            indexDB.version(1).stores({
-                Model: "name, file"
-            })
-            const data = await indexDB.Model.toArray();
-            setIndexDB_Data(data);
-            console.log(indexDB_Data[0].name)
-        }
-        fetchIndexDB_DATA();
+        fetchIndexDB_DATA()
     }, [])
     
     // fetch the redux store InstallModel Value
@@ -133,7 +166,7 @@ function Index({ title, data }) {
                     url={data[0].src}
                     title={"Health"}
                     desc={"Make your day better"}
-                    isInstall={indexDB_Data.length != 0 && indexDB_Data[0].name === "Image Classification" ? true: false}
+                    isInstall={ModelfileName && ModelfileName === "Image Classification" ? true: false}
                 />
                 <AppCard
                     id="card2"

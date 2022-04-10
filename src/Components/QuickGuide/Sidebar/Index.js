@@ -27,6 +27,10 @@ const Index = () => {
             <div className="quick_guide_sidebar_switch">
                 <button className="btn py-1">List View</button>
                 <button className="btn py-1">Grid View</button>
+                <CancelIcon
+                    id="closeSidebar"
+                    onClick={closeSidebar}
+                />
             </div>
         )
     }
@@ -51,12 +55,6 @@ const Index = () => {
                ( isSidebarVisible ? "block" : "none")
             }
         >
-            <div className={"d-flex justify-content-end px-3"}>
-                <CancelIcon
-                    id="closeSidebar"
-                    onClick={closeSidebar}
-                />
-            </div>
             <br/><br/>
             <SwitchBar/><br/><br/>
             <ul className="quick_guide_sidebar_list">

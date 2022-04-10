@@ -14,7 +14,7 @@ import { ReactMediaRecorder } from "react-media-recorder";
 //custom input div
 const InputComp = ({ type }) => {
     //get the input text for toxic prediction
-    const inputText = useRef("abc")
+    const inputText = useRef("abc");
     
     // toxic predict
     const predictToxicText = () => {
@@ -250,6 +250,7 @@ const InstallPopupBottomNavbar = ({ type }) => {
     )
 }
 
+// main method 
 const Index = ({ data }) => {
     return (
         <div className="container-fluid install_discover py-5">
