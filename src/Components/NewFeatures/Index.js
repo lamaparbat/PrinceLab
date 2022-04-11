@@ -37,6 +37,11 @@ const Index = () => {
         "Block dragging is now 2x smother ",
         "Code run time in code block is faster."
     ])
+    const version_02_improvement = useState([
+        "Native theme color is improved.",
+        "Python terminal code execution is 2x faster. "
+    ])
+    
     
     const version_03 = useState([
         "Custom code block is added.",
@@ -49,6 +54,11 @@ const Index = () => {
         "Navbar of second windows is working now. ",
         "Code block is giving output dynamic."
     ])
+    const version_03_improvement = useState([
+        "Tron theme is improved. ",
+        "Block theme is improved."
+    ])
+    
     
     const version_04 = useState([
         "New micro is added. ",
@@ -60,6 +70,10 @@ const Index = () => {
         "Short-cut key lag is fixed.  ",
         "Source code is visible for all block ."
     ])
+    const version_04_improvement = useState([
+        "Increased the performance of code block "
+    ])
+    
     
     const version_05 = useState([
         "Python packages store is added. ",
@@ -67,6 +81,9 @@ const Index = () => {
     ])
     const version_05_bug = useState([
         "Dark theme flickering is fixed"
+    ])
+    const version_05_improvement = useState([
+        "Python terminal is improved "
     ])
     
     const latestBugFixes = useState([
@@ -88,6 +105,7 @@ const Index = () => {
     //list data
     const [cur_features, setCurFeatures] = useState(version_01);
     const [cur_bug, setCurBugs] = useState([]);
+    const [cur_improvement, setCurImprovement] = useState([])
 
     //custom dropdown button
     const DropdownBtn = ({id, data}) => {
@@ -95,27 +113,30 @@ const Index = () => {
         const setCurrentItem = (id, item) => {
             const version = parseInt(item[item.length - 1]);
             id === "platform" ? setCurPlatform(item) : setCurVersion(item);
-            console.log(version)
             if (version === 1) {
-                console.log(1)
                 setCurFeatures(version_01);
                 setCurBugs([]);
+                setCurImprovement([]);
             } else if (version === 2) {
-                console.log(2)
                 setCurFeatures(version_02);
                 setCurBugs(version_02_bug);
+                setCurImprovement(version_02_improvement)
             } else if (version === 3) {
-                console.log(3)
                 setCurFeatures(version_03);
                 setCurBugs(version_03_bug);
+                setCurImprovement(version_03_improvement)
             } else if (version === 4) {
-                console.log(4)
                 setCurFeatures(version_04);
                 setCurBugs(version_04_bug);
-            } else{
-                console.log(5)
+                setCurImprovement(version_04_improvement)
+            } else if (version === 5) {
                 setCurFeatures(version_05);
                 setCurBugs(version_05_bug);
+                setCurImprovement(version_05_improvement)
+            } else {
+                setCurFeatures([]);
+                setCurBugs([]);
+                setCurImprovement([])
             }
         }
 
@@ -209,21 +230,28 @@ const Index = () => {
                 {
                     cur_features.length != 0 ? 
                         <div className={"features_content d-flex flex-column w-50"}>
-                            <h2 className={"fw-bold my-4"}>Features</h2>
+                            <h2 className={"fw-bold my-2"}>Features</h2>
                             <List id={"feature"} lists={cur_features} />
                         </div>:null
                 }
                 {
                     cur_bug.length != 0 ? 
                         <div className={"features_content bug_content d-flex flex-column w-50"}>
-                            <h2 className={"fw-bold my-4"}>Bugs</h2>
+                            <h2 className={"fw-bold my-2"}>Bugs</h2>
                             <List id={"bug"} lists={cur_bug} />
                         </div> : null
                 }
-                <div className={"features_content bug_content d-flex flex-column w-50"}>
-                    <h2 className={"fw-bold my-4"}>Improvement</h2>
-                    <List id={"bug"} lists={latestBugFixes} />
-                </div>
+                {
+                    cur_improvement.length != 0 ?
+                        <div className={"features_content bug_content d-flex flex-column w-50"}>
+                            <h2 className={"fw-bold my-2"}>Improvement</h2>
+                            <List id={"bug"} lists={cur_improvement} />
+                        </div>:null
+                }
+                {
+                    cur_improvement.length === 0 && cur_features.length === 0 && cur_bug.length === 0 ? 
+                        <div className='mt-5 p-2 px-5 rounded text-light bg-info h5'>Release on 16th April 2022</div> : null
+                }
             </div>
         )
     }
