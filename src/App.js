@@ -32,6 +32,7 @@ import NewFeatures from '../src/Components/NewFeatures/Index';
 import { Elements } from "@stripe/react-stripe-js";
 import ResetForm from "./Components/Form/ResetForm";
 import Error from './Components/Error/Error';
+import axios from 'axios';
 
 function App() {
     // theme state
@@ -40,11 +41,17 @@ function App() {
     // Specify Stripe Publishable API key here
     const promise = loadStripe("pk_test_51KVWA1IUStveJHR71NvSABEmUloxoEBCu9EVPcsHrEEvBVkHsHtfwIMbczNzEcQ64h40i86fsPoT3qljvR9yEMIp00p8ThpuH0");
 
+    
+    
     //check theme on component rendered
     useEffect(() => {
         setTheme({ mode: localStorage.getItem("theme") });
     }, []);
 
+    
+    
+    
+    
     //track the theme update using redux
     store.subscribe(() => setTheme({
         mode: store.getState().changeTheme === "unset" ?

@@ -133,11 +133,12 @@ const Index = () => {
                 setCurFeatures(version_05);
                 setCurBugs(version_05_bug);
                 setCurImprovement(version_05_improvement)
-            } else {
-                setCurFeatures([]);
-                setCurBugs([]);
-                setCurImprovement([])
             }
+            // else {
+            //     setCurFeatures([]);
+            //     setCurBugs([]);
+            //     setCurImprovement([])
+            // }
         }
 
         return (
@@ -155,7 +156,7 @@ const Index = () => {
                             return (
                                 <a
                                     className="dropdown-item"
-                                    href="#"
+                                    
                                     key={index}
                                     onClick={() => setCurrentItem(id, item)}
                                 >{item}</a>
@@ -187,7 +188,7 @@ const Index = () => {
         return(
             <div className={"content_list"}>
                 {
-                    lists.length != 0 && lists[0].map((item ,index) => {
+                    lists.length !== 0 && lists[0].map((item ,index) => {
                         return(
                             <Item id={id} data={item} key={index} />
                         )
@@ -228,21 +229,21 @@ const Index = () => {
         return (
             <div className={"feature_container my-5 w-75 d-flex justify-content-center"}>
                 {
-                    cur_features.length != 0 ? 
+                    cur_features.length !== 0 ? 
                         <div className={"features_content d-flex flex-column w-50"}>
                             <h2 className={"fw-bold my-2"}>Features</h2>
                             <List id={"feature"} lists={cur_features} />
                         </div>:null
                 }
                 {
-                    cur_bug.length != 0 ? 
+                    cur_bug.length !== 0 ? 
                         <div className={"features_content bug_content d-flex flex-column w-50"}>
                             <h2 className={"fw-bold my-2"}>Bugs</h2>
                             <List id={"bug"} lists={cur_bug} />
                         </div> : null
                 }
                 {
-                    cur_improvement.length != 0 ?
+                    cur_improvement.length !== 0 ?
                         <div className={"features_content bug_content d-flex flex-column w-50"}>
                             <h2 className={"fw-bold my-2"}>Improvement</h2>
                             <List id={"bug"} lists={cur_improvement} />

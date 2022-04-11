@@ -47,6 +47,9 @@ export const DarkTheme = createGlobalStyle`
   .parallel .roundedDiv {
     border-radius: 150px !important;
   }
+.quick_guide_sidebar{
+    border-right: 1px solid rgb(48, 48, 48) !important;
+}
 
   @media (max-width: 800px) {
     .parallel .roundedDiv .content h1 {

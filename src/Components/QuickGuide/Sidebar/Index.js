@@ -13,11 +13,11 @@ const Index = () => {
     const sidebarVisibility = useSelector(state => state.sidebarVisibility);
 
     //sidebar visibility
-    const [isSidebarVisible, setSidebarVisible] = useState(true);
+    const [isSidebarVisible, setSidebarVisible] = useState(false);
 
     //track the changes in redux sidebar state
     useEffect(() => {
-       (sidebarVisibility != "hide") ?
+       (sidebarVisibility === "hide") ?
             setSidebarVisible(true) : setSidebarVisible(false)
     }, [sidebarVisibility])
 

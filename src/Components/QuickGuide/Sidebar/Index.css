@@ -1,5 +1,5 @@
 .quick_guide_sidebar{
-    width:600px;
+    width:500px;
     height:100vh;
     background:white;
     border-right: 1px solid rgb(221, 221, 221);
@@ -44,7 +44,7 @@ button:nth-child(1){
 .quick_guide_sidebar_switch
 button:nth-child(2){
     margin-left: -10px;
-    background-color: #F5F5F5;
+    background-color: #F5F5F5 !important;
     border:0.1px solid #9a9a9a;
     border-bottom-left-radius: 5px !important;
     border-top-left-radius: 5px !important;
