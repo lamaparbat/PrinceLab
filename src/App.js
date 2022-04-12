@@ -48,10 +48,6 @@ function App() {
         setTheme({ mode: localStorage.getItem("theme") });
     }, []);
 
-    
-    
-    
-    
     //track the theme update using redux
     store.subscribe(() => setTheme({
         mode: store.getState().changeTheme === "unset" ?

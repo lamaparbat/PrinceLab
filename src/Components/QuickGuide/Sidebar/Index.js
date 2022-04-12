@@ -9,7 +9,9 @@ import CancelIcon from '@mui/icons-material/Cancel';
 //main function
 const Index = () => {
     //creating instance of useDispatch & useSelector
-    const dispatch =  useDispatch();
+    const dispatch = useDispatch();
+    
+    //get the visibility status from redux store
     const sidebarVisibility = useSelector(state => state.sidebarVisibility);
 
     //sidebar visibility
