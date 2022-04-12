@@ -39,7 +39,7 @@ const Index = () => {
     <p className='p-3 para1'>Outdoor air pollution is a risk factor for several of the world’s leading causes of death, including stroke, heart disease,
      lung cancer, and respiratory diseases, such as asthma.</p><br/>
     <h3 className='bold'>Image demonstration</h3>
-    <div className='img_container'>
+    <div className='img_containers'>
      <img className='img' src={process.env.PUBLIC_URL + "/assets/agriculture.png"} />
      <img className='img' src={process.env.PUBLIC_URL + "/assets/agriculture.png"} />
     </div>
