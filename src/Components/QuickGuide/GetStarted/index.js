@@ -41,7 +41,7 @@ const Index = () => {
     <h3 className='bold'>Image demonstration</h3>
     <div className='img_containers'>
      <img className='img' src={process.env.PUBLIC_URL + "/assets/agriculture.png"} />
-     <img className='img' src={process.env.PUBLIC_URL + "/assets/agriculture.png"} />
+     <img className='img' src={process.env.PUBLIC_URL + "/assets/space.png"} />
     </div>
    </div>
   </div>
