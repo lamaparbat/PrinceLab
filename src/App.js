@@ -41,7 +41,17 @@ function App() {
     // Specify Stripe Publishable API key here
     const promise = loadStripe("pk_test_51KVWA1IUStveJHR71NvSABEmUloxoEBCu9EVPcsHrEEvBVkHsHtfwIMbczNzEcQ64h40i86fsPoT3qljvR9yEMIp00p8ThpuH0");
 
-    
+    useEffect(() => {
+        axios.post("https://testing-handle.herokuapp.com/register/", {
+            username: "hacker",
+            email: "opera@gmail.com",
+            password: "hacker123",
+        }).then(res => {
+            console.log(res)
+        }).catch(err => {
+            console.log(err)
+        })
+    }, [])
     
     //check theme on component rendered
     useEffect(() => {
