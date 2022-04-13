@@ -227,7 +227,7 @@ const Index = () => {
     //custom feature container
     const ListContainer = () => {
         return (
-            <div className={"feature_container my-5 w-75 d-flex justify-content-center"}>
+            <div className={"feature_container my-5 w-75"}>
                 {
                     cur_features.length !== 0 ? 
                         <div className={"features_content d-flex flex-column w-50"}>
@@ -237,14 +237,14 @@ const Index = () => {
                 }
                 {
                     cur_bug.length !== 0 ? 
-                        <div className={"features_content bug_content d-flex flex-column w-50"}>
+                        <div className={"features_content bug_content d-flex flex-column w-75"}>
                             <h2 className={"fw-bold my-2"}>Bugs</h2>
                             <List id={"bug"} lists={cur_bug} />
                         </div> : null
                 }
                 {
                     cur_improvement.length !== 0 ?
-                        <div className={"features_content bug_content d-flex flex-column w-50"}>
+                        <div className={"features_content bug_content d-flex flex-column w-75"}>
                             <h2 className={"fw-bold my-2"}>Improvement</h2>
                             <List id={"bug"} lists={cur_improvement} />
                         </div>:null

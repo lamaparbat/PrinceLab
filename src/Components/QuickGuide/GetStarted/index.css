@@ -5,22 +5,22 @@
  border-radius: 5px;
 }
 
-.img_container {
+.img_containers {
  display: flex;
  justify-content: space-between;
 }
 
-.img_container img {
+.img_containers img {
  height: 400px;
  width: 500px;
 }
 
 @media (max-width:1400px) {
- .img_container {
+ .img_containers {
   flex-direction: column;
  }
 
- .img_container img {
+ .img_containers img {
   height: 100%;
   width: 100%;
  }
