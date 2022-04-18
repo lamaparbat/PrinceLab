@@ -42,19 +42,19 @@ function Index() {
     
     // track the changes in browser cache
     useEffect(() => {
-        setEditProfileData({
-            username: userCache.username,
-            email: (userCache.email != null ? userCache.email : ""),
-            password: "",
-            profile: {}
-        });
-        
         //cache data
         if (localStorage.getItem("princelab") != "null") {
             //fetch the user cache 
             const bytes = CryptoJS.AES.decrypt(localStorage.getItem("princelab"), process.env.REACT_APP_HASH_KEY);
             const originalSession = JSON.parse(bytes.toString(CryptoJS.enc.Utf8));
             setUserCache(originalSession);
+            //fill edit profile data
+            setEditProfileData({
+                username: originalSession.username,
+                email: (originalSession.email != null ? originalSession.email : ""),
+                password: "",
+                profile: {}
+            });
         }
     }, []);
 
@@ -319,7 +319,7 @@ function Index() {
                                 .then(res => {
                                     //encrypt the user data
                                     const encrypted_data = CryptoJS.AES.encrypt(JSON.stringify({
-                                        username: editProfileData.displayName,
+                                        username: editProfileData.username,
                                         email: editProfileData.email,
                                         profile: url != null ? url : editProfileData.profile,
                                         mode: "custom"
