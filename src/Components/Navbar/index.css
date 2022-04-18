@@ -1,7 +1,7 @@
 .navbar {
    margin-bottom: 10px;
    padding: 15px;
-   height:67px;
+   height: 67px;
    width: 80%;
    color: white;
    display: flex;
@@ -22,15 +22,20 @@
    filter: blur(0px);
    background-color: unset !important;
 }
-.navbar li a{
+
+.navbar li a {
    background-color: unset !important;
 }
-.navbar #avatar{
+
+.navbar #avatar {
    border: none !important;
+   background: unset !important;
 }
+
 .css-1wlk0hk-MuiAvatar-root {
-   border-radius:50% !important;
+   border-radius: 50% !important;
 }
+
 .navbar li:hover {
    color: red;
 }
@@ -86,62 +91,69 @@
    justify-content: center;
 }
 
-.profile_nav{
-   padding:20px;
-   right:20px;
-   height:fit-content;
-   width:300px;
-   border-radius:10px !important;
+.profile_nav {
+   padding: 20px;
+   right: 20px;
+   height: fit-content;
+   width: 300px;
+   border-radius: 10px !important;
    background-color: #f6f6f6;
    color: #3d3d3d;
-   position:absolute;
-   visibility:visible !important;
+   position: absolute;
+   visibility: visible !important;
    backdrop-filter: blur(100px);
    box-shadow: 1px 0px 5px 2px rgba(181, 181, 181, 0.47) !important;
    -webkit-box-shadow: 1px 0px 5px 2px rgba(181, 181, 181, 0.47) !important;
    -moz-box-shadow: 1px 0px 5px 2px rgba(181, 181, 181, 0.47) !important;
 }
-#cancleIcon{
-   background:unset !important;
+
+#cancleIcon {
+   background: unset !important;
    cursor: pointer;
-   transition:0.3s ease-in-out;
-}
-#cancleIcon:hover{
-  opacity:0.8;
-   transform:rotate(180deg);
+   transition: 0.3s ease-in-out;
 }
 
-.profile_nav .pic{
+#cancleIcon:hover {
+   opacity: 0.8;
+   transform: rotate(180deg);
+}
+
+.profile_nav .pic {
    display: flex;
    flex-direction: column;
-   justify-content:center;
+   justify-content: center;
    align-items: center;
-   background-color:unset !important;
+   background-color: unset !important;
 }
-input, .profile_nav button{
+
+input, .profile_nav button {
    border: 0.5px solid #606060 !important;
    border-radius: 7px !important;
 }
-.profile_nav .pic img{
-   height:80px;
+
+.profile_nav .pic img {
+   height: 80px;
    width: 80px;
-   border:0.5px solid white;
+   border: 0.5px solid white;
    border-radius: 50px !important;
    box-shadow: 1px 0px 5px 2px rgba(181, 181, 181, 0.47) !important;
    -webkit-box-shadow: 1px 0px 5px 2px rgba(181, 181, 181, 0.47) !important;
    -moz-box-shadow: 1px 0px 5px 2px rgba(181, 181, 181, 0.47) !important;
 }
-.profile_nav .pic p{
-   background:unset !important;
+
+.profile_nav .pic p {
+   background: unset !important;
 }
-.profile_nav .profile_nav_row{
+
+.profile_nav .profile_nav_row {
    display: flex;
-   justify-content:space-around;
+   justify-content: space-around;
    background-color: unset !important;
 }
-.profile_nav .profile_nav_row .nav_card{
-   padding-top:10px;
-   height:fit-content;
+
+.profile_nav .profile_nav_row .nav_card {
+   padding-top: 10px;
+   height: fit-content;
    width: 100px;
    background-color: unset !important;
    border-radius: 5px !important;
@@ -151,22 +163,26 @@ input, .profile_nav button{
    justify-content: center;
    color: black;
    cursor: pointer;
-   transition:0.3s ease-in-out;
+   transition: 0.3s ease-in-out;
    box-shadow: 1px 0px 5px 2px rgba(181, 181, 181, 0.47) !important;
    -webkit-box-shadow: 1px 0px 5px 2px rgba(181, 181, 181, 0.47) !important;
    -moz-box-shadow: 1px 0px 5px 2px rgba(181, 181, 181, 0.47) !important;
 }
-.profile_nav .profile_nav_row .nav_card:hover{
-   transform:scale(1.04);
+
+.profile_nav .profile_nav_row .nav_card:hover {
+   transform: scale(1.04);
 }
-.profile_nav .profile_nav_row .nav_card img{
-   height:30px;
+
+.profile_nav .profile_nav_row .nav_card img {
+   height: 30px;
    width: 30px;
-   background:unset !important;
+   background: unset !important;
 }
-.profile_nav .profile_nav_row .nav_card p{
-   background-color:unset !important ;
+
+.profile_nav .profile_nav_row .nav_card p {
+   background-color: unset !important;
 }
+
 .css-i4bv87-MuiSvgIcon-root {
    fill: #919191 !important;
 }
@@ -204,10 +220,9 @@ input, .profile_nav button{
 
 }
 
-@media (max-width:310px){
-   .profile_nav{
+@media (max-width:310px) {
+   .profile_nav {
       width: 100%;
       left: 0;
    }
 }
-

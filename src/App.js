@@ -33,31 +33,49 @@ import { Elements } from "@stripe/react-stripe-js";
 import ResetForm from "./Components/Form/ResetForm";
 import Error from './Components/Error/Error';
 import axios from 'axios';
+import CryptoJS from 'crypto-js';
 
 function App() {
     // theme state
     const [theme, setTheme] = useState({ mode: "" });
+    const [userCache, setUserCache] = useState({
+        email: "",
+        profile: "",
+        username: "",
+        mode:""
+    });
 
     // Specify Stripe Publishable API key here
     const promise = loadStripe("pk_test_51KVWA1IUStveJHR71NvSABEmUloxoEBCu9EVPcsHrEEvBVkHsHtfwIMbczNzEcQ64h40i86fsPoT3qljvR9yEMIp00p8ThpuH0");
 
-    
+    // track the changes
+    window.addEventListener("storage", () => {
+        if (localStorage.getItem("princelab") != "null") {
+            //fetch the user cache 
+            const bytes = CryptoJS.AES.decrypt(localStorage.getItem("princelab"), process.env.REACT_APP_HASH_KEY);
+            const originalSession = JSON.parse(bytes.toString(CryptoJS.enc.Utf8));
+            setUserCache(originalSession);
+        }
+    })
     
     //check theme on component rendered
     useEffect(() => {
         setTheme({ mode: localStorage.getItem("theme") });
+        if (localStorage.getItem("princelab") != "null") {
+            //fetch the user cache 
+            const bytes = CryptoJS.AES.decrypt(localStorage.getItem("princelab"), process.env.REACT_APP_HASH_KEY);
+            const originalSession = JSON.parse(bytes.toString(CryptoJS.enc.Utf8));
+            setUserCache(originalSession);
+        } else {
+            localStorage.setItem("princelab", null)
+        }
     }, []);
-
+    
     //track the theme update using redux
     store.subscribe(() => setTheme({
         mode: store.getState().changeTheme === "unset" ?
             localStorage.getItem("theme") : store.getState().changeTheme
     }));
-
-    //scroll to top
-    const topScroll = () => {
-        alert("scroll")
-    }
 
     return (
         <ThemeProvider theme={theme}>

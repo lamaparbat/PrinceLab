@@ -1,4 +1,4 @@
-import React, {useEffect} from 'react';
+import React, {useEffect, useState} from 'react';
 import '../Hompage/index.css';
 import Languages from '../Hompage/Languages/index';
 import BlockCodeCardImg from '../Hompage/BlockCodeCardImg/index';
@@ -10,10 +10,9 @@ import Guide from '../Hompage/Guide/index';
 import $ from "jquery";
 
 function Index() {
-
     //auto scroll to the top when page rendered
     useEffect(() => {
-        $(window).scrollTop({top: 0, behavior: "smooth"})
+        $(window).scrollTop({ top: 0, behavior: "smooth" });
     }, [])
 
     return (
@@ -24,8 +23,7 @@ function Index() {
                     src={process.env.PUBLIC_URL + "/assets/paradox.mp4"}
                     autoPlay loop muted></video>
             </div>
-            <br/>
-
+            <br />
             <Languages/>
 
             <BlockCodeCardImg/>

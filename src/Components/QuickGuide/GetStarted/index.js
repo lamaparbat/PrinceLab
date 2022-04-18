@@ -1,13 +1,16 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import '../GetStarted/index.css';
 import MenuIcon from '@mui/icons-material/Menu';
 import { showSidebar, hideSidebar } from "../../../Redux/Actions/index";
+import axios from 'axios';
+
 
 const Index = () => {
  //redux store
  const dispatch = useDispatch();
  const sidebarVisibility = useSelector(state => state.sidebarVisibility);
+
  
  //close or open sidebar
  const changeSidebar = () => {
