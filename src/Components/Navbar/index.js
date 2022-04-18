@@ -11,7 +11,8 @@ import KeyboardBackspaceIcon from '@mui/icons-material/KeyboardBackspace';
 import {getStorage, ref, uploadBytesResumable, getDownloadURL} from "firebase/storage";
 import {toast, ToastContainer} from "react-toastify";
 import axios from 'axios';
-import {app, db} from "../../firebaseDB";
+import { app, db } from "../../firebaseDB";
+import CryptoJS from 'crypto-js';
 
 function Index() {
     //creating instance of useNavigate
@@ -22,38 +23,40 @@ function Index() {
 
     //store the database data insertion
     const [isLoading, setLoading] = useState(false);
-
-    //fetched the cache data
-    let owner = JSON.parse(localStorage.getItem("princelab"))
-
-    if (owner === null) {
-        owner = {
-            username: "",
-            email: "",
-            profile: ""
-        }
-        //set the default value to cache
-        localStorage.setItem("princelab", JSON.stringify(owner));
-    }
+    
+    //define cache data schema
+    const [userCache, setUserCache] = useState({
+        email: "",
+        profile: "",
+        username: "",
+        mode: ""
+    });
     
     // edit profile data
     const [editProfileData, setEditProfileData] = useState({
-        username: owner.username,
-        email: owner.email,
+        username: userCache.username,
+        email: userCache.email,
         password: "",
         profile: {}
     });
     
     // track the changes in browser cache
     useEffect(() => {
-        localStorage.setItem("princelab", JSON.stringify(owner));
         setEditProfileData({
-            username: owner.username,
-            email: (owner.email != null ? owner.email : ""),
+            username: userCache.username,
+            email: (userCache.email != null ? userCache.email : ""),
             password: "",
             profile: {}
         });
-    }, [])
+        
+        //cache data
+        if (localStorage.getItem("princelab") != "null") {
+            //fetch the user cache 
+            const bytes = CryptoJS.AES.decrypt(localStorage.getItem("princelab"), process.env.REACT_APP_HASH_KEY);
+            const originalSession = JSON.parse(bytes.toString(CryptoJS.enc.Utf8));
+            setUserCache(originalSession);
+        }
+    }, []);
 
     //form focus
     const [usernameFocus, setUsernameFocus] = useState(true);
@@ -88,7 +91,7 @@ function Index() {
 
         $(window).on("resize", () => {
             $(".resp_nav").css("display", "none");
-        })
+        });
     }, [])
 
     // show parent nav bar
@@ -135,15 +138,15 @@ function Index() {
         return (
             <div
                 className={"profile_nav d-" + (isNavVisible ? "block" : "none")}
-                style={owner.email != "" ? {marginTop: "-380px"} : {marginTop: "-280px"}}
+                style={userCache.email != "" ? {marginTop: "-380px"} : {marginTop: "-280px"}}
             >
-                {(owner.username) ? <>
+                {(userCache.username) ? <>
                     <CancelIcon id="cancleIcon" onClick={showProfileNav}/>
                     <div className="pic">
                         <img
                             alt="agriculture"
-                            src={owner.profile != "" ? owner.profile : process.env.PUBLIC_URL + "/assets/agriculture2.png"}/>
-                        <p className="mt-2">{owner.username}</p>
+                            src={userCache.profile != "" ? userCache.profile : process.env.PUBLIC_URL + "/assets/agriculture2.png"}/>
+                        <p className="mt-2">{userCache.username}</p>
                     </div>
                     <div className="profile_nav_row">
                         <div className="nav_card" onClick={changeTheme}>
@@ -189,11 +192,11 @@ function Index() {
     const SettingNav = () => {
         //disabled the edit & password button on socialAuth mode
         useEffect(() => {
-            if (owner.mode != "custom") {
+            if (userCache.mode != "custom") {
                 $("#edit_profile_btn").css("display", "none")
                 $("#change_password_btn").css("display", "none")
             }
-        },[owner.mode])
+        },[userCache.mode])
         
         // go back
         const goBack = () => {
@@ -205,12 +208,7 @@ function Index() {
         const logout = () => {
             setSettingNavVisible(false)
             //reset the cache
-            localStorage.setItem("princelab", JSON.stringify({
-                username: "",
-                email: "",
-                profile:"",
-                mode: ""
-            }))
+            localStorage.setItem("princelab", null);
             navigate("/Login")
         }
 
@@ -224,8 +222,8 @@ function Index() {
                     <img
                         loading='lazy'
                         alt="agriculture"
-                        src={owner.profile != "" ? owner.profile : process.env.PUBLIC_URL + "/assets/agriculture2.png"}/>
-                    <p className="mt-2">{owner.email}</p>
+                        src={userCache.profile != "" ? userCache.profile : process.env.PUBLIC_URL + "/assets/agriculture2.png"}/>
+                    <p className="mt-2">{userCache.email}</p>
                 </div>
                 <div className="profile_nav_row d-flex flex-column justify-content-center">
                     <button
@@ -306,7 +304,7 @@ function Index() {
                 // upload data to real time database
                 db.ref("users").on('value', snapshot => {
                     snapshot.forEach((user) => {
-                        if (user.val().email === owner.email) {
+                        if (user.val().email === userCache.email) {
                             const docKey = user.key;
                             //save the user data in db
                             const db_api = `https://paradoxauth-56b93-default-rtdb.asia-southeast1.firebasedatabase.app/users/${docKey}.json`;
@@ -319,13 +317,17 @@ function Index() {
                         
                             axios.put(db_api, dbData)
                                 .then(res => {
-                                    //saving data to cookies
-                                    localStorage.setItem("princelab", JSON.stringify({
-                                        username: editProfileData.username,
+                                    //encrypt the user data
+                                    const encrypted_data = CryptoJS.AES.encrypt(JSON.stringify({
+                                        username: editProfileData.displayName,
                                         email: editProfileData.email,
                                         profile: url != null ? url : editProfileData.profile,
-                                        mode:"custom"
-                                    }))
+                                        mode: "custom"
+                                    }), process.env.REACT_APP_HASH_KEY).toString();
+
+                                    // save data to cache
+                                    localStorage.setItem("princelab", encrypted_data);
+                                    
                                     setLoading(false);
                                     setEditNavVisible(false);
 
@@ -344,7 +346,7 @@ function Index() {
             //compare and get user password
             db.ref(`/users`).on('value', snapshot => {
                 snapshot.forEach((user) => {
-                    if (user.val().email === owner.email) {
+                    if (user.val().email === userCache.email) {
                         //loading starts
                         setLoading(true);
 
@@ -405,7 +407,7 @@ function Index() {
                     <img
                         alt="agriculture"
                         loading='lazy'
-                    src={owner.profile != "" ? owner.profile : process.env.PUBLIC_URL + "/assets/agriculture2.png"}/>
+                    src={userCache.profile != "" ? userCache.profile : process.env.PUBLIC_URL + "/assets/agriculture2.png"}/>
             </div>
             <div className="profile_nav_row d-flex flex-column justify-content-center">
                 <span>Username</span>
@@ -467,7 +469,7 @@ function Index() {
 
         //on btn click
         const btnClick = () => {
-            const current_user_email = JSON.parse(localStorage.getItem("princelab")).email
+            const current_user_email = userCache.email
             //db update
             db.ref("users").on('value', snapshot => {
                 if (newPassword.current.value.length > 0 && oldPassword.current.value.length > 0) {
@@ -515,7 +517,7 @@ function Index() {
                 <div className="pic">
                     <img
                         alt="agriculture"
-                        src={owner.profile != "" ? owner.profile : process.env.PUBLIC_URL + "/assets/agriculture2.png"}
+                        src={userCache.profile != "" ? userCache.profile : process.env.PUBLIC_URL + "/assets/agriculture2.png"}
                     />
                 </div>
                 <br/>
@@ -619,7 +621,7 @@ function Index() {
             <li className='link  text-decoration-none'>
                 <Avatar
                     id="avatar"
-                    src={owner.profile === "" || owner.profile === undefined ? process.env.PUBLIC_URL + "/assets/agriculture2.png" : owner.profile}
+                    src={userCache.profile === "" || userCache.profile === undefined ? process.env.PUBLIC_URL + "/assets/agriculture2.png" : userCache.profile}
                     style={{border: "0.5px solid white"}}
                     onClick={showProfileNav}
                 />
@@ -673,7 +675,7 @@ function Index() {
                         id="avatar"
                         loading='lazy'
                         defer="async"
-                        src={owner.profile === "" || owner.profile === undefined ? process.env.PUBLIC_URL + "/assets/agriculture2.png" : owner.profile }
+                        src={userCache.profile === "" || userCache.profile === undefined ? process.env.PUBLIC_URL + "/assets/agriculture2.png" : userCache.profile }
                         style={{border: "0.5px solid white"}}
                         onClick={showProfileNav}
                     />

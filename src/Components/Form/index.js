@@ -19,8 +19,8 @@ import VisibilityIcon from '@mui/icons-material/Visibility';
 import MailOutlineRoundedIcon from '@mui/icons-material/MailOutlineRounded';
 import GitHubIcon from '@mui/icons-material/GitHub';
 import GoogleIcon from '@mui/icons-material/Google';
-import imageCompression from 'browser-image-compression';
 // import redirectRoute from "../../Redux/Reducers/RedirectRoute";
+import CryptoJS from 'crypto-js';
 
 function Index({ type }) {
     //creating instance of useSelector() -> redux
@@ -164,14 +164,17 @@ function Index({ type }) {
             users.forEach(user => {
                 if ((user.username.trim() === loginData.username.trim()) && (user.password.trim() === loginData.password.trim())) {
                     toast.success("Login successfully")
-                    localStorage.setItem("princelab", JSON.stringify({
-                        username: user.username,
+                    
+                    //encrypt the user data
+                    const encrypted_data = CryptoJS.AES.encrypt(JSON.stringify({
+                        username: user.displayName,
                         email: user.email,
-                        profile: user.profile,
+                        profile: user.photoURL,
                         mode: "custom"
-                    }));
-
-                    console.log(destineRoute)
+                    }), process.env.REACT_APP_HASH_KEY).toString();
+                    //set new user encrypted cache
+                    localStorage.setItem("princelab", encrypted_data);
+            
                     //auto redirect after login
                     if (destineRoute !== "") {
                         navigate("/" + destineRoute)
@@ -302,15 +305,18 @@ function Index({ type }) {
     //auto fillup the form fields
     const autoFillForm = (data) => {
         toast.success("Login successfully")
-        localStorage.setItem("princelab", JSON.stringify({
+        
+        //encrypt the user data
+        const encrypted_data = CryptoJS.AES.encrypt(JSON.stringify({
             username: data.displayName,
             email: data.email,
             profile: data.photoURL,
-            mode:"socialAuth"
-        }));
-
+            mode: "socialAuth"
+        }), process.env.REACT_APP_HASH_KEY).toString();
         
-        console.log(destineRoute)
+        //testing
+        localStorage.setItem("princelab",encrypted_data);
+
         //auto redirect after login
         if (destineRoute !== "") {
             navigate("/" + destineRoute)
@@ -320,7 +326,7 @@ function Index({ type }) {
             setTimeout(() => {
                 navigate("/")
                 //refresh the page
-                window.location.assign("");
+                // window.location.assign("");
             }, 1000)
         }
     }
