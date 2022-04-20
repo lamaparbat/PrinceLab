@@ -68,6 +68,15 @@ const Index = () => {
             $("#sub" + id).css("display", "none");
             $("#arrowIcon" + id[id.length - 1]).css("transform", "rotate(0deg)");
         }
+        
+        //drop off all the remaining ul
+        const currentId = parseInt(id[id.length - 1])
+        for (let i = 1; i <= 6; i++){
+            if (i !== currentId) {
+                $("#list" + i).css("background", "unset");
+                $("#sublist" + i).css("display", "none");
+            }
+        }
     }
     
     return (
