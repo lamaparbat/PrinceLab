@@ -166,14 +166,15 @@ function Index({ type }) {
                     toast.success("Login successfully")
                     
                     //encrypt the user data
-                    const encrypted_data = CryptoJS.AES.encrypt(JSON.stringify({
-                        username: user.displayName,
+                    const login_encrypted_data = CryptoJS.AES.encrypt(JSON.stringify({
+                        username: user.username,
                         email: user.email,
-                        profile: user.photoURL,
+                        profile: user.profile,
                         mode: "custom"
                     }), process.env.REACT_APP_HASH_KEY).toString();
+                    
                     //set new user encrypted cache
-                    localStorage.setItem("princelab", encrypted_data);
+                    localStorage.setItem("princelab", login_encrypted_data);
             
                     //auto redirect after login
                     if (destineRoute !== "") {

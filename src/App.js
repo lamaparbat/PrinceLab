@@ -47,27 +47,17 @@ function App() {
 
     // Specify Stripe Publishable API key here
     const promise = loadStripe("pk_test_51KVWA1IUStveJHR71NvSABEmUloxoEBCu9EVPcsHrEEvBVkHsHtfwIMbczNzEcQ64h40i86fsPoT3qljvR9yEMIp00p8ThpuH0");
-
-    // track the changes
-    window.addEventListener("storage", () => {
-        if (localStorage.getItem("princelab") != "null") {
-            //fetch the user cache 
-            const bytes = CryptoJS.AES.decrypt(localStorage.getItem("princelab"), process.env.REACT_APP_HASH_KEY);
-            const originalSession = JSON.parse(bytes.toString(CryptoJS.enc.Utf8));
-            setUserCache(originalSession);
-        }
-    })
     
     //check theme on component rendered
     useEffect(() => {
         setTheme({ mode: localStorage.getItem("theme") });
-        if (localStorage.getItem("princelab") != "null") {
+        try {
             //fetch the user cache 
             const bytes = CryptoJS.AES.decrypt(localStorage.getItem("princelab"), process.env.REACT_APP_HASH_KEY);
             const originalSession = JSON.parse(bytes.toString(CryptoJS.enc.Utf8));
             setUserCache(originalSession);
-        } else {
-            localStorage.setItem("princelab", null)
+        } catch (error) {
+            localStorage.setItem("princelab",null)
         }
     }, []);
     
