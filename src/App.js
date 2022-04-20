@@ -51,13 +51,13 @@ function App() {
     //check theme on component rendered
     useEffect(() => {
         setTheme({ mode: localStorage.getItem("theme") });
-        if (localStorage.getItem("princelab") != "null") {
+        try {
             //fetch the user cache 
             const bytes = CryptoJS.AES.decrypt(localStorage.getItem("princelab"), process.env.REACT_APP_HASH_KEY);
             const originalSession = JSON.parse(bytes.toString(CryptoJS.enc.Utf8));
             setUserCache(originalSession);
-        } else {
-            localStorage.setItem("princelab", null)
+        } catch (error) {
+            localStorage.setItem("princelab",null)
         }
     }, []);
     
