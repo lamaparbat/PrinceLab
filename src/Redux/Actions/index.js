@@ -49,4 +49,10 @@ export const hideInstallModel = () =>{
     }
 }
 
-//save user info
+//update quick guidelines body content indication
+export const updateGuideContentFunc = (contentType) => {
+    return {
+        type: contentType,
+        payload: contentType
+    }
+}
