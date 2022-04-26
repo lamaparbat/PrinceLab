@@ -7,10 +7,11 @@ import axios from 'axios';
 
 
 const Index = () => {
- //redux store
+ //action dispatcher
  const dispatch = useDispatch();
+ 
+ //track redux state
  const sidebarVisibility = useSelector(state => state.sidebarVisibility);
-
  
  //close or open sidebar
  const changeSidebar = () => {

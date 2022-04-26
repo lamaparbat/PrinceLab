@@ -1,6 +1,6 @@
-import React, {useEffect, useState} from 'react';
-import {useSelector,useDispatch} from "react-redux";
-import {showSidebar, hideSidebar} from "../../../Redux/Actions/index";
+import React, { useEffect, useState } from 'react';
+import { useSelector, useDispatch } from "react-redux";
+import {showSidebar, hideSidebar, updateGuideContentFunc} from "../../../Redux/Actions/index";
 import '../Sidebar/Index.css';
 import 'animate.css';
 import KeyboardArrowDownIcon from '@mui/icons-material/KeyboardArrowDown';
@@ -12,7 +12,7 @@ const Index = () => {
     //creating instance of useDispatch & useSelector
     const dispatch = useDispatch();
     
-    //get the visibility status from redux store
+    //track redux state
     const sidebarVisibility = useSelector(state => state.sidebarVisibility);
 
     //sidebar visibility
@@ -58,7 +58,8 @@ const Index = () => {
     $("#sublist4").css("display", "none");
     $("#sublist5").css("display", "none");
     $("#sublist6").css("display", "none");
-    const showSubList = (id) => {
+    
+    const showSubList = (id) => {        
         if ($("#sub" + id).css("display") === "none") {
             $("#" + id).css("background", "#ececec");
             $("#arrowIcon" + id[id.length - 1]).css("transform", "rotate(180deg)");
@@ -76,6 +77,21 @@ const Index = () => {
                 $("#list" + i).css("background", "unset");
                 $("#sublist" + i).css("display", "none");
             }
+        }
+        
+        //display id wise content
+        if (id === "list1") {
+            dispatch(updateGuideContentFunc("GettingStarted"))
+        } else if(id === "list2") {
+            dispatch(updateGuideContentFunc("Installation"))
+        } else if (id === "list3") {
+            dispatch(updateGuideContentFunc("Interface"))
+        } else if (id === "list4") {
+            dispatch(updateGuideContentFunc("Block"))
+        } else if (id === "list5") {
+            dispatch(updateGuideContentFunc("Code"))
+        } else {
+            dispatch(updateGuideContentFunc("ML"))
         }
     }
     
@@ -96,7 +112,7 @@ const Index = () => {
                     />
                 </li>
                 <ul className='getting_started_sublist' id='sublist1'>
-                    <li>hacker</li>
+                    <li></li>
                 </ul>
                 <li id='list2' onClick={() => showSubList("list2")}>
                     <span>Installation</span>

@@ -75,6 +75,10 @@
     -webkit-user-select: none;
 }
 
+#sublist1 li, #sublist2 li, #sublist3 li, #sublist4 li {
+    border-radius: 10px !important;
+}
+
 .quick_guide_sidebar .quick_guide_sidebar_list li span, .quick_guide_sidebar .quick_guide_sidebar_list li #arrowIcon {
     background: unset !important;
 }
@@ -105,7 +109,7 @@
 }
 
 .quick_guide_sidebar .quick_guide_sidebar_list li:hover {
-    background-color: #ececec;
+    background-color: #d8d8d8;
 }
 
 
