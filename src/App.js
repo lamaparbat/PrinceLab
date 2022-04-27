@@ -31,6 +31,7 @@ import InstallPopup from './Components/InstallPopupModel/Index';
 import NewFeatures from '../src/Components/NewFeatures/Index';
 import { Elements } from "@stripe/react-stripe-js";
 import ResetForm from "./Components/Form/ResetForm";
+import AiPreview from '../src/Components/AiPreview/index';
 import Error from './Components/Error/Error';
 import axios from 'axios';
 import CryptoJS from 'crypto-js';
@@ -97,6 +98,7 @@ function App() {
                             <Route path="InstallPopup" element={<InstallPopup />} />
                             <Route path="NewFeatures" element={<NewFeatures />} />
                             <Route path="ResetForm" element={<ResetForm />} />
+                            <Route path="AiPreview" element={<AiPreview />} />
                             <Route path="*" element={<Error />} />
                         </Routes>
                         <Footer />
