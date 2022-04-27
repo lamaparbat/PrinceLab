@@ -1,0 +1,100 @@
+/* main contianer */
+.aiPreviewCont {
+ height: 100vh;
+ background-color: black;
+ overflow: hidden;
+}
+
+#link1, #link2, #link3, #link4, #brand_title, #card_title {
+ letter-spacing: 1px;
+ color: rgb(240, 238, 238);
+}
+
+.aiPreviewCont .rows {
+ height: 100%;
+ display: flex;
+}
+
+/* sidebar */
+.aiPreviewCont .rows .previewSidebar .brand {
+ display: flex;
+ justify-content: space-between;
+ align-items: center;
+}
+
+.aiPreviewCont .rows .previewSidebar {
+ height: 100%;
+ min-width: 350px;
+ background-color: #212121;
+ display: flex;
+ flex-direction: column;
+ border-top-right-radius: 20px;
+}
+
+.aiPreviewCont .rows .previewSidebar span {
+ margin-top: 30px;
+ padding: 10px;
+ padding-left: 20px;
+ border-radius: 10px;
+ cursor: pointer;
+ transition: 0.2s ease-in-out;
+}
+
+.aiPreviewCont .rows .previewSidebar span:hover {
+ background-color: #028AFF;
+}
+
+.aiPreviewCont .rows .previewSidebar .cancleIcon {
+ display: none;
+}
+
+/* body */
+.aiPreviewCont .rows .previewBody {
+ padding: 10px;
+ padding-top: 50px;
+ height: 100vh;
+ width: 100%;
+ color: rgb(239, 239, 239);
+}
+
+.aiPreviewCont .rows .previewBody .card_rows {
+ width: 100%;
+ display: flex;
+ justify-content: center;
+}
+
+.aiPreviewCont .rows .previewBody .previewBodyCard {
+ padding: 10px;
+ margin-left: 50px;
+ margin-right: 50px;
+ height: 250px;
+ width: 240px;
+ display: flex;
+ flex-direction: column;
+ justify-content: space-around;
+ align-items: center;
+ border: 1px solid #323232;
+ border-radius: 10px;
+ background-color: #0F0F0F;
+}
+
+.aiPreviewCont .rows .previewBody .openSidebarIcon {
+ display: none;
+}
+
+/* on resize */
+@media(max-width:1100px) {
+ .aiPreviewCont .rows .previewBody .previewBodyCard {
+  margin-left: 5px;
+  margin-right: 5px;
+ }
+
+ .aiPreviewCont .rows .previewBody .openSidebarIcon {
+  display: block;
+ }
+
+ .aiPreviewCont .rows .previewSidebar .cancleIcon {
+  display: block;
+ }
+
+}
