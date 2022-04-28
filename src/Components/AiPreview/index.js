@@ -128,10 +128,10 @@ function Index() {
       <div className='previewBody px-4'>
         <MenuOutlined className='btn p-0 openSidebarIcon' onClick={openSidebar} /><br /><br />
         {
-          selectedNav === "link1" ? <ImageClassification /> :
+          selectedNav === "link1" ? <ImageClassification id="img_class" /> :
             selectedNav === "link2" ? <GestureDetection /> :
-              selectedNav === "link3" ? <SoundRecognition /> :
-                selectedNav === "link4" ? <HousePriceDetection /> :
+              selectedNav === "link3" ? <HousePriceDetection /> :
+                selectedNav === "link4" ? <SoundRecognition /> :
                   <>
                     <div className='card_rows'>
                       <Card title="Image Classification" src={process.env.PUBLIC_URL + "/assets/camera.png"} />

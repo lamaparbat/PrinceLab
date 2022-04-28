@@ -1,10 +1,9 @@
 import React from 'react';
+import ImageClassification from '../ImageClassification/index';
 
 function Index() {
  return (
-  <div className='soundRecognition'>
-   Sound Recognition Widget
-  </div>
+  <ImageClassification id="sound_recog" />
  )
 }
 
