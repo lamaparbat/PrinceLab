@@ -3,7 +3,7 @@ const initialState = "GettingStarted";
 const updateGuideContent = (state = initialState, action) => {
  switch (action.type) {
   case "GettingStarted":
-   return action.type;
+   return action.payload;
   case "Installation":
    return action.payload;
   case "Interface":

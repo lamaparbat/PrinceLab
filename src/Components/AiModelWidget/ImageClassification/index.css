@@ -1,0 +1,114 @@
+/* main container */
+.imgClassificationCont {
+ height: 80vh;
+ width: 95%;
+ display: flex;
+ flex-direction: column;
+ justify-content: center;
+ align-items: center;
+}
+
+/* main container body */
+.imgClassificationCont .classific_body {
+ display: flex;
+ justify-content: center;
+ align-items: center;
+}
+
+/* image box */
+.imgClassificationCont .classific_body .img_box {
+ height: 230px;
+ width: 300px;
+ display: grid;
+ place-items: center;
+ background-color: #0B0B0B;
+ border-radius: 10px;
+ -webkit-box-shadow: -1px 0px 6px 0px #10021e;
+ box-shadow: -1px 0px 6px 0px #10021e;
+}
+
+.imgClassificationCont .classific_body .img_box #photoIcon {
+ height: 100px;
+ width: 100px;
+}
+
+/* result box */
+.imgClassificationCont .classific_body .output_console_card {
+ padding-bottom: 20px;
+ height: fit-content;
+ width: 400px;
+ background-color: #0B0B0B;
+ border-radius: 10px;
+ overflow: hidden;
+ -webkit-box-shadow: -1px 0px 6px 0px #10021e;
+ box-shadow: -1px 0px 6px 0px #10021e;
+}
+
+.imgClassificationCont .classific_body .output_console_card h6 {
+ padding: 10px;
+ width: 100%;
+ background-color: #7200E3;
+}
+
+.imgClassificationCont .classific_body .output_console_card .result_box span {
+ display: block;
+}
+
+.imgClassificationCont .classific_body .output_console_card .result_box span {
+ margin-left: 10px;
+ padding: 3px;
+}
+
+/* footer */
+.imgClassificationCont .classific_footer {
+ margin-top: 50px;
+ width: 100%;
+ display: flex;
+ justify-content: center;
+ align-items: center;
+ border-radius: 10px;
+}
+
+.imgClassificationCont .classific_footer .btn {
+ margin-left: 20px;
+ margin-right: 20px;
+ color: white;
+ background-color: #4A3BFF;
+}
+
+#footer_icon {
+ fill: white !important;
+
+}
+
+.imgClassificationCont .classific_footer #detect_btn {
+ height: fit-content;
+ border-radius: 5px !important;
+ background-color: #4A3BFF;
+}
+
+/* responsive */
+@media(max-width:1100px) {
+ .imgClassificationCont {
+  height: 60vh;
+ }
+
+ .imgClassificationCont .classific_body {
+  flex-direction: column;
+  align-items: center;
+ }
+
+ .imgClassificationCont .classific_body .output_console_card {
+  width: 100%;
+ }
+
+ /* connector */
+ .imgClassificationCont .classific_body .connector {
+  display: none;
+ }
+
+ .imgClassificationCont .classific_footer {
+  margin-top: 40px;
+ }
+
+}
