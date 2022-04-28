@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { useSelector, useDispatch } from "react-redux";
-import {showSidebar, hideSidebar, updateGuideContentFunc} from "../../../Redux/Actions/index";
+import { showSidebar, hideSidebar, updateGuideContentFunc } from "../../../Redux/Actions/index";
 import '../Sidebar/Index.css';
 import 'animate.css';
 import KeyboardArrowDownIcon from '@mui/icons-material/KeyboardArrowDown';
@@ -11,18 +11,21 @@ import $ from 'jquery';
 const Index = () => {
     //creating instance of useDispatch & useSelector
     const dispatch = useDispatch();
-    
+
     //track redux state
     const sidebarVisibility = useSelector(state => state.sidebarVisibility);
 
     //sidebar visibility
     const [isSidebarVisible, setSidebarVisible] = useState(false);
 
+    //current navlink content
+    const [currentBodyContent, setCurrentBodyContent] = useState();
+
     //track the changes in redux sidebar state
     useEffect(() => {
-       (sidebarVisibility === "hide") ?
+        (sidebarVisibility === "hide") ?
             setSidebarVisible(true) : setSidebarVisible(false)
-    }, [sidebarVisibility])
+    }, [sidebarVisibility]);
 
     //two switch
     const SwitchBar = () => {
@@ -40,11 +43,11 @@ const Index = () => {
 
     //close sidebar
     const closeSidebar = () => {
-        if(isSidebarVisible === false){
+        if (isSidebarVisible === false) {
             setSidebarVisible(true);
             // //update the redux store
             dispatch(showSidebar())
-        }else{
+        } else {
             setSidebarVisible(false);
             //update the redux store
             dispatch(hideSidebar())
@@ -52,37 +55,37 @@ const Index = () => {
     }
 
     //show dropdown of sublist
-    $("#sublist1").css("display", "none");
-    $("#sublist2").css("display", "none");
-    $("#sublist3").css("display", "none");
-    $("#sublist4").css("display", "none");
-    $("#sublist5").css("display", "none");
-    $("#sublist6").css("display", "none");
-    
-    const showSubList = (id) => {        
+    $(".quick_guide_sidebar_list #sublist1").css("display", "none");
+    $(".quick_guide_sidebar_list #sublist2").css("display", "none");
+    $(".quick_guide_sidebar_list #sublist3").css("display", "none");
+    $(".quick_guide_sidebar_list #sublist4").css("display", "none");
+    $(".quick_guide_sidebar_list #sublist5").css("display", "none");
+    $(".quick_guide_sidebar_list #sublist6").css("display", "none");
+
+    const showSubList = (id) => {
         if ($("#sub" + id).css("display") === "none") {
             $("#" + id).css("background", "#ececec");
             $("#arrowIcon" + id[id.length - 1]).css("transform", "rotate(180deg)");
-            $("#sub" + id).css("display", "block");
+            $(".quick_guide_sidebar_list #sub" + id).css("display", "block");
         } else {
             $("#" + id).css("background", "unset");
-            $("#sub" + id).css("display", "none");
+            $(".quick_guide_sidebar_list #sub" + id).css("display", "none");
             $("#arrowIcon" + id[id.length - 1]).css("transform", "rotate(0deg)");
         }
-        
+
         //drop off all the remaining ul
-        const currentId = parseInt(id[id.length - 1])
-        for (let i = 1; i <= 6; i++){
+        const currentId = parseInt(id[id.length - 1]);
+        for (let i = 1; i <= 6; i++) {
             if (i !== currentId) {
                 $("#list" + i).css("background", "unset");
-                $("#sublist" + i).css("display", "none");
+                $(".quick_guide_sidebar_list #sublist" + i).css("display", "none");
             }
         }
-        
+
         //display id wise content
         if (id === "list1") {
             dispatch(updateGuideContentFunc("GettingStarted"))
-        } else if(id === "list2") {
+        } else if (id === "list2") {
             dispatch(updateGuideContentFunc("Installation"))
         } else if (id === "list3") {
             dispatch(updateGuideContentFunc("Interface"))
@@ -94,16 +97,16 @@ const Index = () => {
             dispatch(updateGuideContentFunc("ML"))
         }
     }
-    
+
     return (
         <div
             className={
-                "quick_guide_sidebar animate__animated animate__slideInLeft animate__faster pt-2 d-"+
-               ( isSidebarVisible ? "block" : "none")
+                "quick_guide_sidebar animate__animated animate__slideInLeft animate__faster pt-2 d-" +
+                (isSidebarVisible ? "block" : "none")
             }
         >
-            <br/><br/>
-            <SwitchBar/><br/><br/>
+            <br /><br />
+            <SwitchBar /><br /><br />
             <ul className="quick_guide_sidebar_list">
                 <li id='list1' onClick={() => showSubList("list1")}>
                     <span>Get started</span>

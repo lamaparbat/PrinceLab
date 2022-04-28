@@ -125,7 +125,7 @@ function Index() {
       }
     }
     return (
-      <div className='previewBody'>
+      <div className='previewBody px-4'>
         <MenuOutlined className='btn p-0 openSidebarIcon' onClick={openSidebar} /><br /><br />
         {
           selectedNav === "link1" ? <ImageClassification /> :
