@@ -61,7 +61,6 @@ function Index({id}) {
       {/* footer */}
       <div className='classific_footer p-3'>
         <SaveButtonComp />
-        
         {
           id === "img_class" ? <MediaButton id="camera" /> : <MediaButton id="mic" />
         }
