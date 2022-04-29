@@ -129,8 +129,8 @@ function Index() {
         <MenuOutlined className='btn p-0 openSidebarIcon' onClick={openSidebar} /><br /><br />
         {
           selectedNav === "link1" ? <ImageClassification id="img_class" /> :
-            selectedNav === "link2" ? <GestureDetection /> :
-              selectedNav === "link3" ? <HousePriceDetection /> :
+            selectedNav === "link2" ? <HousePriceDetection /> :
+              selectedNav === "link3" ? <GestureDetection /> :
                 selectedNav === "link4" ? <SoundRecognition /> :
                   <>
                     <div className='card_rows'>
