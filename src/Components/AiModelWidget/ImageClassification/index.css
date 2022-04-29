@@ -24,8 +24,11 @@
  place-items: center;
  background-color: #0B0B0B;
  border-radius: 10px;
- -webkit-box-shadow: -1px 0px 6px 0px #10021e;
- box-shadow: -1px 0px 6px 0px #10021e;
+}
+
+.imgClassificationCont .classific_body .img_box .content .audio_name{
+ padding-left: 10px;
+ padding-right: 30px;
 }
 
 .imgClassificationCont .classific_body .img_box #photoIcon {
@@ -41,8 +44,6 @@
  background-color: #0B0B0B;
  border-radius: 10px;
  overflow: hidden;
- -webkit-box-shadow: -1px 0px 6px 0px #10021e;
- box-shadow: -1px 0px 6px 0px #10021e;
 }
 
 .imgClassificationCont .classific_body .output_console_card h6 {
