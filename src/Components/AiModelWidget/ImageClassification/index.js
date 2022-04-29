@@ -40,9 +40,9 @@ function Index({id}) {
               <PhotoSizeSelectActualOutlinedIcon id="photoIcon" /> :
               <div className='content'>
                 <h5>Recorded List</h5>
-                <div className='audio_name mt-3 px-5 bg-dark d-flex justify-content-between align-items-center'>
+                <div className='audio_name mt-3 w-100 bg-dark d-flex justify-content-between align-items-center'>
                   <AudioFileOutlinedIcon className='p-2' />
-                  <font>radiohead.mp3</font>
+                  <font>Intention ft. quavo.mp3</font>
                 </div><br /><br /><br />
                 <button className='btn text-light w-100 px-5 py-1' id='detect_btn'>Detect</button>
               </div>
@@ -52,9 +52,16 @@ function Index({id}) {
         <img className='mx-5 connector' src={process.env.PUBLIC_URL+"/assets/connector.png"} id='connector' alt='connector' width="150" />
         <div className='output_console_card'>
           <h6><b>Result</b></h6>
-          <div className='result_box'>
-            <span className='text-light'>pneumsdonia, jaundice</span>
-          </div>
+          {
+            id === "img_class" ?
+              <div className='result_box'>
+              <span className='text-light'>pneumsdonia, jaundice</span>
+              </div> :
+              <div className='result_box'>
+                <span className='text-light'>Justin Beiber</span>
+              </div>
+            }
+
         </div>
       </div>
 
