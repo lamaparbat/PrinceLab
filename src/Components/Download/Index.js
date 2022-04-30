@@ -1,10 +1,10 @@
-import React, {useState, useEffect} from 'react';
-import {useNavigate} from "react-router-dom";
-import {useDispatch} from 'react-redux';
+import React, { useState, useEffect } from 'react';
+import { useNavigate } from "react-router-dom";
+import { useDispatch } from 'react-redux';
 import '../Download/Index.css';
 import Premium from "../Hompage/Premium";
-import {redirectDestineRoute} from "../../Redux/Actions";
-import {toast, ToastContainer} from "react-toastify";
+import { redirectDestineRoute } from "../../Redux/Actions";
+import { toast, ToastContainer } from "react-toastify";
 import $ from "jquery";
 
 const Index = () => {
@@ -15,8 +15,8 @@ const Index = () => {
     const navigate = useNavigate();
 
     //auto scroll to the top when page rendered
-    useEffect(()  => {
-        $(window).scrollTop({top:0, behavior:"smooth"})
+    useEffect(() => {
+        $(window).scrollTop({ top: 0, behavior: "smooth" })
     }, [])
 
     // all the mac & windows features in list
@@ -33,26 +33,43 @@ const Index = () => {
 
 
     //custom card box
-    const Card = ({bg, src, btn_text}) => {
+    const Card = ({ bg, src, btn_text }) => {
         //verify the user
         const auth = (type) => {
-            if (localStorage.getItem("princelab") != null && JSON.parse(localStorage.getItem("princelab")).username !== "") {
-                if(type !== "MAC"){
-                    toast.info("Download started...")
-                    window.location.assign("https://www.dropbox.com/s/7u6655dcwxiiu7i/paradox%20installer.zip?dl=1");
-                    return;
-                }
-            } else {
-                dispatch(redirectDestineRoute("Download"))
-                navigate("/Login")
-            }
+           try {
+               if (localStorage.getItem("princelab") != null && localStorage.getItem("princelab") != "") {
+                   if (type !== "MAC") {
+                       toast.info("Download started...")
+                       window.location.assign("https://www.dropbox.com/s/7u6655dcwxiiu7i/paradox%20installer.zip?dl=1");
+                       return;
+                   } else {
+                       toast.info("Download started...")
+                       // window.location.assign("");
+                       return;
+                   }
+               } else {
+                   dispatch(redirectDestineRoute("Download"))
+                   navigate("/Login")
+               }
+           } catch (error) {
+               console.log(error)
+           }
         }
 
         return (
             <div className="downloads_box_card">
+                {
+                    btn_text === "MAC" ?
+                        <div className='w-100 d-flex justify-content-end'>
+                            <span id='beta_text'>Beta</span>
+                        </div> : null
+                }
                 <img
-                    src={src}/>
-                <button className={"btn text-white my-3 w-50 btn-" + bg+" "+bg}>{btn_text}</button>
+                    className='p-3'
+                    src={src} />
+                <button className={"btn text-white my-3 w-50 btn-" + bg + " " + bg}>
+                    {btn_text}
+                </button>
                 <div className="downloads_box_card_content">
                     {
                         btn_text != "MAC" ?
@@ -65,12 +82,10 @@ const Index = () => {
                     }
                 </div>
                 <button
-                    className={"btn btn-primary text-white my-3 w-100 rounded-1 btn-" + bg+" "+bg}
+                    className={"btn btn-primary text-white my-3 w-100 rounded-1 btn-" + bg + " " + bg}
                     onClick={() => auth(btn_text)}
                 >
-                    {
-                        btn_text != "MAC" ? "Donwload": "Coming soon.."
-                    }
+                    Download
                 </button>
             </div>
         )
@@ -90,9 +105,9 @@ const Index = () => {
                         btn_text="WINDOWS"
                     />
                 </div>
-                <br/><br/>
-                <Premium/>
-                <ToastContainer position="top-center"/>
+                <br /><br />
+                <Premium />
+                <ToastContainer position="top-center" />
             </div>
         </>
     )
