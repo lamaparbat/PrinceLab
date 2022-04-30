@@ -7,7 +7,7 @@ function Index() {
  const VideoContainer = () => {
   return (
    <div className='video_container'>
-    <VideocamOutlinedIcon />
+    <VideocamOutlinedIcon style={{height:"90px", width:"90px"}} />
    </div>
   )
  }
