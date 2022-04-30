@@ -22,14 +22,20 @@
     -moz-box-shadow: 1px 0px 5px 2px rgba(181, 181, 181, 0.47);
 }
 
+.beta_container {
+  margin-top: -22px;
+  margin-left: 45px;
+  margin-bottom: 10px;
+}
+
 .downloads_box_card div #beta_text {
-  padding: 2px;
-  padding-left: 15px;
-  padding-right: 15px;
-  font-size: 15px;
-  background-color: rgb(236, 79, 79);
-  color: white;
-  border-radius: 5px;
+    margin-left: -20px;
+    padding: 2px;
+    padding-left: 15px;
+    padding-right: 15px;
+    font-size: 15px;
+    color: white;
+    border-radius: 5px;
 }
 
 .downloads_box_card .primary {

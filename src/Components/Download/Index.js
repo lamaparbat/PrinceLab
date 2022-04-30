@@ -36,32 +36,32 @@ const Index = () => {
     const Card = ({ bg, src, btn_text }) => {
         //verify the user
         const auth = (type) => {
-           try {
-               if (localStorage.getItem("princelab") != null && localStorage.getItem("princelab") != "") {
-                   if (type !== "MAC") {
-                       toast.info("Download started...")
-                       window.location.assign("https://www.dropbox.com/s/7u6655dcwxiiu7i/paradox%20installer.zip?dl=1");
-                       return;
-                   } else {
-                       toast.info("Download started...")
-                       // window.location.assign("");
-                       return;
-                   }
-               } else {
-                   dispatch(redirectDestineRoute("Download"))
-                   navigate("/Login")
-               }
-           } catch (error) {
-               console.log(error)
-           }
+            try {
+                if (localStorage.getItem("princelab") != null && localStorage.getItem("princelab") != "") {
+                    if (type !== "MAC") {
+                        toast.info("Download started...")
+                        window.location.assign("https://www.dropbox.com/s/7u6655dcwxiiu7i/paradox%20installer.zip?dl=1");
+                        return;
+                    } else {
+                        toast.info("Download started...")
+                        // window.location.assign("");
+                        return;
+                    }
+                } else {
+                    dispatch(redirectDestineRoute("Download"))
+                    navigate("/Login")
+                }
+            } catch (error) {
+                console.log(error)
+            }
         }
 
         return (
             <div className="downloads_box_card">
                 {
                     btn_text === "MAC" ?
-                        <div className='w-100 d-flex justify-content-end'>
-                            <span id='beta_text'>Beta</span>
+                        <div className='beta_container w-100 d-flex justify-content-end'>
+                            <span className='bg-success' id='beta_text'>Beta</span>
                         </div> : null
                 }
                 <img
