@@ -91,9 +91,7 @@ const Index = () => {
                     onClick={() => auth(btn_text)}
                     id={btn_text}
                 >
-                    {
-                        btn_text === "MAC" ? "Progressing.." : "Download"
-                    }
+                    Download
                 </button>
             </div>
         )
