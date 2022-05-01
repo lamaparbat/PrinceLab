@@ -44,6 +44,7 @@ const Index = () => {
                         return;
                     } else {
                         toast.info("Download started...")
+                        // add the new url inside double quotes of below code and uncomment it
                         // window.location.assign("");
                         return;
                     }
