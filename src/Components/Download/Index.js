@@ -34,6 +34,11 @@ const Index = () => {
 
     //custom card box
     const Card = ({ bg, src, btn_text }) => {
+        useEffect(() => {
+            if (btn_text === "MAC") {
+                $("#MAC").prop("disabled", true);
+            }  
+        }, [])
         //verify the user
         const auth = (type) => {
             try {
@@ -43,8 +48,8 @@ const Index = () => {
                         window.location.assign("https://www.dropbox.com/s/7u6655dcwxiiu7i/paradox%20installer.zip?dl=1");
                         return;
                     } else {
-                        toast.info("Download started...")
-                        // window.location.assign("");
+                        toast.info("App is in progress...")
+                        // window.location.assign("https://www.dropbox.com/s/pweao3c4o9col8d/Paradox.zip?dl=1");
                         return;
                     }
                 } else {
@@ -84,8 +89,11 @@ const Index = () => {
                 <button
                     className={"btn btn-primary text-white my-3 w-100 rounded-1 btn-" + bg + " " + bg}
                     onClick={() => auth(btn_text)}
+                    id={btn_text}
                 >
-                    Download
+                    {
+                        btn_text === "MAC" ? "Progressing.." : "Download"
+                    }
                 </button>
             </div>
         )
