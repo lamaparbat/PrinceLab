@@ -49,7 +49,7 @@ const Index = () => {
                         return;
                     } else {
                         toast.info("App is in progress...")
-                        // ********* ->  Uncomment the below code 
+                        // ********* ->  Uncomment the below code  <- *********
                         // window.location.assign("https://www.dropbox.com/s/pweao3c4o9col8d/Paradox.zip?dl=1");
                         return;
                     }
