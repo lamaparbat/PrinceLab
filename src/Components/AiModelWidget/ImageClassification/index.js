@@ -22,15 +22,32 @@ function Index({ id }) {
 
   //store the camera data
   const camData = useRef();
-
+  
   //custom photo save button comppnent
   const SaveButtonComp = () => {
+    // upload image and load to the img element
+    const uploadImage = () => {
+      $(".classific_footer #fileChooser").click();
+      setTimeout(() => {
+        setCaputuredImg(true);
+      }, 500);
+    }
+    
     return (
-      <div className='saveButton btn p-2'>
+      <div className='saveButton btn p-2' onClick={uploadImage}>
         <SaveAltIcon className='p-1' id="footer_icon" />
       </div>
     )
   };
+  
+  // save choosen image data
+  const saveChoosenImage = async (e) => {
+    //create a object url
+    const imgUrl = URL.createObjectURL(e.target.files[0]);
+    
+    //set the url to the image tag
+    $(".imgClassificationCont .classific_body .img_box .captured_img_element").attr("src", imgUrl);
+  }
 
   //custom camera button component
   const MediaButton = ({ id }) => {
@@ -110,6 +127,12 @@ function Index({ id }) {
     }
     return;
   }
+  
+  //predict selected image class
+  const detectSelectedImgClass = () => {
+    //load the model and predict
+    classifyImage();
+  }
 
   return (
     <div className='imgClassificationCont p-3'>
@@ -166,6 +189,7 @@ function Index({ id }) {
 
       {/* footer */}
       <div className='classific_footer p-3'>
+        <input type="file" className="d-none" id="fileChooser" onChange={saveChoosenImage} />
         <SaveButtonComp />
         {
           id === "img_class" ? <MediaButton id="camera" /> : <MediaButton id="mic" />
@@ -173,7 +197,7 @@ function Index({ id }) {
         {
           isWebcamOpen ?
             <button className='btn text-light px-5 py-2' id='detect_btn' onClick={captureImage}>Capture</button> :
-            <button className='btn text-light px-5 py-2' id='detect_btn'>Detect</button>
+            <button className='btn text-light px-5 py-2' id='detect_btn' onClick={detectSelectedImgClass}>Detect</button>
         }
       </div>
 
