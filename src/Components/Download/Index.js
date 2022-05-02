@@ -37,6 +37,11 @@ const Index = () => {
 
     //custom card box
     const Card = ({ bg, src, btn_text }) => {
+        useEffect(() => {
+            if (btn_text === "MAC") {
+                $("#MAC").prop("disabled", true);
+            }  
+        }, [])
         //verify the user
         const auth = (type) => {
             try {
@@ -49,6 +54,9 @@ const Index = () => {
                         toast.info("Download started...")
                         // add the new url inside double quotes of below code and uncomment it
                         window.location.assign("https://www.dropbox.com/s/pweao3c4o9col8d/Paradox.zip?dl=1");
+                        toast.info("App is in progress...")
+                        // ********* ->  Uncomment the below code  <- *********
+                        // window.location.assign("https://www.dropbox.com/s/pweao3c4o9col8d/Paradox.zip?dl=1");
                         return;
                     }
                 } else {
