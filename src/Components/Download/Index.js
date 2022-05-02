@@ -16,7 +16,10 @@ const Index = () => {
 
     //auto scroll to the top when page rendered
     useEffect(() => {
-        $(window).scrollTop({ top: 0, behavior: "smooth" })
+        $(window).scrollTop({ top: 0, behavior: "smooth" });
+        
+        //disabled mac download btn
+        $("#MAC").prop("disabled", true);
     }, [])
 
     // all the mac & windows features in list
@@ -45,7 +48,7 @@ const Index = () => {
                     } else {
                         toast.info("Download started...")
                         // add the new url inside double quotes of below code and uncomment it
-                        // window.location.assign("");
+                        window.location.assign("https://www.dropbox.com/s/pweao3c4o9col8d/Paradox.zip?dl=1");
                         return;
                     }
                 } else {
@@ -84,6 +87,7 @@ const Index = () => {
                 </div>
                 <button
                     className={"btn btn-primary text-white my-3 w-100 rounded-1 btn-" + bg + " " + bg}
+                    id={btn_text}
                     onClick={() => auth(btn_text)}
                 >
                     Download

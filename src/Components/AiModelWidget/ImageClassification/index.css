@@ -24,9 +24,10 @@
  place-items: center;
  background-color: #0B0B0B;
  border-radius: 10px;
+ overflow: hidden;
 }
 
-.imgClassificationCont .classific_body .img_box .content .audio_name{
+.imgClassificationCont .classific_body .img_box .content .audio_name {
  padding-left: 10px;
  padding-right: 30px;
 }
@@ -59,6 +60,10 @@
 .imgClassificationCont .classific_body .output_console_card .result_box span {
  margin-left: 10px;
  padding: 3px;
+}
+
+#camCont{
+  margin-top: -49px;
 }
 
 /* footer */

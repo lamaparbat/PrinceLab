@@ -1,12 +1,27 @@
-import React from 'react';
+import React, {useState, useRef} from 'react';
 import '../ImageClassification/index.css';
 import PhotoSizeSelectActualOutlinedIcon from '@mui/icons-material/PhotoSizeSelectActualOutlined';
 import SaveAltIcon from '@mui/icons-material/SaveAlt';
 import CameraAltIcon from '@mui/icons-material/CameraAlt';
 import AudioFileOutlinedIcon from '@mui/icons-material/AudioFileOutlined';
 import MicOutlinedIcon from '@mui/icons-material/MicOutlined';
+import * as mobilenet from '@tensorflow-models/mobilenet';
+import Webcam from 'react-webcam';
+import $ from 'jquery';
+import { log } from '@tensorflow/tfjs/node_modules/@tensorflow/tfjs-core/dist/log';
 
-function Index({id}) {
+function Index({ id }) {
+  //webcam open state
+  const [isWebcamOpen, setWebcamOpen] = useState(false);
+  const [isCapturedImg, setCaputuredImg] = useState(false);
+  const [predictResult, setPredictResult] = useState({
+    name: null,
+    percentage:0
+  });
+  const [isLoading, setLoading] = useState(false);
+  
+  //store the camera data
+  const camData = useRef();
   
   //custom photo save button comppnent
   const SaveButtonComp = () => {
@@ -18,14 +33,64 @@ function Index({id}) {
   };
   
   //custom camera button component
-  const MediaButton = ({id}) => {
+  const MediaButton = ({ id }) => {
+    //open camera
+    const openCamera = () => {
+      isWebcamOpen ? setWebcamOpen(false) : setWebcamOpen(true);
+    }
+    
     return (
       <div className='cameraButton btn p-2'>
         {
-          id === "camera" ? <CameraAltIcon className='p-1' id="footer_icon" /> : <MicOutlinedIcon className='p-1' id="footer_icon" />
+          id === "camera" ? <CameraAltIcon className='p-1' id="footer_icon" onClick={openCamera} /> : <MicOutlinedIcon className='p-1' id="footer_icon" />
         }
       </div>
   )
+  }
+  
+  
+  //classify the given input image 
+  const classifyImage = async () => {
+    try {
+      const model = await mobilenet.load()
+      const results = await model.classify(document.querySelector(".imgClassificationCont .classific_body .img_box .captured_img_element"));
+      if (results) {
+        //percentage conversion
+        const percentage = Math.round(results[0].probability * 100)
+        
+        //fill the result into the output ui
+        setPredictResult({
+          name: results[0].className,
+          percentage: percentage
+        });
+        
+        //stop loading effect
+        setLoading(false);
+      }
+    } catch (error) {
+      console.log(error)
+      //stop loading effect
+      setLoading(false);
+    }
+  }
+  
+  //capture photo
+  const captureImage = async () => {
+    //start loading effect
+    setLoading(true);
+    
+    // store the captured image data
+    const image = await camData.current.getScreenshot()
+    if (image.length > 0) {
+      setWebcamOpen(false);
+      setCaputuredImg(true);
+      $(".imgClassificationCont .classific_body .img_box .captured_img_element").attr("src", image);
+      
+      //predict the image
+      classifyImage();
+    } else {
+      setCaputuredImg(false)
+    }
   }
   
   return (
@@ -37,14 +102,20 @@ function Index({id}) {
           
         {
             id === "img_class" ?
-              <PhotoSizeSelectActualOutlinedIcon id="photoIcon" /> :
+               <>
+                {
+                  isWebcamOpen ? <Webcam ref={camData} height={350} width={350} id="camCont" /> : null
+                }
+                {
+                  isCapturedImg ? <img height="100%" width="100%" className="captured_img_element" /> : <PhotoSizeSelectActualOutlinedIcon id="photoIcon" />
+                }
+              </> :
               <div className='content'>
                 <h5>Recorded List</h5>
                 <div className='audio_name mt-3 w-100 bg-dark d-flex justify-content-between align-items-center'>
                   <AudioFileOutlinedIcon className='p-2' />
                   <font>Intention ft. quavo.mp3</font>
                 </div><br /><br /><br />
-                <button className='btn text-light w-100 px-5 py-1' id='detect_btn'>Detect</button>
               </div>
 
         }
@@ -55,7 +126,17 @@ function Index({id}) {
           {
             id === "img_class" ?
               <div className='result_box'>
-              <span className='text-light'>pneumsdonia, jaundice</span>
+                <span className='text-light'>Name: {
+                  predictResult.name ? predictResult.name : null
+                }
+                  {
+                    isLoading ? "processing......." : null
+                  }
+                  
+                </span>
+                <span className='text-light'>Probability: {
+                   isLoading ? "processing........" : predictResult.percentage +"%"
+                }</span>
               </div> :
               <div className='result_box'>
                 <span className='text-light'>Justin Beiber</span>
@@ -71,7 +152,11 @@ function Index({id}) {
         {
           id === "img_class" ? <MediaButton id="camera" /> : <MediaButton id="mic" />
         }
-        <button className='btn text-light px-5 py-2' id='detect_btn'>Detect</button>
+        {
+          isWebcamOpen ?
+            <button className='btn text-light px-5 py-2' id='detect_btn' onClick={captureImage}>Capture</button> :
+            <button className='btn text-light px-5 py-2' id='detect_btn'>Detect</button>
+        }
       </div>
       
     </div>
