@@ -69,8 +69,9 @@ function Index({ id }) {
     )
   }
 
-
-  //classify the given input image 
+  // ***************** -> TENSORFLOW ML MODEL  <- ****************
+  
+  //classify the given input image (Classification)
   const classifyImage = async () => {
     setTimeout(() => {
       $(".imgClassificationCont .classific_body .connector").removeClass("animate__animated animate__rotateIn animate__repeat-2")
@@ -104,7 +105,7 @@ function Index({ id }) {
 
       return false;
     }
-  }
+  }  
 
   //capture photo
   const captureImage = async () => {
