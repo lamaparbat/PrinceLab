@@ -1,5 +1,5 @@
 import React,{useState} from 'react';
-import '../HousePriceDetection/index.css';
+import '../TextToxicityPrediction/index.css';
 import * as toxicity from '@tensorflow-models/toxicity';
 import $ from 'jquery';
 
@@ -31,7 +31,7 @@ function Index() {
       const predictions = await model.classify([textInputVal]);
       if (predictions.length > 0) {
         //map the prediction array
-        predictions.map(data => {
+        await predictions.map(data => {
           if (data.results[0].match === true) {
             //converting probabilities into percentage
             const percentage = Math.round(parseFloat(data.results[0].probabilities[0]) * 100);
@@ -58,7 +58,10 @@ function Index() {
         
         //set the loading state true
         setLoading(false);
-
+        
+        //reset the error message span
+        setErrorMessage("")
+        
         //enabled the predict button
         $(".HousePrediction #predict_btn").prop("disabled", false);
       } 

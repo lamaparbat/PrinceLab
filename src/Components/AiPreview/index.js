@@ -8,7 +8,7 @@ import { Menu } from '@mui/material';
 import ImageClassification from '../AiModelWidget/ImageClassification/index';
 import GestureDetection from '../AiModelWidget/GestureDetection/index';
 import SoundRecognition from '../AiModelWidget/SoundRecognition/index';
-import HousePriceDetection from '../AiModelWidget/HousePriceDetection/index';
+import TextToxicityPrediction from '../AiModelWidget/TextToxicityPrediction/index';
 
 function Index() {  
   //creating instance of useDispatch & useSelector
@@ -129,7 +129,7 @@ function Index() {
         <MenuOutlined className='btn p-0 openSidebarIcon' onClick={openSidebar} /><br /><br />
         {
           selectedNav === "link1" ? <ImageClassification id="img_class" /> :
-            selectedNav === "link2" ? <HousePriceDetection /> :
+            selectedNav === "link2" ? <TextToxicityPrediction /> :
               selectedNav === "link3" ? <GestureDetection /> :
                 selectedNav === "link4" ? <SoundRecognition /> :
                   <>

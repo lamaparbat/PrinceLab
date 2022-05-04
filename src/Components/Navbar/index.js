@@ -636,7 +636,7 @@ function Index() {
         </div>
 
         {/* on mobile view */}
-        <div className='resp_nav'>
+        <div className='resp_nav' style={{display:"none",}}>
             <div className='items'>
                 <li className='link  text-decoration-none'>
                     <Link className={'text-decoration-none'} to="/">

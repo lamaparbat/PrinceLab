@@ -13,6 +13,7 @@
  place-items: center;
  border-radius: 5px;
  background-color: white;
+ overflow: hidden;
 }
 
 .gestureDetection .video_container .video_footer {
