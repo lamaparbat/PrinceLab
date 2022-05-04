@@ -26,6 +26,7 @@
     "crypto-js": "^4.1.1",
     "dexie": "^3.2.1",
     "express": "^4.17.3",
+    "face-api.js": "^0.22.2",
     "firebase": "^9.6.6",
     "firebase-tools": "^10.2.1",
     "jquery": "^3.6.0",
