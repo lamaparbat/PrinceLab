@@ -1,0 +1,154 @@
+.forget_cont{
+    height:100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+}
+.forget_cont .forget_cont_row{
+    margin-bottom: 50px;
+    margin-top: 20px;
+    display:flex;
+    justify-content:space-between;
+    align-items: center;
+}
+.forget_cont  .forget_cont_row img{
+    height:600px;
+}
+.forget_cont  .forget_cont_row .box{
+    padding:100px;
+    padding-top: 20px;
+}
+.forget_cont  .forget_cont_row  .box .card1{
+    padding: 40px;
+    padding-left: 30px;
+    height:50px;
+    width:320px;
+    display:flex;
+    align-items: center;
+    border-radius: 20px !important;
+    box-shadow: 1px 0px 5px 2px rgba(181, 181, 181, 0.47) !important;
+    -webkit-box-shadow: 1px 0px 5px 2px rgba(181, 181, 181, 0.47)  !important;
+    -moz-box-shadow: 1px 0px 5px 2px rgba(181, 181, 181, 0.47)  !important;
+    cursor:pointer;
+    transition:0.3s ease-in-out;
+}
+.forget_cont  .forget_cont_row  .box .card1:hover{
+    transform:scale(1.01);
+}
+.forget_cont  .forget_cont_row .box .box_title p{
+   width:300px;
+}
+.forget_cont  .forget_cont_row  .box .card1 #sms{
+    margin-left: -10px;
+    height:35px;
+}
+.forget_cont  .forget_cont_row  .box .card1 #mail{
+    margin-left: -5px;
+    height:60px;
+}
+.forget_cont  .forget_cont_row  .box .card1 .card_content{
+    padding-top: 10px;
+    padding-left: 30px;
+}
+.forget_cont  .forget_cont_row  .box .card1 .card1_title{
+    font-size: 16px;
+}
+.forget_cont  .forget_cont_row  .box .card1 .card_content h5{
+    margin-top: 5px;
+    font-size: 19px;
+}
+
+.signin{
+    top: 80px;
+    position: relative;
+    background:#2457FF !important;
+}
+
+/*reset form*/
+.reset_btn{
+    background:#2457FF !important;
+}
+
+/*email verification card styling*/
+.emailVerifyCard{
+    position: relative;
+    padding:20px;
+    display: flex;
+    height:400px;
+    width:350px;
+    flex-direction: column;
+    align-items: center;
+    border:1px solid #e0e0e0;
+    border-radius: 10px !important;
+    box-shadow: 1px 0px 5px 2px rgba(181, 181, 181, 0.47) !important;
+    -webkit-box-shadow: 1px 0px 5px 2px rgba(181, 181, 181, 0.47) !important;
+    -moz-box-shadow: 1px 0px 5px 2px rgba(181, 181, 181, 0.47) !important;
+}
+.emailVerifyCard #mobile{
+    margin-left: -5px;
+    height:80px;
+}
+.emailVerifyCard #mail{
+    margin-left: -5px;
+    height:50px;
+}
+.emailVerifyCard .digitContainer input{
+    margin-right: 10px;
+    height:50px;
+    width:60px;
+    text-align: center;
+    color:black !important;
+    border-radius: 5px !important;
+    border:0px solid black !important;
+    background-color: #dadada !important;
+}
+.emailVerifyCard .send_btn{
+    background-color: #0477EA !important;
+    color: white !important;
+}
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+
+/*reset password form*/
+#new_password{
+    background-color: #f1f1f1 !important;
+}
+
+@media(max-width:1100px){
+    .forget_cont .forget_cont_row #main_img {
+        display:none;
+    }
+}
+
+@media(max-width:430px){
+    .emailVerifyCard {
+       height:fit-content;
+        width:100%;
+    }
+
+    .emailVerifyCard .digitContainer input {
+        height: 40px;
+        width: 50px;
+    }
+}
+@media (max-width:300px) {
+    .forget_cont .forget_cont_row .box .box_title h1 {
+        font-size: 2.3rem !important;
+    }
+}
+@media (max-width:300px) {
+    .forget_cont .forget_cont_row .box .box_title p {
+         width: 100%;
+    }
+    .forget_cont .forget_cont_row .box .card1 {
+        padding: 20px;
+        height:fit-content;
+        width:100%;
+        flex-direction: column;
+    }
+}

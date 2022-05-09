@@ -1,0 +1,19 @@
+.errorContainer {
+ height: 100vh;
+ display: grid;
+ place-items: center;
+}
+
+.errorContainer .span {
+ padding: 20px;
+ padding-left: 50px;
+ padding-right: 50px;
+ width: fit-content;
+ height: fit-content;
+ display: grid;
+ color: white;
+ font-size: 25px;
+ place-items: center;
+ background-color: whitesmoke;
+ border-radius: 5px;
+}

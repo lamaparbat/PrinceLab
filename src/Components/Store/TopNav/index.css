@@ -1,0 +1,25 @@
+.store_nav {
+ padding: 0;
+ display: flex;
+ justify-content: space-between;
+}
+
+.store_nav span {
+ padding: 5px;
+ width: 100%;
+ display: flex;
+ justify-content: center;
+ color: white !important;
+ cursor: pointer;
+}
+
+.store_nav span:hover{
+  background-color: black;
+}
+
+ /* responsive */
+ @media (max-width:350px) {
+  .store_nav span {
+   font-size: 12px;
+  }
+ }

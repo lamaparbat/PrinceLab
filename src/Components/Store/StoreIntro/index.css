@@ -1,0 +1,24 @@
+.storeIntro {
+ display: flex;
+ justify-content:center;
+ align-items: center;
+}
+
+.storeIntro img {
+ margin-top: 10px;
+ margin-bottom: 10px;
+ height: 500px;
+ width: auto;
+}
+
+@media (max-width:1150px) {
+ .storeIntro {
+  display: flex;
+
+ }
+
+ .storeIntro img {
+  height: 100%;
+  width: 50%;
+ }
+}
