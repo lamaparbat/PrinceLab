@@ -21,6 +21,7 @@ import GitHubIcon from '@mui/icons-material/GitHub';
 import GoogleIcon from '@mui/icons-material/Google';
 // import redirectRoute from "../../Redux/Reducers/RedirectRoute";
 import CryptoJS from 'crypto-js';
+import { Secret } from '../../secret';
 
 function Index({ type }) {
     //creating instance of useSelector() -> redux
@@ -171,7 +172,7 @@ function Index({ type }) {
                         email: user.email,
                         profile: user.profile,
                         mode: "custom"
-                    }), REACT_APP_HASH_KEY).toString();
+                    }), Secret()).toString();
                     
                     //set new user encrypted cache
                     localStorage.setItem("princelab", login_encrypted_data);

@@ -13,6 +13,7 @@ import {toast, ToastContainer} from "react-toastify";
 import axios from 'axios';
 import { db } from "../../firebaseDB";
 import CryptoJS from 'crypto-js';
+import { Secret } from '../../secret';
 
 function Index() {
     //creating instance of useNavigate
@@ -45,13 +46,13 @@ function Index() {
         //cache data
         if (localStorage.getItem("princelab") !== "null") {
             //fetch the user cache 
-            const bytes = CryptoJS.AES.decrypt(localStorage.getItem("princelab"), REACT_APP_HASH_KEY);
+            const bytes = CryptoJS.AES.decrypt(localStorage.getItem("princelab"), Secret());
             const originalSession = JSON.parse(bytes.toString(CryptoJS.enc.Utf8));
             setUserCache(originalSession);
             //fill edit profile data
             setEditProfileData({
                 username: originalSession.username,
-                email: (originalSession.email !== null ? originalSession.email : ""),
+                email: (originalSession.email != null ? originalSession.email : ""),
                 password: "",
                 profile: {}
             });
@@ -192,7 +193,7 @@ function Index() {
     const SettingNav = () => {
         //disabled the edit & password button on socialAuth mode
         useEffect(() => {
-            if (userCache.mode !== "custom") {
+            if (userCache.mode != "custom") {
                 $("#edit_profile_btn").css("display", "none")
                 $("#change_password_btn").css("display", "none")
             }
@@ -407,7 +408,7 @@ function Index() {
                     <img
                         alt="agriculture"
                         loading='lazy'
-                    src={userCache.profile !== "" ? userCache.profile : process.env.PUBLIC_URL + "/assets/agriculture2.png"}/>
+                    src={userCache.profile != "" ? userCache.profile : process.env.PUBLIC_URL + "/assets/agriculture2.png"}/>
             </div>
             <div className="profile_nav_row d-flex flex-column justify-content-center">
                 <span>Username</span>
@@ -517,7 +518,7 @@ function Index() {
                 <div className="pic">
                     <img
                         alt="agriculture"
-                        src={userCache.profile !== "" ? userCache.profile : process.env.PUBLIC_URL + "/assets/agriculture2.png"}
+                        src={userCache.profile != "" ? userCache.profile : process.env.PUBLIC_URL + "/assets/agriculture2.png"}
                     />
                 </div>
                 <br/>
