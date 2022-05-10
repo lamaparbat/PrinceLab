@@ -260,7 +260,6 @@ function Index() {
         //check if new image file for profile choose or not ?
         const [isProfileChoose, setProfileChoose] = useState(false);
         
-        
         //change theme
         const changeTheme = () => {
             if (localStorage.getItem("theme") === "light") {
