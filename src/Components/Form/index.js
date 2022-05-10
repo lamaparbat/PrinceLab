@@ -171,7 +171,7 @@ function Index({ type }) {
                         email: user.email,
                         profile: user.profile,
                         mode: "custom"
-                    }), process.env.REACT_APP_HASH_KEY).toString();
+                    }), REACT_APP_HASH_KEY).toString();
                     
                     //set new user encrypted cache
                     localStorage.setItem("princelab", login_encrypted_data);
@@ -280,7 +280,6 @@ function Index({ type }) {
         await signInWithPopup(auth, provider)
             .then((result) => {
                 //auto fill the form
-                console.log(result)
                 autoFillForm(result.user);
 
             }).catch((error) => {

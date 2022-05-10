@@ -15,7 +15,7 @@ const updateGuideContent = (state = initialState, action) => {
   case "ML":
      return action.payload;
   default:
-   return initialState;
+   return state;
  }
 }
 

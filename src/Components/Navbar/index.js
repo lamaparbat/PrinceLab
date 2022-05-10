@@ -11,7 +11,7 @@ import KeyboardBackspaceIcon from '@mui/icons-material/KeyboardBackspace';
 import {getStorage, ref, uploadBytesResumable, getDownloadURL} from "firebase/storage";
 import {toast, ToastContainer} from "react-toastify";
 import axios from 'axios';
-import { app, db } from "../../firebaseDB";
+import { db } from "../../firebaseDB";
 import CryptoJS from 'crypto-js';
 
 function Index() {
@@ -43,16 +43,15 @@ function Index() {
     // track the changes in browser cache
     useEffect(() => {
         //cache data
-        if (localStorage.getItem("princelab") != "null") {
+        if (localStorage.getItem("princelab") !== "null") {
             //fetch the user cache 
-            const bytes = CryptoJS.AES.decrypt(localStorage.getItem("princelab"), process.env.REACT_APP_HASH_KEY);
+            const bytes = CryptoJS.AES.decrypt(localStorage.getItem("princelab"), REACT_APP_HASH_KEY);
             const originalSession = JSON.parse(bytes.toString(CryptoJS.enc.Utf8));
-            console.log(originalSession)
             setUserCache(originalSession);
             //fill edit profile data
             setEditProfileData({
                 username: originalSession.username,
-                email: (originalSession.email != null ? originalSession.email : ""),
+                email: (originalSession.email !== null ? originalSession.email : ""),
                 password: "",
                 profile: {}
             });
@@ -139,14 +138,14 @@ function Index() {
         return (
             <div
                 className={"profile_nav d-" + (isNavVisible ? "block" : "none")}
-                style={userCache.email != "" ? {marginTop: "-380px"} : {marginTop: "-280px"}}
+                style={userCache.email !== "" ? {marginTop: "-380px"} : {marginTop: "-280px"}}
             >
                 {(userCache.username) ? <>
                     <CancelIcon id="cancleIcon" onClick={showProfileNav}/>
                     <div className="pic">
                         <img
                             alt="agriculture"
-                            src={userCache.profile != "" ? userCache.profile : process.env.PUBLIC_URL + "/assets/agriculture2.png"}/>
+                            src={userCache.profile !== "" ? userCache.profile : process.env.PUBLIC_URL + "/assets/agriculture2.png"}/>
                         <p className="mt-2">{userCache.username}</p>
                     </div>
                     <div className="profile_nav_row">
@@ -193,7 +192,7 @@ function Index() {
     const SettingNav = () => {
         //disabled the edit & password button on socialAuth mode
         useEffect(() => {
-            if (userCache.mode != "custom") {
+            if (userCache.mode !== "custom") {
                 $("#edit_profile_btn").css("display", "none")
                 $("#change_password_btn").css("display", "none")
             }
@@ -223,7 +222,7 @@ function Index() {
                     <img
                         loading='lazy'
                         alt="agriculture"
-                        src={userCache.profile != "" ? userCache.profile : process.env.PUBLIC_URL + "/assets/agriculture2.png"}/>
+                        src={userCache.profile !== "" ? userCache.profile : process.env.PUBLIC_URL + "/assets/agriculture2.png"}/>
                     <p className="mt-2">{userCache.email}</p>
                 </div>
                 <div className="profile_nav_row d-flex flex-column justify-content-center">
@@ -290,7 +289,7 @@ function Index() {
                 setEmailFocus(true)
             }
 
-            e.target.name != "profile" ? setEditProfileData({
+            e.target.name !== "profile" ? setEditProfileData({
                 ...editProfileData, [e.target.name]: e.target.value
             }) : setEditProfileData({
                 ...editProfileData, [e.target.name]: e.target.files[0]
@@ -408,7 +407,7 @@ function Index() {
                     <img
                         alt="agriculture"
                         loading='lazy'
-                    src={userCache.profile != "" ? userCache.profile : process.env.PUBLIC_URL + "/assets/agriculture2.png"}/>
+                    src={userCache.profile !== "" ? userCache.profile : process.env.PUBLIC_URL + "/assets/agriculture2.png"}/>
             </div>
             <div className="profile_nav_row d-flex flex-column justify-content-center">
                 <span>Username</span>
@@ -518,7 +517,7 @@ function Index() {
                 <div className="pic">
                     <img
                         alt="agriculture"
-                        src={userCache.profile != "" ? userCache.profile : process.env.PUBLIC_URL + "/assets/agriculture2.png"}
+                        src={userCache.profile !== "" ? userCache.profile : process.env.PUBLIC_URL + "/assets/agriculture2.png"}
                     />
                 </div>
                 <br/>

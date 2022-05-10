@@ -1,5 +1,5 @@
 import React from 'react';
-import { useDispatch, useSelector } from 'react-redux';
+import { useSelector } from 'react-redux';
 import '../QuickGuide/Index.css';
 import Sidebar from '../QuickGuide/Sidebar/Index';
 import GetStarted from '../QuickGuide/GetStarted/index';
@@ -11,31 +11,36 @@ import MLGuide from '../QuickGuide/Body/ML/index';
 
 //main function
 const Index = () => {
-    //track redux state changes
-    const currentContentID = useSelector(state => state.updateGuideContent);
-    
-    
+    //custome body component
+    const Body = () => {
+        //track redux state changes
+        const currentContentID = useSelector(state => state.updateGuideContent);
+        return (
+            <>
+                {
+                    currentContentID === "GettingStarted" ? <GetStarted /> : null
+                }
+                {
+                    currentContentID === "Installation" ? <InstallGuide /> : null
+                }
+                {
+                    currentContentID === "Interface" ? <InterfaceGuide /> : null
+                }
+                {
+                    currentContentID === "Block" ? <BlockGuide /> : null
+                }
+                {
+                    currentContentID === "Code" ? <CodeGuide /> : null
+                }
+                {
+                    currentContentID === "ML" ? <MLGuide /> : null
+                }
+            </>)
+    }
     return (
         <div className={"quick_guide"}>
-            <Sidebar/>
-            {
-                currentContentID === "GettingStarted" ? <GetStarted /> : null
-            }
-            {
-                currentContentID === "Installation" ? <InstallGuide /> : null
-            }
-            {
-                currentContentID === "Interface" ? <InterfaceGuide /> : null
-            }
-            {
-                currentContentID === "Block" ? <BlockGuide /> : null
-            }
-            {
-                currentContentID === "Code" ? <CodeGuide /> : null
-            }
-            {
-                currentContentID === "ML" ? <MLGuide /> : null
-            }
+            <Sidebar />
+            <Body />
         </div>
     )
 }
