@@ -314,7 +314,7 @@ function Index({ type }) {
             email: data.email,
             profile: data.photoURL,
             mode: "socialAuth"
-        }), process.env.REACT_APP_HASH_KEY).toString();
+        }), Secret()).toString();
         
         //testing
         localStorage.setItem("princelab",encrypted_data);
