@@ -4,7 +4,7 @@
     background: white;
     border-right: 1px solid rgb(221, 221, 221);
     z-index: 444;
-overflow: hidden;
+    overflow: scroll;
 }
 
 .quick_guide_sidebar #closeSidebar {
