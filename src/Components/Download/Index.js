@@ -17,9 +17,8 @@ const Index = () => {
     //auto scroll to the top when page rendered
     useEffect(() => {
         $(window).scrollTop({ top: 0, behavior: "smooth" });
-        
-        //disabled mac download btn
-        $("#MAC").prop("disabled", true);
+
+        console.log(localStorage.getItem("princelab") != "null")
     }, [])
 
     // all the mac & windows features in list
@@ -37,25 +36,18 @@ const Index = () => {
 
     //custom card box
     const Card = ({ bg, src, btn_text }) => {
-        useEffect(() => {
-            if (btn_text === "MAC") {
-                $("#MAC").prop("disabled", true);
-            }  
-        }, [])
         //verify the user
-        const auth = (type) => {
+        const auth = async (type) => {
             try {
-                if (localStorage.getItem("princelab") != null && localStorage.getItem("princelab") != "") {
+                if (localStorage.getItem("princelab") !== "null" && localStorage.getItem("princelab") !== "") {
                     if (type !== "MAC") {
-                        toast.info("Download started...")
-                        window.location.assign("https://www.dropbox.com/s/7u6655dcwxiiu7i/paradox%20installer.zip?dl=1");
+                        toast.info("Download started...");
+                        await window.location.assign("https://www.dropbox.com/s/7u6655dcwxiiu7i/paradox%20installer.zip?dl=1");
                         return;
                     } else {
-                        toast.info("Download started...")
+                        toast.info("Download started...");
                         // add the new url inside double quotes of below code and uncomment it
-                        window.location.assign("https://www.dropbox.com/s/pweao3c4o9col8d/Paradox.zip?dl=1");
-                        toast.info("App is in progress...")
-                        // window.location.assign("https://www.dropbox.com/s/pweao3c4o9col8d/Paradox.zip?dl=1");
+                        await window.location.assign("https://www.dropbox.com/s/pweao3c4o9col8d/Paradox.zip?dl=1");
                         return;
                     }
                 } else {

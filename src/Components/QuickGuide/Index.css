@@ -4,3 +4,9 @@
     display: flex;
     overflow-x: hidden;
 }
+
+/* body row */
+.getStartedRow {
+    height: 100vh;
+    overflow: scroll;
+}
