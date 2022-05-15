@@ -70,7 +70,6 @@ function Index({ id }) {
   }
 
   // ***************** -> TENSORFLOW ML MODEL  <- ****************
-  
   //classify the given input image (Classification)
   const classifyImage = async () => {
     setTimeout(() => {
