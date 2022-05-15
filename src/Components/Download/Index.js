@@ -23,7 +23,7 @@ const Index = () => {
 
     // all the mac & windows features in list
     const [mac_features, setMac] = useState([
-        "Processor: 2 GHz / M1 (recommended)",
+        "Processor: 2 GHz / M1(recommended)",
         "RAM: 8 GB",
         "Storage: 8 GB",
         "OS: OS X 10 or recent version"]);
