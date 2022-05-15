@@ -33,7 +33,6 @@ const Index = () => {
         "Storage: 10 GB",
         "OS: Windows 10 or later"]);
 
-
     //custom card box
     const Card = ({ bg, src, btn_text }) => {
         //verify the user
