@@ -73,6 +73,8 @@ function Index({ id }) {
   
   //classify the given input image (Classification)
   const classifyImage = async () => {
+    //start loading effect
+    setLoading(true);
     setTimeout(() => {
       $(".imgClassificationCont .classific_body .connector").removeClass("animate__animated animate__rotateIn animate__repeat-2")
       $(".imgClassificationCont .classific_body .connector").addClass("animate__animated animate__jackInTheBox animate__repeat-2")
@@ -169,12 +171,8 @@ function Index({ id }) {
             id === "img_class" ?
               <div className='result_box'>
                 <span className='text-light'>Name: {
-                  predictResult.name ? predictResult.name : null
+                  isLoading ? "processing........" : predictResult.name
                 }
-                  {
-                    isLoading ? "processing......." : null
-                  }
-
                 </span>
                 <span className='text-light'>Probability: {
                   isLoading ? "processing........" : predictResult.percentage + "%"

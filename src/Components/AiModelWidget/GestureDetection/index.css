@@ -7,7 +7,7 @@
 }
 
 #qna_textarea {
-  height: 200px;
+  height: 300px;
   width: 60%;
 }
 
@@ -15,6 +15,27 @@
   width: 60%;
 }
 
+#qna_question_output {
+  height: 50px;
+  width: 60%;
+  border-radius: 5px;
+}
+
 .qna_btn {
   border-radius: 5px !important;
+}
+
+/* on resize */
+@media (max-width:600px) {
+  #qna_textarea {
+    width: 100%;
+  }
+
+  #qna_question {
+    width: 100%;
+  }
+
+  #qna_question_output {
+    width: 100%;
+  }
 }

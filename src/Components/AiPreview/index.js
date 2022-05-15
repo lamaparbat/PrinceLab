@@ -28,7 +28,7 @@ function Index() {
   }, [sidebarVisibility]);
   
   //current selected navlink state
-  const [selectedNav, setSelectedNav] = useState("");
+  const [selectedNav, setSelectedNav] = useState("home");
   
   //sidebar component
   const Sidebar = () => {
@@ -55,6 +55,8 @@ function Index() {
         setSelectedNav("link3");
       } else if (id === "link4") {
         setSelectedNav("link4");
+      } else if (id === "home") {
+        setSelectedNav("home")
       }
     }
     
@@ -63,7 +65,8 @@ function Index() {
         <div className='brand'>
           <h4 id='brand_title'><b>Ai Preview Type</b></h4>
           <Cancel className='btn p-0 cancleIcon' onClick={closeSidebar}/>
-        </div><br/><br/>
+        </div><br /><br />
+        <span id='link1' onClick={() => selectNavLink("home")} style={selectedNav === "home" ? { backgroundColor: "#028AFF" } : null}>Dashboard</span>
         <span id='link1' onClick={() => selectNavLink("link1")} style={selectedNav === "link1" ? { backgroundColor:"#028AFF"}:null}>Classification</span>
         <span id='link2' onClick={() => selectNavLink("link2")} style={selectedNav === "link2" ? { backgroundColor: "#028AFF" } : null}>Regression</span>
         <span id='link3' onClick={() => selectNavLink("link3")} style={selectedNav === "link3" ? { backgroundColor: "#028AFF" } : null}>Detection</span>
@@ -77,7 +80,7 @@ function Index() {
     return (
       <div className='previewBodyCard'>
         {
-          title === "House Price prediction" ?
+          title === "Text Toxicity" ?
             <img
               className='img-fluid mt-4'
               src={src}
@@ -85,7 +88,7 @@ function Index() {
               height="80"
               width="80"
               loading='lazy' /> :
-            title === "Sound Recognition" ?
+            title === "Question Answering" ?
               <img
                 className='img-fluid mt-4'
                 src={src}
@@ -137,11 +140,11 @@ function Index() {
                   <>
                     <div className='card_rows'>
                       <Card title="Image Classification" src={process.env.PUBLIC_URL + "/assets/camera.png"} />
-                      <Card title="Gesture Detection" src={process.env.PUBLIC_URL + "/assets/gesture.png"} />
+                      <Card title="Face Motion Detection" src={process.env.PUBLIC_URL + "/assets/gesture.png"} />
                     </div>
                     <div className='card_rows'>
-                      <Card title="Sound Recognition" src={process.env.PUBLIC_URL + "/assets/sound.png"} />
-                      <Card title="House Price prediction" src={process.env.PUBLIC_URL + "/assets/house.png"} />
+                      <Card title="Question Answering" src={process.env.PUBLIC_URL + "/assets/sound.png"} />
+                      <Card title="Text Toxicity" src={process.env.PUBLIC_URL + "/assets/house.png"} />
                     </div>
                   </>
         }

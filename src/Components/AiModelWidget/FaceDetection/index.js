@@ -108,7 +108,7 @@ function Index() {
 
   return (
     <div className='gestureDetection'>
-      <h3 id='model_title'>Simple Face Detection</h3><br />
+      <h3 id='model_title'>Face Motion Detection</h3><br />
       <VideoContainer />
       <br /><br />
       <Gesture_footer />

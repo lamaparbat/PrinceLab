@@ -98,11 +98,11 @@ function Index() {
     <h6><b>Result</b></h6>
       <div className='result_box'>
         <span className='text-light' id="toxicity_type">Text Toxicity Type: {
-          predictedResult.toxicity_type !== null ? predictedResult.toxicity_type : ""
+          isLoading ? "Processing" : predictedResult.toxicity_type
         } </span><br />
         <span className='text-light' id="toxicity_percentage">Probability:  {
-          predictedResult.toxicity_type !== null ? predictedResult.probabilities : ""
-        }%</span>
+          isLoading ? "Processing" : predictedResult.probabilities +"%"
+        }</span>
       </div> 
    </div>
   )
