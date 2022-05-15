@@ -601,12 +601,16 @@ function Index() {
                 </Link>
             </li>
             <li className='link  text-decoration-none'>
-                <Link className='text-decoration-none' to="/About">
+                <Link className='text-decoration-none' to="/aipreview">
                     {
-                        (cur_route.pathname === "/About" ?
+                        (cur_route.pathname === "/aipreview" ?
                                 <span className="text-white py-1">
-                            About <hr className="bg-white position-relative my-2" /></span>
-                                :  <span className="text-white">About</span>
+                                Ai Store
+                                <span className='px-2' id="aistore_new">new</span>
+                                <hr className="bg-white position-relative my-2" /></span>
+                            : <span className="text-white">Ai Store
+                                <span className='px-2 py-0' id="aistore_new">new</span>
+                            </span>
                         )
                     }
                 </Link>
@@ -660,9 +664,11 @@ function Index() {
                             Pricing</span>
                     </Link></li>
                 <li className='link  text-decoration-none'>
-                    <Link className='text-decoration-none' to="/About">
-                        <span className={"text-" + (cur_route.pathname === "/About" ? "secondary" : "primary")}>
-                            About </span>
+                    <Link className='text-decoration-none' to="/aipreview">
+                        <span className={"text-" + (cur_route.pathname === "/aipreview" ? "secondary" : "primary")}>
+                            Ai Store
+                            <span id="aistore_new">new</span>
+                        </span>
                     </Link>
                 </li>
                 {/*<li className='link  text-decoration-none'>*/}

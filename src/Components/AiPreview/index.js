@@ -61,13 +61,13 @@ function Index() {
     return (
       <div className={'previewSidebar pt-5 px-4 d-'+ (isSidebarVisible ? "flex" : "none") }>
         <div className='brand'>
-          <h4 id='brand_title'><b>Categories</b></h4>
+          <h4 id='brand_title'><b>Ai Preview Type</b></h4>
           <Cancel className='btn p-0 cancleIcon' onClick={closeSidebar}/>
         </div><br/><br/>
         <span id='link1' onClick={() => selectNavLink("link1")} style={selectedNav === "link1" ? { backgroundColor:"#028AFF"}:null}>Classification</span>
         <span id='link2' onClick={() => selectNavLink("link2")} style={selectedNav === "link2" ? { backgroundColor: "#028AFF" } : null}>Regression</span>
         <span id='link3' onClick={() => selectNavLink("link3")} style={selectedNav === "link3" ? { backgroundColor: "#028AFF" } : null}>Detection</span>
-        <span id='link4' onClick={() => selectNavLink("link4")} style={selectedNav === "link4" ? { backgroundColor: "#028AFF" } : null}>Detection</span>
+        <span id='link4' onClick={() => selectNavLink("link4")} style={selectedNav === "link4" ? { backgroundColor: "#028AFF" } : null}>Regression</span>
       </div>
     )
   }

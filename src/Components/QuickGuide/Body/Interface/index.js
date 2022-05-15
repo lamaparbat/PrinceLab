@@ -32,17 +32,17 @@ const Index = () => {
     <MenuIcon className='btn p-0' onClick={changeSidebar} /><br/><br/>
     <h3 className='bold'>Paradox Interface</h3><br/>
     <h4>1. Menu and Theme</h4>
-    <video src={process.env.PUBLIC_URL + "/assets/tutorial_video/menu and themes.mp4"} height="80%" width="80%" autoPlay></video><br />
+    <video src={process.env.PUBLIC_URL + "/assets/tutorial_video/menu and themes.mp4"} width="80%" autoPlay></video><br />
     <h4 className='mt-4'>2. System Themes</h4>
-    <video src={process.env.PUBLIC_URL + "/assets/tutorial_video/system theme.mp4"} height="80%" width="80%" autoPlay></video><br />
+    <video src={process.env.PUBLIC_URL + "/assets/tutorial_video/system theme.mp4"} width="80%" autoPlay></video><br />
     <h4 className='mt-4'>3. Create new macro</h4>
-    <video src={process.env.PUBLIC_URL + "/assets/tutorial_video/creating macro.mp4"} height="80%" width="80%" autoPlay></video><br />
+    <video src={process.env.PUBLIC_URL + "/assets/tutorial_video/creating macro.mp4"} width="80%" autoPlay></video><br />
     <h4 className='mt-4'>4. Create new micro</h4>
-    <video src={process.env.PUBLIC_URL + "/assets/tutorial_video/creating micro's.mp4"} height="80%" width="80%" autoPlay></video><br />
+    <video src={process.env.PUBLIC_URL + "/assets/tutorial_video/creating micro's.mp4"} width="80%" autoPlay></video><br />
     <h4 className='mt-4'>5. Create new scripts</h4>
-    <video src={process.env.PUBLIC_URL + "/assets/tutorial_video/creating script.mp4"} height="80%" width="80%" autoPlay></video><br />
+    <video src={process.env.PUBLIC_URL + "/assets/tutorial_video/creating script.mp4"} width="80%" autoPlay></video><br />
     <h4 className='mt-4'>5. Data broadcasting</h4>
-    <video src={process.env.PUBLIC_URL + "/assets/tutorial_video/data broadcasting.mp4"} height="80%" width="80%" autoPlay></video><br />
+    <video src={process.env.PUBLIC_URL + "/assets/tutorial_video/data broadcasting.mp4"} width="80%" autoPlay></video><br />
 
    </div>
   </div>

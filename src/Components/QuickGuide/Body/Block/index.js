@@ -26,17 +26,18 @@ const Index = () => {
   }
  }
  
+
  return (
   <div className="container getStarted pt-5">
    <div className='getStartedRow px-4 pt-3'>
     <MenuIcon className='btn p-0' onClick={changeSidebar} /><br/><br/>
     <h3 className='bold'>In-built block</h3><br />
     <h4 className='mt-4'> 1. Slider block</h4>
-    <video src={process.env.PUBLIC_URL + "/assets/tutorial_video/Slider.mp4"} height="80%" width="80%" autoPlay></video><br />
+    <video src={process.env.PUBLIC_URL + "/assets/tutorial_video/Slider.mp4"} width="80%" autoPlay></video><br />
     <h4 className='mt-4'> 2. Code block</h4>
-    <video src={process.env.PUBLIC_URL + "/assets/tutorial_video/code block.mp4"} height="80%" width="80%" autoPlay></video><br />
+    <video src={process.env.PUBLIC_URL + "/assets/tutorial_video/code block.mp4"} width="80%" autoPlay></video><br />
     <h4 className='mt-4'> 3. Rename block</h4>
-    <video src={process.env.PUBLIC_URL + "/assets/tutorial_video/renaming blocks.mp4"} height="80%" width="80%" autoPlay></video><br />
+    <video src={process.env.PUBLIC_URL + "/assets/tutorial_video/renaming blocks.mp4"} width="80%" autoPlay></video><br />
 
    </div>
   </div>

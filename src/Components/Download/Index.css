@@ -23,9 +23,9 @@
 }
 
 .beta_container {
-  margin-top: -22px;
-  margin-left: 45px;
-  margin-bottom: 10px;
+    margin-top: -22px;
+    margin-left: 45px;
+    margin-bottom: 10px;
 }
 
 .downloads_box_card div #beta_text {
@@ -38,14 +38,14 @@
     border-radius: 5px;
 }
 
-.downloads_box_card .primary {
+.downloads_box_card #MAC {
     background-color: #1C73F2 !important;
-    border: none !important;
+    border-radius: 5px !important;
 }
 
-.downloads_box_card .info {
+.downloads_box_card #WINDOWS {
     background-color: #00ADEF !important;
-    border: none !important;
+    border-radius: 5px !important;
 }
 
 .downloads_box_card img {

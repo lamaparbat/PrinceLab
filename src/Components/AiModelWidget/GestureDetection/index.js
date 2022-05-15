@@ -1,66 +1,43 @@
-import React, { useState, useRef } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import './index.css';
-import VideocamOutlinedIcon from '@mui/icons-material/VideocamOutlined';
-import Webcam from 'react-webcam';
+import * as qna from '@tensorflow-models/qna';
 
 function Index() {
-  //global state
-  const [isVideoOn, setVideoOn] = useState(false);
+  //state
+  const [result, setResult] = useState("");
+  const [isLoading, setLoading] = useState(false);
+  const passage = useRef("")
+  const question = useRef("")
   
-  //video height & width
-  const videoDimension = {
-    height: 300,
-    width:400
-  }
-  
+  //find the answer
+  const answerQuestion = async () => {
+    if (passage.current.value != "" && question.current.value != "") {
+      //init the loading
+      setLoading(true);
 
-  
-  //store the camera data
-  const camData = useRef();
-  
-  //track webcam video 
-  const initDetection = async () => {
+      //load model
+      const model = await qna.load();
 
-  }
+      //findig answer
+      const answers = await model.findAnswers(question.current.value, passage.current.value);
 
-  //on the webcam
-  const startVideo =async () => {
-    setVideoOn(true);
-    initDetection();
-  }
 
-  //off the webcam
-  const stopVideo = () => {
-    setVideoOn(false);
-  }
-  
-  //custom video container 
-  const VideoContainer = () => {
-    return (
-      <div className='video_container'>
-        {
-          isVideoOn ? <Webcam ref={camData} height={videoDimension.height} width={videoDimension.width} id="camCont" /> : <VideocamOutlinedIcon style={{ height: "90px", width: "90px" }} />
-        }
-      </div>
-    )
-  }
+      //off the laoding 
+      setLoading(false);
 
-  //custom gesture footer
-  const Gesture_footer = () => {
-    return (
-      <div className='video_footer'>
-        <button className='btn px-5 py-2 text-white start_btn' onClick={startVideo}>Start</button>
-        <button className='btn px-5 py-2 text-white stop_btn' onClick={stopVideo}>Stop</button>
-      </div>
-    )
+      //set the result on the output box
+      setResult(answers);
+    }
   }
-
   return (
     <div className='gestureDetection'>
-      <h3 id='model_title'>Handpose Detection</h3><br />
-      <VideoContainer />
-      <br /><br />
-      <Gesture_footer />
+      <h3 id='model_title'>Find answers of a question from the given context</h3><br />
+      <textarea ref={passage} className='p-2 px-3' placeholder='Paste your story' id='qna_textarea' required></textarea><br />
+      <input ref={question} className='p-2 px-3' placeholder='Paste your question' id='qna_question' required></input><br />
+      <textarea className='p-2 pb-3 px-3 bg-light' id='qna_question' placeholder='Predicted result' disabled>{
+        isLoading ? "Predicting......." : result
+      }</textarea><br />
+      <button className='btn btn-primary px-5 qna_btn' onClick={answerQuestion}>Predict answer</button>
     </div>
   )
 }

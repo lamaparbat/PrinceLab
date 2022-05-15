@@ -187,6 +187,17 @@ input, .profile_nav button {
    fill: #919191 !important;
 }
 
+
+#aistore_new{
+   margin-left: -5px;
+   margin-top: -12px;
+   position: absolute;
+   font-size: 10px;
+color: white;
+  background-color: green !important;
+  border-radius: 10px;
+}
+
 /* responsive */
 @media (max-width:1300px) {
    .navbar {
