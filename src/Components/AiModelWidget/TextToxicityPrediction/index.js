@@ -84,7 +84,7 @@ function Index() {
       <span className='text-danger'>{errorMessage ? errorMessage : null}</span>
       <button className='btn py-2 px-5 w-100' id='predict_btn' onClick={predictTextToxicity}>
         {
-          isLoading ? "Processing......." : "Predict"
+          isLoading ? "Predicting..." : "Predict"
         }
       </button>
    </div>
@@ -98,10 +98,10 @@ function Index() {
     <h6><b>Result</b></h6>
       <div className='result_box'>
         <span className='text-light' id="toxicity_type">Text Toxicity Type: {
-          isLoading ? "Processing" : predictedResult.toxicity_type
+          isLoading ? "Predicting..." : predictedResult.toxicity_type
         } </span><br />
         <span className='text-light' id="toxicity_percentage">Probability:  {
-          isLoading ? "Processing" : predictedResult.probabilities +"%"
+          isLoading ? "Predicting..." : predictedResult.probabilities +"%"
         }</span>
       </div> 
    </div>

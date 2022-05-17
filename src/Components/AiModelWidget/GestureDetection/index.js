@@ -23,7 +23,7 @@ function Index() {
 
       //findig answer
       const answers = await model.findAnswers(question.current.value, passage.current.value);
-
+      
       //off the laoding 
       setLoading(false);
 
@@ -43,7 +43,7 @@ function Index() {
         className='p-2 pb-3 px-3 bg-light' id='qna_question_output'
         placeholder='Predicted result'
         value={
-          isLoading ? "Predicting......." : "Result:"+result.text+" , Score:"+result.score
+          isLoading ? "Predicting..." : "Result:"+result.text
         }
         disabled></textarea><br />
       <button className='btn btn-primary px-5 qna_btn' onClick={answerQuestion}>Predict answer</button>
