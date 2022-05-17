@@ -327,9 +327,7 @@ function Index({ type }) {
             //delay the notice by 1 second
             setTimeout(() => {
                 navigate("/")
-                //refresh the page
-                window.location.assign("");
-            }, 1000)
+            }, 100)
         }
     }
 

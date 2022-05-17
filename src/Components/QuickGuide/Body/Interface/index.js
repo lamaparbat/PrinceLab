@@ -43,7 +43,8 @@ const Index = () => {
     <video src={process.env.PUBLIC_URL + "/assets/tutorial_video/creating script.mp4"} width="80%" autoPlay></video><br />
     <h4 className='mt-4'>5. Data broadcasting</h4>
     <video src={process.env.PUBLIC_URL + "/assets/tutorial_video/data broadcasting.mp4"} width="80%" autoPlay></video><br />
-
+    <h4 className='mt-4'>5. Save projects</h4>
+    <video src={process.env.PUBLIC_URL + "/assets/tutorial_video/Save project.mp4"} width="80%" autoPlay></video><br />
    </div>
   </div>
  )

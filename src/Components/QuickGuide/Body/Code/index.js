@@ -35,6 +35,14 @@ const Index = () => {
     <video src={process.env.PUBLIC_URL + "/assets/tutorial_video/Add&multiply.mp4"} width="80%" autoPlay></video><br />
     <h4 className='mt-3'>2. Square root</h4>
     <video src={process.env.PUBLIC_URL + "/assets/tutorial_video/Sqrt .mp4"} width="80%" autoPlay></video><br />
+    <h4 className='mt-3'>3. AND</h4>
+    <video src={process.env.PUBLIC_URL + "/assets/tutorial_video/AND.mp4"} width="80%" autoPlay></video><br />
+    <h4 className='mt-3'>4. NOT</h4>
+    <video src={process.env.PUBLIC_URL + "/assets/tutorial_video/NOT.mp4"} width="80%" autoPlay></video><br />
+    <h4 className='mt-3'>5. NAND</h4>
+    <video src={process.env.PUBLIC_URL + "/assets/tutorial_video/NAND.mp4"} width="80%" autoPlay></video><br />
+    <h4 className='mt-3'>6. XNOR</h4>
+    <video src={process.env.PUBLIC_URL + "/assets/tutorial_video/XNOR.mp4"} width="80%" autoPlay></video><br />
    </div>
   </div>
  )
