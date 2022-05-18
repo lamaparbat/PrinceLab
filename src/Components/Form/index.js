@@ -2,7 +2,6 @@ import React, { useState, useEffect, useRef } from 'react';
 import { useLocation, useNavigate } from "react-router-dom";
 import { useSelector } from "react-redux";
 import validator from "validator";
-
 // import {passwordStrength} from 'check-password-strength';
 import { db } from '../../firebaseDB';
 import { getAuth, signInWithPopup, GoogleAuthProvider, GithubAuthProvider, sendEmailVerification } from "firebase/auth";

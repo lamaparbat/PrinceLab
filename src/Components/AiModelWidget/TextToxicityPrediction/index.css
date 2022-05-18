@@ -10,15 +10,24 @@
 .HousePrediction .features_input {
  width: 350px;
  border-radius: 5px;
+ background-color: black !important;
+ border: 1px solid rgb(71, 71, 71) !important;
+}
+
+.HousePrediction .features_input .room_field {
+ padding: 15px !important;
+ padding-top: 5px !important;
+ padding-bottom: 5px !important;
 }
 
 .HousePrediction .features_input input {
  background-color: black;
  color: white;
+ border: 1px solid rgb(71, 71, 71) !important;
 }
 
 .HousePrediction .features_input #predict_btn {
- background-color: #200EF7;
+ background-color: #200EF7 !important;
  color: white;
  border-radius: 5px !important;
 }
@@ -29,6 +38,7 @@
  height: fit-content;
  width: 400px;
  background-color: #0B0B0B;
+ border: 1px solid rgb(106, 106, 106) !important;
  border-radius: 10px;
  overflow: hidden;
 }
@@ -36,7 +46,8 @@
 .HousePrediction .output_console_card h6 {
  padding: 10px;
  width: 100%;
- background-color: #7200E3;
+ background-color: #7200E3 !important;
+ border-radius: 0px !important;
 }
 
 .HousePrediction.result_box span {
@@ -77,6 +88,6 @@
 
  .HousePrediction .output_console_card {
   width: 100%;
-  overflow:visible;
+  overflow: visible;
  }
 }

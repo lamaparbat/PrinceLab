@@ -13,65 +13,71 @@
   justify-content: center;
   align-items: center;
   border-radius: 5px;
-  background-color: white;
+  background-color: white !important;
+  border: 1px solid rgb(92, 90, 90) !important;
 }
 
 #camCont {
   margin-top: 0px;
 }
 
-#canvas {
-  position: absolute;
+.css-i4bv87-MuiSvgIcon-root {
+ background-color: unset !important;
 }
 
-.gestureDetection .video_container .video_footer {
-  background-color: red;
-}
-
-.start_btn {
-  margin-right: 20px;
-  border-radius: 5px !important;
-  background-color: #200EF7;
-}
-
-.stop_btn {
-  margin-left: 20px;
-  border-radius: 5px !important;
-  background-color: red;
-}
-
-/* responsive */
-@media(max-width:630px) {
-  .gestureDetection .video_container {
-    width: 100%;
+  #canvas {
+    position: absolute;
+    background-color: unset !important;
   }
-}
 
-@media(max-width:330px) {
+  .gestureDetection .video_container .video_footer {
+    background-color: red !important;
+  }
+
   .start_btn {
-    margin-right: 5px;
+    margin-right: 20px;
+    border-radius: 5px !important;
+    background-color: #200EF7 !important;
   }
 
   .stop_btn {
-    margin-left: 5px;
-  }
-}
-
-@media(max-width:300px) {
-  .start_btn {
-    margin-right: 0px;
-    margin-bottom: 15px;
+    margin-left: 20px;
+    border-radius: 5px !important;
+    background-color: red !important;
   }
 
-  .stop_btn {
-    margin-left: 0px;
+  /* responsive */
+  @media(max-width:630px) {
+    .gestureDetection .video_container {
+      width: 100%;
+    }
   }
 
-  .gestureDetection .video_footer {
-    width: 100%;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
+  @media(max-width:330px) {
+    .start_btn {
+      margin-right: 5px;
+    }
+
+    .stop_btn {
+      margin-left: 5px;
+    }
   }
-}
+
+  @media(max-width:300px) {
+    .start_btn {
+      margin-right: 0px;
+      margin-bottom: 15px;
+    }
+
+    .stop_btn {
+      margin-left: 0px;
+    }
+
+    .gestureDetection .video_footer {
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+    }
+  }

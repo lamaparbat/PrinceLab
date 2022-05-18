@@ -33,8 +33,10 @@ import { Elements } from "@stripe/react-stripe-js";
 import ResetForm from "./Components/Form/ResetForm";
 import AiPreview from '../src/Components/AiPreview/index';
 import Error from './Components/Error/Error';
+import StudentRegistrationForm from '../src/Components/StudentRegistrationForm';
 import axios from 'axios';
 import CryptoJS from 'crypto-js';
+import { Secret } from '../src/secret';
 
 function App() {
     // theme state
@@ -56,11 +58,11 @@ function App() {
         setTheme({ mode: localStorage.getItem("theme") });
         try {
             //fetch the user cache 
-            const bytes = CryptoJS.AES.decrypt(localStorage.getItem("princelab"), process.env.REACT_APP_HASH_KEY);
+            const bytes = CryptoJS.AES.decrypt(localStorage.getItem("princelab"), Secret());
             const originalSession = JSON.parse(bytes.toString(CryptoJS.enc.Utf8));
             setUserCache(originalSession);
         } catch (error) {
-            localStorage.setItem("princelab",null)
+           console.log(error.message) 
         }
     }, []);
     
@@ -101,6 +103,7 @@ function App() {
                             <Route path="NewFeatures" element={<NewFeatures />} />
                             <Route path="ResetForm" element={<ResetForm />} />
                             <Route path="AiPreview" element={<AiPreview />} />
+                            <Route path="StudentRegistrationForm" element={<StudentRegistrationForm />} />
                             <Route path="*" element={<Error />} />
                         </Routes>
                         <Footer />

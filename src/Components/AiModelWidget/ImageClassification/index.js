@@ -171,11 +171,11 @@ function Index({ id }) {
             id === "img_class" ?
               <div className='result_box'>
                 <span className='text-light'>Name: {
-                  isLoading ? "processing........" : predictResult.name
+                  isLoading ? "processing..." : predictResult.name
                 }
                 </span>
                 <span className='text-light'>Probability: {
-                  isLoading ? "processing........" : predictResult.percentage + "%"
+                  isLoading ? "processing..." : predictResult.percentage + "%"
                 }</span>
               </div> :
               <div className='result_box'>

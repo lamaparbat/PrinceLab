@@ -9,20 +9,31 @@
 #qna_textarea {
   height: 300px;
   width: 60%;
+  border: 1px solid rgb(154, 154, 154) !important;
+  color: white !important;
+  background-color: black !important;
+  border-radius: 5px;
 }
 
 #qna_question {
   width: 60%;
+  border: 1px solid rgb(154, 154, 154) !important;
+  color: white !important;
+  background-color: black !important;
 }
 
 #qna_question_output {
   height: 50px;
   width: 60%;
   border-radius: 5px;
+  color: white !important;
+  border: 1px solid rgb(154, 154, 154) !important;
+  background-color: black !important;
 }
 
 .qna_btn {
   border-radius: 5px !important;
+  background-color: #4A3BFF !important;
 }
 
 /* on resize */
