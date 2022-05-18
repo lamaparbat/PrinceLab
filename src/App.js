@@ -42,7 +42,6 @@ function App() {
     // theme state
     const [theme, setTheme] = useState({ mode: "" });
     
-    
     const [userCache, setUserCache] = useState({
         email: "",
         profile: "",
