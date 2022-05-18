@@ -33,7 +33,6 @@ import { Elements } from "@stripe/react-stripe-js";
 import ResetForm from "./Components/Form/ResetForm";
 import AiPreview from '../src/Components/AiPreview/index';
 import Error from './Components/Error/Error';
-import axios from 'axios';
 import CryptoJS from 'crypto-js';
 
 function App() {
