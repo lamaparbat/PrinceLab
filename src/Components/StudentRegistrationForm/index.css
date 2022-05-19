@@ -1,0 +1,153 @@
+.student_registration_form_cont .row {
+ height: 100vh;
+ width: 100%;
+ display: flex;
+ justify-content: center;
+ align-items: center;
+}
+
+#list {
+ display: flex;
+}
+
+#list .roundedComponent {
+ height: 30px;
+ width: 30px;
+ background-color: #2FF400;
+ border-radius: 50px;
+ display: grid;
+ place-content: center;
+}
+
+#list .tickIcon {
+ fill: white !important;
+}
+
+.purchase_btn {
+ width: 80%;
+ border-radius: 10px !important;
+ border:0px solid white;
+}
+
+
+/* description */
+.description_card {
+ height: 500px;
+ width: 390px;
+ display: flex;
+ flex-direction: column;
+ justify-content: center;
+ align-items: center;
+ border-radius: 10px;
+ box-shadow: 0px 0px 5px 1px rgba(224, 224, 224, 0.75);
+ -webkit-box-shadow: 0px 0px 5px 1px rgba(224, 224, 224, 0.75);
+ -moz-box-shadow: 0px 0px 5px 1px rgba(224, 224, 224, 0.75);
+}
+
+#description_card_para {
+ font-size: 90px;
+}
+
+.description_card_para {
+ width: 350px;
+ text-align: center;
+}
+
+.description_card .list_cont {
+ padding-top: 30px;
+ border-top: 0.5px solid rgb(166, 166, 166);
+}
+
+
+
+/* form field */
+.form_card {
+ padding: 10px;
+ height: 500px;
+ width: 450px;
+ display: flex;
+ flex-direction: column;
+ align-items: center;
+}
+
+.form_card #form_card_title::before {
+ content: "";
+ margin-right: 10px;
+ height: 20px;
+ width: 20px;
+ border-left: 6px solid #2FF400;
+}
+
+.input_cont {
+ height: 70px;
+ width: 80%;
+ display: flex;
+ flex-direction: column;
+ background-color: #EDEDED;
+ border-radius: 10px;
+}
+
+.input_cont input {
+ background-color: #EDEDED;
+ border: none !important;
+}
+
+
+/* respinsive */
+@media(max-width:900px) {
+ .student_registration_form_cont .row {
+  margin: 0 !important;
+  height: fit-content;
+  flex-direction: column;
+ }
+
+ .description_card {
+  box-shadow: unset !important;
+ }
+
+ .description_card_para {
+  padding-left: 10px;
+  padding-right: 10px;
+  margin-left: 0 !important;
+  width: 100%;
+ }
+
+}
+
+@media(max-width:500px) {
+ .description_card {
+  height: fit-content;
+  width: 100%;
+ }
+
+ .description_card .list_cont {
+  padding-left: 20px;
+  width: 100%;
+ }
+
+ .form_card {
+  margin-top: 30px;
+  padding: 0;
+  height: fit-content;
+  width: 100%;
+ }
+
+ .input_cont {
+  width: 100%;
+ }
+}
+
+@media(max-width:500px) {
+ .description_card_para {
+  padding-left: 0px;
+  padding-right: 0px;
+ }
+
+ .description_card .list_cont {
+  padding-left: 5px;
+ }
+
+ .form_card span {
+  margin: 0px !important;
+ }
+}

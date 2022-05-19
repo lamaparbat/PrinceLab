@@ -50,7 +50,7 @@ function Index(props) {
                 return (
                   <>
                     <div id='li' key={index+1}>
-                      <CheckIcon key={index+2}  id='icon' className={"bg-"+props.bg}/>
+                      <CheckIcon key={index + 2} id='tickIcons' className={"bg-" + props.bg} />
                       <p className='mx-3' key={index+3}>{item}</p>
                     </div>
                   </>
