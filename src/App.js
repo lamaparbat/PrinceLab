@@ -34,6 +34,7 @@ import ResetForm from "./Components/Form/ResetForm";
 import AiPreview from '../src/Components/AiPreview/index';
 import Error from './Components/Error/Error';
 import StudentRegistrationForm from '../src/Components/StudentRegistrationForm';
+import StudentPlan from '../src/Components/StudentPlan'
 import axios from 'axios';
 import CryptoJS from 'crypto-js';
 import { Secret } from '../src/secret';
@@ -103,6 +104,7 @@ function App() {
                             <Route path="ResetForm" element={<ResetForm />} />
                             <Route path="AiPreview" element={<AiPreview />} />
                             <Route path="StudentRegistrationForm" element={<StudentRegistrationForm />} />
+                            <Route path="StudentPlan" element={<StudentPlan />} />
                             <Route path="*" element={<Error />} />
                         </Routes>
                         <Footer />
