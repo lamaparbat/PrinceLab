@@ -188,14 +188,16 @@ input, .profile_nav button {
 }
 
 
-#aistore_new{
+#aistore_new {
+   padding-left: 5px;
+   padding-right: 5px;
    margin-left: -5px;
    margin-top: -12px;
    position: absolute;
    font-size: 10px;
-color: white;
-  background-color: green !important;
-  border-radius: 10px;
+   color: white;
+   background-color: green !important;
+   border-radius: 10px;
 }
 
 /* responsive */
