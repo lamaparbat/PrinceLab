@@ -1,0 +1,28 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="150" height="807.731" viewBox="0 0 150 807.731">
+  <g id="connecter" transform="translate(-159 -423.25)">
+    <g id="connecter-2" data-name="connecter" transform="translate(-698 718.25)">
+      <g id="Ellipse_14" data-name="Ellipse 14" transform="translate(857 235)" fill="none" stroke="#9a11b1" stroke-width="7">
+        <circle cx="17.5" cy="17.5" r="17.5" stroke="none"/>
+        <circle cx="17.5" cy="17.5" r="14" fill="none"/>
+      </g>
+      <g id="Ellipse_15" data-name="Ellipse 15" transform="translate(914 235)" fill="none" stroke="#3b8000" stroke-width="7">
+        <circle cx="17.5" cy="17.5" r="17.5" stroke="none"/>
+        <circle cx="17.5" cy="17.5" r="14" fill="none"/>
+      </g>
+      <g id="Ellipse_16" data-name="Ellipse 16" transform="translate(971 235)" fill="none" stroke="#224bda" stroke-width="7">
+        <ellipse cx="18" cy="17.5" rx="18" ry="17.5" stroke="none"/>
+        <ellipse cx="18" cy="17.5" rx="14.5" ry="14" fill="none"/>
+      </g>
+    </g>
+    <g id="wire" transform="translate(48 2.25)">
+      <line id="Line_22" data-name="Line 22" y2="510" transform="translate(126.5 424.5)" fill="none" stroke="#8d8d8d" stroke-linecap="round" stroke-width="7"/>
+      <line id="Line_23" data-name="Line 23" y2="510" transform="translate(185.5 424.5)" fill="none" stroke="#8d8d8d" stroke-linecap="round" stroke-width="7"/>
+      <line id="Line_24" data-name="Line 24" y2="510" transform="translate(244.5 424.5)" fill="none" stroke="#8d8d8d" stroke-linecap="round" stroke-width="7"/>
+    </g>
+    <g id="wire-2" data-name="wire" transform="translate(48 617.929)">
+      <line id="Line_22-2" data-name="Line 22" y2="185.052" transform="translate(126.5 424.5)" fill="none" stroke="#9a11b1" stroke-linecap="round" stroke-width="7"/>
+      <line id="Line_23-2" data-name="Line 23" y2="185.052" transform="translate(185.5 424.5)" fill="none" stroke="#3b8000" stroke-linecap="round" stroke-width="7"/>
+      <line id="Line_24-2" data-name="Line 24" y2="185.052" transform="translate(244.5 424.5)" fill="none" stroke="#224bda" stroke-linecap="round" stroke-width="7"/>
+    </g>
+  </g>
+</svg>

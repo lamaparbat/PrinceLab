@@ -1,0 +1,53 @@
+@import url('https://fonts.googleapis.com/css2?family=Titillium+Web:wght@300&display=swap');
+
+.languages {
+ width: 80%;
+ display: flex;
+ flex-direction: column;
+ align-items: center;
+ justify-content: space-around;
+}
+
+#title {
+ font-weight: bolder;
+ font-family: 'Titillium Web', sans-serif;
+}
+
+.card_container {
+ height: fit-content;
+ display: flex;
+ justify-content: space-between;
+}
+
+.tech_card {
+ padding-top: 20px;
+ margin-left: 10px;
+ margin-right: 10px;
+ height: 180px;
+ width: 200px;
+ display: flex;
+ flex-direction: column;
+ justify-content: center;
+ align-items: center;
+ border: 1px solid white;
+ border-radius: 10px;
+ box-shadow: 1px 1px 5px 1px rgba(212, 212, 212, 0.6);
+ -webkit-box-shadow: 1px 1px 5px 1px rgba(212, 212, 212, 0.6);
+ -moz-box-shadow: 1px 1px 5px 1px rgba(212, 212, 212, 0.6);
+}
+
+#icon1 {
+ margin-bottom: 20px;
+ height: 90px;
+ width: 120px;
+}
+
+#icon2, #icon3, #icon4 {
+ margin-bottom: 20px;
+ height: 80px;
+ width: 100px;
+}
+
+#card_title {
+ font-family: 'Titillium Web', sans-serif;
+}

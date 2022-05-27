@@ -1,0 +1,54 @@
+
+.homepage {
+ padding-top: 15px;
+ height: 50vh;
+ width: 100%;
+ display: flex;
+ justify-content: center;
+ object-fit: fill;
+}
+ .video {
+ height: 90vh !important;
+ width: 100% !important;
+ object-fit: fill;
+}
+
+
+/*  */
+@media (max-width:1100px) {
+ .homepage {
+  height: 30vh;
+ }
+
+.videoContainer {
+  margin-top: 0;
+ }
+
+ .video {
+  height: 80vh !important;
+ }
+}
+
+/* ipad mini */
+@media (max-width:820px) {
+ .video {
+  height: 30vh !important;
+ }
+}
+
+/* mobile view */
+@media (max-width:600px) {
+ .videoContainer {
+  margin-top: 0;
+ }
+
+ .video {
+  height: 50vh !important;
+ }
+}
+
+@media (max-width:600px) {
+ .video {
+  height: 40vh !important;
+ }
+}
