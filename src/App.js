@@ -56,13 +56,16 @@ function App() {
     //check theme on component rendered
     useEffect(() => {
         setTheme({ mode: localStorage.getItem("theme") });
-        try {
-            //fetch the user cache 
-            const bytes = CryptoJS.AES.decrypt(localStorage.getItem("princelab"), Secret());
-            const originalSession = JSON.parse(bytes.toString(CryptoJS.enc.Utf8));
-            setUserCache(originalSession);
-        } catch (error) {
-           console.log(error.message) 
+        if (localStorage.getItem("princelab") !== null) {
+            console.log("not entered")
+            try {
+                //fetch the user cache 
+                const bytes = CryptoJS.AES.decrypt(localStorage.getItem("princelab"), Secret());
+                const originalSession = JSON.parse(bytes.toString(CryptoJS.enc.Utf8));
+                setUserCache(originalSession);
+            } catch (error) {
+                console.log(error.message)
+            }
         }
     }, []);
     
