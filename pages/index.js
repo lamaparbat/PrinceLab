@@ -1,5 +1,6 @@
 import Head from 'next/head';
 import Homepage from '../Components/Homepage/index';
+import Footer from '../Components/Footer/index'
 export default function Home() {
   return (
     <div>
@@ -12,6 +13,7 @@ export default function Home() {
         <title>Princelab</title>
       </Head>
       <Homepage />
+      <Footer />
     </div>
   )
 }

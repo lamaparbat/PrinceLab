@@ -19,7 +19,7 @@ function language() {
    <div className={'container-fluid py-5 ' + styles.languages}>
     <center className={styles.center}>
      <h1 id={styles['title']}>Languages we ought to simplify</h1>
-    </center><br />
+    </center><br /><br/>
     <div className={styles.icon_container}>
      <div className={styles.card_container}>
       <Card name="Python" src="/assets/python.png" id="icon1" />

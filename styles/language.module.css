@@ -1,7 +1,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Titillium+Web:wght@300&display=swap');
 
 .languages {
- width: 80%;
+ width: 70%;
  display: flex;
  flex-direction: column;
  align-items: center;
@@ -21,8 +21,8 @@
 
 .tech_card {
  padding-top: 20px;
- margin-left: 10px;
- margin-right: 10px;
+ margin-left: 25px;
+ margin-right: 25px;
  height: 180px;
  width: 200px;
  display: flex;

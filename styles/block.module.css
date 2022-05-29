@@ -1,0 +1,11 @@
+.block_container {
+ width: 70%;
+ display: flex;
+ align-items: center;
+ justify-content: space-around;
+}
+
+#img {
+ height: 47%;
+ width: 47%;
+}
