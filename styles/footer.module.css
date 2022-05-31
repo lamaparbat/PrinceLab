@@ -9,10 +9,9 @@
 .footer_row {
  padding-top: 50px;
  color: white;
- width: fit-content;
+ width: 75%;
  display: flex;
- flex-direction: row;
- flex-wrap: wrap;
+ justify-content: space-around;
  background-color: unset !important;
 }
 
@@ -27,158 +26,46 @@
  align-items: center;
  cursor: pointer;
  transition: 0.4s ease-out;
+ background-color: #565656 !important;
 }
 
 .service_col,
 .info_col,
-.company_col ,
-.footer .footer_row div h5,
-.footer .footer_row div h5 b,
-.footer .footer_row div a {
+.company_col {
+ display: flex;
+ flex-direction: column;
  background: unset !important;
 }
 
-.icons_cont_child {
- background-color: #565656 !important;
-}
-
-.icons_cont_child:hover {
- background-color: darkslateblue !important;
- transform: rotate(-10deg) scale(1.1);
-}
-
-.footer .footer_row div {
- padding-left: 20px;
- padding-right: 20px;
- margin-left: 100px;
- margin-bottom: 30px;
-}
-
-.footer .footer_row h5 {
- margin-bottom: 30px;
-}
-
-.separator {
- margin-top: 5px;
- height: 3px;
- background-color: rgb(229, 229, 229) !important;
-}
-
-.footer .footer_row a {
- margin-top: 15px;
- display: flex;
- flex-direction: column;
- color: rgb(187, 187, 187) !important;
+#link {
+ margin-bottom: 20px;
+ color: rgb(196, 196, 196);
  text-decoration: none;
- cursor: pointer !important;
+ cursor: pointer;
 }
 
-.footer .footer_row a:hover {
- color: white !important;
+#link:nth-child(2) {
+ margin-top: -10px;
 }
 
-.footer .footer_row a:hover {
+#link:hover {
  color: white;
 }
 
+.follow_col{
+  left: -50px;
+ position: relative;
+} 
+
 .icons_cont {
  display: flex;
- padding-left: 0;
- margin-left: -20px;
 }
 
-.icon {
- margin-top: 0 !important;
- height: 100%;
- width: 100%;
- border-radius: 5px !important;
- background: unset !important;
+.icons_cont_child:hover {
+ transform: rotate(-50deg);
+ background: rgb(30, 187, 187) !important;
 }
 
-@media (max-width:1100px) {
- .footer {
-  padding-top: 30px;
-  padding-bottom: 50px;
-  height: fit-content;
- }
-
- .footer .footer_row div {
-  padding-left: 20px;
-  padding-right: 20px;
-  margin-left: 70px;
-  margin-bottom: 30px;
- }
-
- .footer .footer_row .separator {
-  width: 10% !important;
- }
-
-}
-
-@media (max-width:1038px) {
- .footer .footer_row div {
-  margin-left: 50px;
- }
-}
-
-@media (max-width:950px) {
- .footer .footer_row div {
-  margin-left: 40px;
- }
-}
-
-@media (max-width:950px) {
- .footer .footer_row div {
-  margin-left: 100px;
- }
-}
-
-@media (max-width:890px) {
- .footer .footer_row div {
-  margin-left: 80px;
- }
-}
-
-@media (max-width:800px) {
- .footer .footer_row h5 {
-  margin-bottom: 10px;
- }
-}
-
-@media (max-width:768px) {
- .footer .footer_row div {
-  margin-left: 50px;
- }
-}
-
-
-@media (max-width:620px) {
- .footer .footer_row div {
-  margin-left: 0px;
- }
-}
-
-
-/* iphone 5 */
-@media (max-width:435px) {
- .footer {
-  padding-bottom: 10px;
- }
-
- .footer .footer_row div {
-  margin-left: 25px;
- }
-
-}
-
-@media (max-width:350px) {
- .footer .footer_row div {
-  margin-left: 5px;
- }
-}
-
-@media (max-width:300px) {
- .footer .footer_row div {
-  margin-left: 0px;
- }
+.icons_cont_child:nth-child(1) {
+ margin-left: -5px;
 }
