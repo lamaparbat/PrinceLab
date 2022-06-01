@@ -44,7 +44,7 @@ function Index() {
     // track the changes in browser cache
     useEffect(() => {
         //cache data
-        if (localStorage.getItem("princelab") !== "null") {
+        if (localStorage.getItem("princelab") !== "null" && localStorage.getItem("princelab") !== null) {
             //fetch the user cache 
             const bytes = CryptoJS.AES.decrypt(localStorage.getItem("princelab"), Secret());
             const originalSession = JSON.parse(bytes.toString(CryptoJS.enc.Utf8));

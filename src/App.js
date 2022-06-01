@@ -59,7 +59,8 @@ function App() {
     //check theme on component rendered
     useEffect(() => {
         setTheme({ mode: localStorage.getItem("theme") });
-        if (localStorage.getItem("princelab").length > 4) {
+        
+        if (localStorage.getItem("princelab").length > 4 && localStorage.getItem("princelab") !== null) {
             //fetch the user cache 
             const bytes = CryptoJS.AES.decrypt(localStorage.getItem("princelab"), Secret());
             const originalSession = JSON.parse(bytes.toString(CryptoJS.enc.Utf8));
