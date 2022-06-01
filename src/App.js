@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { Routes, Route } from 'react-router-dom';
+import { Routes, Route, useNavigate } from 'react-router-dom';
 import './App.css';
 import store from './Store';
 import 'bootstrap';
@@ -42,33 +42,34 @@ import { Secret } from '../src/secret';
 function App() {
     // theme state
     const [theme, setTheme] = useState({ mode: "" });
-    
+
+    //navigation instance
+    const navigate = useNavigate();
+
     const [userCache, setUserCache] = useState({
         email: "",
         profile: "",
         username: "",
-        mode:""
+        mode: ""
     });
 
     // Specify Stripe Publishable API key here
     const promise = loadStripe("pk_test_51KVWA1IUStveJHR71NvSABEmUloxoEBCu9EVPcsHrEEvBVkHsHtfwIMbczNzEcQ64h40i86fsPoT3qljvR9yEMIp00p8ThpuH0");
-    
+
     //check theme on component rendered
     useEffect(() => {
         setTheme({ mode: localStorage.getItem("theme") });
-        if (localStorage.getItem("princelab") !== null) {
-            console.log("not entered")
-            try {
-                //fetch the user cache 
-                const bytes = CryptoJS.AES.decrypt(localStorage.getItem("princelab"), Secret());
-                const originalSession = JSON.parse(bytes.toString(CryptoJS.enc.Utf8));
-                setUserCache(originalSession);
-            } catch (error) {
-                console.log(error.message)
-            }
+        if (localStorage.getItem("princelab").length > 4) {
+            //fetch the user cache 
+            const bytes = CryptoJS.AES.decrypt(localStorage.getItem("princelab"), Secret());
+            const originalSession = JSON.parse(bytes.toString(CryptoJS.enc.Utf8));
+            setUserCache(originalSession);
+        } else {
+            navigate("/Login")
         }
+
     }, []);
-    
+
     //track the theme update using redux
     store.subscribe(() => setTheme({
         mode: store.getState().changeTheme === "unset" ?
