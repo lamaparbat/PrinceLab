@@ -65,7 +65,8 @@ function App() {
             const originalSession = JSON.parse(bytes.toString(CryptoJS.enc.Utf8));
             setUserCache(originalSession);
         } catch (error) {
-            navigate("/Login")
+            localStorage.setItem("princelab", null)
+            navigate("/")
         }
 
     }, []);
