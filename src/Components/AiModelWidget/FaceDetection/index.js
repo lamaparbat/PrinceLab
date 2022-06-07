@@ -66,8 +66,7 @@ function Index() {
       
       faceapi.draw.drawFaceLandmarks(canvasData.current, resizedDetections);
       faceapi.draw.drawFaceExpressions(canvasData.current, resizedDetections);
-      
-      
+  
     }, 100);
     
   }
