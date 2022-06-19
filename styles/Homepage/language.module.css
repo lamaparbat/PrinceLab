@@ -1,0 +1,46 @@
+.languages {
+ padding-top: 50px;
+ padding-bottom: 50px;
+}
+
+#title {
+ font-weight: bold;
+ background: unset !important;
+}
+
+.icon_container {
+ padding-left: 100px;
+ padding-right: 100px;
+ margin-top: 20px;
+ height: 100px;
+ display: flex;
+ justify-content: space-evenly;
+ background: unset !important;
+}
+
+ #icon {
+ height: 100px;
+ width: 100px;
+ background: unset !important;
+}
+
+@media (max-width:1100px) {
+.icon_container {
+  padding-left: 0;
+  padding-right: 0;
+  margin-top: 0px;
+  height: 50px;
+  flex-wrap: wrap;
+ }
+
+ #icon {
+  height: 50px;
+  width: 50px;
+ }
+}
+
+@media (max-width:400px) {
+ #title {
+  font-size: 30px;
+ }
+}

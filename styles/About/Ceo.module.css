@@ -1,0 +1,61 @@
+.ceo {
+ padding-bottom: 50px;
+ display: flex;
+ flex-direction: column;
+ align-items: center;
+}
+
+#ceo_img {
+ height: 250px;
+ width: 190px;
+}
+
+.ceo_content {
+ text-align: center;
+}
+
+#h4 {
+ width: 500px;
+}
+
+#ceo_content_img1 {
+ margin-top: -20px;
+ margin-right: 10px;
+ height: 30px;
+ width: 30px;
+}
+
+ #ceo_content_img2 {
+ margin-top: 5px;
+ margin-left: 10px;
+ height: 30px;
+ width: 30px;
+}
+
+ .quotes {
+ width: fit-content;
+ text-align: start;
+}
+
+#span {
+ margin-top: -15px;
+ display: flex;
+}
+
+.dot {
+ margin-top: 4px;
+ margin-right: 10px;
+ height: 15px;
+ width: 15px;
+ background-color: rgb(44, 219, 189) !important;
+ border-radius: 10px;
+}
+
+
+
+/* responsive */
+@media (max-width:550px) {
+ #h4 {
+  width: 100%;
+ }
+}

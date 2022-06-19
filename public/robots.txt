@@ -1,0 +1,13 @@
+# At first, the web crawlers will target the "robots.txt" where 
+# this files contains both restriction and un restriction routes for
+# being crawling
+
+
+
+# Block some routes from web-crawlers|google bots
+User-agent: *
+Disallow: /Terms
+
+# Allow all routes for crawling
+User-agent: *
+Allow: /

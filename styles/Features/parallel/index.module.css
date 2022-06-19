@@ -1,0 +1,59 @@
+.parallel {
+ border-radius: 10px !important;
+ background-color: #EEF4F6;
+}
+
+.parallel img{
+  border-radius: 10px !important;
+}
+.parallel .roundedDiv {
+ height: 200px;
+ width: 100%;
+ display: flex;
+ justify-content: center;
+ align-items: center;
+ border-radius: 150px !important;
+ background-color: rgb(255, 255, 255);
+ overflow: hidden;
+}
+
+.parallel .roundedDiv img {
+ padding-top: 20px;
+ padding-bottom: 20px;
+ height: inherit;
+ border-radius: 50px !important;
+}
+
+.parallel .roundedDiv .content {
+ margin-left: 20px;
+ margin-right: 20px;
+}
+
+.parallel .roundedDiv .content button {
+ width: fit-content;
+ border-radius: 100px !important;
+ background-color: rgb(154, 17, 177) !important;
+ color: white;
+ border: 0px;
+}
+
+
+/* responsive */
+@media (max-width:770px) {
+ .parallel .roundedDiv {
+  border-radius: 0px !important;
+ }
+}
+
+@media (max-width:550px) {
+ .parallel .roundedDiv img {
+  padding-top: 50px;
+  padding-bottom: 50px;
+ }
+}
+
+@media (max-width:500px) {
+ .parallel .roundedDiv img {
+  display: none;
+ }
+}

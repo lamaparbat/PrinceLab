@@ -1,0 +1,55 @@
+.show_more_list .show_more_list_div{
+    display: flex;
+    justify-content: space-evenly;
+    border: 1px solid white;
+}
+.show_more_list .show_more_list_div span{
+    padding: 10px;
+    padding-left: 20px;
+    width:300px;
+    display: flex;
+    align-items: center;
+    background-color: #e8e8e8;
+}
+.show_more_list .show_more_list_div span .css-i4bv87-MuiSvgIcon-root {
+    background: none !important;
+}
+.show_more_list .show_more_list_div span .successIcon{
+    fill: #2AD601 !important;
+}
+
+.show_more_list .show_more_list_div span .wrongIcon{
+    fill: #050101 !important;
+}
+
+
+
+/*responsive*/
+@media(max-width:930px){
+    .show_more_list .show_more_list_div span {
+        width: 200px;
+    }
+}
+@media(max-width:620px){
+    .show_more_list .show_more_list_div span {
+        width: 150px;
+        font-size: 14px;
+    }
+}
+@media(max-width:460px){
+    .show_more_list .show_more_list_div span {
+        width: 100px;
+    }
+}
+@media(max-width:330px){
+    .show_more_list .show_more_list_div {
+        flex-direction: column;
+    }
+    .show_more_list .show_more_list_div span {
+        padding: 15px;
+        width:100%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+}

@@ -1,0 +1,75 @@
+.pricing {
+ padding-bottom: 50px;
+ height: fit-content;
+ max-width: fit-content;
+}
+
+.pricing .pricing_card_rows {
+ padding-top: 60px;
+ padding-bottom: 30px;
+ display: flex;
+}
+
+.pricing_navigation {
+ height: fit-content;
+ display: flex;
+ justify-content: center;
+}
+
+.pricing_navigation .pricing_nav {
+ height: fit-content;
+ display: flex;
+}
+
+.pricing_navigation .pricing_nav p {
+ height: fit-content;
+ width: 300px;
+ padding: 10px;
+ display: flex;
+ align-items: center;
+ justify-content: center;
+ border-right: 1px solid #656565 !important;
+ border-left: 1px solid #656565 !important;
+ cursor: pointer;
+ transition: 0.5s ease-in-out;
+}
+
+.pricing_navigation .pricing_nav p:hover {
+ background-color: black;
+ color: white;
+}
+
+@media (max-width:1100px) {
+ .pricing .pricing_card_rows {
+  flex-direction: column;
+ }
+
+ .pricing_navigation .pricing_nav p {
+  padding: 5px;
+  width: 200px;
+ }
+}
+
+@media (max-width:620px) {
+ .pricing_navigation .pricing_nav p {
+  width: 150px;
+ }
+}
+
+@media (max-width:460px) {
+ .pricing_navigation .pricing_nav p {
+  width: 100px;
+ }
+}
+
+@media (max-width:365px) {
+ .pricing .pricing_card_rows .business {
+  margin-left: 0 !important;
+  margin-right: 0 !important;
+ }
+
+ .pricing .pricing_card_rows .business .business_content {
+  padding-left: 10px !important;
+  padding-right: 10px !important;
+ }
+}

@@ -1,0 +1,25 @@
+.policy {
+ width: 950px;
+ display: flex;
+ flex-direction: column;
+ align-items: center;
+ justify-content: center;
+ font-family: 'PT Sans', sans-serif;
+}
+
+.content {
+ border-top: 1px solid #bbbbbb;
+}
+
+#para {
+ text-align: justify;
+}
+
+
+/*responsive*/
+@media(max-width:1000px) {
+ .para {
+  width: 100%;
+ }
+
+}

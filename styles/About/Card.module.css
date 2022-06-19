@@ -1,0 +1,183 @@
+.cards {
+ display: flex;
+ flex-direction: row;
+ justify-content: center;
+ align-items: center;
+}
+
+/* card1 */
+.card1 {
+ margin-right: 20px;
+ width: 350px;
+ border-radius: 10px !important;
+}
+
+.body {
+ padding: 20px;
+ padding-bottom: 0px;
+ background-color: white;
+ border-radius: 5px;
+ box-shadow: 1px 0px 5px 2px rgba(181, 181, 181, 0.47);
+ -webkit-box-shadow: 1px 0px 5px 2px rgba(181, 181, 181, 0.47);
+ -moz-box-shadow: 1px 0px 5px 2px rgba(181, 181, 181, 0.47);
+}
+
+#card1_title {
+ color: orange !important;
+ font-weight: bold !important;
+ background-color: unset !important;
+}
+
+#card1_sub_title {
+ color: black;
+ background-color: unset !important;
+}
+
+
+#img {
+ margin-top: 0px;
+ height: 250px;
+ width: 100%;
+ border-radius: 10%;
+}
+
+.card1_footer {
+ margin-top: 15px;
+ padding: 20px;
+ padding-bottom: 10px;
+ width: 100%;
+ display: flex;
+ justify-content: space-between;
+ background: rgb(255, 255, 154);
+ background: -moz-linear-gradient(90deg, rgba(255, 255, 154, 1) 0%, rgba(255, 196, 196, 1) 100%);
+ background: -webkit-linear-gradient(90deg, rgba(255, 255, 154, 1) 0%, rgba(255, 196, 196, 1) 100%);
+ background: linear-gradient(90deg, rgba(255, 255, 154, 1) 0%, rgba(255, 196, 196, 1) 100%);
+ filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#ffff9a", endColorstr="#ffc4c4", GradientType=1);
+ border-radius: 5px !important;
+ box-shadow: 1px 0px 5px 2px rgba(181, 181, 181, 0.47);
+ -webkit-box-shadow: 1px 0px 5px 2px rgba(181, 181, 181, 0.47);
+ -moz-box-shadow: 1px 0px 5px 2px rgba(181, 181, 181, 0.47);
+}
+
+.card1_footer h6 {
+ margin-right: 5px;
+ width: 50%;
+ background: unset !important;
+ color: black !important;
+}
+
+#img2 {
+ left: 20px;
+ height: 60px;
+ width: 120px;
+ position: relative;
+ background: unset !important;
+ color: black !important;
+}
+
+
+/* card2 */
+.card2 {
+ margin-left: 20px;
+ width: 350px;
+ border-radius: 10px !important;
+ background-color: white;
+ box-shadow: 1px 0px 5px 2px rgba(181, 181, 181, 0.47);
+ -webkit-box-shadow: 1px 0px 5px 2px rgba(181, 181, 181, 0.47);
+ -moz-box-shadow: 1px 0px 5px 2px rgba(181, 181, 181, 0.47);
+}
+
+#step_img {
+ height: 220px;
+}
+
+.quotes {
+ width: fit-content;
+ text-align: start;
+}
+
+.cards .card2 .quotes span {
+ margin-top: -15px;
+ display: flex;
+}
+
+
+.dot {
+ margin-top: 4px;
+ margin-right: 10px;
+ height: 15px;
+ width: 15px;
+ background-color: rgb(72, 253, 133);
+ border-radius: 10px !important;
+}
+
+.card2_features {
+ display: flex;
+ flex-direction: column;
+ justify-content: center;
+ align-items: center;
+}
+
+/* responsive */
+@media (max-width:665px) {
+.card1 {
+  margin-right: 0;
+ }
+
+ #img {
+  margin-top: 10px;
+  margin-left: 30px;
+  height: 50px;
+  width: 90px;
+ }
+}
+
+@media (max-width:420px) {
+ .cards {
+  padding: 50px;
+ }
+
+ .card1 {
+  margin-right: 0;
+  width: fit-content;
+ }
+
+ #img {
+  height: 100%;
+ }
+
+ .card2 {
+  padding: 10px;
+  padding-top: 0;
+  width: fit-content;
+ }
+
+ .cards .card2 img {
+  height: 100%;
+ }
+}
+
+@media (max-width:665px) {
+ .cards {
+  flex-direction: column;
+ }
+
+ .card2 {
+  margin-left: 0;
+  margin-top: 20px;
+ }
+}
+
+@media (max-width:390px) {
+ .cards {
+  flex-direction: column;
+ }
+
+ .card2 {
+  margin-left: 0;
+  margin-top: 20px;
+  padding-left: 10px;
+  padding-right: 10px;
+  width: 260px;
+ }
+}

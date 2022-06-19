@@ -1,0 +1,87 @@
+.store_help {
+ /*padding-left: 105px;*/
+ /*padding-right: 101px;*/
+}
+
+.store_help .store_help_block {
+ height: fit-content;
+ display: flex;
+}
+
+.store_help .store_help_block .store_help_block_img {
+margin-right: 10px;
+width: 510px;
+}
+
+.store_help .store_help_block .store_help_block_card {
+ padding: 10px;
+ padding-right: 30px;
+ display: flex;
+ box-shadow: 1px 0px 5px 2px rgba(181, 181, 181, 0.47);
+ -webkit-box-shadow: 1px 0px 5px 2px rgba(181, 181, 181, 0.47);
+ -moz-box-shadow: 1px 0px 5px 2px rgba(181, 181, 181, 0.47);
+ border-radius: 5px;
+}
+
+.store_help .store_help_block .store_help_block_card .store_help_block_card_img {
+ height: 70px;
+}
+
+.store_help .store_help_block .store_help_block_card .store_help_block_card_header_title .store_help_block_card_header_title_subtitle {
+ padding: 5px;
+ padding-left: 20px;
+ padding-right: 120px;
+ display: flex;
+ justify-content: space-between;
+}
+
+.store_help .store_help_block .store_help_block_card .store_help_block_card_header_title .store_help_block_card_header_title_subtitle button {
+ font-size: 14px;
+}
+
+
+/* responsive */
+@media(max-width:1400px) {
+ .store_help {
+  padding-left: 10px;
+  padding-right: 10px;
+ }
+}
+
+@media(max-width:1400px) {
+ .store_help .store_help_block {
+  flex-direction: column;
+ }
+
+ .store_help .store_help_block .store_help_block_img {
+  height: 100%;
+  width: 100%;
+ }
+}
+
+@media (max-width:540px) {
+ .store_help .store_help_block .store_help_block_card .store_help_block_card_header_title .store_help_block_card_header_title_subtitle {
+  padding-left: 0px;
+  padding-right: 0px;
+ }
+}
+
+@media (max-width:350px) {
+ .store_help .store_help_block .store_help_block_card .store_help_block_card_header_title .store_help_block_card_header_title_subtitle {
+  flex-direction: column;
+ }
+
+ .store_help .store_help_block .store_help_block_card .store_help_block_card_header_title h4{
+   padding-right: 0 !important;
+   padding-left: 0 !important;
+}
+ .store_help .store_help_block .store_help_block_card .store_help_block_card_img {
+  height: 150px;
+  width: 150px;
+ }
+
+ .store_help .store_help_block .store_help_block_card {
+  flex-direction: column;
+  align-items: center;
+ }
+}

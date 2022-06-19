@@ -1,0 +1,139 @@
+.AboutEnvironment {
+  height: 400px;
+  width: 100%;
+  background: rgb(253, 150, 75) !important;
+  background: linear-gradient(164deg, rgba(253, 150, 75, 1) 0%, rgba(209, 87, 0, 1) 100%) !important;
+}
+
+.AboutEnvironment_rows {
+  padding-top: 30px;
+  margin-top: 50px;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  background: unset !important;
+}
+
+#img {
+  margin-top: 20px;
+  padding: 30px;
+  padding-top: 50px;
+  padding-bottom: 50px;
+  height: 350px;
+  width: 480px;
+  border-radius: 10px/10px;
+  background-color: white !important;
+  box-shadow: 0px 2px 5px 0px rgba(153, 153, 153, 0.75);
+  -webkit-box-shadow: 0px 2px 5px 0px rgba(153, 153, 153, 0.75);
+  -moz-box-shadow: 0px 2px 5px 0px rgba(153, 153, 153, 0.75);
+}
+
+.content {
+  padding-left: 60px;
+  width: 500px;
+  text-align: justify;
+  background: unset !important;
+}
+
+#h1{
+  letter-spacing: 2px;
+  color: black !important;
+}
+
+#h3 {
+  color: #282828;
+  color: black !important;
+}
+
+#span {
+  padding-left: 10px;
+  padding-right: 10px;
+  border-radius: 5px;
+  font-weight: bold;
+  font-size: 33px;
+  background-color: #ffd67c !important;
+  color: #262626 !important;
+}
+
+.css-i4bv87-MuiSvgIcon-root {
+  fill: black;
+}
+
+.para {
+  color: black !important;
+}
+
+#rightArrowIcon {
+  background: unset !important;
+}
+
+.css-i4bv87-MuiSvgIcon-root {
+  fill: black !important;
+}
+
+/* responsive */
+@media (max-width:1100px) {
+  .AboutEnvironment {
+    padding: 200px;
+    padding-top: 0px;
+    padding-bottom: 50px;
+    margin-bottom: 0;
+    height: fit-content;
+  }
+
+ .AboutEnvironment_rows {
+    flex-direction: column;
+  }
+
+  #img {
+    margin-top: 0;
+    margin-bottom: 40px;
+    height: 100%;
+    width: 100%;
+  }
+
+  .content {
+    padding-left: 0;
+    width: 100%;
+  }
+
+#h1{
+    font-size: 28px;
+  }
+
+#span {
+    padding-bottom: 3px;
+    background-color: black;
+    font-size: 26px;
+    color: white;
+  }
+
+#h3{
+    margin-top: 15px;
+  }
+
+ .content {
+    text-align: start;
+  }
+.para{
+    /* padding: 15px; */
+    text-align: justify;
+  }
+
+}
+
+/* mobile view */
+@media (max-width:800px) {
+  .AboutEnvironment {
+    padding: 27px;
+  }
+
+ .AboutEnvironment_rows {
+    margin-top: 0;
+    padding-top: 0;
+  }
+
+ .title {
+    justify-content: start;
+  }
+}

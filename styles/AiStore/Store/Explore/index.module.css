@@ -1,0 +1,154 @@
+.explore {
+ /*padding: 100px;*/
+}
+
+.explore_row {
+ padding-bottom: 10px;
+ width: 100%;
+ display: flex;
+ justify-content: center;
+}
+
+.explore_box1 {
+ height: 400px;
+ width: 100%;
+ display: flex;
+ justify-content: center;
+ align-items: flex-end;
+ overflow: hidden;
+}
+
+.explore_box1_content {
+ padding-top: 0px;
+ padding-bottom: 0px;
+ width: 100%;
+ height: fit-content;
+ display: flex;
+ justify-content: space-between;
+ align-items: center;
+ background-color: rgb(255, 251, 251);
+ position: relative;
+}
+
+.explore_box1_content div {
+ background: unset !important;
+}
+
+.explore_box1_content #img1 {
+ height: 100%;
+ width: 20%;
+}
+
+.explore_box1_content #img2 {
+ height: 45px;
+ width: 50px;
+}
+
+.explore_box1_content h5 {
+ margin-top: 10px;
+}
+
+.explore_box1_content span {
+ top: -10px;
+ font-size: 14px;
+ position: relative;
+}
+
+.explore_box1_content button {
+ font-size: 14px;
+}
+
+.explore_box2 {
+ height: 400px;
+ width: 100%;
+ display: flex;
+ justify-content: center;
+ align-items: flex-end;
+ background-repeat: no-repeat;
+ background-size: 100% 100%;
+ overflow: hidden;
+}
+
+@media (max-width:1400px) {
+ .explore {
+  padding: 0px !important;
+ }
+
+ .explore_box1 {
+  height: 400px;
+  width: 100%;
+  background-repeat: no-repeat;
+  background-size: 100% 100%;
+ }
+
+ .explore_box2 {
+  height: 400px;
+  width: 100%;
+ }
+}
+
+@media (max-width:1000px) {
+ .explore {
+  max-width: 100% !important;
+ }
+}
+
+@media(max-width:800px) {
+ .explore_box1_content {
+  height: fit-content;
+  flex-direction: column;
+ }
+
+ .explore_box1_content div {
+  padding-top: 0px !important;
+ }
+
+ .explore_box1_content #img1 {
+  margin-top: 10px !important;
+  height: 70%;
+ }
+
+ .explore_box1_content #img2 {
+  margin-top: 10px !important;
+  height: 100%;
+ }
+
+ .explore_box1_content button {
+  padding-top: 5px !important;
+  padding-bottom: 5px !important;
+ }
+}
+
+@media (max-width:700px) {
+ .explore_box1 {
+  height: 300px;
+ }
+
+ .explore_box2 {
+  height: 300px;
+ }
+}
+
+@media (max-width:500px) {
+ .explore_box1 {
+  height: 200px;
+ }
+
+ .explore_box2 {
+  height: 200px;
+ }
+}
+
+@media (max-width:400px) {
+ .explore_row {
+  flex-direction: column;
+ }
+
+ .explore_box1 {
+  height: 300px;
+ }
+
+ .explore_box2 {
+  height: 300px;
+ }
+}
