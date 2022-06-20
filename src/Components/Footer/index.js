@@ -15,7 +15,6 @@ function Index() {
         navigate("/" + route)
     }
 
-
     return (
         <div
             className={'container-fluid footer d-' +
