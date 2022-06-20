@@ -140,15 +140,14 @@ const Index = () => {
                     />
                 </li>
                 <ul className={'getting_started_sublist d-' + (sublistType === "list3" ? "block" : "none")} id='sublist3'>
-                    <li>Menu Bar</li>
-                    <li>Bottom menu bar </li>
+                    <li>Menu and theme</li>
                     <li>Side bar  </li>
-                    <li>How to create new file ?  </li>
+                    <li>How to create new script file?  </li>
                     <li>How to create new micro ? </li>
-                    <li>How to create new script ? </li>
                     <li>How to save project ? </li>
                     <li>How to open saved project ? </li>
                     <li>How to enable /disable extension? </li>
+                    <li>Modes</li>
                 </ul>
                 <li style={(sublistType === "list4" ? { background: "#ececec" } : {})} id='list4' onClick={(e) => showSubList(e, "list4")}>
                     <span>In-built block</span>

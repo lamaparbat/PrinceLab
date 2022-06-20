@@ -31,9 +31,8 @@ function Index() {
                 </div>
                 <div className='info_col'>
                     <h5><b>Information</b><hr className='separator w-50' /></h5>
-                    <a onClick={() => redirect("QuickGuide")}>Setup Guide</a>
+                    <a onClick={() => redirect("QuickGuide")}>Getting started</a>
                     <a onClick={() => redirect("Feature")}>Features</a>
-                    <a href='#'>Tutorial</a>
                     <a onClick={() => redirect("NewFeatures")}>New Features</a>
                 </div>
                 <div className='company_col'>

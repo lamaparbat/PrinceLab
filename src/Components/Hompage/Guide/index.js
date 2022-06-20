@@ -28,10 +28,10 @@ function Index() {
      Learn how to use the software and take the advantage of
      the powerful parallel computing. </p>
     <button
-        className='btn mt-2 text-light disabled'
+        className='btn mt-2 text-light'
         style={{cursor:"unset"}}
-        // onClick={() => navigate("/QuickGuide")}
-    >Get started</button>
+        onClick={() => navigate("/QuickGuide")}
+    >Getting started</button>
    </div>
   </div>
  )
