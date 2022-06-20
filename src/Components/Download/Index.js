@@ -17,8 +17,6 @@ const Index = () => {
     //auto scroll to the top when page rendered
     useEffect(() => {
         $(window).scrollTop({ top: 0, behavior: "smooth" });
-
-        console.log(localStorage.getItem("princelab") != "null")
     }, [])
 
     // all the mac & windows features in list
@@ -84,11 +82,13 @@ const Index = () => {
                     }
                 </div>
                 <button
-                    className={"btn btn-primary text-white my-3 w-100 btn-" + bg + " " + bg}
+                    className={"btn btn-primary text-white my-3 w-100 btn-" + bg + " " + bg + " " +( btn_text === "MAC" ? "disabled" : "")}
                     id={btn_text}
-                    onClick={() => auth(btn_text)}
+                    onClick={btn_text === "MAC" ? null : () => auth(btn_text)}
                 >
-                    Download
+                    {
+                        btn_text === "MAC" ? "Coming soon" :"Download"
+                    }
                 </button>
             </div>
         )
