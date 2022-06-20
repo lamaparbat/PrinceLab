@@ -1,4 +1,5 @@
 import React from 'react'
+import MetaTags from 'react-meta-tags';
 import '../StudentPlan/index.css';
 
 function index() {
@@ -33,6 +34,16 @@ function index() {
  
   return (
     <div className='container-fluid studentPlan'>
+      <MetaTags>
+        <title>Princelab / Student Plans</title>
+        <meta charSet="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <meta name='description'
+          content='Prince Lab is more than our paradox software. Princelab was always about developing new innovation for the future.'
+          key="desc" />
+        <meta name='keywords' content='Prince,programming,paradox,princelab' />
+        <meta name="author" content="Prince kumar singh" />
+      </MetaTags>
     <div className='row_container'>
      <Row1 />
      <Row2 />

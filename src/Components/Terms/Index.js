@@ -1,4 +1,5 @@
-import React, {useEffect} from 'react';
+import React, { useEffect } from 'react';
+import MetaTags from 'react-meta-tags';
 import '../Terms/Index.css';
 import $ from "jquery";
 
@@ -10,6 +11,18 @@ function Index() {
 
     return (
         <div className="container terms py-5">
+            <MetaTags>
+                <title>Princelab / Terms</title>
+                <meta charSet="UTF-8" />
+                <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+                <meta name='description'
+                    content='Princelab Terms & Condition. Prince Lab
+                    services (“Services”), and the Prince Lab website https://princelab.org/ (“Website”), including any
+                    of its content, is conditional on your agreement to these Terms.'
+                    key="desc" />
+                <meta name='keywords' content='Terms, Legal, Policies, Information, services' />
+                <meta name="author" content="Prince kumar singh" />
+            </MetaTags>
             <h1>Princelab Terms & Condition</h1>
             <h4 className="fw-light">Terms of use & legal information</h4><br/><br/>
             <div className="content py-5">
