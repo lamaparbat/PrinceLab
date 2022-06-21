@@ -31,8 +31,6 @@ const Index = () => {
     const SwitchBar = () => {
         return (
             <div className="quick_guide_sidebar_switch">
-                <button className="btn py-1">List View</button>
-                <button className="btn py-1">Grid View</button>
                 <CancelIcon
                     id="closeSidebar"
                     onClick={closeSidebar}
@@ -144,8 +142,7 @@ const Index = () => {
                     <li>Side bar  </li>
                     <li>How to create new script file?  </li>
                     <li>How to create new micro ? </li>
-                    <li>How to save project ? </li>
-                    <li>How to open saved project ? </li>
+                    <li>How to save & open saved project ? </li>
                     <li>How to enable /disable extension? </li>
                     <li>Modes</li>
                 </ul>
