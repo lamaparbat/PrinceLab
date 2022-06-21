@@ -58,6 +58,11 @@ function Index() {
                             <img className='img-fluid' src={process.env.PUBLIC_URL + "/assets/linked.png"} />
                         </div>
                     </div>
+                    <div className='company_details p-0'>
+                        <a href="https://www.google.com/maps/place/Budhanilkantha" className='text-light'>Budhanikkanth, Kathmandu,Nepal</a>
+                        <a href="tel:9821404104" className='text-light'>+977-9821404104</a>
+                        <a href="https://mail.google.com/mail/?view=cm&fs=1&tf=1&to=info@princelab.org" target="_blank" className='text-light'>info@princelab.org</a>
+                    </div>
                 </div>
             </div>
         </div>
