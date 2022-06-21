@@ -29,7 +29,6 @@ function Index() {
      the powerful parallel computing. </p>
     <button
         className='btn mt-2 text-light'
-        style={{cursor:"unset"}}
         onClick={() => navigate("/QuickGuide")}
     >Getting started</button>
    </div>
