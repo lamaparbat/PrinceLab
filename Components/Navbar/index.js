@@ -603,8 +603,8 @@ function Index() {
         <Link className='text-decoration-none' href="/AiStore">
           {
             (cur_route.pathname === "/AiStore" ?
-              <span className="text-white py-1">Ai Store</span>
-              : <span className="text-white">Ai Store</span>
+              <span className="text-white py-1">AI Store</span>
+              : <span className="text-white">AI Store</span>
             )
           }
         </Link>
@@ -660,7 +660,7 @@ function Index() {
         <li className={styles.link + '  text-decoration-none'}>
           <Link className='text-decoration-none' href="/AiStore">
             <span className={"text-" + (cur_route.pathname === "/AiStore" ? "secondary" : "primary")}>
-              Ai Store
+              AI Store
             </span>
           </Link>
         </li>

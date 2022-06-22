@@ -1,0 +1,24 @@
+.intro_container {
+
+}
+
+.col1 {
+padding-left: 100px;
+ width: 50%;
+display: flex;
+flex-direction: column;
+align-items:flex-start;
+justify-content: center;
+}
+
+.col2 {
+ width: 50%;
+}
+
+.intro_para {
+ width: 500px;
+}
+
+.listen_btn {
+ background-color: #19dd6b;
+}

@@ -28,8 +28,8 @@ function Index() {
           the powerful parallel computing. </p>
         <button
           className={'text-light px-5 '+styles.btn}
-          onClick={() => navigate.push("/Download")}
-        >Download</button><br />
+          onClick={() => navigate.push("/QuickGuide")}
+        >Getting started</button><br />
       </div>
     </div>
   )

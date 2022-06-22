@@ -30,9 +30,8 @@ function Index() {
         </div>
         <div className={styles.info_col}>
           <h5><b>Information</b><hr className={styles.separator + ' w-50'} /></h5>
-          <a id={styles["link"]} onClick={() => redirect("QuickGuide")}>Setup Guide</a>
+          <a id={styles["link"]} onClick={() => redirect("QuickGuide")}>Getting started</a>
           <a id={styles["link"]} onClick={() => redirect("Feature")}>Features</a>
-          <a id={styles["link"]} href='#'>Tutorial</a>
           <a id={styles["link"]} onClick={() => redirect("NewFeatures")}>New Features</a>
           <a id={styles["link"]} onClick={() => redirect("Studentplan")}>Student Plan</a>
         </div>
@@ -42,6 +41,7 @@ function Index() {
           <a id={styles["link"]} onClick={() => redirect("About")}>About Us</a>
           <a id={styles["link"]} onClick={() => redirect("Privacy")}>Privacy Policy</a>
           <a id={styles["link"]} onClick={() => redirect("Terms")}>Terms & Condition</a>
+          <a id={styles["link"]} onClick={() => redirect("Podcast")} >Podcast</a>
         </div>
         <div className={styles.follow_col}>
           <h5><b>Follow Us</b><hr className='separator w-25' /></h5>

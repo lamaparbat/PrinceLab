@@ -1,4 +1,5 @@
 import React from 'react';
+import Head from 'next/head';
 import DoneIcon from '@mui/icons-material/Done';
 import styles from '../styles/StudentRegistrationForm/index.module.css';
 
