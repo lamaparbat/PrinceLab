@@ -58,12 +58,12 @@ const Index = () => {
 
         return (
             <div className="downloads_box_card">
-                {
+                {/* {
                     btn_text === "MAC" ?
                         <div className='beta_container w-100 d-flex justify-content-end'>
                             <span className='bg-success' id='beta_text'>Beta</span>
                         </div> : null
-                }
+                } */}
                 <img
                     className='p-3'
                     src={src} />
@@ -84,6 +84,7 @@ const Index = () => {
                 <button
                     className={"btn btn-primary text-white my-3 w-100 btn-" + bg + " " + bg + " " +( btn_text === "MAC" ? "disabled" : "")}
                     id={btn_text}
+                    style={btn_text ==="MAC" ? {cursor:"default"}:null}
                     onClick={btn_text === "MAC" ? null : () => auth(btn_text)}
                 >
                     {

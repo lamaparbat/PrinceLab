@@ -44,7 +44,7 @@ function Index() {
                 </div>
                 <div className='follow_col'>
                     <h5><b>Follow Us</b><hr className='separator w-25' /></h5>
-                    <div className='icons_cont'>
+                    <div className='icons_cont pb-0'>
                         <div onClick={() => window.location.assign("https://www.facebook.com/people/Prince-Lab/100070712031228/")}>
                             <img className='img-fluid' src={process.env.PUBLIC_URL + "/assets/fb.png"} />
                         </div>
@@ -58,10 +58,16 @@ function Index() {
                             <img className='img-fluid' src={process.env.PUBLIC_URL + "/assets/linked.png"} />
                         </div>
                     </div>
-                    <div className='company_details p-0'>
-                        <a href="https://www.google.com/maps/place/Budhanilkantha" className='text-light'>Budhanikkanth, Kathmandu,Nepal</a>
-                        <a href="tel:9821404104" className='text-light'>+977-9821404104</a>
-                        <a href="https://mail.google.com/mail/?view=cm&fs=1&tf=1&to=info@princelab.org" target="_blank" className='text-light'>info@princelab.org</a>
+                    <div className='icons_cont' id='icons_cont2'>
+                        <div onClick={() => window.location.assign("https://www.google.com/maps/place/Budhanilkantha")}>
+                            <img className='img-fluid' src={process.env.PUBLIC_URL + "/assets/location.png"} />
+                        </div>
+                        <div onClick={() => window.location.assign("tel:9821404104")}>
+                            <img className='img-fluid' src={process.env.PUBLIC_URL + "/assets/phone.png"} />
+                        </div>
+                        <div onClick={() => window.location.assign("https://mail.google.com/mail/?view=cm&fs=1&tf=1&to=info@princelab.org")}>
+                            <img className='img-fluid' src={process.env.PUBLIC_URL + "/assets/gmail.png"} />
+                        </div>
                     </div>
                 </div>
             </div>

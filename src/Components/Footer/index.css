@@ -40,6 +40,11 @@
   background-color: #565656 !important;
 }
 
+.footer .footer_row .follow_col #icons_cont2{
+ top: -40px;
+  position: relative;
+}
+
 .footer .footer_row .follow_col .icons_cont div:hover {
   background-color: darkslateblue !important;
   transform: rotate(-10deg) scale(1.1);
@@ -102,7 +107,7 @@
   position: relative;
 }
 
-.footer .footer_row .follow_col .company_details a{
+.footer .footer_row .follow_col .company_details a {
   margin-bottom: -10px;
 }
 
