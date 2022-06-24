@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import MetaTags from 'react-meta-tags';
+import Helmet from 'react-helmet';
 import '../Hompage/index.css';
 import Languages from '../Hompage/Languages/index';
 import BlockCodeCardImg from '../Hompage/BlockCodeCardImg/index';
@@ -18,16 +18,16 @@ function Index() {
 
     return (
         <>
-            <MetaTags>
+            <Helmet>
                 <title>Princelab</title>
                 <meta charSet="UTF-8" />
                 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
                 <meta name='description'
                     content='Prince Lab is more than our paradox software. Princelab was always about developing new innovation for the future.'
                     key="desc" />
-                <meta name='keywords' content='Prince,programming,paradox,princelab' />
+                <meta name='keywords' content='prince,programming,paradox,princelab' />
                 <meta name="author" content="Prince kumar singh" />
-            </MetaTags>
+            </Helmet>
             <div className='container-fluid homepage'>
                 <video
                     className='video'

@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { Routes, Route, useNavigate } from 'react-router-dom';
+import Helmet from 'react-helmet';
 import './App.css';
 import store from './Store';
 import 'bootstrap';
@@ -79,6 +80,16 @@ function App() {
 
     return (
         <ThemeProvider theme={theme}>
+            <Helmet>
+                <title>Princelab</title>
+                <meta charSet="UTF-8" />
+                <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+                <meta name='description'
+                    content='Prince Lab is more than our paradox software. Princelab was always about developing new innovation for the future.'
+                    key="desc" />
+                <meta name='keywords' content='prince,programming,paradox,princelab' />
+                <meta name="author" content="Prince kumar singh" />
+            </Helmet>
             <>
                 {
                     theme.mode === "dark" ? <DarkTheme /> : null

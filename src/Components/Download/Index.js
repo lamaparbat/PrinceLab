@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { useNavigate } from "react-router-dom";
 import { useDispatch } from 'react-redux';
+import Helmet from 'react-helmet';
 import '../Download/Index.css';
 import Premium from "../Hompage/Premium";
 import { redirectDestineRoute } from "../../Redux/Actions";
@@ -97,6 +98,16 @@ const Index = () => {
     return (
         <>
             <div className="downloads">
+                <Helmet>
+                    <title>Princelab / Download</title>
+                    <meta charSet="UTF-8" />
+                    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+                    <meta name='description'
+                        content='Download paradox software.'
+                        key="desc" />
+                    <meta name='keywords' content='Download, Paradox, Software, Princelab' />
+                    <meta name="author" content="Prince kumar singh" />
+                </Helmet>
                 <div className="downloads_box">
                     <Card
                         bg="primary"
