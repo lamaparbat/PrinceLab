@@ -23,9 +23,9 @@ function Index() {
                 <meta charSet="UTF-8" />
                 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
                 <meta name='description'
-                    content='Prince Lab is more than our paradox software. Princelab was always about developing new innovation for the future.'
+                    content='Prince Lab is more than our paradox software. Princelab was always about developing new innovation for the future. Princelab is developing a incredible software called Paradox software.'
                     key="desc" />
-                <meta name='keywords' content='prince,programming,paradox,princelab' />
+                <meta name='keywords' content='Princelab, Paradox, Prince Singh, Software, AI, CEO' />
                 <meta name="author" content="Prince kumar singh" />
             </Helmet>
             <div className='container-fluid homepage'>
