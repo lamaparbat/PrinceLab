@@ -1,14 +1,8 @@
-.intro_container {
-
-}
+.intro_container {}
 
 .col1 {
-padding-left: 100px;
+ padding-left: 100px;
  width: 50%;
-display: flex;
-flex-direction: column;
-align-items:flex-start;
-justify-content: center;
 }
 
 .col2 {

@@ -9,14 +9,25 @@ import KeyboardArrowUpIcon from '@mui/icons-material/KeyboardArrowUp';
 import Avatar from '@mui/material/Avatar';
 import CancelIcon from '@mui/icons-material/Cancel';
 import KeyboardBackspaceIcon from '@mui/icons-material/KeyboardBackspace';
-// import { getStorage, ref, uploadBytesResumable, getDownloadURL } from "firebase/storage";
 import { toast, ToastContainer } from "react-toastify";
-import axios from 'axios';
-// import { db } from "../../firebaseDB";
 import CryptoJS from 'crypto-js';
 import { Secret } from '../../secret';
 
-function Index() {
+
+//prefetching at build time
+export const getStaticProps = async () => {
+  const result = await fetch("http://localhost:3000/api/hello");
+  const test_data = await result.json();
+  return {
+    props: {
+      test_data
+    }
+  }
+}
+
+
+
+function Index({test_data}) {
   //creating instance of useNavigate
   const navigate = useRouter();
 
@@ -297,104 +308,8 @@ function Index() {
 
     // edit btn clicked
     const editProfile = () => {
+      //
       let fileName = editProfileData.profile.name;
-
-      const finalEditUpdate = (url) => {
-        // upload data to real time database
-        db.ref("users").on('value', snapshot => {
-          snapshot.forEach((user) => {
-            if (user.val().email === userCache.email) {
-              const docKey = user.key;
-              //save the user data in db
-              const db_api = `https://paradoxauth-56b93-default-rtdb.asia-southeast1.firebasedatabase.app/users/${docKey}.json`;
-              const dbData = {
-                username: editProfileData.username,
-                email: editProfileData.email,
-                password: user.val().password,
-                profile: url != null ? url : editProfileData.profile
-              }
-
-              axios.put(db_api, dbData)
-                .then(res => {
-                  //encrypt the user data
-                  const encrypted_data = CryptoJS.AES.encrypt(JSON.stringify({
-                    username: editProfileData.username,
-                    email: editProfileData.email,
-                    profile: url != null ? url : editProfileData.profile,
-                    mode: "custom"
-                  }), Secret()).toString();
-
-                  // save data to cache
-                  localStorage.setItem("princelab", encrypted_data);
-
-                  setLoading(false);
-                  setEditNavVisible(false);
-
-                  //refresh once
-                  window.location.assign("")
-                  return true;
-                })
-                .catch(err => {
-                  return false;
-                })
-            }
-          })
-        });
-      }
-
-      //compare and get user password
-      db.ref(`/users`).on('value', snapshot => {
-        snapshot.forEach((user) => {
-          if (user.val().email === userCache.email) {
-            //loading starts
-            setLoading(true);
-
-            //update if the new image added or not ?
-            if (fileName === undefined) {
-              //update the password field value
-              setEditProfileData({
-                ...editProfileData,
-                profile: user.val().profile,
-                password: user.val().password
-              });
-
-              finalEditUpdate(user.val().profile)
-            } else {
-              //update the password field value
-              setEditProfileData({
-                ...editProfileData,
-                password: user.val().password
-              });
-
-              //db config
-              const storage = getStorage();
-              const metadata = {
-                contentType: 'image/jpeg'
-              };
-              const storageRef = ref(storage, 'uploads/' + fileName);
-              const uploadTask = uploadBytesResumable(storageRef, editProfileData.profile, metadata);
-              //upload
-              uploadTask.on('state_changed',
-                (snapshot) => {
-                  // Get task progress, including the number of bytes uploaded and the total number of bytes to be uploaded
-                  const progress = (snapshot.bytesTransferred / snapshot.totalBytes) * 100;
-                },
-                (error) => {
-                  toast.error(error.message)
-                },
-                () => {
-                  // Upload completed successfully, now we can get the download URL
-                  getDownloadURL(uploadTask.snapshot.ref).then((downloadURL) => {
-
-                    finalEditUpdate(downloadURL)
-                  });
-                }
-              );
-            }
-
-          }
-        })
-      });
     }
 
     return (
@@ -466,44 +381,9 @@ function Index() {
       setSettingNavVisible(true)
     }
 
-    //on btn click
-    const btnClick = () => {
+    // update the password
+    const changePassword = () => {
       const current_user_email = userCache.email
-      //db update
-      db.ref("users").on('value', snapshot => {
-        if (newPassword.current.value.length > 0 && oldPassword.current.value.length > 0) {
-          setLoading(true);
-          snapshot.forEach((user) => {
-            if (oldPassword.current.value.length > 0 && user.val().email === current_user_email && user.val().password === oldPassword.current.value.trim()) {
-              const docKey = user.key
-              const userData = {
-                username: user.val().username,
-                email: user.val().email,
-                password: newPassword.current.value,
-                profile: user.val().profile
-              }
-
-              //save the user data in db
-              const db_api = `https://paradoxauth-56b93-default-rtdb.asia-southeast1.firebasedatabase.app/users/${docKey}.json`;
-              axios.put(db_api, userData)
-                .then(res => {
-                  setLoading(false);
-                  toast.success("Password successfully reset.")
-                  setTimeout(() => {
-                    navigate.push("/Login");
-                  }, 2000)
-                })
-                .catch(err => {
-                  toast.error(err.message)
-                })
-            } else {
-              setLoading(false);
-              toast.error("Old password donot matched !!")
-            }
-          })
-        }
-      });
-
 
     }
 
@@ -537,7 +417,7 @@ function Index() {
           />
           <button
             className={isLoading ? "btn btn-primary rounded-1 mt-3 mb-2 disabled" : "btn btn-primary rounded-1 mt-3 mb-2"}
-            onClick={isLoading ? null : btnClick}>{
+            onClick={isLoading ? null : changePassword}>{
               isLoading ? "Changing...." : "Change password"
             }</button>
         </div>
@@ -552,6 +432,9 @@ function Index() {
 
   return (<>
     <div className={'container fixed-bottom ' + styles.navbar}>
+      {
+        console.log(test_data)
+      }
       <li className={styles.link + ' text-decoration-none text-danger'}>
         <Link
           className={'text-decoration-none text-'}

@@ -35,9 +35,6 @@ function Index({ type }) {
 
     const [cache, setCache] = useState(null);
 
-    //all user data
-    const [users, setUsers] = useState([]);
-
     //change password icon on show mode
     const [isKeyIconShow, setKeyIconShow] = useState(false);
     const [isKeyIcon2Show, setKeyIcon2Show] = useState(false);
@@ -75,18 +72,8 @@ function Index({ type }) {
     //fetched all the user from firebase DB
     useEffect(() => {
         //fetch cache
-        setCache(localStorage.getItem("theme"))
-
-        db.ref("users").on('value', snapshot => {
-            snapshot.forEach(user => {
-                setUsers(prev => [
-                    ...prev,
-                    user.val()
-                ])
-            })
-        });
+        setCache(localStorage.getItem("theme"));
         setForm_type(type);
-
     }, [])
 
     //set src base on signin form type
@@ -173,128 +160,80 @@ function Index({ type }) {
                     email: loginData.username,
                     password: loginData.password
                 });
-                //extracting token from response
+                
+                console.log(result);
+                
+                // //extracting token from response
                 const { access_token, refresh_token } = result.data;
                 
-                toast.success("Login successfully");
+                console.log(access_token, refresh_token)
                 
-                //encrypt the user data
-                const login_encrypted_data = CryptoJS.AES.encrypt(JSON.stringify({
-                    username: user.username,
-                    email: loginData.email,
-                    profile: loginData.profile,
-                    mode: "custom",
-                    access_token: access_token,
-                    refresh_token:refresh_token
-                }), Secret()).toString();
+                // toast.success("Login successfully");
                 
-                //set new user encrypted cache
-                // localStorage.setItem("princelab", login_encrypted_data);
+                // //encrypt the user data
+                // const login_encrypted_data = CryptoJS.AES.encrypt(JSON.stringify({
+                //     username: user.username,
+                //     email: loginData.email,
+                //     profile: loginData.profile,
+                //     mode: "custom",
+                //     access_token: access_token,
+                //     refresh_token:refresh_token
+                // }), Secret()).toString();
                 
-                //auto redirect after login
-                if (destineRoute !== "") {
-                    navigate.push("/" + destineRoute)
-                } else {
-                    setLoading(false);
-                    //delay the notice by 1 second
-                    setTimeout(() => {
-                        navigate.push("/")
-                        //refresh the page
-                        window.location.assign("");
-                    }, 1000)
-                }
+                // //set new user encrypted cache
+                // // localStorage.setItem("princelab", login_encrypted_data);
+                
+                // //auto redirect after login
+                // if (destineRoute !== "") {
+                //     navigate.push("/" + destineRoute)
+                // } else {
+                //     setLoading(false);
+                //     //delay the notice by 1 second
+                //     setTimeout(() => {
+                //         navigate.push("/")
+                //         //refresh the page
+                //         window.location.assign("");
+                //     }, 1000)
+                // }
                 
             } catch (error) {
                 toast.error("Issue occurred while sending request !")
             }
-
             
-            //sending data to the firebase db server
-            users.forEach(user => {
-                if ((user.username.trim() === loginData.username.trim()) && (user.password.trim() === loginData.password.trim())) {
-                    toast.success("Login successfully");
-
-                    //encrypt the user data
-                    const login_encrypted_data = CryptoJS.AES.encrypt(JSON.stringify({
-                        username: user.username,
-                        email: user.email,
-                        profile: user.profile,
-                        mode: "custom"
-                    }), Secret()).toString();
-
-                    //set new user encrypted cache
-                    localStorage.setItem("princelab", login_encrypted_data);
-
-                    //auto redirect after login
-                    if (destineRoute !== "") {
-                        navigate.push("/" + destineRoute)
-                    } else {
-                        setLoading(false);
-                        //delay the notice by 1 second
-                        setTimeout(() => {
-                            navigate.push("/")
-                            //refresh the page
-                            window.location.assign("");
-                        }, 1000)
-                    }
-                }
-            })
+            //error handling
             if (isLoading === false) {
-                toast.error("Login failed !!")
+                toast.error("Login failed !!");
             }
         } else {
             toast.error("Please fill the all field value !!");
         }
     }
 
-    //check if user already exists
-    const isUserAlreadyRegistered = () => {
-        let flag = false;
-        users.map(user => {
-            if (user.email.trim() === signupData.email.trim()) {
-                flag = true;
-            }
-        });
-
-        return flag;
-    }
-
-    //check password strength
-    const checkPasswordStrength = async (pw) => {
-        // notice("error", passwordStrength(pw).value);
-
-        //sending data to the firebase db server
-        if (isUserAlreadyRegistered()) {
-            toast.error("User already exists");
-        } else {
-            await axios.post("https://paradoxauth-56b93-default-rtdb.asia-southeast1.firebasedatabase.app/users.json", signupData)
-                .then(res => {
-                    toast.success("Registration successfull");
-
-                    //reset login data
-                    setLoginData({
-                        username: "",
-                        password: "",
-                    });
-
-                    //auto redirect after successfully data insert
-                    setTimeout(() => {
-                        navigate.push("/Login")
-                    }, 1000)
-
-                })
-                .catch(err => {
-                    toast.error("Registration Failed");
-                })
-        }
-    }
-
     // signup btn clicked event
-    const signup = () => {
-        if (signupData.username !== "" && agreeTerms !== false && signupData.email !== "" && signupData.password !== "" && signupData.repassword !== "") {
-            validator.isEmail(signupData.email) ?
-                (signupData.password === repassword.current.value) ? checkPasswordStrength(signupData.password) : toast.error("Password not matched !")
-                : toast.error("please type right email format !");
+    const signup = async () => {
+        //password validation
+        console.log(repassword.current.value )
+        if (signupData.password !== "" && repassword.current.value !== "") {
+            if (signupData.password !== repassword.current.value) {
+                toast.error("Password didn't match !!");
+                return;
+            }
+        } else {
+            toast.error("Password feild is empty !!");
+            return;
+        }
+        
+        if (signupData.username !== "" && agreeTerms !== false && signupData.email !== "") {
+            // email validation
+            validator.isEmail(signupData.email) ? toast.error("please type right email format !") : null;
+            
+            // db data insertion
+            const res = await axios.post("http://5.189.134.55:8000/users/register/", {
+                username: signupData.username,
+                email: signupData.email,
+                password: signupData.password
+            });
+            console.log(res.data);
         } else {
             toast.error("Please fill the all field value !!");
         }
@@ -478,8 +417,8 @@ function Index({ type }) {
                                     ref={repassword}
                                 />
                                 {
-                                    isKeyIcon2Show ? <VisibilityIcon id="icon" onClick={() => showRePassword("repassword")} /> : <VisibilityOffIcon
-                                        id="icon"
+                                    isKeyIcon2Show ? <VisibilityIcon id={styles["icon"]} onClick={() => showRePassword("repassword")} /> : <VisibilityOffIcon
+                                        id={styles["icon"]}
                                         onClick={() => showRePassword("repassword")}
                                     />
                                 }
