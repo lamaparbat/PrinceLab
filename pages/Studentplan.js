@@ -3,7 +3,7 @@ import Head from 'next/head';
 import { useRouter } from 'next/router';
 import styles from '../styles/StudentPlan/index.module.css';
 
-function index() {
+function Index() {
   // instance of useNavigate hooks for pushing routes
   const navigate = useRouter();
   
@@ -90,4 +90,4 @@ IT,Company, Student , Plan, Latest, Features'
   )
 }
 
-export default index
+export default Index

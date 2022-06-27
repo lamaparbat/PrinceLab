@@ -197,12 +197,12 @@ const Index = () => {
     )
   }
 
-  //custom header
+  // header component
   const Header = () => {
     return (
       <div className={styles.new_features_row_header+" w-75"}>
         <h1>
-          What's <span className={"text-primary"}>new</span>
+          What&apos;s <span className={"text-primary"}>new</span>
         </h1>
         <p className={"h4 mb-3 text-center"}>All new features & bug fixes</p>
       </div>)

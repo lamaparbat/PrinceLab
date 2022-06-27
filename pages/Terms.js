@@ -1,5 +1,6 @@
 import React, { useEffect } from 'react';
 import styles from '../styles/Terms/index.module.css';
+import Head from 'next/head';
 import $ from "jquery";
 
 function Index() {
