@@ -4,7 +4,6 @@ import { useSelector } from "react-redux";
 import validator from "validator";
 import Image from 'next/image';
 // import {passwordStrength} from 'check-password-strength';
-import { db } from '../../firebaseDB';
 import { getAuth, signInWithPopup, GoogleAuthProvider, GithubAuthProvider, sendEmailVerification } from "firebase/auth";
 import axios from 'axios';
 import styles from '../../styles/Form/index.module.css';

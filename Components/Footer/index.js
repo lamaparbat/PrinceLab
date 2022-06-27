@@ -1,9 +1,8 @@
-import $ from 'jquery';
 import styles from '../../styles/Footer/footer.module.css';
 import { useRouter } from 'next/router';
 
 
-function Index() {
+function Index({test_data}) {
   // hide the footer when form comp rendered
   const cur_route = useRouter().pathname;
 
@@ -15,12 +14,12 @@ function Index() {
     navigate.push("/" + route)
   }
 
-
   return (
     <div
       className={' container-fluid ' + styles.footer+' d-' +
         (cur_route != "/Login" &&
           cur_route != "/Signup" ? "flex" : "none")} >
+
       <div className={styles.footer_row}>
         <div className={styles.service_col}>
           <h5><b>Services</b><hr className='separator w-50' /></h5>

@@ -5,7 +5,7 @@ import Intro from '../Components/Podcast/Intro';
 import SeriesNav from '../Components/Podcast/SeriesNav';
 import PodcastList from '../Components/Podcast/PodcastList';
 
-const podcast = () => {
+const podcast = ({ test_data }) => {
   return (
     <div className={style.podcast_container}>
     <Intro />

@@ -1,7 +1,6 @@
 import Head from 'next/head';
 import Homepage from '../Components/Homepage/index';
 
-
 export default function Home() {
   return (
     <div>

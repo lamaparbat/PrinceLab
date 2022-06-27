@@ -14,20 +14,8 @@ import CryptoJS from 'crypto-js';
 import { Secret } from '../../secret';
 
 
-//prefetching at build time
-export const getStaticProps = async () => {
-  const result = await fetch("http://localhost:3000/api/hello");
-  const test_data = await result.json();
-  return {
-    props: {
-      test_data
-    }
-  }
-}
 
-
-
-function Index({test_data}) {
+function Index() {
   //creating instance of useNavigate
   const navigate = useRouter();
 
@@ -432,9 +420,6 @@ function Index({test_data}) {
 
   return (<>
     <div className={'container fixed-bottom ' + styles.navbar}>
-      {
-        console.log(test_data)
-      }
       <li className={styles.link + ' text-decoration-none text-danger'}>
         <Link
           className={'text-decoration-none text-'}
