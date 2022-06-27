@@ -73,6 +73,7 @@ const PodcastHoster = () => {
 }
 
 
+// main component
 function PodcastList() {
   return (
     <div className={styles.list_container}>
