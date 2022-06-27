@@ -8,9 +8,9 @@ import PodcastList from '../Components/Podcast/PodcastList';
 const podcast = ({ test_data }) => {
   return (
     <div className={style.podcast_container}>
-    <Intro />
-    <SeriesNav />
-    <PodcastList />
+    <Intro /><br/>
+    <SeriesNav /><br/>
+    <PodcastList /><br />
     </div>
   )
 }

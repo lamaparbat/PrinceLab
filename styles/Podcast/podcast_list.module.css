@@ -1,8 +1,43 @@
-.list_container{
+.list_container {
  padding-left: 100px;
- background-color: red;
+ padding-right: 100px;
 }
 
-.card{
+.podcast_card {
+ display: flex;
+ justify-content: space-around;
+ border-radius: 10px;
+ box-shadow: 1px 0px 10px -5px rgba(184, 181, 181, 0.75);
+ -webkit-box-shadow: 1px 0px 10px -5px rgba(184, 181, 181, 0.75);
+ -moz-box-shadow: 1px 0px 10px -5px rgba(184, 181, 181, 0.75);
+}
 
+#podcast_card_content--date {
+ font-size: 14px;
+ color: rgb(55, 55, 55);
+}
+
+#podcast_card_content--desc {
+ margin-top: -5px;
+ color: rgb(55, 55, 55);
+}
+
+.podcast_card_content_footer {
+ display: flex;
+}
+
+.progessBar {
+ background-color: #19dd6b;
+}
+
+.hosterContainer {
+ box-shadow: 1px 0px 10px -5px rgba(184, 181, 181, 0.75);
+ -webkit-box-shadow: 1px 0px 10px -5px rgba(184, 181, 181, 0.75);
+ -moz-box-shadow: 1px 0px 10px -5px rgba(184, 181, 181, 0.75);
+}
+
+#hosterContainer_guestcontainer_guest_connector {
+ font-size: 50px;
+ transform: rotate(45deg);
+ color: rgb(55, 55, 55);
 }

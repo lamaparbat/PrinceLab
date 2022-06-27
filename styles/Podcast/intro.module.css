@@ -1,6 +1,11 @@
-.intro_container {}
+.intro_container {
+ box-shadow: 1px 2px 5px 0px rgba(230, 230, 230, 0.75);
+ -webkit-box-shadow: 1px 2px 5px 0px rgba(230, 230, 230, 0.75);
+ -moz-box-shadow: 1px 2px 5px 0px rgba(230, 230, 230, 0.75);
+}
 
 .col1 {
+ padding-top: 100px;
  padding-left: 100px;
  width: 50%;
 }
