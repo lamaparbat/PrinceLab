@@ -107,6 +107,7 @@ const Index = () => {
                         key="desc" />
                     <meta name='keywords' content='Download, Paradox, Software, Princelab' />
                     <meta name="author" content="Prince kumar singh" />
+                    <meta name="conical"  />
                 </Helmet>
                 <div className="downloads_box">
                     <Card
