@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect } from 'react';
 import Helmet from 'react-helmet';
 import '../Hompage/index.css';
 import Languages from '../Hompage/Languages/index';
@@ -14,7 +14,7 @@ function Index() {
     //auto scroll to the top when page rendered
     useEffect(() => {
         $(window).scrollTop({ top: 0, behavior: "smooth" });
-    }, [])
+    }, []);
 
     return (
         <>
